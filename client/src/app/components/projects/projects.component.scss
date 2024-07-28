@@ -1,0 +1,243 @@
+$color_text :  rgb(224, 215, 215);
+$color_shadow : rgb(40, 39, 39);
+$color_background :
+rgb(59, 53, 53) 0%,
+rgb(91, 79, 79) 70%,
+rgb(134, 117, 117)  100%;
+
+
+%border_style{
+    box-shadow: 3px 3px 5px $color_shadow; 
+    border-radius: 8px;
+}
+
+
+
+%border_style_hover{
+    border: transparent;  
+    box-shadow: 3px 4px 4px rgb(84, 76, 76); 
+}
+
+
+
+@mixin backgroundColor(){
+    background-image: linear-gradient(
+      $color_background
+
+
+    /*     rgb(40, 129, 237) 0%,
+        rgb(100, 146, 202) 55%,
+        rgb(156, 169, 185) 65%,
+        rgb(138, 189, 141) 75%,   
+        rgb(105, 218, 112) 88%,
+        rgb(20, 213, 33) 100%    */   
+
+  /*       rgb(14, 78, 155) 0%,
+        rgb(41, 96, 162) 35%,
+        rgb(43, 92, 151) 40%,
+        rgb(60, 101, 151) 48%,
+        rgb(103, 134, 172) 65%, 
+        rgb(163, 111, 163) 70%, 
+        rgb(174, 86, 174) 73%,    
+        rgb(164, 53, 164) 80%,
+        rgb(105, 21, 105) 100%   */   
+
+    /*      rgb(241, 236, 236) 0%,
+        rgb(228, 219, 219) 45%,
+        rgb(224, 205, 205) 60%,
+        rgb(181, 205, 170) 65%,
+        rgb(146, 195, 123)68%,
+        rgb(127, 185, 101) 70%,
+        rgb(110, 188, 73) 85%,
+      
+        rgb(102, 211, 51) 100%,  */
+
+     /*    rgb(241, 236, 236) 0%,
+        rgb(228, 219, 219) 45%,
+        rgb(224, 205, 205) 60%,
+        rgb(100, 159, 207) 80%,
+        rgb(72, 136, 188)85%,
+        rgb(39, 140, 222)100%,   */
+      );
+ }
+
+
+#projects_invisibles{
+    display: none;
+}
+
+
+.project{
+    width: 85%;
+    height: auto; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: white;
+    @extend %border_style;
+
+    .image_project{
+       width: 35%;
+       height: 100%; 
+       display: flex;
+       align-items: center;
+       img{ height: 250px;   }
+    }
+
+    .description_project{
+        width: 60%;
+        height: 100%;
+        font-size: 19px;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        h4{
+            width: auto;
+            padding: 10px;
+            margin: 0 auto;
+            font-size: 30px;
+            text-shadow: 2px 1px 3px rgb(141, 133, 133);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 8px;
+            @extend %border_style;
+        }
+
+        .languages_projetc{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+    
+            .language_project{
+                display: flex;
+                align-items: center;
+                gap: 3px; 
+                padding: 3px;
+                padding-left: 5px;
+                @extend %border_style;
+            }      
+        }
+    }
+
+
+
+    .btn{
+        width: 200px;
+        margin: 0 auto;
+    }
+
+}
+
+
+.project:hover{
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    @extend %border_style_hover; 
+ /*    background-image: linear-gradient(
+   
+      
+    );  */
+    @include backgroundColor();
+ 
+
+    .language_project,
+    h4{
+      background-color: $color_text;
+      color: black;
+    }
+
+
+    h4{
+        animation: title_effect 300ms linear;
+    }
+
+    
+     .projects_left{
+        animation: effect_right 500ms linear;
+    }
+
+    .projects_right{
+        animation: effect_left 500ms linear;
+    } 
+
+    @keyframes title_effect {
+        from {
+            transform: translateY(-70%);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes effect_right {
+        from {
+            transform: translateX(400%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes effect_left {
+        from {
+            transform: translateX(-400%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+}
+
+
+
+
+
+
+/* ------------------------      MEDIA QUERY    ---------------------------- */
+
+
+@media(max-width:992px){
+    .project{
+        width: 100%;
+    }
+
+    #projects_invisibles{
+        display: block;
+    }
+
+    #projects_visibles{
+        display: none;
+    }
+    
+}
+
+
+
+@media(max-width:712px){
+
+    .description_project{
+        h4{ font-size: 23px !important;   }
+
+        font-size: 17px !important;
+    }
+
+    .languages_projetc{
+        display: none !important;
+    }
+}
+
+
+@media(max-width:550px){
+    .image_project{
+        img{  height: 200px !important;  }
+    }
+}
+ 
+

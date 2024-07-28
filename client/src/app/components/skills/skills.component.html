@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-sm-5 col-6 skills">
+
+        <h3> Front-End </h3>
+
+        <div *ngFor="let skill of skills.frontend" class="skill  animate__animated animate__lightSpeedInLeft">
+            <img src="{{ skill.image }}" alt="skill_image">
+            {{ skill.language }}
+        </div>
+    </div>
+
+
+    <div class="col-sm-5 col-6 offset-sm-2 skills">
+        
+        <h3> Back-End </h3>
+
+        <div *ngFor="let skill of skills.backend" class="skill animate__animated animate__lightSpeedInRight">
+            <img src="{{ skill.image }}" alt="skill_image">
+            {{ skill.language }}
+        </div>
+    </div>
+
+</div>
+

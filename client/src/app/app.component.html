@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-xl fixed-top">    
+  <div class="container-fluid">
+     <div class="col-6">
+       <ul class="navbar-nav ps-2 d-flex flex-row gap-4" id="home_effects">
+
+         <li class="navbar-item">
+             <a class="nav-link" href="#"  routerLink="/" id="home_link">
+                   <img src="../assets/images/logo.png" alt="logo" id="logo_image">   
+                   <span id="logo"> CL </span>  
+             </a>
+         </li>
+
+         <li class="navbar-item dropdown dropbottom">
+          <a class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../assets/images/bandiera_italia.png" alt="translate_image" #flag>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"  (click)="getLang('ita')"> 
+              <img src="../assets/images/bandiera_italia.png" alt="flag_italy">     Italiano
+              </a>
+            </li>
+            <li><a class="dropdown-item"  (click)="getLang('esp')"> 
+              <img src="../assets/images/bandiera_spagna.png" alt="flag_spain">   Español
+              </a>
+            </li>
+          </ul>
+         </li>
+
+         <li class="navbar-item contact_links">
+            <i class="fa fa-github fa-2xl" aria-hidden="true" (click)="links('https://github.com/Carlo1987')"></i>
+            <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
+            <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()"></i>  
+         </li>
+
+       </ul>
+     </div>
+   
+
+     
+
+     <div class="col-6 d-flex flex-row justify-content-end align-items-center" id="links_effects">
+
+
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  aria-expanded="false" aria-label="Toggle navigation" style="border:transparent;">
+    
+            <button  type="button"  id="button_responsive"> 
+                  <span (click)="menuResponsive()"  >  
+                     <i class="fa fa-bars fa-2xl" aria-hidden="true" id="close_button"> </i>  
+                     <i class="fa fa-times fa-2xl" aria-hidden="true" id="closed_button"></i>
+                  </span> 
+            </button>
+
+
+            <div id="offcanvasNav">
+              <ul>
+                <li *ngFor="let link of nav; let i = index " class="nav-item navLink" [routerLinkActive]="['actived']">
+                  <a class="nav-link links_responsive_{{i}}"  href="#" (click)="navigate(link.route)" >  {{ link.link }}</a>   <!--   nav grandezza schermo Tablet/cellulare  -->
+                </li> 
+                <div class="navbar-item contact_links_responsive">
+                  <i class="fa fa-github fa-2xl" aria-hidden="true" (click)="links('https://github.com/Carlo1987')"></i>
+                  <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
+                  <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()"></i>  
+               </div>
+              </ul>  
+       
+            </div>  
+
+        </button>
+
+
+
+
+   
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav w-100  d-flex flex-row justify-content-around" style="height: auto;">
+
+          <li *ngFor="let link of nav; let i = index " class="nav-item navLink" [routerLinkActive]="['actived']">
+            <a class="nav-link links_visibles link_{{i}}"  href="#" routerLink="{{ link.route }}">  {{ link.link }}</a>      <!--   nav grandezza schermo PC  -->
+          </li> 
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<div class="container-lg" style="margin-top: 110px; min-height: 559px;">
+
+  <router-outlet></router-outlet>
+
+</div>
+
+
+
+
+
+

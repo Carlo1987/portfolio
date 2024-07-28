@@ -1,0 +1,149 @@
+
+
+<div class="d-flex flex-column w-100" id="projects">
+
+
+
+
+
+
+<div *ngFor="let project of projects; let i = index" id="projects_visibles">
+
+    <div *ngIf="i%2 == 0 then left else right">     </div>
+
+
+    <ng-template #left>
+
+        <article class="d-flex justify-content-start w-100">   
+
+            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)" (mouseenter)="projectHover(i, 'left','enter')"  #project_ang>  
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div>
+            
+                <div class="description_project">
+                    <h4>  {{ project.name }}  </h4>
+            
+                    <p>  {{ project.description }}  </p>
+            
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_left">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+            </div>
+
+        </article>
+
+    </ng-template>
+
+
+     <ng-template #right>
+
+        <article class="d-flex justify-content-end w-100"> 
+
+            <div class="project animate__animated animate__backInRight"  (mouseenter)="projectHover(i, 'right','enter')"   (click)="urlProject(project.url)"  #project_ang>  
+                <div class="description_project">
+                    <h4> {{ project.name }} </h4>
+            
+                    <p>  {{ project.description }}  </p>
+            
+                  
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_right">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+        
+        
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div>
+            </div>
+        </article>
+
+    </ng-template>
+
+</div>
+
+
+<!--     sotto ci sono i progetti responsive  (senza animazione)   -->
+
+
+
+<div *ngFor="let project of projects; let i = index" id="projects_invisibles">
+
+    <div *ngIf="i%2 == 0 then left else right">     </div>
+
+
+    <ng-template #left>
+
+        <article class="d-flex justify-content-start w-100">   
+
+            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)"  #project_ang>  
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div>
+            
+                <div class="description_project">
+                    <h4>  {{ project.name }}  </h4>
+            
+                    <p>  {{ project.description }}  </p>
+            
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_left">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+            </div>
+
+        </article>
+
+    </ng-template>
+
+
+     <ng-template #right>
+
+        <article class="d-flex justify-content-end w-100"> 
+
+            <div class="project animate__animated animate__backInRight"   (click)="urlProject(project.url)"  #project_ang>  
+                <div class="description_project">
+                    <h4> {{ project.name }} </h4>
+            
+                    <p>  {{ project.description }}  </p>
+            
+                  
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_right">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+        
+        
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div>
+            </div>
+        </article>
+
+    </ng-template>
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>

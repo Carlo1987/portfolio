@@ -1,0 +1,328 @@
+
+
+$color_hover : rgb(225, 206, 206);
+$color_theme :   rgb(59, 53, 53); 
+
+
+$body_background :       
+
+/* rgb(241, 236, 236) 10%,
+ rgb(241, 236, 236) 20%,
+rgb(228, 219, 219) 65%,
+rgb(151, 144, 144) 80%,
+rgb(120, 108, 108) 90%,
+rgb(59, 53, 53)100%;   */ 
+
+
+rgb(224, 83, 224) 20%,
+rgb(136, 180, 233) 100%; 
+
+
+
+
+$menu_background :
+
+  rgb(59, 53, 53) 20%,
+rgb(73, 64, 64) 40%,
+rgb(91, 79, 79) 65%,
+rgb(109, 94, 94) 75%,
+rgb(176, 167, 167) 80%,
+rgb(209, 198, 198) 87%,
+rgb(235, 228, 228)  100%;  
+
+/* rgb(39, 140, 222) 20%,
+rgb(78, 148, 205) 40%,
+rgb(106, 166, 215)  65%, 
+rgb(127, 173, 211) 75%,
+rgb(163, 197, 219) 87%, 
+rgb(191, 215, 232) 95%,
+rgb(243, 235, 235)  100%;    */
+
+
+
+
+
+%alert_style{
+    color: $color_theme;
+    text-shadow: 0px 0px 2px rgb(134, 120, 120);
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 1px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 3px rgb(30, 29, 29);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+@mixin backgroundColor($deg , $color){
+    background-image: linear-gradient($deg,$color)
+ }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+  //   background-color: rgb(235, 225, 225) !important; 
+   background-color: rgb(233, 229, 229) !important;
+    overflow-x: hidden;
+   // @include backgroundColor(173deg,$body_background);
+   
+}
+
+
+
+
+.error{
+    background-color: rgb(203, 77, 77);
+    @extend %alert_style;
+}
+
+
+.success{
+    background-color: rgb(35, 140, 21);
+    @extend %alert_style;
+}
+
+
+
+
+
+.navbar{
+    height: 95px;
+    background-color: $color_theme;
+    box-shadow: 0px 2px 2px  rgb(27, 31, 35); 
+   // @include backgroundColor(180deg,$menu_background);
+    position: relative;
+
+    a,
+    a:visited {
+       font-size: 22px;
+       color: white;
+    }
+
+  
+
+
+    #home_effects{
+        display: flex;
+        align-items: center;
+
+        a:hover{
+            color: $color_hover;
+            transition: 700ms;
+        }
+
+        img{
+            width: 40px; 
+            height: 35px; 
+            background-color: white; 
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+
+        img:hover{
+            background-color: $color_hover;
+        }
+
+
+        #home_link{
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-shadow: 1px 0px 3px rgb(211, 202, 202);
+            position: relative;
+            
+            #logo_image{
+            width: 90px;
+            height: 85px;   
+            border-radius: 900px; 
+            color: white;
+            border: transparent;
+            animation-name: rotateLogo;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            }
+
+            @keyframes rotateLogo {
+                from{
+                    transform: rotateZ(0deg);
+                }
+                to{
+                    transform: rotateZ(360deg);
+                }
+            }
+
+            #logo{
+                position: absolute;
+                top: 25%;
+                left: 33%;
+            }
+        }
+    
+
+        .dropdown-toggle:visited{
+            color: white;
+        }
+    
+        .dropdown-menu{
+            position: absolute;
+            background-color:  $color_theme;
+            border: 1px solid white;
+           // box-shadow: 1px 1px 3px rgb(225, 222, 222);
+            z-index: 2;
+            top: 50px;
+            right: 0;
+
+            a{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+    
+            a:hover{
+                background-color: $color_theme;
+                color: white;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            img{
+                width: 35px;
+                height: 25px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+
+    #links_effects{
+     
+        a{
+            height: 13vh;
+            display: flex;
+            align-items: center;
+            font-size: 27px;
+        } 
+        
+        li:hover,
+        .actived{
+            background-color: white;  
+            overflow: hidden;
+            transition: 1.5s;
+
+            a{   
+                color: $color_theme;     
+                text-shadow: 1px 1px 3px rgb(155, 142, 142);                
+            }   
+            
+        }
+
+        #button_responsive{
+            border: transparent;
+            background-color: transparent;
+            margin-right: 20px;
+            color: white;
+
+         
+        }
+
+        #closed_button{
+           transform: translateX(200px);
+         }
+
+
+        #offcanvasNav{
+            width: 0px;
+            height: 0px;
+            background-color: $color_theme; 
+         //  @include backgroundColor();
+          //  @include backgroundColor(165deg,$menu_background);
+           box-shadow: 0px 2px 2px rgb(27, 31, 35); 
+    
+            position: absolute;
+            top : 95px;
+            right: 0;
+            opacity: 0.8;
+    
+            ul {
+                width: 100%;
+                height: 100%;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding-left: 5px;
+            
+    
+                li{
+                    width: 100%;
+                    transition: 500ms;
+                    display: flex;
+                    justify-content: center;
+                }
+    
+                  a{
+                    transform: translateX(800px);
+                    opacity: 0.2;
+                    font-size: 34px;
+                    letter-spacing: 2px;
+                  }  
+            }
+        }
+
+    }  
+
+   
+}
+
+
+
+.contact_links,
+.contact_links_responsive{
+    padding: 10px; 
+    width: 100%; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: white;
+
+    .fa{ cursor: pointer; }
+    .fa:hover{ color: $color_hover; }
+}
+
+.contact_links_responsive{
+    opacity: 0;
+}
+
+
+
+
+@media(max-width:1200px){
+    #logo_image{
+        width: 85px !important;
+        height: 78px !important;   
+        margin-left: 5px;
+    }
+
+    .contact_links{
+        display: none !important;
+    }
+}
+
+
+
+@media(max-width:992px){
+
+}
+
+
+
