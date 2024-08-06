@@ -2,8 +2,7 @@
 $color_text :   rgb(59, 51, 51);
 $color_shadow : rgb(112, 106, 106);   
 
-/* $color_text :   white;
-$color_shadow : rgb(50, 43, 43);  */
+
 
 img{
     width: 240px;
@@ -20,7 +19,17 @@ img{
     font-weight: bold; 
     margin-bottom: 30px;
     letter-spacing: 2px;
-   
+    text-align: justify;
+}
+
+#first_row{
+    display: flex;
+    gap: 25px;
+
+    #first_message{
+        display: flex;
+        align-items: center;
+    }
 }
 
 
@@ -31,6 +40,28 @@ img{
         height: 145px;
     }
 }
+
+
+
+@media(max-width:690px){
+    .row div{
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+
+@media(max-width:690px){
+       #first_row{
+           display: flex;
+           flex-direction: column;
+           gap: 0px;
+       } 
+   
+    
+   }
+
+
 
 
 

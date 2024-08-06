@@ -43,6 +43,12 @@ export class HomeComponent implements AfterViewInit{
     y : 200,
     opacity : 0
    },'-=0.5');
+
+   tl.from('#scroll', {
+    duration : 0.5,
+    y : -30,
+    opacity : 0
+   });
   }
 
 

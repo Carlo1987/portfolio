@@ -19,47 +19,10 @@ rgb(134, 117, 117)  100%;
 }
 
 
-
 @mixin backgroundColor(){
-    background-image: linear-gradient(
-      $color_background
+    background-image: linear-gradient($color_background);
+}
 
-
-    /*     rgb(40, 129, 237) 0%,
-        rgb(100, 146, 202) 55%,
-        rgb(156, 169, 185) 65%,
-        rgb(138, 189, 141) 75%,   
-        rgb(105, 218, 112) 88%,
-        rgb(20, 213, 33) 100%    */   
-
-  /*       rgb(14, 78, 155) 0%,
-        rgb(41, 96, 162) 35%,
-        rgb(43, 92, 151) 40%,
-        rgb(60, 101, 151) 48%,
-        rgb(103, 134, 172) 65%, 
-        rgb(163, 111, 163) 70%, 
-        rgb(174, 86, 174) 73%,    
-        rgb(164, 53, 164) 80%,
-        rgb(105, 21, 105) 100%   */   
-
-    /*      rgb(241, 236, 236) 0%,
-        rgb(228, 219, 219) 45%,
-        rgb(224, 205, 205) 60%,
-        rgb(181, 205, 170) 65%,
-        rgb(146, 195, 123)68%,
-        rgb(127, 185, 101) 70%,
-        rgb(110, 188, 73) 85%,
-      
-        rgb(102, 211, 51) 100%,  */
-
-     /*    rgb(241, 236, 236) 0%,
-        rgb(228, 219, 219) 45%,
-        rgb(224, 205, 205) 60%,
-        rgb(100, 159, 207) 80%,
-        rgb(72, 136, 188)85%,
-        rgb(39, 140, 222)100%,   */
-      );
- }
 
 
 #projects_invisibles{
@@ -87,7 +50,8 @@ rgb(134, 117, 117)  100%;
     }
 
     .description_project{
-        width: 60%;
+        width: 60%; 
+    
         height: 100%;
         font-size: 19px;
         text-align: justify;
@@ -95,17 +59,37 @@ rgb(134, 117, 117)  100%;
         flex-direction: column;
         padding: 10px;
 
-        h4{
-            width: auto;
+        .title_project{
+            width: 400px;
             padding: 10px;
-            margin: 0 auto;
-            font-size: 30px;
-            text-shadow: 2px 1px 3px rgb(141, 133, 133);
-            letter-spacing: 1px;
-            text-align: center;
-            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             @extend %border_style;
+   
+            margin: 0 auto;
+
+            h4{
+                font-size: 30px;
+                text-shadow: 2px 1px 3px rgb(141, 133, 133);
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+            }
+
+            .project_image_responsive{
+                width: 70px;
+                height: 60px;
+                display: none;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
         }
+
+      
 
         .languages_projetc{
             width: 100%;
@@ -140,21 +124,18 @@ rgb(134, 117, 117)  100%;
     cursor: pointer;
     color: white;
     @extend %border_style_hover; 
- /*    background-image: linear-gradient(
-   
-      
-    );  */
+
     @include backgroundColor();
  
 
     .language_project,
-    h4{
+    .title_project{
       background-color: $color_text;
       color: black;
     }
 
 
-    h4{
+    .title_project{
         animation: title_effect 300ms linear;
     }
 
@@ -220,24 +201,54 @@ rgb(134, 117, 117)  100%;
 
 
 
-@media(max-width:712px){
+@media(max-width:775px){
+    
+.project{
+    .image_project{
+      display: none;
+    }
 
     .description_project{
-        h4{ font-size: 23px !important;   }
+        width: 100%; 
 
-        font-size: 17px !important;
-    }
+        .title_project{
+            h4{
+                font-size: 30px;
+            }
 
-    .languages_projetc{
-        display: none !important;
+            .project_image_responsive{
+                display: block;
+            }
+        }
     }
+ }
 }
 
 
-@media(max-width:550px){
-    .image_project{
-        img{  height: 200px !important;  }
+
+@media(max-width:465px){
+    
+    .project{
+        .image_project{
+          display: none;
+        }
+    
+        .description_project{
+            width: 100%; 
+            font-size: 16px;
+    
+            .title_project{
+                width: 95%;
+                h4{
+                    font-size: 20px;
+                }
+    
+                .project_image_responsive{
+                    width: 40px;
+                    height: 35px;
+                }
+            }
+        }
+     }
     }
-}
- 
 

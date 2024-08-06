@@ -54,7 +54,7 @@ export const esp = {
     aboutMe : {
         presentacion : "Hola! Soy Carlo, Full Stack Web Developer siempre en busqueda de nuevos y estimulantes proyectos!!",
         old_work : "He sido militar por 16 años de mi carrera laboral, haciendo misiones milatares dentro y fuera del territorio italiano, teniendo encargos de vigilanzia y seguridad y conociendo diferentes realidades donde aprendì el valor de trajar en equipo en situaciones estresantes.",
-        new_work : "En todo el tiempo siempre estuve apasionado a la informatica y cuando me acerquè a la programacion web decidì que este deberia convertirse en mi nuevo trabajo!!",
+        new_work : "En todo el tiempo siempre estuve apasionado a la informatica haciendo projectos y trabojos web por mi cuenta hasta que decidì canvertirlo en mi nuevo trabajo!!",
         skills : "He realizado el curso de Click Accademy y cuando lo terminè continuè los estudios con varios cursos en la plataforma Udemy unida a mucha practica gracias a diferentes fuentes!",
         final : "Me gusta enfrentar nuevos retos y crear nuevos proyectos, no me detengo hasta que no consigo mi obiectivo y quiero continuar a mejorar siempre!"
     }
