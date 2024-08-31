@@ -28,7 +28,10 @@ export const service = {
         sessionStorage.removeItem('home');
         location.reload();
       }
-    }
+    },
+
+
+
     
 
 

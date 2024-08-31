@@ -8,7 +8,7 @@ export const nav = [
   
     {
         route : route.skills,
-        link : "Skills"
+        link : language.skills
     },
     {
         route : route.projects,

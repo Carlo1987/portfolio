@@ -39,12 +39,17 @@ rgb(191, 215, 232) 95%,
 rgb(243, 235, 235)  100%;    */
 
 
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 
 
 %alert_style{
-    color: $color_theme;
-    text-shadow: 0px 0px 2px rgb(134, 120, 120);
+    color: white;
+    text-shadow: 1px 1px 3px rgb(39, 37, 37);
     text-align: center;
     font-size: 28px;
     letter-spacing: 1px;
@@ -163,6 +168,10 @@ body{
                 position: absolute;
                 top: 25%;
                 left: 33%;
+            }
+
+            #logo:hover{
+                text-shadow: 0px 0px 5px whitesmoke;
             }
         }
     
@@ -284,8 +293,7 @@ body{
 
 
 
-.contact_links,
-.contact_links_responsive{
+.contact_links{
     padding: 10px; 
     width: 100%; 
     height: 80px;
@@ -295,13 +303,60 @@ body{
     gap: 25px;
     color: white;
 
+    .link{
+         position : relative; 
+
+        .link__word{
+            position: absolute;
+            font-size: 16px;
+            border: 1px solid white;
+            box-shadow: 0px 0px 15px whitesmoke;
+            padding-right: 5px;
+            padding-left: 5px; 
+            border-radius: 5px;
+            margin-top: 8px;
+            left: -50%;
+        }
+
+        .choose_curriculum{
+            position: absolute;
+            background-color: $color_theme; 
+            width: 0px; 
+            height: 0px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px whitesmoke;
+            left: 8px; 
+            top: 0;
+            font-size: 15px;
+            display: none;
+            opacity: 0;    
+
+            div{ 
+                text-align: left; 
+                opacity: 0; 
+            }
+
+            div:first-child{
+                margin-bottom: 5px;
+            }
+
+            div:hover{ 
+                text-decoration: underline;
+                cursor: pointer;
+             }
+        }
+
+    }
+
     .fa{ cursor: pointer; }
     .fa:hover{ color: $color_hover; }
+   
 }
 
-.contact_links_responsive{
+.links_responsive{
     opacity: 0;
-}
+} 
 
 
 
@@ -313,16 +368,14 @@ body{
         margin-left: 5px;
     }
 
-    .contact_links{
+    .links_noResponsive{
         display: none !important;
-    }
+    } 
 }
 
 
 
-@media(max-width:992px){
 
-}
 
 
 

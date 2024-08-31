@@ -1,36 +1,23 @@
 
 <div class="row pt-4">
- <!--     <div class="col-xl-3 col-4 d-flex justify-content-start pt-2">
-        <img src="../../../assets/images/primo_piano.png" alt="image_aboutMe">
-     </div>
 
-     <div class="col-xl-9 col-8  d-flex align-items-center">
-        {{ lang.aboutMe.presentacion }}  fdwfeqd
-     </div> -->
+     <div class="col-12" >   
 
-     <div class="col-12" id="first_row">
-       <div>
-         <img src="../../../assets/images/primo_piano.png" alt="image_aboutMe">
+       <div class="row">
+         <div class="col-lg-3 offset-1 pe-0">
+            <img src="../../../assets/images/primo_piano.png" alt="image_aboutMe">
+          </div>
+          <div id="first_message" class="col-lg-7 col-10 offset-lg-0 offset-1 libre-baskerville-regular-italic">  
+           {{ lang.aboutMe.presentacion }}
+          </div>
        </div>
-       <div id="first_message">
-        {{ lang.aboutMe.presentacion }}
-       </div>
+ 
+
      </div>
 
 
-     <div class="col-12">
-        {{ lang.aboutMe.old_work }}
-     </div>
+    <div *ngFor="let phrase of phrases" class="col-10 offset-1 libre-baskerville-regular-italic">
+       {{ phrase }}
+    </div>
 
-     <div class="col-12">
-        {{ lang.aboutMe.new_work }}
-     </div>
-
-     <div class="col-12">
-        {{ lang.aboutMe.skills }}
-     </div>
-
-     <div class="col-12">
-        {{ lang.aboutMe.final }}
-     </div>
 </div>

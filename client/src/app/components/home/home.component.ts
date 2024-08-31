@@ -33,22 +33,23 @@ export class HomeComponent implements AfterViewInit{
 
 
    tl.from('#welcome',{
+    delay : 0.2,
     duration : 1,
-    y : -200,
+    y : 50,
     opacity : 0
    });
 
    tl.from('.message', {
-    duration : 2,
-    y : 200,
+    duration : 1,
+    y : 50,
     opacity : 0
-   },'-=0.5');
+   },'-=0.6');
 
-   tl.from('#scroll', {
+/*    tl.from('#scroll', {
     duration : 0.5,
     y : -30,
     opacity : 0
-   });
+   }); */
   }
 
 
@@ -83,7 +84,7 @@ export class HomeComponent implements AfterViewInit{
 
     
     animate('element','-600px');
-    animate('elementResp','-650px');
+    animate('elementResp','-950px');
   }
 
 

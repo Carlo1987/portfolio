@@ -7,7 +7,7 @@ rgb(134, 117, 117)  100%;
 
 
 %border_style{
-    box-shadow: 3px 3px 5px $color_shadow; 
+    box-shadow: 0px 0px 10px $color_shadow;
     border-radius: 8px;
 }
 
@@ -28,6 +28,7 @@ rgb(134, 117, 117)  100%;
 #projects_invisibles{
     display: none;
 }
+
 
 
 .project{
@@ -51,7 +52,6 @@ rgb(134, 117, 117)  100%;
 
     .description_project{
         width: 60%; 
-    
         height: 100%;
         font-size: 19px;
         text-align: justify;
@@ -64,9 +64,9 @@ rgb(134, 117, 117)  100%;
             padding: 10px;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             @extend %border_style;
-   
             margin: 0 auto;
 
             h4{

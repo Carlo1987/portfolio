@@ -3,6 +3,12 @@ $color_text :   rgb(59, 51, 51);
 $color_shadow : rgb(112, 106, 106);   
 
 
+.libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
 
 img{
     width: 240px;
@@ -12,7 +18,6 @@ img{
 }
 
 .row div{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 27px;
     color: $color_text;
     text-shadow: 1px 1px 3px $color_shadow;
@@ -22,14 +27,10 @@ img{
     text-align: justify;
 }
 
-#first_row{
-    display: flex;
-    gap: 25px;
 
-    #first_message{
-        display: flex;
-        align-items: center;
-    }
+#first_message{
+    display: flex;
+    align-items: center;
 }
 
 
@@ -50,16 +51,6 @@ img{
     }
 }
 
-
-@media(max-width:690px){
-       #first_row{
-           display: flex;
-           flex-direction: column;
-           gap: 0px;
-       } 
-   
-    
-   }
 
 
 

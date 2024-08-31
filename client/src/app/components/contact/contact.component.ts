@@ -42,7 +42,8 @@ export class ContactComponent{
       })  
      
     }else{
-        this.message_error = this.lang.contact.error_email;
+      this.loading = false;
+      this.message_error = this.lang.contact.error_email;
     }   
   }
 

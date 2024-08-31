@@ -14,9 +14,9 @@
 
     <ng-template #left>
 
-        <article class="d-flex justify-content-start w-100">   
+        <article class=" d-flex justify-content-start w-100">   
 
-            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)" (mouseenter)="projectHover(i, 'left','enter')"  #project_ang>  
+            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)" (mouseenter)="hoverCenter(i,'left')" (mouseleave)="hoverSide(i)"  #project_ang>  
                 <div class="image_project">
                     <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
                 </div> 
@@ -48,7 +48,7 @@
 
         <article class="d-flex justify-content-end w-100"> 
 
-            <div class="project animate__animated animate__backInRight"  (mouseenter)="projectHover(i, 'right','enter')"   (click)="urlProject(project.url)"  #project_ang>  
+            <div class="project animate__animated animate__backInRight"  (mouseenter)="hoverCenter(i,'right')" (mouseleave)="hoverSide(i)"  (click)="urlProject(project.url)"  #project_ang>  
                 <div class="description_project">
                     <div class="title_project">
                         <div class="project_image_responsive">   <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">  </div> 
@@ -78,7 +78,7 @@
 </div>
 
 
-<!--     sotto ci sono i progetti responsive  (senza animazione)   -->
+<!--     sotto ci sono i progetti responsive  (senza animazione "hover")   -->
 
 
 
@@ -91,7 +91,7 @@
 
         <article class="d-flex justify-content-start w-100">   
 
-            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)"  #project_ang>  
+            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)">  
                 <div class="image_project">
                     <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
                 </div>
@@ -122,7 +122,7 @@
 
         <article class="d-flex justify-content-end w-100"> 
 
-            <div class="project animate__animated animate__backInRight"   (click)="urlProject(project.url)"  #project_ang>  
+            <div class="project animate__animated animate__backInRight"   (click)="urlProject(project.url)">  
                 <div class="description_project">
                     <div class="title_project">
                         <div class="project_image_responsive">   <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">  </div> 

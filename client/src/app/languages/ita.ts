@@ -1,3 +1,4 @@
+import { getTime } from "../services/getTime"
 
 
 export const ita = {
@@ -7,6 +8,7 @@ export const ita = {
     error : "Pagina web non trovata",
 
     nav : {
+        skills : "Abilità",
         aboutMe : "Su di me",
         projects : "Progetti",
         contacts : "Contatti"
@@ -14,7 +16,7 @@ export const ita = {
 
     home: {
         welcome : "Ciao! sono Carlo,",
-        message1 : "un Full Stack Web Developer",
+        message1 : "Full Stack Web Developer",
         message2 : "originario della bellissima Sardegna!",
         elements : {
             visit : "Visita la sezione",
@@ -40,15 +42,15 @@ export const ita = {
 
     projects : {
         project_holiday : {
-            name : "Progetto vacanze",
+            name : "Vacanze Sardegna",
             description : "Progetto dove viene simulata la prenotazione in case vacanze e dove TU SARAI UN AMMINISTRATORE e potrai provare ad aggiugere, modificare o cancellare nuove case da affittare!!"
         },
         project_social : {
-            name : "Progetto Social",
+            name : "Social",
             description : "Progetto dove viene simulato un social con chat e richieste di amicizia, profili privati o pubblici, condivisione di immagini e video con commenti e likes!!"
         },
         project_sold : {
-            name : "Progetto Vendita",
+            name : "Dichatleon",
             description : "Progetto dove viene simulata la vendita/acquisto di prodotti e dove TU SARAI AMMINISTRATORE e potrai provare ad aggiungere nuovi prodotti o a modificarne altri!!"
         }
     },
@@ -56,8 +58,9 @@ export const ita = {
 
     aboutMe : {
         presentacion : "Ciao! Sono Carlo, Full Stack Web Developer con costante voglia di nuovi e stimolanti progetti!!",
-        old_work : "Sono stato militare per 16 anni della mia carriera, facendo missioni sia in territorio italiano che all'estero, conoscendo tante realtà differenti, ricoprendo incarichi di vigilanza e sicurezza e imparando il valore del lavoro di squadra anche in situazioni di forte pressione.",
-        new_work : "Nel corso del tempo sono però sempre rimasto appassionato all'informatica, facendo lavori e progetti web per conto mio fino a quando ho preso la decisione di farla diventare la mia nuova professione!!",
+        developer : `Mi trovo nel mondo dello sviluppo web da ${getTime.time()} anni, un mondo che mi ha conquistato e rapito.`,
+        old_work : "Sono stato militare per 16 anni, facendo missioni sia in territorio italiano che all'estero, ricoprendo incarichi di sicurezza e imparando il valore del lavoro di squadra anche in situazioni di forte pressione.",
+        new_work : `Nel corso del tempo sono sempre stato appassionato all'informatica, facendo lavori e progetti web fino a quando ${getTime.time()} anni fa ho preso la decisione di farla diventare la mia nuova professione a tempo pieno!!`,
         skills : "Ho frequentato il corso di Click Accademy per poi proseguire gli studi con vari corsi sulla piattaforma Udemy unita a tanta pratica da autodidatta!",
         final : "Adoro confrontarmi con nuove sfide e creare nuovi progetti, non mi fermo fino a che non raggiungo il mio obbiettivo e voglio continuare a migliorarmi sempre di più!"
     }

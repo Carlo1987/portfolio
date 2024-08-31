@@ -1,20 +1,20 @@
-import { Component, ViewChildren, QueryList, ElementRef , OnInit } from '@angular/core';
+import { Component, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { projects } from 'src/app/models/projects';
-import { service } from 'src/app/services/service';
+
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit{
+export class ProjectsComponent {
    public projects:Array<any> = projects;
+   private value_positive:number = 110;
+   private value_negative:number = -110;
    @ViewChildren ('project_ang') projects_hover!: QueryList<ElementRef<HTMLDivElement>>
 
  
-   ngOnInit(): void {
-   //  service.reloadPage();
-   }
+
 
 
 
@@ -26,9 +26,7 @@ export class ProjectsComponent implements OnInit{
 
 
 
-
    transition(project:any, value:number):void{
-
     project.nativeElement.style.transform = `translateX(${value}px)`;
     project.nativeElement.style.transition = "all 2s";
   }
@@ -37,50 +35,37 @@ export class ProjectsComponent implements OnInit{
 
 
 
-   projectHover(i:number, direction:string, event:string){ 
-
-        let more = 40;
-        let less = -40;
-      
+  hoverCenter(i:number, direction:string){ 
+     
         this.projects_hover.forEach((project,index_project)=>{
       
           project.nativeElement.classList.remove('animate__animated');
 
-         if(i == index_project){                                   //     hover elemento selezionato
-          project.nativeElement.classList.add('project_hover');
+         if(i == index_project){   
+            if(direction == 'left'){
+              this.transition(project,this.value_positive);
+            }else if(direction == 'right'){
+              this.transition(project,this.value_negative);
+            }                          
+              
+          } 
 
-          if(direction == "left"){
-            if(event == "enter"){
-              this.transition(project,more);
-            }else{
-              this.transition(project,less);
-            }
-     
-          }else{
-            if(event == "enter"){
-              this.transition(project,less);
-            }else{
-              this.transition(project,more);
-            }
-          }
-
-           } else{                                                 //     hover elementi non selezionati
-
-              let verify_class = project.nativeElement.classList.contains('project_hover');
-
-              if(direction == "left" && verify_class){         
-                this.transition(project,more);         
-              }else if(direction == "right"   && verify_class){ 
-                this.transition(project,less);                
-              }
-              project.nativeElement.classList.remove('project_hover');
-            }   
         })
+  } 
+
+
+
+  hoverSide(i:number){
+    this.projects_hover.forEach((project,index_project)=>{
+
+     if(i == index_project){   
+          this.transition(project,0);    
+      } 
+
+    })
+    
   }
-
-
-
- 
+  
  
 
 }

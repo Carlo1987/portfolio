@@ -58,11 +58,6 @@ export class AppComponent implements AfterViewInit{
 
 
 
-   links(url:string):void{
-      window.open(url);
-   }
-
-
 
 
    closeMenuResponsive(value:string,late:string){
@@ -72,7 +67,7 @@ export class AppComponent implements AfterViewInit{
 
     let translateX = 800;
 
-    tl.to('.contact_links_responsive',{
+    tl.to('.links_responsive',{
       opacity : 0,
       duration : 0.5
     }, '-=0.5');
@@ -136,7 +131,7 @@ export class AppComponent implements AfterViewInit{
         opacity : 1
       }, '-=0.7');
 
-      tl.to('.contact_links_responsive',{
+      tl.to('.links_responsive',{
         opacity : 1,
         duration : 0.7
       }, '-=0.5');
@@ -159,14 +154,6 @@ export class AppComponent implements AfterViewInit{
 
 
 
-
-   chooseCurriculum(){
-   if(this.lang.language == 'ita'){
-     this.links('../assets/curriculum/curriculum_ita.pdf');
-   }else{
-    this.links('../assets/curriculum/curriculum_esp.pdf');
-   }
-  }
 
 
 

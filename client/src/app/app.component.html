@@ -26,11 +26,9 @@
           </ul>
          </li>
 
-         <li class="navbar-item contact_links">
-            <i class="fa fa-github fa-2xl" aria-hidden="true" (click)="links('https://github.com/Carlo1987')"></i>
-            <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
-            <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()"></i>  
-         </li>
+         <li class="navbar-item links_noResponsive">
+             <app-links></app-links>
+          </li>
 
        </ul>
      </div>
@@ -58,10 +56,8 @@
                 <li *ngFor="let link of nav; let i = index " class="nav-item navLink" [routerLinkActive]="['actived']">
                   <a class="nav-link links_responsive_{{i}}"  href="#" (click)="navigate(link.route)" >  {{ link.link }}</a>   <!--   nav grandezza schermo Tablet/cellulare  -->
                 </li> 
-                <div class="navbar-item contact_links_responsive">
-                  <i class="fa fa-github fa-2xl" aria-hidden="true" (click)="links('https://github.com/Carlo1987')"></i>
-                  <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
-                  <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()"></i>  
+                <div class="navbar-item links_responsive">
+                    <app-links></app-links> 
                </div>
               </ul>  
        
@@ -77,7 +73,7 @@
         <ul class="navbar-nav w-100  d-flex flex-row justify-content-around" style="height: auto;">
 
           <li *ngFor="let link of nav; let i = index " class="nav-item navLink" [routerLinkActive]="['actived']">
-            <a class="nav-link links_visibles link_{{i}}"  href="#" routerLink="{{ link.route }}">  {{ link.link }}</a>      <!--   nav grandezza schermo PC  -->
+            <a class="nav-link links_visibles link_{{i}}r"  href="#" routerLink="{{ link.route }}">  {{ link.link }}</a>      <!--   nav grandezza schermo PC  -->
           </li> 
 
         </ul>
@@ -88,7 +84,7 @@
 </nav>
 
 
-<div class="container-lg" style="margin-top: 110px; min-height: 559px;">
+<div class="container-fluid" id="container">    
 
   <router-outlet></router-outlet>
 
