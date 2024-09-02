@@ -46,7 +46,7 @@ export const ita = {
             description : "Progetto dove viene simulata la prenotazione in case vacanze e dove TU SARAI UN AMMINISTRATORE e potrai provare ad aggiugere, modificare o cancellare nuove case da affittare!!"
         },
         project_social : {
-            name : "Social",
+            name : "Faceback",
             description : "Progetto dove viene simulato un social con chat e richieste di amicizia, profili privati o pubblici, condivisione di immagini e video con commenti e likes!!"
         },
         project_sold : {
@@ -57,12 +57,12 @@ export const ita = {
 
 
     aboutMe : {
-        presentacion : "Ciao! Sono Carlo, Full Stack Web Developer con costante voglia di nuovi e stimolanti progetti!!",
+        presentacion : "Ciao! Sono Carlo, Full Stack Web Developer sempre alla ricerca di nuove sfide che mi permettano di regalare agli utenti l'esperienza che cercano!!",
         developer : `Mi trovo nel mondo dello sviluppo web da ${getTime.time()} anni, un mondo che mi ha conquistato e rapito.`,
         old_work : "Sono stato militare per 16 anni, facendo missioni sia in territorio italiano che all'estero, ricoprendo incarichi di sicurezza e imparando il valore del lavoro di squadra anche in situazioni di forte pressione.",
         new_work : `Nel corso del tempo sono sempre stato appassionato all'informatica, facendo lavori e progetti web fino a quando ${getTime.time()} anni fa ho preso la decisione di farla diventare la mia nuova professione a tempo pieno!!`,
         skills : "Ho frequentato il corso di Click Accademy per poi proseguire gli studi con vari corsi sulla piattaforma Udemy unita a tanta pratica da autodidatta!",
-        final : "Adoro confrontarmi con nuove sfide e creare nuovi progetti, non mi fermo fino a che non raggiungo il mio obbiettivo e voglio continuare a migliorarmi sempre di più!"
+        final : "Mi piace il lavoro di squadra e la realizzazione di obiettivi condivisi che portino il team a livelli sempre più alti!!"
     }
 
    

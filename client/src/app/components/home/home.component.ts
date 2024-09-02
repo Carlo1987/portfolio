@@ -84,7 +84,7 @@ export class HomeComponent implements AfterViewInit{
 
     
     animate('element','-600px');
-    animate('elementResp','-950px');
+    animate('elementResp','-750px');
   }
 
 

@@ -40,12 +40,12 @@ export const esp = {
     
     projects : {
         project_holiday : {
-            name : "Vacaciones Sardinia",
+            name : "Vacaciones Cerdeña",
             description : "Proyecto que simula la reserva en casas de vacaciones y donde TU SERAS ADMINISTRADOR y podras añadir, modificar o borrar nuevas casas!!"
         },
         project_social : {
-            name : "Social",
-            description : "Proyecto que simula un social con chat y solicitud de amistad, perfiles privados o publicos, compartiendo imagenes y videos con comentarios y likes!!"
+            name : "Faceback",
+            description : "Proyecto que simula un social con chat y solicitudes de amistad, perfiles privados o publicos, compartiendo imagenes y videos con comentarios y likes!!"
         },
         project_sold : {
             name : "Dichatleon",
@@ -55,12 +55,12 @@ export const esp = {
 
 
     aboutMe : {
-        presentacion : "Hola! Soy Carlo, Full Stack Web Developer siempre en busqueda de nuevos y estimulantes proyectos!!",
+        presentacion : "Hola! Soy Carlo, Full Stack Web Developer siempre en busqueda de nuevos desafios que me permitan regalar a los usuarios la experiencia que van buscando!!",
         developer : `Llevo ${getTime.time()} años en el mundo del desarrollo web, un mundo que me ha conquistado y fascinado.`,
         old_work : "He sido militar por 16 años, haciendo misiones milatares dentro y fuera del territorio italiano, teniendo encargos de seguridad y aprendiendo el valor de trajar en equipo en situaciones estresantes.",
         new_work : `En todo el tiempo siempre estuve apasionado a la informatica haciendo projectos y trabojos web hasta que hace ${getTime.time()} años decidì canvertirlo en mi nuevo trabajo!!`,
         skills : "He realizado el curso de Click Accademy y cuando lo terminè continuè los estudios con varios cursos en la plataforma Udemy unida a mucha practica gracias a diferentes fuentes!",
-        final : "Me gusta enfrentar nuevos retos y crear nuevos proyectos, no me detengo hasta que no consigo mi obiectivo y quiero continuar a mejorar siempre!"
+        final : "Me gusta trabajar en equipo y realizar objetivos comunes que lleven el team a niveles siempre mas altos!!"
     }
 
 

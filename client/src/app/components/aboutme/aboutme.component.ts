@@ -19,7 +19,7 @@ export class AboutmeComponent{
       language.developer,
       language.old_work,
       language.new_work,
-      language.skills,
+  /*     language.skills, */
       language.final
     ];
   
