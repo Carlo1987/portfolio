@@ -10,7 +10,7 @@ export const projects = [
     {
         name : project.project_holiday.name,
         description : project.project_holiday.description,
-        image :  coll + "/welcome.webp",
+        image :  coll + "/logo_sardegnaDream.jpg",
         url : global.project_holiday,
         languages : [
             {
@@ -43,7 +43,7 @@ export const projects = [
     {
         name : project.project_social.name,
         description : project.project_social.description,
-        image :  coll + "/logo_facebook.jpeg",
+        image :  coll + "/logo_faceback.jpg",
         url : global.project_social,
         languages : [
             {
@@ -76,7 +76,7 @@ export const projects = [
     {
         name : project.project_sold.name,
         description : project.project_sold.description,
-        image : coll + "/open.jpg",
+        image : coll + "/logo_dichatleon.webp",
         url : global.project_shop,
         languages : [
             {

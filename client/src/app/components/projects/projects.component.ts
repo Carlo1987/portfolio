@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { projects } from 'src/app/models/projects';
 
 
@@ -7,7 +7,7 @@ import { projects } from 'src/app/models/projects';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit{
    public projects:Array<any> = projects;
    private value_positive:number = 110;
    private value_negative:number = -110;
@@ -15,6 +15,14 @@ export class ProjectsComponent {
 
  
 
+   ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.projects_hover.forEach(project => {
+        project.nativeElement.classList.remove('animate__animated');
+      })
+    },1000)
+ 
+   }
 
 
 
@@ -38,8 +46,6 @@ export class ProjectsComponent {
   hoverCenter(i:number, direction:string){ 
      
         this.projects_hover.forEach((project,index_project)=>{
-      
-          project.nativeElement.classList.remove('animate__animated');
 
          if(i == index_project){   
             if(direction == 'left'){

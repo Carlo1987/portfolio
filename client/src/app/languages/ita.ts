@@ -42,7 +42,7 @@ export const ita = {
 
     projects : {
         project_holiday : {
-            name : "Vacanze Sardegna",
+            name : "SardegnaDream",
             description : "Progetto dove viene simulata la prenotazione in case vacanze e dove TU SARAI UN AMMINISTRATORE e potrai provare ad aggiugere, modificare o cancellare nuove case da affittare!!"
         },
         project_social : {
@@ -63,6 +63,13 @@ export const ita = {
         new_work : `Nel corso del tempo sono sempre stato appassionato all'informatica, facendo lavori e progetti web fino a quando ${getTime.time()} anni fa ho preso la decisione di farla diventare la mia nuova professione a tempo pieno!!`,
         skills : "Ho frequentato il corso di Click Accademy per poi proseguire gli studi con vari corsi sulla piattaforma Udemy unita a tanta pratica da autodidatta!",
         final : "Mi piace il lavoro di squadra e la realizzazione di obiettivi condivisi che portino il team a livelli sempre più alti!!"
+    },
+
+
+
+    skills : {
+        library : "Librerie",
+        icon : "Icone di"
     }
 
    

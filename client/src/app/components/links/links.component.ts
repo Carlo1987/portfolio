@@ -10,6 +10,7 @@ import { ExpoScaleEase } from "gsap/EasePack";
 export class LinksComponent implements AfterViewInit{
   public icon:string = "none";
   private openCurriculum:boolean = false;
+  private open_icon:boolean = true;
   @ViewChildren('link_words') link_words!: QueryList<ElementRef<HTMLDivElement>>; 
   
 
@@ -49,23 +50,27 @@ responsivePadding(){
 
 chooseCurriculum(){
   gsap.registerPlugin(ExpoScaleEase); 
+  const duration = "0.5";
 
-
-  function curriculum(values:any , action:string){
+  let curriculum = (values:any , action:string) => {
     const tl = gsap.timeline({                 
       repeat : 0, 
-      delay : 0                           
+      delay : 0,                        
     });
 
 
     if(action == "open"){
+
+      this.open_icon = false;
+
       tl.to('.choose_curriculum',{                     
         display : values.display, 
         x : values.x,      
         y : values.y,  
         width : values.width,
         height : values.height, 
-        opacity : values.opacity                                    
+        opacity : values.opacity,     
+        duration : duration                               
       });
   
       tl.to('.curriculum',{
@@ -73,6 +78,9 @@ chooseCurriculum(){
       });
 
     }else if(action == 'close'){
+
+      this.open_icon = true;
+
       tl.to('.curriculum',{
         opacity : values.opacity
       });
@@ -83,7 +91,8 @@ chooseCurriculum(){
         y : values.y,  
         width : values.width,
         height : values.height, 
-        opacity : values.opacity                                                   
+        opacity : values.opacity,
+        duration : duration                                                     
       }, "-=0.4");
     }
   }
@@ -129,7 +138,10 @@ chooseCurriculum(){
 
 
  setIcon(icon:string){
-  this.icon = icon;    
+  if(this.open_icon){
+    this.icon = icon;  
+  }
+  
  }
 
 

@@ -42,14 +42,14 @@ export const lang_progr = {
             language : "Laravel",
             image : coll +  "/laravel.png"
         },
-       SocketIo : {
-            language : "Socket.io",
-            image : coll +  "/socket.io.png"
-        },
        Php : {
             language : "PHP",
             image : coll +  "/php.png"
         },
+
+
+
+
        Mysql : {
             language : "Mysql",
             image : coll +  "/mysql.png"
@@ -58,9 +58,35 @@ export const lang_progr = {
             language : "MongoDB",
             image : coll +  "/mongoDB.png"
         },
+
+
+
        Git : {
             language : "Git",
             image : coll +  "/git.png"
-        }
-    
-};
+        },
+        GitHub : {
+            language : "GitHub",
+            image : coll +  "/github.png"
+        },
+
+
+
+        SocketIo : {
+            language : "Socket.io",
+            image : coll +  "/socket.io.png"
+        },
+        Gsap : {
+            language : "Gsap",
+            image : coll +  "/gsap.webp"
+        },
+
+
+
+
+        Vps : {
+            language : "VPS",
+            image : coll +  "/vps.png"
+        },
+       
+}; 

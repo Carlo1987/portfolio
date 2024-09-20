@@ -1,42 +1,15 @@
 
+@use './global_styles.scss' as gl;
 
-$color_hover : rgb(225, 206, 206);
-$color_theme :   rgb(59, 53, 53); 
+@use './home.scss';
+@use './skills.scss';
+@use './projects.scss';
+@use './aboutme.scss';
+@use './contact.scss';
 
-
-$body_background :       
-
-/* rgb(241, 236, 236) 10%,
- rgb(241, 236, 236) 20%,
-rgb(228, 219, 219) 65%,
-rgb(151, 144, 144) 80%,
-rgb(120, 108, 108) 90%,
-rgb(59, 53, 53)100%;   */ 
-
-
-rgb(224, 83, 224) 20%,
-rgb(136, 180, 233) 100%; 
-
-
-
-
-$menu_background :
-
-  rgb(59, 53, 53) 20%,
-rgb(73, 64, 64) 40%,
-rgb(91, 79, 79) 65%,
-rgb(109, 94, 94) 75%,
-rgb(176, 167, 167) 80%,
-rgb(209, 198, 198) 87%,
-rgb(235, 228, 228)  100%;  
-
-/* rgb(39, 140, 222) 20%,
-rgb(78, 148, 205) 40%,
-rgb(106, 166, 215)  65%, 
-rgb(127, 173, 211) 75%,
-rgb(163, 197, 219) 87%, 
-rgb(191, 215, 232) 95%,
-rgb(243, 235, 235)  100%;    */
+$color_hover : gl.$light;
+$color_theme :   gl.$dark; 
+$color_shadow : gl.$dark_shadow;
 
 
 .libre-baskerville-regular {
@@ -44,6 +17,14 @@ rgb(243, 235, 235)  100%;    */
     font-weight: 400;
     font-style: normal;
 }
+
+
+%style_logo {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
 
 
 
@@ -54,15 +35,11 @@ rgb(243, 235, 235)  100%;    */
     font-size: 28px;
     letter-spacing: 1px;
     border: 2px solid black;
-    box-shadow: 1px 2px 3px rgb(30, 29, 29);
+    box-shadow: 1px 2px 3px $color_shadow ;
     border-radius: 10px;
     padding: 10px;
 }
 
-
-@mixin backgroundColor($deg , $color){
-    background-image: linear-gradient($deg,$color)
- }
 
 
 *{
@@ -72,27 +49,31 @@ rgb(243, 235, 235)  100%;    */
 }
 
 body{
-  //   background-color: rgb(235, 225, 225) !important; 
    background-color: rgb(233, 229, 229) !important;
     overflow-x: hidden;
-   // @include backgroundColor(173deg,$body_background);
-   
 }
 
 
 
 
 .error{
-    background-color: rgb(203, 77, 77);
+    background-color: gl.$danger;
     @extend %alert_style;
 }
 
 
 .success{
-    background-color: rgb(35, 140, 21);
+    background-color: gl.$success;
     @extend %alert_style;
 }
 
+
+
+#container{
+    margin-top: 110px; 
+    min-width: 480px !important;
+    min-height: 619px;    /*   min-height: 559px;  */
+}
 
 
 
@@ -100,8 +81,7 @@ body{
 .navbar{
     height: 95px;
     background-color: $color_theme;
-    box-shadow: 0px 2px 2px  rgb(27, 31, 35); 
-   // @include backgroundColor(180deg,$menu_background);
+    box-shadow: 0px 2px 2px  $color_shadow ; 
     position: relative;
 
     a,
@@ -166,8 +146,9 @@ body{
 
             #logo{
                 position: absolute;
-                top: 25%;
-                left: 33%;
+                top: 23.5%;
+                left: 35%;
+                @extend %style_logo;
             }
 
             #logo:hover{
@@ -184,7 +165,6 @@ body{
             position: absolute;
             background-color:  $color_theme;
             border: 1px solid white;
-           // box-shadow: 1px 1px 3px rgb(225, 222, 222);
             z-index: 2;
             top: 50px;
             right: 0;
@@ -193,14 +173,30 @@ body{
                 display: flex;
                 align-items: center;
                 gap: 15px;
-            }
-    
-            a:hover{
-                background-color: $color_theme;
-                color: white;
-                text-decoration: underline;
+                position: relative;
                 cursor: pointer;
             }
+    
+             a:hover{
+                background-color: $color_theme;
+                color: white;
+            } 
+
+            a::after{ 
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                left: 10;
+                bottom: 0;
+                background-color: white;
+                transition: all 300ms linear;
+             }
+
+
+            a:hover::after{
+                width: 80%;
+             } 
 
             img{
                 width: 35px;
@@ -210,6 +206,10 @@ body{
         }
     }
 
+
+
+
+/*   LINK     */
 
     #links_effects{
      
@@ -251,9 +251,7 @@ body{
             width: 0px;
             height: 0px;
             background-color: $color_theme; 
-         //  @include backgroundColor();
-          //  @include backgroundColor(165deg,$menu_background);
-           box-shadow: 0px 2px 2px rgb(27, 31, 35); 
+            box-shadow: 0px 2px 2px $color_shadow ; 
     
             position: absolute;
             top : 95px;
@@ -332,19 +330,34 @@ body{
             display: none;
             opacity: 0;    
 
-            div{ 
+            .curriculum{ 
                 text-align: left; 
                 opacity: 0; 
+                position: relative;
+                cursor: pointer;
             }
 
-            div:first-child{
+            .curriculum:first-child{
                 margin-bottom: 5px;
             }
 
-            div:hover{ 
-                text-decoration: underline;
-                cursor: pointer;
+            .curriculum::after{ 
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                left: 0;
+                bottom: 0;
+                background-color: white;
+                transition: all 300ms linear;
              }
+
+
+            .curriculum:hover::after{
+                width: 100%;
+             } 
+
+
         }
 
     }

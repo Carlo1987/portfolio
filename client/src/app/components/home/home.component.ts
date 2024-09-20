@@ -43,7 +43,7 @@ export class HomeComponent implements AfterViewInit{
     duration : 1,
     y : 50,
     opacity : 0
-   },'-=0.6');
+   },'-=0.8');
 
 /*    tl.from('#scroll', {
     duration : 0.5,

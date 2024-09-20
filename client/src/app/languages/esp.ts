@@ -40,7 +40,7 @@ export const esp = {
     
     projects : {
         project_holiday : {
-            name : "Vacaciones Cerdeña",
+            name : "SardegnaDream",
             description : "Proyecto que simula la reserva en casas de vacaciones y donde TU SERAS ADMINISTRADOR y podras añadir, modificar o borrar nuevas casas!!"
         },
         project_social : {
@@ -61,6 +61,12 @@ export const esp = {
         new_work : `En todo el tiempo siempre estuve apasionado a la informatica haciendo projectos y trabojos web hasta que hace ${getTime.time()} años decidì canvertirlo en mi nuevo trabajo!!`,
         skills : "He realizado el curso de Click Accademy y cuando lo terminè continuè los estudios con varios cursos en la plataforma Udemy unida a mucha practica gracias a diferentes fuentes!",
         final : "Me gusta trabajar en equipo y realizar objetivos comunes que lleven el team a niveles siempre mas altos!!"
+    },
+
+
+    skills : {
+        library : "Librerias",
+           icon : "Iconas de"
     }
 
 
