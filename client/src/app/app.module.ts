@@ -31,7 +31,6 @@ import { LinksComponent } from './components/links/links.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

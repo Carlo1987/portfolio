@@ -1,4 +1,5 @@
 import { Component, AfterViewInit , ViewChildren, ElementRef, QueryList } from '@angular/core';
+import { global } from 'src/app/services/global';
 import { gsap } from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
 
@@ -11,6 +12,7 @@ export class LinksComponent implements AfterViewInit{
   public icon:string = "none";
   private openCurriculum:boolean = false;
   private open_icon:boolean = true;
+  private url:string = "../assets/curriculum_";
   @ViewChildren('link_words') link_words!: QueryList<ElementRef<HTMLDivElement>>; 
   
 
@@ -127,9 +129,9 @@ chooseCurriculum(){
 
 
 
-  links(url:string):void{
-    window.open(url);
-    if(url.includes('curriculum')){
+  links(lang:string):void{
+    window.open(`${this.url}${lang}.pdf`);
+    if(lang.includes('curriculum')){
       this.chooseCurriculum();
     }
    

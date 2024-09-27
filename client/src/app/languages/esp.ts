@@ -28,9 +28,9 @@ export const esp = {
     },
 
     contact : {
-        email : "Tu correo",
-        object : "Asunto correo",
-        message : "Escribir mensaje",
+        email : "Inserta tu email",
+        object : "Como te llamas?",
+        message : "Escribe tu mensaje",
         button : "Enviar mensaje",
         empty_fields : "Compilar todos los campos",
         error_email : "Insertar un correo valido",

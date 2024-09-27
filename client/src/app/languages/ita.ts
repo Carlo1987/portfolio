@@ -30,9 +30,9 @@ export const ita = {
     },
 
     contact : {
-        email : "Tua email",
-        object : "Oggetto email",
-        message : "Scrivi messaggio",
+        email : "Digita la tua email",
+        object : "Come ti chiami?",
+        message : "Scrivi il tuo messaggio",
         button : "Invia messaggio",
         empty_fields : "Compila tutti i campi",
         error_email : "Inserire una email valida",

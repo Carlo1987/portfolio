@@ -7,7 +7,6 @@ $color_shadow : gl.$home_shadow;
 
 #contact_form{
 
-    h3,
     label,
     button{
         font-size: 19px;
@@ -15,6 +14,7 @@ $color_shadow : gl.$home_shadow;
         text-shadow: 1px 1px 3px $color_shadow;
         letter-spacing: 1px;
     }
+
     
     label{
         padding-left: 2px;

@@ -1,9 +1,17 @@
 
 const url = "https://carloloidev.com";
+const email = `${url}/back-email`;
+
+
+/* 
+const url = "https://localhost/progetti/portfolio";
+const email = `${url}/email`
+ */
+
 
 export const global = {
 
-    url_email : `${url}/back-email/email.php` ,
+    url_email : `${email}/email.php` ,
     
     project_shop : `${url}/Project_Shop`,
 

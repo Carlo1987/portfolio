@@ -22,6 +22,7 @@ if(!empty($json)){
 
     require 'structure_email.php';
 
+    $email_object = $data->object;
     $email_from = $data->email;
     $message = $data->message;
     
@@ -31,7 +32,7 @@ if(!empty($json)){
 
     $mail->isHTML(true); 
 
-    $mail->Subject = $data->object;   
+    $mail->Subject = "Email ricevuta da $email_object";   
 
     $mail->AltBody = 'testo email non supportato';
 
@@ -55,4 +56,4 @@ if(!empty($json)){
     $result = $error;
 }   
 
-echo json_encode($result);
+echo json_encode($result); 

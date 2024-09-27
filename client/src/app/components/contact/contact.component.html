@@ -1,17 +1,22 @@
 
 
+
+
+
 <form id="contact_form"  method="POST" action="" #formContact="ngForm" (ngSubmit)="emailSended()">    
-    
+
     <div class="row">
 
-        <div class="col-6">
-            <label for="email" class="form-label"> {{ lang.contact.email }} </label>
-            <input type="email" class="form-control" name="email" #email="ngModel"  [(ngModel)]="fields.email"  required>   
-        </div>
-        <div class="col-6">
+        <div class="col-sm-6">
             <label for="object" class="form-label"> {{ lang.contact.object }} </label>
             <input type="text"  class="form-control"  name="object"  #object="ngModel"   [(ngModel)]="fields.object" required>   
         </div>
+
+        <div class="col-sm-6">
+            <label for="email" class="form-label"> {{ lang.contact.email }} </label>
+            <input type="email" class="form-control" name="email" #email="ngModel"  [(ngModel)]="fields.email"  required>   
+        </div>
+      
         <div class="col-12 mt-4">
             <label for="message" class="form-label">  {{ lang.contact.message }} </label>
             <textarea  class="form-control"   name="message" rows="3"  #message="ngModel"   [(ngModel)]="fields.message"  required></textarea>  
