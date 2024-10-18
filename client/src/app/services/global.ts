@@ -13,7 +13,7 @@ export const global = {
 
     url_email : `${email}/email.php` ,
     
-    project_shop : `${url}/Project_Shop`,
+    project_shop : `${url}/Project_Shop/home`,
 
     project_social : `${url}/Project_Social`,
 
