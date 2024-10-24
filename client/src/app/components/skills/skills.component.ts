@@ -14,7 +14,7 @@ export class SkillsComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this,this.animationSectiones();
+    this.animationSectiones();
   }
 
 
@@ -25,18 +25,18 @@ export class SkillsComponent implements OnInit{
 
 
    tl.from('.section_1',{
-    delay : 0.2,
-    duration : 1,
+    delay : 0.1,
+    duration : 0.8,
     y:30,
     opacity : 0
    });
 
    for(let i= 2; i<=6; i++){
     tl.from(`.section_${i}`, {
-      duration : 1,
+      duration : 0.8,
       y:30,
       opacity : 0
-     },'-=0.8');
+     },'-=0.6');
    }
   }
 

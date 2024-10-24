@@ -65,8 +65,7 @@ export const esp = {
 
 
     skills : {
-        library : "Librerias",
-           icon : "Iconas de"
+        icon : "Iconas de"
     }
 
 

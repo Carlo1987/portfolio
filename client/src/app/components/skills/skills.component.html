@@ -1,7 +1,6 @@
 <div class="row">
 
-
-    <!--  front-end  -->
+    <!-- sezione front-end  -->
     <div class="col-lg-4 col-6">         
  
         <div class="skills section_1">
@@ -17,7 +16,7 @@
     </div>
 
    
-        <!--  back-end  e  datadabe -->
+        <!-- sezioni  back-end  e  datadase -->
     <div class="col-lg-4 col-6">              
         
         <div class="skills section_2">
@@ -47,54 +46,38 @@
         <!--  restanti sezioni  -->
     <div class="col-lg-4 col-12">
         <div class="row">
-            <div class="col-lg-12 col-6">
-                <div class="skills section_4">
-                    <h3> {{ skills.library.title }} </h3>
-                    <div class="skills__languages">
-                        <div *ngFor="let skill of skills.library.languages" class="skill">
-                            <img src="{{ skill.image }}" alt="skill_image">
-                            {{ skill.language }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
             <div class="col-lg-12 col-6">
-                <div class="skills section_5">
-                    <h3> {{ skills.scada.title }} </h3>
-                    <div class="skills__languages">
-                        <div *ngFor="let skill of skills.scada.languages" class="skill">
-                            <img src="{{ skill.image }}" alt="skill_image">
-                            {{ skill.language }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12">
                 
-               <div class="skills section_6">
-                  <h3> {{ skills.devops.title }} </h3>
-                <div class="skills__languages">
-                  <div *ngFor="let skill of skills.devops.languages" class="skill">
-                    <img src="{{ skill.image }}" alt="skill_image">
-                    {{ skill.language }}
-                   </div>
-                </div>
+                <div class="skills section_5">
+                   <h3> {{ skills.devops.title }} </h3>
+                 <div class="skills__languages">
+                   <div *ngFor="let skill of skills.devops.languages" class="skill">
+                     <img src="{{ skill.image }}" alt="skill_image">
+                     {{ skill.language }}
+                    </div>
+                 </div>
+                 </div>
+             </div>
+
+            <div class="col-lg-12 col-6">
+                <div class="skills section_6">
+                    <h3> {{ skills.cms.title }} </h3>
+                    <div class="skills__languages">
+                        <div *ngFor="let skill of skills.cms.languages" class="skill">
+                            <img src="{{ skill.image }}" alt="skill_image">
+                            {{ skill.language }}
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-        
-      
-
-
-       
-
-
     
     </div>
+
+
+
 
 </div>
 

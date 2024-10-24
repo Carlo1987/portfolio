@@ -12,7 +12,7 @@ export class LinksComponent implements AfterViewInit{
   public icon:string = "none";
   private openCurriculum:boolean = false;
   private open_icon:boolean = true;
-  private url:string = "../assets/curriculum_";
+  private url:string = global.url_curriculum;
   @ViewChildren('link_words') link_words!: QueryList<ElementRef<HTMLDivElement>>; 
   
 
@@ -129,11 +129,14 @@ chooseCurriculum(){
 
 
 
-  links(lang:string):void{
-    window.open(`${this.url}${lang}.pdf`);
-    if(lang.includes('curriculum')){
-      this.chooseCurriculum();
+  links(url:string):void{
+    if(url == 'ita' || url == 'esp'){
+       window.location.href = `${this.url}?language=${url}`;
+    }else{
+      window.open(url);
     }
+ 
+ 
    
  }
 

@@ -15,6 +15,14 @@ export const lang_progr = {
             language : "Javascript",
             image : coll +  "/javascript.png"
         },
+        JQuery : {
+            language : "JQuery",
+            image : coll +  "/jquery.png"
+        },
+        Gsap : {
+            language : "Gsap",
+            image : coll +  "/gsap.webp"
+        },
        Bootstrap : {
             language : "Bootstrap",
             image : coll +  "/bootstrap.png"
@@ -46,6 +54,10 @@ export const lang_progr = {
             language : "PHP",
             image : coll +  "/php.png"
         },
+        SocketIo : {
+            language : "Socket.io",
+            image : coll +  "/socket.io.png"
+        },
 
 
 
@@ -61,6 +73,18 @@ export const lang_progr = {
 
 
 
+        Wordpress : {
+            language : "Wordpress",
+            image : coll +  "/wordpress.png"
+        },
+
+
+
+
+        Seo : {
+            language : "Seo",
+            image : coll +  "/seo.png"
+        },
        Git : {
             language : "Git",
             image : coll +  "/git.png"
@@ -69,24 +93,18 @@ export const lang_progr = {
             language : "GitHub",
             image : coll +  "/github.png"
         },
-
-
-
-        SocketIo : {
-            language : "Socket.io",
-            image : coll +  "/socket.io.png"
-        },
-        Gsap : {
-            language : "Gsap",
-            image : coll +  "/gsap.webp"
-        },
-
-
-
-
         Vps : {
             language : "VPS",
             image : coll +  "/vps.png"
         },
+
+
+      
+      
+
+
+
+
+     
        
 }; 

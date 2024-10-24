@@ -68,7 +68,6 @@ export const ita = {
 
 
     skills : {
-        library : "Librerie",
         icon : "Icone di"
     }
 

@@ -21,6 +21,14 @@ export const skills = {
                 image :  lang_progr.Javascript.image
             },
             {
+                language : "JQuery",
+                image : lang_progr.JQuery.image
+            },
+            {
+                language : "Gsap",
+                image : lang_progr.Gsap.image
+            },
+            {
                 language : "Bootstrap",
                 image :  lang_progr.Bootstrap.image
             },
@@ -54,6 +62,10 @@ export const skills = {
                 language : "PHP",
                 image :  lang_progr.Php.image
             },
+            {
+                language : "Socket.io",
+                image : lang_progr.SocketIo.image
+            },
         ]
     },
 
@@ -73,32 +85,13 @@ export const skills = {
     },
 
 
-    library : {
-        title : language.library,
+
+    cms : {
+        title : "CMS",
         languages : [
             {
-                language : "Socket.io",
-                image : lang_progr.SocketIo.image
-            },
-            {
-                language : "Gsap",
-                image : lang_progr.Gsap.image
-            },
-        ]
-    },
-
-
-
-    scada : {
-        title : "SCADA",
-        languages : [
-            {
-                language : "Git",
-                image :  lang_progr.Git.image
-            },
-            {
-                language : "GitHub",
-                image : lang_progr.GitHub.image
+                language : "Wordpress",
+                image :  lang_progr.Wordpress.image
             },
         ]
     },
@@ -108,6 +101,18 @@ export const skills = {
     devops : {
         title : "DevOps",
         languages : [
+            {
+                language : "SEO",
+                image :  lang_progr.Seo.image
+            },
+            {
+                language : "Git",
+                image :  lang_progr.Git.image
+            },
+            {
+                language : "GitHub",
+                image : lang_progr.GitHub.image
+            },
             {
                 language : "Gestione VPS",
                 image : lang_progr.Vps.image
