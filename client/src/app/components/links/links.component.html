@@ -1,0 +1,31 @@
+
+<div class="contact_links" (mouseover)="deleteIcon()">
+
+    <div class="link">
+        <i class="fa fa-github fa-2xl" aria-hidden="true" (mouseenter)="setIcon('github')" (click)="links('https://github.com/Carlo1987')"></i>
+        <div class="link__word" [hidden]="icon != 'github'" #link_words> GitHub </div>
+    </div>
+
+    <div class="link" >
+        <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (mouseenter)="setIcon('linkedin')" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
+        <div class="link__word" [hidden]="icon != 'linkedin'" #link_words> linkedin </div>
+    </div>
+   
+    <div class="link"> 
+        <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()" (mouseenter)="setIcon('curriculum')"></i>      
+        <div class="link__word " [hidden]="icon != 'curriculum'"  #link_words> Curriculum </div>  
+
+        <div class="choose_curriculum">
+            <div class="curriculum"  (click)="links('ita')">
+                <i class="fa-solid fa-file-pdf"></i>
+                Curriculum ita 
+            </div>
+            <div class="curriculum" (click)="links('esp')"> 
+                <i class="fa-solid fa-file-pdf"></i>
+                Curriculum esp 
+            </div>
+        </div>
+    </div>
+   
+</div>
+

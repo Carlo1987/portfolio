@@ -1,0 +1,74 @@
+
+
+
+    <main>
+
+        <div id="messages">
+             <div class="messages__container">
+
+                <p id="welcome"> <span> {{ lang.home.welcome1 }} </span> <span> {{ lang.home.welcome2 }} </span>   </p>          
+    
+                <div class="message">
+                    <p> Full Stack </p>
+                    <p> Web Developer </p>
+                </div> 
+
+             </div>
+           
+               
+        </div>
+
+        <div id="my_picture">
+            <img src="../../../assets/images/io.png" alt="image_welcome"> 
+        </div>
+
+    </main>
+
+
+
+    <div>
+
+
+        <section *ngFor="let section of sectiones; let i=index">
+       
+            <div  *ngIf="i%2==0  then left else right">  </div>
+    
+            <ng-template #left>
+                <div class="row">
+                    <div class="col-xl-3 offset-xl-1 col-md-4 col-5 container_image">
+                        <img src="{{section.image}}" alt="image_element" class="element_{{i+1}}">
+                    </div>
+                    <div class="col-md-7 container_text">
+                        <h5>  
+                            <img src="{{section.image}}" alt="image_element" class="elementResp_{{i+1}} elements_responsive">
+                            {{ section.link }} 
+                        </h5>
+                        <p>  {{ section.text }} </p>
+                        <p>  {{ lang.home.elements.visit }} <span routerLink="{{ section.route }}">  <i class="fa fa-long-arrow-right fa-sm" aria-hidden="true"></i>  {{ section.link }} </span>  </p>
+                    </div>
+                </div>
+            </ng-template>
+    
+    
+            <ng-template #right>
+                <div class="row">    
+                    <div class="col-md-7 offset-xl-1 container_text">
+                        <h5> 
+                            {{ section.link }} 
+                            <img src="{{section.image}}" alt="image_element" class="elementResp_{{i+1}} elements_responsive">
+                        </h5>
+                        <p>  {{ section.text }} </p>
+                        <p> {{ lang.home.elements.visit }} <span routerLink="{{ section.route }}"> <i class="fa fa-long-arrow-right fa-sm" aria-hidden="true"></i> {{ section.link }} </span>  </p>
+                    
+                    </div>
+                    <div class="col-xl-3 col-5 container_image">
+                        <img src="{{section.image}}" alt="image_element" class="element_{{i+1}}">
+                    </div>
+                </div>
+            </ng-template>
+    
+    
+        </section>
+
+    </div>
+

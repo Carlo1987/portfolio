@@ -1,0 +1,71 @@
+
+
+<div class="d-flex flex-column w-100">
+
+
+
+
+<div *ngFor="let project of projects; let i = index">
+
+    <div *ngIf="i%2 == 0 then left else right">     </div>
+
+
+    <ng-template #left>
+
+        <article class=" d-flex justify-content-start w-100">   
+
+            <div class="project animate__animated animate__backInLeft"  (click)="urlProject(project.url)" (mouseenter)="hoverCenter(i,'left')" (mouseleave)="hoverSide(i)"  #project_ang>  
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div> 
+            
+                <div class="description_project">          
+            
+                    <p class="mt-2">  {{ project.description }}  </p>
+            
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_left">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+            </div>
+
+        </article>
+
+    </ng-template>
+
+
+     <ng-template #right>
+
+        <article class="d-flex justify-content-end w-100"> 
+
+            <div class="project animate__animated animate__backInRight"  (mouseenter)="hoverCenter(i,'right')" (mouseleave)="hoverSide(i)"  (click)="urlProject(project.url)"  #project_ang>  
+                <div class="description_project">
+            
+                  <p class="mt-2">  {{ project.description }}  </p>
+                         
+                  <div class="languages_projetc">
+                    <div *ngFor="let language of project.languages" class="language_project projects_right">
+                        <img src="{{ language.image }}" alt="image_language" style="width: 35px; height: 30px;">
+                        {{ language.language }}
+                    </div>    
+                  </div>
+                </div>
+        
+        
+                <div class="image_project">
+                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                </div>
+            </div>
+        </article>
+
+    </ng-template>
+
+</div>
+
+
+
+
+</div>

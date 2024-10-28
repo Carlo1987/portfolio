@@ -1,0 +1,22 @@
+
+<div class="row pt-4 aboutMe">
+
+     <div class="col-12" >   
+
+       <div class="row ">
+         <div class="col-lg-3 offset-1 pe-0 aboutMe_0">
+            <img src="../../../assets/images/primo_piano.png" alt="image_aboutMe">
+          </div>
+          <div id="first_message" class="col-lg-7 col-10 offset-lg-0 offset-1 aboutMe__phrase aboutMe_0">  
+           {{ lang.aboutMe.presentacion }}
+          </div>
+       </div>
+ 
+     </div>
+
+
+    <div *ngFor="let phrase of phrases; let i = index" class="col-10 offset-1 aboutMe__phrase aboutMe_{{ i+1 }}">
+       {{ phrase }}
+    </div>
+
+</div>

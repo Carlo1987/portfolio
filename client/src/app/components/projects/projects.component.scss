@@ -1,0 +1,272 @@
+
+$color_text :   rgb(224, 215, 215); 
+$color_shadow :  rgb(40, 39, 39);
+$color_background :
+rgb(59, 53, 53) 0%,
+rgb(91, 79, 79) 70%,
+rgb(134, 117, 117)  100%;
+
+
+%border_style{
+    box-shadow: 0px 0px 10px $color_shadow;
+    border-radius: 8px;
+}
+
+
+
+%border_style_hover{
+    border: transparent;  
+    box-shadow: 3px 4px 4px rgb(84, 76, 76); 
+}
+
+
+@mixin backgroundColor(){
+    background-image: linear-gradient($color_background);
+}
+
+
+
+%style_phrase {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+
+.project{
+    width: 85%;
+    height: auto; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: white;
+    @extend %border_style;
+
+    .image_project{
+       width: 35%;
+       height: 100%; 
+       display: flex;
+       align-items: center;
+       
+
+       img{ 
+        height: 250px;  
+        box-shadow: 0px 0px 5px  rgb(59, 53, 53); 
+     }
+    }
+
+    .description_project{
+        width: 60%; 
+        height: 100%;
+        font-size: 19px;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        @extend %style_phrase;   
+
+        .languages_projetc{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            @extend %style_phrase;   
+    
+            .language_project{
+                display: flex;
+                align-items: center;
+                gap: 3px; 
+                padding: 3px;
+                padding-left: 5px;
+                @extend %border_style;
+            }      
+        }
+    }
+
+
+
+    .btn{
+        width: 200px;
+        margin: 0 auto;
+    }
+
+}
+
+
+.project:hover{
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    @extend %border_style_hover; 
+
+    @include backgroundColor();
+
+    .image_project{
+        opacity: 1;
+        transform: scale(1);
+      }
+ 
+
+    .language_project,
+    .title_project{
+      background-color: $color_text;
+      color: black;
+    }
+
+
+    .title_project{
+        animation: title_effect 300ms linear;
+    }
+
+    
+     .projects_left{
+        animation: effect_right 500ms linear;
+    }
+
+    .projects_right{
+        animation: effect_left 500ms linear;
+    } 
+
+    @keyframes title_effect {
+        from {
+            transform: translateY(-70%);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes effect_right {
+        from {
+            transform: translateX(400%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes effect_left {
+        from {
+            transform: translateX(-400%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+}
+
+
+
+
+
+
+/* ------------------------      MEDIA QUERY    ---------------------------- */
+
+
+@media(max-width:992px){
+    .project{
+        width: 100%;
+    }
+    
+}
+
+
+
+@media(max-width:775px){
+    
+ .project{
+    min-height: 400px;
+    box-shadow: none;
+    border-radius: none;
+    background-color: transparent;
+    flex-direction: column;
+    position: relative;
+
+     .image_project{ 
+        width: 250px; 
+        height: 250px;
+        position: absolute;
+        top: 0;
+        transition: 500ms all ease-in-out;
+
+        img{
+            width: 100%;
+            height: 100%;
+         
+        }
+    } 
+
+    .description_project{
+        position: absolute;
+        bottom: 0;
+        width: 100%; 
+        height: auto;
+
+       p{
+        width: 100%;
+        opacity: 1;
+        transform: scale(1);
+        color: $color_shadow;
+        transition: 600ms all ease-in-out;
+        display: flex;
+        align-items: center;
+       }
+
+       .languages_projetc{ display: none; }
+    } 
+ }
+
+
+
+    .project:hover{
+        background-image: none;
+        box-shadow: none;
+        overflow: visible;
+
+        .image_project{
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px $color_shadow;
+        }
+
+        .description_project{
+      
+           p{
+            text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5), 
+            4px 4px 8px rgba(119, 116, 116, 0.3);
+           }
+    
+        } 
+
+    }  
+
+}
+
+
+
+@media(max-width:457px){
+    .project{
+    
+         .image_project{ 
+          width: 200px; 
+          height: 200px;
+        } 
+    }
+}
+
+
+
+@media(max-width:339px){
+    .project{
+    
+         .image_project{ 
+          width: 150px; 
+          height: 150px;
+        } 
+    }
+}
+
+

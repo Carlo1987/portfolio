@@ -1,0 +1,37 @@
+
+
+$color_text :    rgb(59, 53, 53); 
+$color_shadow : rgb(112, 106, 106);  
+
+
+#contact_form{
+
+    label,
+    button{
+        font-size: 19px;
+        color: $color_text;
+        text-shadow: 1px 1px 3px $color_shadow;
+        letter-spacing: 1px;
+    }
+
+    
+    label{
+        padding-left: 2px;
+    }
+    
+    
+    
+    input,
+    textarea{
+        border: 2px solid rgb(115, 105, 105);
+        box-shadow: 2px 2px 3px rgb(21, 20, 20);
+    }
+    
+    
+    input:focus,
+    textarea:focus{
+        color: $color_text;
+        box-shadow: 0px 0px 3px rgb(21, 20, 20) inset; 
+    } 
+
+}

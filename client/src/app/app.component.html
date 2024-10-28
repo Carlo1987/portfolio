@@ -1,0 +1,98 @@
+
+<app-loading *ngIf="showLoading"></app-loading>
+
+<div [hidden]="showLoading"> 
+
+
+  <nav class="navbar navbar-expand-xl fixed-top">    
+    <div class="container-fluid">
+      <div class="col-6">
+        <ul class="navbar-nav ps-2 d-flex flex-row gap-4" id="home_effects">
+
+          <li class="navbar-item">
+              <a class="nav-link" href="#"  routerLink="/" id="home_link">
+                    <img src="../assets/images/logo_home.png" alt="logo" id="logo_image">   
+                    <span id="logo"> CL </span>  
+              </a>
+          </li>
+
+          <li class="navbar-item dropdown dropbottom">
+            <a id="choosed_language"  class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../assets/images/bandiera_italia.png" alt="flag_language" #flag>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  (click)="getLang('ita')"> 
+                <img src="../assets/images/bandiera_italia.png" alt="flag_italy">     Italiano
+                </a>
+              </li>
+              <li><a class="dropdown-item"  (click)="getLang('esp')"> 
+                <img src="../assets/images/bandiera_spagna.png" alt="flag_spain">   Español
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="navbar-item links_noResponsive">  
+              <app-links></app-links>
+          </li> 
+
+
+        </ul>
+      </div>
+    
+
+      
+
+      <div class="col-6 d-flex flex-row justify-content-end align-items-center" id="links_effects">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  aria-expanded="false" aria-label="Toggle navigation" style="border:transparent;">
+      
+              <button  type="button"  id="button_responsive"> 
+                    <span (click)="menuResponsive()"  >  
+                      <i class="fa fa-bars fa-2xl" aria-hidden="true" id="close_button"> </i>  
+                      <i class="fa fa-times fa-2xl" aria-hidden="true" id="closed_button"></i>
+                    </span> 
+              </button>
+
+
+              <div id="offcanvasNav">
+                <ul>
+                  <li *ngFor="let link of nav; let i = index " class="nav-item navLink">
+                    <a class="nav-link links_responsive_{{i}}"  href="#" (click)="navigate(link.route)">  {{ link.link }}</a>   <!--   nav grandezza schermo Tablet/cellulare  -->
+                  </li> 
+                  <div class="navbar-item links_responsive">
+                      <app-links></app-links> 
+                </div>
+                </ul>  
+        
+              </div>  
+
+          </button>
+
+
+    
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav w-100  d-flex flex-row justify-content-around" style="height: auto;">
+
+            <li *ngFor="let link of nav; let i = index " class="nav-item navLink" >
+              <a class="nav-link links_visibles link_{{i}}r"  href="#" routerLink="{{ link.route }}" [routerLinkActive]="['actived']">  {{ link.link }}</a>      <!--   nav grandezza schermo PC  -->
+            </li> 
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container-fluid" id="container">    
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+
+ </div> 
+

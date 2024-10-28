@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>carloloidev.com - Full Stack Web Developer</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Full Stack Web Developer Carlo Loi, carloloidev.com, specialized in Frontend, Backend and database management">
+  <meta name="keywords" content="Full Stack Web Developer, database management, Frontend, Backend">
+
+  <link rel="icon" type="image/jpg" href="assets/images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://kit.fontawesome.com/b476d70dd7.js" crossorigin="anonymous"></script>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Ewert&family=Oswald:wght@200..700&family=Protest+Guerrilla&family=Roboto+Slab:wght@100..900&family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400..700&family=Grey+Qo&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Matemasie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Tint&family=Dancing+Script:wght@400..700&family=Grey+Qo&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Matemasie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Handjet:wght@100..900&family=Wallpoet&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Carlo Loi",
+      "jobTitle": "Full Stack Web Developer",
+      "url": "https://www.carloloidev.com"
+    }
+    </script>
+
+
+
+    <style>
+
+      :root{
+        --hover : rgb(225, 206, 206);
+        --theme :  rgb(59, 53, 53); 
+        --shadow : rgb(27, 31, 35);
+      }
+
+      
+      .navbar{
+        width: 100%; 
+        height: 95px;
+        background-color: var(--theme);
+        box-shadow: 0px 2px 2px  var(--shadow) ; 
+        position: relative;
+        transform: translateY(-100px);
+        animation: navDown 800ms forwards;
+      /*   animation-delay: 2s; */
+      }
+
+
+      @keyframes navDown{
+        from{
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        to{
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+ 
+     .navbar a,
+     .navbar a:visited{
+        font-size: 22px;
+        color: white; 
+      }
+ 
+
+      #home_effects{
+          display: flex;
+          align-items: center;
+      }
+
+        #home_effects a:hover{
+            color:var(--hover);
+            transition: 700ms;
+        }
+
+        #choosed_language::after{
+          color: white;
+        }
+
+        #choosed_language img{
+            width: 45px; 
+            height: 35px; 
+            border-radius: 5px;
+            border: 2px solid white; 
+            transition: 300ms all  ease-in-out;
+        }
+
+        #home_effects img:hover{
+           transform: scale(1.1);
+        }
+
+
+        #home_link{
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-shadow: 1px 0px 3px rgb(211, 202, 202);
+            position: relative;
+         }
+            
+          #logo_image{
+          width: 90px;
+          height: 85px;   
+          border-radius: 900px; 
+          color: white;
+          border: transparent;
+          animation-name: rotateLogo;
+          animation-duration: 20s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          }
+
+          @keyframes rotateLogo {
+              from{
+                  transform: rotateZ(0deg);
+              }
+              to{
+                  transform: rotateZ(360deg);
+              }
+          }
+
+          #logo{
+              position: absolute;
+              top: 23.5%;
+              left: 35%;
+
+              font-family: "Oswald", sans-serif;
+              font-optical-sizing: auto;
+              font-weight: 700;
+              font-style: normal;
+          }
+
+          #logo:hover{
+              text-shadow: 0px 0px 5px whitesmoke;
+          }
+        
+    
+
+          #home_effects .dropdown-toggle:visited{
+            color: white;
+          }
+    
+        #home_effects .dropdown-menu{
+            position: absolute;
+            background-color: var(--theme);
+            border: 1px solid white;
+            z-index: 2;
+            top: 50px;
+            right: 0;
+         }
+
+         #home_effects .dropdown-menu a{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        #home_effects .dropdown-menu a:hover{
+            background-color: var(--theme);
+            color: white;
+        } 
+
+        #home_effects .dropdown-menu a::after{ 
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 50%;
+            bottom: 0;
+            background-color: white;
+            transition: all 300ms linear;
+          }
+
+
+          #home_effects .dropdown-menu a:hover::after{
+            width: 80%;
+            left: 15px;
+          } 
+
+          #home_effects  .dropdown-menu img{
+            width: 35px;
+            height: 25px;
+            border-radius: 5px;
+        }
+        
+
+
+       /*   LINK     */
+
+      #links_effects  a{
+            height: 13vh;
+            display: flex;
+            align-items: center;
+            font-size: 27px;
+        } 
+        
+        #links_effects li:hover,
+        .actived{
+            background-color: white !important;  
+            color: var(--theme) !important;
+            overflow: hidden;
+            transition: 1.5s;  
+        }
+
+   
+     
+
+        #links_effects li:hover a{   
+                color: var(--theme);   
+                text-shadow: 1px 1px 3px rgb(155, 142, 142);                
+        }  
+
+        #button_responsive{
+            border: transparent;
+            background-color: transparent;
+            margin-right: 20px;
+            color: white;
+        }
+
+        #closed_button{
+           transform: translateX(200px);
+         }
+
+
+        #offcanvasNav{
+            width: 0px;
+            height: 0px; 
+            background-color: var(--theme); 
+            box-shadow: 0px 2px 2px var(--shadow); 
+         
+            position: absolute;
+            top : 95px;
+            right: 0;
+            opacity: 0.8;
+          }
+
+          #offcanvasNav ul {
+              width: 100%;
+              height: 100%;
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              padding-left: 5px;
+            }
+
+          #offcanvasNav ul li{
+              width: 100%;
+              transition: 500ms;
+              display: flex;
+              justify-content: center;
+          }
+
+          #offcanvasNav ul a{
+              transform: translateX(800px);
+              opacity: 0.2;
+              font-size: 34px;
+              letter-spacing: 2px;
+          }  
+
+    </style>
+
+
+</head>
+<body>
+   <app-root></app-root>
+</body>
+</html>
+
+

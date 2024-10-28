@@ -1,0 +1,54 @@
+
+
+
+
+
+<form id="contact_form"  method="POST" action="" #formContact="ngForm" (ngSubmit)="emailSended()">    
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <label for="object" class="form-label"> {{ lang.contact.object }} </label>
+            <input type="text"  class="form-control"  name="object"  #object="ngModel"   [(ngModel)]="fields.object" required>   
+        </div>
+
+        <div class="col-sm-6">
+            <label for="email" class="form-label"> {{ lang.contact.email }} </label>
+            <input type="email" class="form-control" name="email" #email="ngModel"  [(ngModel)]="fields.email"  required>   
+        </div>
+      
+        <div class="col-12 mt-4">
+            <label for="message" class="form-label">  {{ lang.contact.message }} </label>
+            <textarea  class="form-control"   name="message" rows="3"  #message="ngModel"   [(ngModel)]="fields.message"  required></textarea>  
+        </div>
+
+    </div>
+
+   
+    <div class="text-center mt-3">
+        <button class="btn btn-dark" style="color: white;" name="email_contact" [disabled]="!formContact.form.valid" >  {{ lang.contact.button }} </button>
+    </div>
+
+
+
+    <div class="text-center fs-5 mt-2" *ngIf="loading">
+        <strong role="status">Loading...</strong>
+        <div class="spinner-border ms-auto" aria-hidden="true"></div>
+    </div>
+
+
+
+
+    <div class="error mt-3" *ngIf="message_error != ''">   
+        {{ message_error }} 
+    </div>
+
+    <div class="success mt-3" *ngIf="message_success != ''">   
+        {{ message_success }} 
+    </div>
+
+
+</form>
+
+
+

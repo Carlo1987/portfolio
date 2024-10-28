@@ -1,0 +1,184 @@
+
+
+
+$color_hover : rgb(225, 206, 206);
+$color_theme :  rgb(59, 53, 53); 
+$color_shadow : rgb(27, 31, 35);
+
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+%style_logo {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+
+%alert_style{
+    color: rgb(244, 236, 236);
+    text-shadow: 2px 2px 3px rgb(39, 37, 37);
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 1px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 3px $color_shadow ;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+   position: relative;
+   background-color: rgb(233, 229, 229) !important;
+   overflow-x: hidden;
+}
+
+
+
+
+
+.error{
+    background-color:  rgb(203, 77, 77);
+    @extend %alert_style;
+}
+
+
+.success{
+    background-color: rgb(84, 163, 74);  
+    @extend %alert_style;
+}
+
+
+
+#container{
+    margin-top: 110px; 
+    min-height: 619px;   
+}
+
+
+
+
+
+
+.contact_links{
+    padding: 10px; 
+    width: 100%; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: white;
+
+    .link{
+         position : relative; 
+
+        .link__word{
+            position: absolute;
+            font-size: 16px;
+            border: 1px solid white;
+            box-shadow: 0px 0px 15px whitesmoke;
+            padding-right: 5px;
+            padding-left: 5px; 
+            border-radius: 5px;
+            margin-top: 8px;
+            left: -50%;
+            background-color: $color_theme;
+        }
+
+        .choose_curriculum{
+            position: absolute;
+            background-color: $color_theme; 
+            width: 0px; 
+            height: 0px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px whitesmoke;
+            left: 8px; 
+            top: 0;
+            font-size: 15px;
+            display: none;
+            opacity: 0;   
+            z-index: 2; 
+
+            .curriculum{ 
+                text-align: left; 
+                opacity: 0; 
+                position: relative;
+                cursor: pointer;
+            }
+
+            .curriculum:first-child{
+                margin-bottom: 5px;
+            }
+
+            .curriculum::after{ 
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                left: 50%;
+                bottom: 0;
+                background-color: white;
+                transition: all 300ms linear;
+             }
+
+
+            .curriculum:hover::after{
+                width: 100%;
+                left: 0;
+             } 
+
+
+        }
+
+    }
+
+    .fa{ cursor: pointer; }
+    .fa:hover{ color: $color_hover; }
+   
+}
+
+.links_responsive{
+    opacity: 0;
+} 
+
+
+
+
+@media(max-width:1200px){
+    #logo_image{
+        width: 85px !important;
+        height: 78px !important;   
+        margin-left: 5px;
+    }
+
+    .links_noResponsive{
+        display: none !important;
+    } 
+}
+
+
+
+
+
+
+
+
+
