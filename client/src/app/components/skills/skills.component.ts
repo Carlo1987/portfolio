@@ -1,6 +1,7 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , AfterViewInit , OnDestroy} from '@angular/core';
 import { skills } from 'src/app/models/skills';
 import { service } from 'src/app/services/service';
+import { DelayService } from 'src/app/services/delay';
 import { gsap } from 'gsap';
 
 @Component({
@@ -8,13 +9,26 @@ import { gsap } from 'gsap';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit{
+export class SkillsComponent implements AfterViewInit, OnDestroy{
   public skills:any = skills;
   public language:any = service.setLanguage();
 
 
-  ngOnInit(): void {
-    this.animationSectiones();
+
+  constructor(
+    private delayService: DelayService
+  ){}
+
+
+  ngAfterViewInit(): void {
+    this.delayService.executeWithDelay(() => {
+      this.animationSectiones();
+    });
+  }
+
+  
+  ngOnDestroy(): void {
+    this.delayService.removeLoading();
   }
 
 

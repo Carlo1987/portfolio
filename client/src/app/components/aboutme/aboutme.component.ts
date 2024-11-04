@@ -1,5 +1,6 @@
-import { Component , AfterViewInit } from '@angular/core';
+import { Component , AfterViewInit , OnDestroy } from '@angular/core';
 import { service } from 'src/app/services/service';
+import { DelayService } from 'src/app/services/delay';
 import { gsap } from 'gsap';
 
 @Component({
@@ -7,17 +8,15 @@ import { gsap } from 'gsap';
   templateUrl: './aboutme.component.html',
   styleUrls: ['./aboutme.component.scss']
 })
-export class AboutmeComponent implements AfterViewInit {
+export class AboutmeComponent implements AfterViewInit, OnDestroy {
   public lang:any = service.setLanguage();
   public phrases:Array<string> = [];
 
 
-  ngAfterViewInit(): void {
-    this.animationPhrases();
-  }
 
-
-  constructor(){
+  constructor(
+    private delayService: DelayService
+  ){
     const language = this.lang.aboutMe;
 
     this.phrases = [
@@ -28,6 +27,20 @@ export class AboutmeComponent implements AfterViewInit {
       language.final
     ];
   
+  }
+
+
+  ngAfterViewInit(): void {
+    this.delayService.executeWithDelay(() => {
+      this.animationPhrases();
+    });
+  }
+
+
+
+  
+  ngOnDestroy(): void {
+    this.delayService.removeLoading();
   }
 
 

@@ -1,5 +1,7 @@
-import { Component, DoCheck, AfterViewInit, ViewChildren, QueryList, ElementRef, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, AfterViewInit, ViewChildren, QueryList, ElementRef, OnDestroy } from '@angular/core';
 import { projects } from 'src/app/models/projects';
+import { service } from 'src/app/services/service';
+import { DelayService } from 'src/app/services/delay';
 
 
 @Component({
@@ -7,13 +9,17 @@ import { projects } from 'src/app/models/projects';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements AfterViewInit, DoCheck{
+export class ProjectsComponent implements AfterViewInit, DoCheck, OnDestroy{
    private big_screen:boolean = true; 
    public projects:Array<any> = projects;
    private value_positive:number = 110;
    private value_negative:number = -110;
    @ViewChildren ('project_ang') projects_hover!: QueryList<ElementRef<HTMLDivElement>>
 
+
+   constructor(
+    private delayService: DelayService
+   ){}
  
 
    ngAfterViewInit(): void {
@@ -29,6 +35,12 @@ export class ProjectsComponent implements AfterViewInit, DoCheck{
 
   ngDoCheck(): void {
     this.responsive();
+  }
+
+
+  
+  ngOnDestroy(): void {
+    this.delayService.removeLoading();
   }
 
 

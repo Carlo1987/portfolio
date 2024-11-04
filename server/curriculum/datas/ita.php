@@ -86,9 +86,9 @@ $curriculum = array(
            [
                 'name' => 'Full Stack Web Developer',
                 'date' => '2023 ad oggi',
-                'content' => "Sviluppo web come freelancer di
-                                diversi progetti realizzati con vari
-                                linguaggi lato front-end e back-end;"
+                'content' => "Sviluppo web da autodidatta di
+                                progetti social, vendita prodotti e case vacanze realizzati con vari
+                                linguaggi frontend e backend;"
             ],
 
             [

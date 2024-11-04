@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'; 
+import { Component, OnDestroy } from '@angular/core'; 
 import { service } from 'src/app/services/service';
+import { DelayService } from 'src/app/services/delay';
 import { Email } from 'src/app/models/email';
 import { ContactService } from 'src/app/services/contact';
 
@@ -10,7 +11,7 @@ import { ContactService } from 'src/app/services/contact';
   providers: [ContactService]
 })
 
-export class ContactComponent{
+export class ContactComponent implements OnDestroy{
   public lang:any = service.setLanguage();
   public fields:Email = new Email("","","");
   public loading:boolean = false;
@@ -18,8 +19,14 @@ export class ContactComponent{
   public message_success:string = '';
 
   constructor(
-    private _contactService : ContactService
+    private _contactService : ContactService,
+    private delayService: DelayService
   ){}
+
+
+  ngOnDestroy(): void {
+    this.delayService.removeLoading();
+  }
 
 
   emailSended(){    

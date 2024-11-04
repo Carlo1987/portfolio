@@ -1,5 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { service } from 'src/app/services/service';
+import { DelayService } from 'src/app/services/delay';
 import { scrolltrigger } from 'src/app/models/scrolltrigger';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,19 +11,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit{
+export class HomeComponent implements AfterViewInit, OnDestroy{
   public lang:any = service.setLanguage();
   public sectiones:any = scrolltrigger;
 
 
-  ngAfterViewInit(): void {
-   this.animationSectiones();
 
+  constructor(
+    private delayService: DelayService
+  ){}
+
+
+  ngAfterViewInit(): void {
+      this.delayService.executeWithDelay(() => {
+        this.animationSectiones();
+      });
+  }
+
+
+  ngOnDestroy(): void {
+    this.delayService.removeLoading();
   }
 
 
 
   animationSectiones():void{
+    
     gsap.registerPlugin(ScrollTrigger);
 
 

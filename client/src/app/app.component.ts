@@ -28,9 +28,11 @@ export class AppComponent implements OnInit, AfterViewInit{
 
 
   ngOnInit(): void {
+    sessionStorage.setItem('loading','true');
     setTimeout(() => {
       this.showLoading = false;
-    }, 2000);
+
+    }, 4500);  
   }
 
 
