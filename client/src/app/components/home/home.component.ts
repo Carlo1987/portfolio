@@ -23,8 +23,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
 
 
   ngAfterViewInit(): void {
-      this.delayService.executeWithDelay(() => {
-        this.animationSectiones();
+      this.delayService.executeWithDelay(()=>{
+        this.animationSectiones()
       });
   }
 

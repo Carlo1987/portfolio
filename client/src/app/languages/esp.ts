@@ -8,7 +8,7 @@ export const esp = {
     error : "No se encuentra la pagina",
 
     nav : {
-        skills : "Abilidades",
+        skills : "Habilidades",
         aboutMe : "Sobre mi",
         projects : "Proyectos",
         contacts : "Contactos"

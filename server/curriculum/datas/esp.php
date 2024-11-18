@@ -9,7 +9,8 @@ $name_pdf = "Curriculum Loi Carlo español.pdf";
 $curriculum = array(
     'contacts' => [
         'title' => 'contactos',
-        'telephone' => 'Cellular'
+        'telephone' => 'Cellular',
+        'location' => 'Localidad'
     ],
 
 
@@ -60,26 +61,23 @@ $curriculum = array(
            [
                 'name' => $projects['project_holiday']['title'],
                 'url' => $projects['project_holiday']['url'],
-                'content' => "Simulador sitio de casas de vaciones
-                                en Cerdeña donde es posible aceder
-                                como “Administrador” para crear
-                                nuevas casas;"
+                'content' => "Simulador de casas de vaciones",
+                'languages' => $projects['project_holiday']['languages']
             ],
 
             [
                 'name' => $projects['project_social']['title'],
                 'url' => $projects['project_social']['url'],
-                'content' => "Social inspirado a Facebook;"
+                'content' => "Social inspirado a Facebook",
+                'languages' => $projects['project_social']['languages']
             ],
 
 
             [
                 'name' => $projects['project_shop']['title'],
                 'url' => $projects['project_shop']['url'],
-                'content' => "Simulador sitio de venta de productos
-                                donde es posible registrarse como
-                                “Administrador” para añadir nuevos
-                                productos;"
+                'content' => "Simulador sitio de venta de productos",
+                'languages' => $projects['project_shop']['languages']
             ]
         ]
     ],

@@ -1,4 +1,3 @@
-// src/app/services/delay.service.ts
 
 import { Injectable } from '@angular/core';
 
@@ -6,13 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DelayService {
-  constructor() {}
-
-
 
   executeWithDelay(callback: () => void) {
-    // Controlla se esiste il session storage "loading"
-    const isLoading = sessionStorage.getItem('loading');
+    let isLoading = sessionStorage.getItem('loading');
     
     if (isLoading) {
       setTimeout(() => {

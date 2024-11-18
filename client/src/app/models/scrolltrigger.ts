@@ -10,7 +10,7 @@ export let scrolltrigger = [
     {
         image : coll+"/rubik.jpg",
         text : language.skill_text,
-        link : "Skills",
+        link : link.skills,
         route : route.skills
     },
     {

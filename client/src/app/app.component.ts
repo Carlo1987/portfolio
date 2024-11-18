@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ita } from './languages/ita';
 import { esp } from './languages/esp';
 import { service } from './services/service';
+import { DelayService } from './services/delay';
 import { nav } from './models/nav';
 import { gsap } from 'gsap/gsap-core';
 
@@ -16,40 +17,48 @@ import { gsap } from 'gsap/gsap-core';
 
 export class AppComponent implements OnInit, AfterViewInit{
   public lang:any = service.setLanguage();
-  public showLoading:boolean = true;
+  public showLoading:boolean = true;  
   public nav:Array<any> = nav;
   public menu_responsive:boolean = true;
   public menu_curriculum:boolean = false;
   @ViewChild('flag',{static:true}) flag!:ElementRef<HTMLImageElement>;
 
   constructor(
-   private _router : Router  
+   private _router : Router,
+   private _delayService : DelayService  
   ){}
 
 
   ngOnInit(): void {
+   if(!sessionStorage.getItem('change_language')){
     sessionStorage.setItem('loading','true');
     setTimeout(() => {
       this.showLoading = false;
-
+  
     }, 4500);  
+   
+   }else{
+    this.showLoading = false;
+    sessionStorage.removeItem('change_language');
+   }
   }
 
 
- ngAfterViewInit(): void {
-  this.setFlag(); 
- }
+  ngAfterViewInit(): void {
+    this.setFlag(); 
+  }
 
 
    
  setFlag(){
   let flag = this.flag.nativeElement;
+  const directory_flags = "../assets/images";
    
-  if(this.lang.language == 'ita'){
-    flag .setAttribute('src','../assets/images/bandiera_italia.png');
-  }else if(this.lang.language == 'esp'){
-    flag .setAttribute('src','../assets/images/bandiera_spagna.png');    
-  }  
+    if(this.lang.language == 'ita'){
+      flag .setAttribute('src' , directory_flags+'/bandiera_italia.png');
+    }else if(this.lang.language == 'esp'){
+      flag .setAttribute('src' , directory_flags+'/bandiera_spagna.png');    
+    }  
   }
 
 
@@ -62,6 +71,8 @@ export class AppComponent implements OnInit, AfterViewInit{
       this.lang = esp;
      }
      sessionStorage.setItem('lang',JSON.stringify(this.lang));
+     sessionStorage.setItem('change_language',"true");
+     this._delayService.removeLoading();
      window.location.reload();
    }
 

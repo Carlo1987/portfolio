@@ -252,7 +252,12 @@ require 'datas/skills.php';
 
         .list__content{
             margin-top: 3px;
-          
+        }
+
+        .list_languages{
+            width: 95%;
+            margin-left: 10px;
+            font-family: 'Great Vibes', 'Brush Script MT', cursive;
         }
 
 
@@ -334,6 +339,17 @@ require 'datas/skills.php';
                         </span>
                         <span class="row__data"> 
                             +39 3338416149 
+                        </span>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+                        <span class="row__title">
+                            <?= $contactos['location'] ?>:
+                        </span>
+                        <span class="row__data"> 
+                            Emilia Romagna, Forlì
                         </span>
 
                         <div class="clearfix"></div>
@@ -450,8 +466,9 @@ require 'datas/skills.php';
 
                         <div class="main__list">
                             <span class="list__title"> <?= $project['name'] ?> </span>
+                            <span class="list__content"> <?= $project['content'] ?>. </span>
                             <span class="list__url"> <?= $project['url'] ?> </span>
-                            <span class="list__content"> <?= $project['content'] ?> </span>
+                            <span class="list_languages"> <?= $project['languages'] ?> </span>
                         </div>
                     
                     <?php endforeach; ?>
@@ -584,4 +601,4 @@ require 'datas/skills.php';
 
     $dompdf->render();
 
-    $dompdf->stream($name_pdf, array('Attachment' => true));
+    $dompdf->stream($name_pdf, array('Attachment' => false));

@@ -75,7 +75,7 @@ main{
             .message{
                 width: 100%;
                 p{
-                    transition: 600ms all ease-in-out;
+                    transition: 600ms all ease-in-out; 
                     text-align: center;
                     padding-left: 3px; 
                     @extend %style_text; 
@@ -86,7 +86,7 @@ main{
             }
 
             #welcome span:nth-child(1){
-                animation: slideUpMore 1s ease forwards;
+                animation: slideUp 1s ease forwards;
             }
 
         
@@ -134,39 +134,16 @@ main{
     }
 
 
-
-    @keyframes slideUpMore {
-        0% {
-        opacity: 0;
-        transform: translateY(50px);
-        }
-        50%{
-            opacity: 1;
-            transform: translateY(25px);
-            transform: scale(1.2);
-            color: $color_border_text;
-           -webkit-text-stroke: 3px $color_text;
-           text-shadow: 3px 3px 3px black; 
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-            transform: translateY(0);
-        }
-    }
-
-
-
     @keyframes slideUp {
         0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(50px) scale(1.2);
         }
         100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         }
-    }
+    }  
 
 
 

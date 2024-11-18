@@ -1,8 +1,6 @@
 
 import { lang_progr } from "./languages";
-import { service } from "../services/service";
 
-const language = service.setLanguage().skills;
 
 export const skills = {
     frontend : {
@@ -101,6 +99,10 @@ export const skills = {
     devops : {
         title : "DevOps",
         languages : [
+            {
+                language : "ChatGPT 4",
+                image :  lang_progr.Chatgpt.image
+            },
             {
                 language : "SEO",
                 image :  lang_progr.Seo.image

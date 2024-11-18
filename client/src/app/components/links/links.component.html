@@ -1,21 +1,20 @@
 
-<div class="contact_links" (mouseover)="deleteIcon()">
+<div class="contact_links">
 
     <div class="link">
-        <i class="fa fa-github fa-2xl" aria-hidden="true" (mouseenter)="setIcon('github')" (click)="links('https://github.com/Carlo1987')"></i>
-        <div class="link__word" [hidden]="icon != 'github'" #link_words> GitHub </div>
+        <i class="fa fa-github fa-2xl" aria-hidden="true"></i>
+        <div class="link__word" (click)="links('https://github.com/Carlo1987')"> GitHub </div>
     </div>
 
-    <div class="link" >
-        <i class="fa fa-linkedin fa-2xl" aria-hidden="true" (mouseenter)="setIcon('linkedin')" (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"></i>
-        <div class="link__word" [hidden]="icon != 'linkedin'" #link_words> linkedin </div>
+    <div class="link">
+        <i class="fa fa-linkedin fa-2xl" aria-hidden="true"></i>
+        <div class="link__word"  (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"> linkedin </div>   
     </div>
    
     <div class="link"> 
-        <i class="fa fa-2xl fa-solid fa-id-card" (click)="chooseCurriculum()" (mouseenter)="setIcon('curriculum')"></i>      
-        <div class="link__word " [hidden]="icon != 'curriculum'"  #link_words> Curriculum </div>  
+        <i class="fa fa-2xl fa-solid fa-id-card"></i>      
 
-        <div class="choose_curriculum">
+       <div class="choose_curriculum" >
             <div class="curriculum"  (click)="links('ita')">
                 <i class="fa-solid fa-file-pdf"></i>
                 Curriculum ita 
@@ -24,7 +23,7 @@
                 <i class="fa-solid fa-file-pdf"></i>
                 Curriculum esp 
             </div>
-        </div>
+        </div> 
     </div>
    
 </div>

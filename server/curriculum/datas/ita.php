@@ -12,7 +12,8 @@ $name_pdf = "Curriculum Loi Carlo italiano.pdf";
 $curriculum = array(
     'contacts' => [
         'title' => 'contatti',
-        'telephone' => 'Telefono'
+        'telephone' => 'Telefono',
+        'location' => 'Località'
     ],
 
 
@@ -54,26 +55,23 @@ $curriculum = array(
            [
                 'name' => $projects['project_holiday']['title'],
                 'url' => $projects['project_holiday']['url'],
-                'content' => "Simulatore sito di prenotazione
-                            vacanze in Sardegna dov’è possibile
-                            registrarsi come “Amministratore”
-                            per creare nuove case;"
+                'content' => "Simulatore sito case vacanze in Sardegna",
+                'languages' => $projects['project_holiday']['languages']
             ],
 
             [
                 'name' => $projects['project_social']['title'],
                 'url' => $projects['project_social']['url'],
-                'content' => "Social ispirato a Facebook;"
+                'content' => "Social ispirato a Facebook",
+                'languages' => $projects['project_social']['languages']
             ],
 
 
             [
                 'name' => $projects['project_shop']['title'],
                 'url' => $projects['project_shop']['url'],
-                'content' => "Simulatore sito di vendita prodotti
-                            dov’è possibile registrasi come
-                            “Amministratore” per aggiungere
-                            nuovi prodotti da vendere;"
+                'content' => "Simulatore sito di vendita prodotti",
+                'languages' => $projects['project_shop']['languages']
             ]
         ]
     ],
