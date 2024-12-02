@@ -5,7 +5,7 @@
 $skills_data = array(
     'frontend' => [
         'title' => 'FrontEnd',
-        'languages' =>  [ 'Angular','Typescript','Javascript','Gsap','JQuery','Bootstrap','Sass','CSS3','Html5' ]
+        'languages' =>  [ 'Angular','Typescript','Javascript','Gsap','JQuery','Bootstrap','Sass','Css3','Html5' ]
     ],
 
     'backend' => [
@@ -26,7 +26,7 @@ $skills_data = array(
 
     'devops' => [
         'title' => 'DevOps',
-        'languages' => ['ChatGpt 4','Seo','Git','Github','Gestione vps']
+        'languages' => ['Seo','Git','Github','Gestione VPS','ChatGPT 4']
     ]
      
 );

@@ -17,16 +17,20 @@
           </li>
 
           <li class="navbar-item dropdown dropbottom">
-            <a id="choosed_language"  class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a id="choosed_language"  class="nav-link dropdown-toggle">   <!--   href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" -->
                 <img src="../assets/images/bandiera_italia.png" alt="flag_language" #flag>
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item"  (click)="getLang('ita')"> 
-                <img src="../assets/images/bandiera_italia.png" alt="flag_italy">     Italiano
+                <img src="../assets/images/bandiera_italia.png" alt="flag_italy">  Italiano
                 </a>
               </li>
               <li><a class="dropdown-item"  (click)="getLang('esp')"> 
                 <img src="../assets/images/bandiera_spagna.png" alt="flag_spain">   Español
+                </a>
+              </li>
+              <li><a class="dropdown-item"  (click)="getLang('eng')"> 
+                <img src="../assets/images/bandiera_inghilterra.png" alt="flag_spain">   English
                 </a>
               </li>
             </ul>

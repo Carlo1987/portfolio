@@ -1,7 +1,7 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { service } from 'src/app/services/service';
+import { Component, AfterViewInit , OnDestroy } from '@angular/core';
+import { LanguagesService } from 'src/app/services/languages';
 import { DelayService } from 'src/app/services/delay';
-import { scrolltrigger } from 'src/app/models/scrolltrigger';
+import { ScrolltriggerModel } from 'src/app/models/scrolltrigger';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,24 +9,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit, OnDestroy{
-  public lang:any = service.setLanguage();
-  public sectiones:any = scrolltrigger;
+export class HomeComponent implements AfterViewInit , OnDestroy {
+  public lang:any;
+  public sectiones:any;
 
 
 
   constructor(
+    private _languageService : LanguagesService,
+    private _scrolltriggerModel : ScrolltriggerModel,
     private delayService: DelayService
-  ){}
+  ){
+    this._languageService.getLanguage$.subscribe(value=>{
+      this.lang = value;
+    })
+
+
+    this._scrolltriggerModel.scolltrigger$.subscribe(value=>{
+      this.sectiones = value;
+    })
+
+  }
 
 
   ngAfterViewInit(): void {
-      this.delayService.executeWithDelay(()=>{
-        this.animationSectiones()
-      });
+    this.delayService.executeWithDelay(()=>{
+      this.animationSectiones()
+    });
   }
+
 
 
   ngOnDestroy(): void {
@@ -35,13 +48,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy{
 
 
 
+
   animationSectiones():void{
     
     gsap.registerPlugin(ScrollTrigger);
 
 
-    function animate(class_name:string,start_value:string):void{
-      for(let i=1; i<=scrolltrigger.length; i++){
+   let animate = (class_name:string,start_value:string):void => {
+      for(let i=1; i<=this.sectiones.length; i++){
 
         const tl = gsap.timeline({
           scrollTrigger : {

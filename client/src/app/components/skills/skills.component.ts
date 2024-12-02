@@ -1,24 +1,29 @@
-import { Component , AfterViewInit , OnDestroy} from '@angular/core';
+import { Component , AfterViewInit , OnDestroy } from '@angular/core';
 import { skills } from 'src/app/models/skills';
-import { service } from 'src/app/services/service';
+import { LanguagesService } from 'src/app/services/languages';
 import { DelayService } from 'src/app/services/delay';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss']
+  styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent implements AfterViewInit, OnDestroy{
+export class SkillsComponent implements AfterViewInit , OnDestroy {
   public skills:any = skills;
-  public language:any = service.setLanguage();
+  public language:any;
 
 
 
   constructor(
-    private delayService: DelayService
-  ){}
-
+    private _languageService : LanguagesService,
+    private delayService : DelayService
+  ){
+    this._languageService.getLanguage$.subscribe(value=>{
+      this.language = value;
+    })
+  }
+  
 
   ngAfterViewInit(): void {
     this.delayService.executeWithDelay(() => {
@@ -26,10 +31,12 @@ export class SkillsComponent implements AfterViewInit, OnDestroy{
     });
   }
 
-  
+
+
   ngOnDestroy(): void {
     this.delayService.removeLoading();
   }
+
 
 
   animationSectiones():void{

@@ -1,10 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild,ElementRef  } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
-import { ita } from './languages/ita';
-import { esp } from './languages/esp';
-import { service } from './services/service';
-import { DelayService } from './services/delay';
-import { nav } from './models/nav';
+import { NavModel } from './models/nav';
+import { LanguagesService } from './services/languages';
+import { global } from './services/global';
 import { gsap } from 'gsap/gsap-core';
 
 
@@ -12,40 +10,49 @@ import { gsap } from 'gsap/gsap-core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent implements OnInit, AfterViewInit{
-  public lang:any = service.setLanguage();
+export class AppComponent implements OnInit{
+  public lang:any; 
   public showLoading:boolean = true;  
-  public nav:Array<any> = nav;
+  public nav:Array<any> = [];
   public menu_responsive:boolean = true;
   public menu_curriculum:boolean = false;
   @ViewChild('flag',{static:true}) flag!:ElementRef<HTMLImageElement>;
 
+
   constructor(
    private _router : Router,
-   private _delayService : DelayService  
-  ){}
+   private _languageService : LanguagesService,
+   private _navModel : NavModel
+  ){
+    this._languageService.getLanguage$.subscribe(value=>{
+      this.lang = value;
+      this.setFlag(); 
+
+    })
 
 
-  ngOnInit(): void {
-   if(!sessionStorage.getItem('change_language')){
-    sessionStorage.setItem('loading','true');
-    setTimeout(() => {
-      this.showLoading = false;
-  
-    }, 4500);  
-   
-   }else{
-    this.showLoading = false;
-    sessionStorage.removeItem('change_language');
-   }
+    this._navModel.nav$.subscribe(value=>{
+      this.nav = value;
+    })
   }
 
 
-  ngAfterViewInit(): void {
-    this.setFlag(); 
+  ngOnInit(): void {
+
+    if(!sessionStorage.getItem('change_language')){
+      sessionStorage.setItem('loading','true');
+      setTimeout(() => {
+        this.showLoading = false;
+    
+      }, global.timing_animation);  
+     
+     }else{
+      this.showLoading = false;
+      sessionStorage.removeItem('change_language');
+     }
   }
 
 
@@ -56,29 +63,22 @@ export class AppComponent implements OnInit, AfterViewInit{
    
     if(this.lang.language == 'ita'){
       flag .setAttribute('src' , directory_flags+'/bandiera_italia.png');
+   
     }else if(this.lang.language == 'esp'){
       flag .setAttribute('src' , directory_flags+'/bandiera_spagna.png');    
-    }  
+    
+    }else if(this.lang.language == 'eng'){
+      flag .setAttribute('src' , directory_flags+'/bandiera_inghilterra.png');    
+    
+    }
   }
 
 
 
 
    getLang(lang:string){
-     if(lang == 'ita'){
-      this.lang = ita;
-     }else if(lang == 'esp'){
-      this.lang = esp;
-     }
-     sessionStorage.setItem('lang',JSON.stringify(this.lang));
-     sessionStorage.setItem('change_language',"true");
-     this._delayService.removeLoading();
-     window.location.reload();
+      this._languageService.setLanguage(lang);
    }
-
-
-
-
 
 
    closeMenuResponsive(value:string,late:string){

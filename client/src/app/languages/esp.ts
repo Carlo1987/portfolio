@@ -18,7 +18,6 @@ export const esp = {
         welcome1 : "Hola!",
         welcome2 : "soy Carlo,",
         message1 : "Full Stack Web Developer",
-        message2 : "originario de la hermosa Cerdeña!",
         elements : {
             visit : "Visitar la seccion",
             skill_text : "Las skills que he logrado hasta ahora me permiten crear un entero proyecto Full Stack a partir de zero, dandome la posibilidad de elegir el linguaje de programacion que creo sea el mejor por la ocasion.",

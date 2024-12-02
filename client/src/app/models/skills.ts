@@ -100,10 +100,6 @@ export const skills = {
         title : "DevOps",
         languages : [
             {
-                language : "ChatGPT 4",
-                image :  lang_progr.Chatgpt.image
-            },
-            {
                 language : "SEO",
                 image :  lang_progr.Seo.image
             },
@@ -118,7 +114,11 @@ export const skills = {
             {
                 language : "Gestione VPS",
                 image : lang_progr.Vps.image
-            }
+            },
+            {
+                language : "ChatGPT 4",
+                image :  lang_progr.Chatgpt.image
+            },
         ]
             
         }

@@ -43,7 +43,7 @@ require 'datas/skills.php';
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 14px;
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background-color:   #EEEEEE
         }
@@ -125,7 +125,7 @@ require 'datas/skills.php';
         .aside__block__title{
             width: 100%;
             text-align: center;
-            font-size: 25px;
+            font-size: 20px;
             letter-spacing: 2px;
             font-weight: bold;
             text-transform: uppercase;
@@ -178,20 +178,19 @@ require 'datas/skills.php';
             width: 50%;
         }
 
+        .skill__left{ float: left; width: 50%;}
+        .skill__right{ float: right; width: 50%; }
 
         .block__skill{
-            width: 47%;
+           width: 100%;
         }
 
-        .skill__left{ float: left; }
-        .skill__right{ float: right; }
-
         .skill__title{
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            text-align: center;
             margin-top: 0px;
             margin-bottom: 0px;
+            padding-left: 34px;
         }   
 
         .skill__column{ margin-top: 5px; }
@@ -201,19 +200,14 @@ require 'datas/skills.php';
             padding-left: 35px;
         }
 
-        .list__aside::before{
-            content: '-';
-        }
-
-
-
+        .list__aside{ padding-left: 9.5px; }
 
         .main__title{
             width: 100%;
             padding: 10px;
             background-color: <?= $color_water ?>;
             color: white;
-            font-size: 23px;
+            font-size: 18px;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -225,8 +219,7 @@ require 'datas/skills.php';
         .main__content{
             width: 98%;
             margin: 0 auto;
-     
-            text-align: justify;
+           
         }
 
 
@@ -246,33 +239,30 @@ require 'datas/skills.php';
         .list__content{ padding-left: 10px; }
 
 
-        .list__url{
-            text-decoration: underline;
-        }
-
         .list__content{
             margin-top: 3px;
         }
 
-        .list_languages{
+        .list__languages{
             width: 95%;
             margin-left: 10px;
-            font-family: 'Great Vibes', 'Brush Script MT', cursive;
         }
 
-
+        .list__languages__title{
+            font-weight: bold;
+        }
 
         #authorization{
             position: absolute;
-            right: 0px;
-            bottom: 40px;
+            right: 25px;
+            bottom: 50px;
             font-family:Arial, Helvetica, sans-serif;
         }
 
         #signature{
             position: absolute;
-            right: -15px;
-            bottom: -985px;
+            right: 20px;
+            bottom: -975px;
             width: 100px;
             border-radius: 10px;
         }
@@ -467,8 +457,11 @@ require 'datas/skills.php';
                         <div class="main__list">
                             <span class="list__title"> <?= $project['name'] ?> </span>
                             <span class="list__content"> <?= $project['content'] ?>. </span>
-                            <span class="list__url"> <?= $project['url'] ?> </span>
-                            <span class="list_languages"> <?= $project['languages'] ?> </span>
+                            <span class="list__url"> <strong> url: </strong> https://<?= $project['url'] ?> </span>
+                            <span class="list__languages">
+                                <span class="list__languages__title"> <?= $projects['languages'] ?>: </span>
+                                <span class="list__languages__list"> <?= $project['languages'] ?> </span> 
+                            </span>
                         </div>
                     
                     <?php endforeach; ?>
@@ -488,26 +481,8 @@ require 'datas/skills.php';
         <aside class="aside__page2">
 
 
-            <div class="block">
-                <div class="aside__block__title" style="border: transparent;">
-                    <?= $courses['title'] ?>
-                </div>
-
-                    <?php  foreach($courses['courses'] as $course) :  ?>
-
-                        <div class="main__list">
-                            <div class="list__title"> <?= $course['name'] ?> </div>
-                            <div class="list__aside"> <?= $course['date'] ?> </div>
-                            <div class="list__content"> <?= $course['content'] ?> </div>
-                        </div>
-                    
-                    <?php endforeach; ?>
-
-            </div>
-
-
             <div class="block">                                   <!-- linguaggi -->
-                <div class="aside__block__title">
+                <div class="aside__block__title" style="border: transparent;">
                   <?= $languages['title'] ?>
                 </div>
 
@@ -554,6 +529,25 @@ require 'datas/skills.php';
                     
                     <?php endforeach; ?>
         
+            </div>
+
+
+
+            <div class="main__block separate">
+                <div class="main__title">
+                    <?= $courses['title'] ?>
+                </div>
+
+                    <?php  foreach($courses['courses'] as $course) :  ?>
+
+                        <div class="main__list">
+                            <div class="list__title"> <?= $course['name'] ?> </div>
+                            <div class="list__aside"> <?= $course['date'] ?> </div>
+                            <div class="list__content"> <?= $course['content'] ?> </div>
+                        </div>
+                    
+                    <?php endforeach; ?>
+
             </div>
 
 

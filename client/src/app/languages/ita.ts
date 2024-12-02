@@ -18,7 +18,6 @@ export const ita = {
         welcome1 : "Ciao!",
         welcome2 : "sono Carlo,",
         message1 : "Full Stack Web Developer",
-        message2 : "originario della bellissima Sardegna!",
         elements : {
             visit : "Visita la sezione",
             skill_text : "Le skills che ho acquisito fino ad ora mi permettono di creare un intero progetto Full Stack da zero, dandomi la possibilità di scegliere quale linguaggio di programmazione sia meglio usare per l'occorrenza.",

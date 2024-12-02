@@ -1,17 +1,25 @@
-import { Component , OnInit } from '@angular/core';
-import { service } from 'src/app/services/service';
+import { Component } from '@angular/core';
+import { LanguagesService } from 'src/app/services/languages';
+
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss']
+  styleUrls: ['./error.component.scss'],
 })
-export class ErrorComponent implements OnInit{
-  public lang:any = service.setLanguage();    
+export class ErrorComponent {
+  public lang:any;
 
-  ngOnInit(): void {
-    service.reloadPage();
+
+  constructor(
+    private _languageService : LanguagesService
+  ){
+    this._languageService.getLanguage$.subscribe(value=>{
+      this.lang = value;
+    });
   }
+
+
 
 
 }

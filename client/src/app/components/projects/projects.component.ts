@@ -1,6 +1,5 @@
-import { Component, DoCheck, AfterViewInit, ViewChildren, QueryList, ElementRef, OnDestroy } from '@angular/core';
-import { projects } from 'src/app/models/projects';
-import { service } from 'src/app/services/service';
+import { Component , DoCheck, AfterViewInit, ViewChildren, QueryList, ElementRef , OnDestroy } from '@angular/core';
+import { ProjectModel } from 'src/app/models/projects';
 import { DelayService } from 'src/app/services/delay';
 
 
@@ -9,18 +8,25 @@ import { DelayService } from 'src/app/services/delay';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements AfterViewInit, DoCheck, OnDestroy{
+export class ProjectsComponent implements AfterViewInit , DoCheck , OnDestroy {
    private big_screen:boolean = true; 
-   public projects:Array<any> = projects;
+   public projects:Array<any> = [];
    private value_positive:number = 110;
    private value_negative:number = -110;
    @ViewChildren ('project_ang') projects_hover!: QueryList<ElementRef<HTMLDivElement>>
 
 
    constructor(
-    private delayService: DelayService
-   ){}
- 
+    private _projectModel : ProjectModel,
+    private delayService : DelayService
+   ){
+
+      this._projectModel.projects$.subscribe(values=>{
+        this.projects = values;
+      })
+
+   }
+
 
    ngAfterViewInit(): void {
     setTimeout(()=>{
@@ -38,7 +44,7 @@ export class ProjectsComponent implements AfterViewInit, DoCheck, OnDestroy{
   }
 
 
-  
+
   ngOnDestroy(): void {
     this.delayService.removeLoading();
   }
@@ -48,6 +54,7 @@ export class ProjectsComponent implements AfterViewInit, DoCheck, OnDestroy{
    urlProject(url:string){
        window.open(url);
    }
+
 
 
    mqHandler(e:any) {

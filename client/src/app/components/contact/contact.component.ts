@@ -1,5 +1,5 @@
-import { Component, OnDestroy } from '@angular/core'; 
-import { service } from 'src/app/services/service';
+import { Component , OnDestroy } from '@angular/core'; 
+import { LanguagesService } from 'src/app/services/languages';
 import { DelayService } from 'src/app/services/delay';
 import { Email } from 'src/app/models/email';
 import { ContactService } from 'src/app/services/contact';
@@ -8,11 +8,11 @@ import { ContactService } from 'src/app/services/contact';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  providers: [ContactService]
+  providers: [ContactService ]
 })
 
-export class ContactComponent implements OnDestroy{
-  public lang:any = service.setLanguage();
+export class ContactComponent implements  OnDestroy {
+  public lang:any;
   public fields:Email = new Email("","","");
   public loading:boolean = false;
   public message_error:string = '';
@@ -20,8 +20,14 @@ export class ContactComponent implements OnDestroy{
 
   constructor(
     private _contactService : ContactService,
+    private _languageService : LanguagesService,
     private delayService: DelayService
-  ){}
+  ){
+    this._languageService.getLanguage$.subscribe(value=>{
+      this.lang = value;
+    })
+  }
+
 
 
   ngOnDestroy(): void {

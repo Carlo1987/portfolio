@@ -23,7 +23,7 @@ if(!empty($json)){
     $email_from = $data->email;
     $message = $data->message;
     
-    $mail->setFrom($mail_hostinger, 'Email lavoro');
+    $mail->setFrom($mail_hostinger, 'Richiesta dal portfolio');
 
     $mail->addAddress($my_email);  
 

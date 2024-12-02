@@ -6,8 +6,12 @@ if(isset($_GET['language'])){
 
     if($language == 'ita'){
         require 'datas/ita.php';
+    
     }else if($language == 'esp'){
         require 'datas/esp.php';
+    
+    }else if($language == 'eng'){
+        require 'datas/eng.php';
     }
 
     require 'html.php';

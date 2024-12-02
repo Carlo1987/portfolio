@@ -190,7 +190,7 @@ body{
         }
 
         .choose_curriculum{
-            @include div_down(54px);
+            @include div_down(75px);
             animation: enablePointer 1s forwards;
         }
 
@@ -229,6 +229,16 @@ body{
     .links_noResponsive{
         display: none !important;
     } 
+
+
+    .contact_links{
+        .link:hover{    
+            .choose_curriculum{
+                @include div_down(63px);
+                animation: enablePointer 1s forwards;
+            }
+        }
+    }
 }
 
 

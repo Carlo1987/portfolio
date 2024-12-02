@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { global } from './global';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +8,18 @@ import { Injectable } from '@angular/core';
 export class DelayService {
 
   executeWithDelay(callback: () => void) {
+
     let isLoading = sessionStorage.getItem('loading');
     
     if (isLoading) {
       setTimeout(() => {
         callback();
-      }, 4500);
+      }, global.timing_animation);
     
     } else {
       callback();
     }
+  
   }
 
 
@@ -24,4 +27,5 @@ export class DelayService {
   removeLoading():void{
     sessionStorage.removeItem('loading');
   }
+
 }
