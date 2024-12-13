@@ -43,16 +43,18 @@ export const ita = {
     projects : {
         project_holiday : {
             name : "SardegnaDream",
-            description : "Progetto dove viene simulata la prenotazione in case vacanze e dove TU SARAI UN AMMINISTRATORE e potrai provare ad aggiugere, modificare o cancellare nuove case da affittare!!"
+            description : "Progetto in cui viene simulata la gestione delle prenotazioni per case vacanze. Potrai registrarti come AMMINISTRATORE e avrai la possibilità di aggiungere, modificare o eliminare annunci di case da affittare!"
         },
         project_social : {
             name : "Faceback",
-            description : "Progetto dove viene simulato un social con chat e richieste di amicizia, profili privati o pubblici, condivisione di immagini e video con commenti e likes!!"
+            description : "Progetto che simula una piattaforma social con funzionalità di chat, richieste di amicizia, profili privati o pubblici e la possibilità di condividere immagini e video accompagnati da commenti e like!"
         },
         project_sold : {
             name : "Dichatleon",
-            description : "Progetto dove viene simulata la vendita/acquisto di prodotti e dove TU SARAI AMMINISTRATORE e potrai provare ad aggiungere nuovi prodotti o a modificarne altri!!"
-        }
+            description : "Progetto che simula una piattaforma per la vendita e l'acquisto di prodotti. Potrai registrarti come AMMINISTRATORE per aggiungere nuovi articoli o modificare quelli esistenti!"
+        },
+
+        visit : "Visita"
     },
 
 

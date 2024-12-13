@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef  } from '@angular/core';
+import { Component, OnInit, DoCheck , ViewChild,ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavModel } from './models/nav';
 import { LanguagesService } from './services/languages';
@@ -13,7 +13,7 @@ import { gsap } from 'gsap/gsap-core';
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit , DoCheck {
   public lang:any; 
   public showLoading:boolean = true;  
   public nav:Array<any> = [];
@@ -29,8 +29,6 @@ export class AppComponent implements OnInit{
   ){
     this._languageService.getLanguage$.subscribe(value=>{
       this.lang = value;
-      this.setFlag(); 
-
     })
 
 
@@ -53,6 +51,11 @@ export class AppComponent implements OnInit{
       this.showLoading = false;
       sessionStorage.removeItem('change_language');
      }
+  }
+
+
+  ngDoCheck(): void {
+    this.setFlag(); 
   }
 
 

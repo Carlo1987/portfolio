@@ -12,7 +12,7 @@ import { global } from "../services/global";
 
 export class ProjectModel{
 
-    private projects_model = new BehaviorSubject<Array<any>>([]);
+    private projects_model = new BehaviorSubject<any>({});
     public projects$ = this.projects_model.asObservable();
 
 
@@ -23,6 +23,7 @@ export class ProjectModel{
         this._languageService.getLanguage$.subscribe(value=>{
 
             const project = value.projects;
+            const button = value.projects.visit;
             const  coll = "../../assets/images/projects";
 
             let projects = [
@@ -112,7 +113,7 @@ export class ProjectModel{
             ];
 
             
-            this.projects_model.next(projects);
+            this.projects_model.next({projects : projects , button : button });
 
         })
     }

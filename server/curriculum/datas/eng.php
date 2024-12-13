@@ -93,10 +93,17 @@ $curriculum = array(
     'courses' => [
         'title' => 'Education and Training',
         'courses' => [
+
+            [
+                'name' => 'Master Typescript, JS moderno',
+                'date' => translate_hours($courses['master_typescript&js']),
+                'content' => "Master Typescipt and Modern Javascript, ES2024 APIs html5"
+            ],
+
             [
                 'name' => 'SEO Course',
                 'date' => translate_hours($courses['seo']),
-                'content' => "Course on SEO and web positioning."
+                'content' => "SEO and web positioning Course."
             ],
 
             [
@@ -109,6 +116,12 @@ $curriculum = array(
                 'name' => 'Advanced CSS3 Masterclass',
                 'date' => translate_hours($courses['advanced_css']),
                 'content' => "Advanced CSS3 masterclass."
+            ],
+
+            [
+                'name' => 'Corso GIT',
+                'date' => translate_hours($courses['git']),
+                'content' => "GIT and Command Line Course"
             ],
 
             [

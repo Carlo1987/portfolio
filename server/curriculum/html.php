@@ -533,7 +533,7 @@ require 'datas/skills.php';
 
 
 
-            <div class="main__block separate">
+            <div class="main__block" style="margin-top: 10px;">
                 <div class="main__title">
                     <?= $courses['title'] ?>
                 </div>
@@ -541,9 +541,9 @@ require 'datas/skills.php';
                     <?php  foreach($courses['courses'] as $course) :  ?>
 
                         <div class="main__list">
-                            <div class="list__title"> <?= $course['name'] ?> </div>
-                            <div class="list__aside"> <?= $course['date'] ?> </div>
-                            <div class="list__content"> <?= $course['content'] ?> </div>
+                            <div class="list__title" style="font-size: 13px;"> <?= $course['name'] ?> </div>
+                            <div class="list__aside" style="font-size: 11px;"> <?= $course['date'] ?> </div>
+                            <div class="list__content" style="font-size: 11px;"> <?= $course['content'] ?> </div>
                         </div>
                     
                     <?php endforeach; ?>
