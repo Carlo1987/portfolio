@@ -52,7 +52,7 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
     opacity : 0
    });
 
-   for(let i= 2; i<=6; i++){
+   for(let i= 2; i<=5; i++){
     tl.from(`.section_${i}`, {
       duration : 0.8,
       y:30,

@@ -116,6 +116,10 @@ export const skills = {
                 image : lang_progr.Vps.image
             },
             {
+                language : "Docker",
+                image :  lang_progr.Docker.image
+            },
+            {
                 language : "ChatGPT 4",
                 image :  lang_progr.Chatgpt.image
             },

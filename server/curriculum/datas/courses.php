@@ -4,6 +4,8 @@
 
 $courses = array(
 
+    'docker' => ['5.5','07/01*2025'],
+
     'master_typescript&js' => ['15' , '11/2024'],
 
     'seo' => ['7' , '10/2024'],

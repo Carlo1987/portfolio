@@ -109,6 +109,12 @@ $curriculum = array(
         'courses' => [
 
             [
+                'name' => 'Corso Docker',
+                'date' => translate_hours($courses['docker']),
+                'content' => "Corso Docker"
+            ], 
+
+            [
                 'name' => 'Master Typescript, JS moderno',
                 'date' => translate_hours($courses['master_typescript&js']),
                 'content' => "Master Typescipt e Javascript Moderno, ES2024 APIs html5"
@@ -123,7 +129,7 @@ $curriculum = array(
             [
                 'name' => 'Corso VPS',
                 'date' => translate_hours($courses['vps']),
-                'content' => "Gestione VPS con Letsencrypt"
+                'content' => "Gestione VPS nginx con Letsencrypt"
             ],
 
             [

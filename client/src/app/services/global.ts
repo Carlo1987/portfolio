@@ -1,21 +1,16 @@
  /* 
-const url = "https://carloloidev.com";
-const email = `${url}/back-myPortfolio/email`;
-const curriculum = `${url}/back-myPortfolio/curriculum`;
+const url = "https://carloloidev.com/back-myPortfolio";
    */
 
 
-const url = "https://localhost/progetti/portfolio";
-const email = `${url}/server/email`
-const curriculum = `${url}/server/curriculum`;
-  
+const url = "http://localhost:8080"; 
 
 
 export const global = {
 
-  url_email : `${email}/email.php` ,
+  url_email : `${url}/email/email.php` ,
 
-  url_curriculum : `${curriculum}/curriculum.php`,
+  url_curriculum : `${url}/curriculum/curriculum.php`,
   
   project_shop : `${url}/Project_Shop/home`,
 

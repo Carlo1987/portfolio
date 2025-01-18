@@ -85,6 +85,10 @@ export const lang_progr = {
             language : "ChatGpt",
             image : coll +  "/chatgpt.png"
         },
+        Docker : {
+            language : "Docker",
+            image : coll +  "/docker.png"
+        },
         Seo : {
             language : "Seo",
             image : coll +  "/seo.png"

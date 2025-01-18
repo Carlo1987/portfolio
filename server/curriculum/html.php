@@ -1,10 +1,5 @@
 <?php 
 
-ob_start();
-
-
-
-
 $color_water = "rgb(95, 154, 209)";
 $bg_progress = "rgb(152, 190, 225)";
 $color_progress = "rgb(45, 108, 167)";
@@ -18,7 +13,6 @@ $experiences = $curriculum['experience'];
 $courses = $curriculum['courses'];
 
 require 'datas/skills.php';
-
 ?>
 
 
@@ -481,8 +475,28 @@ require 'datas/skills.php';
         <aside class="aside__page2">
 
 
+
+            <div class="block">            <!-- corsi -->
+                <div class="aside__block__title" style="border-top: transparent;">
+                    <?= $courses['title'] ?>
+                </div>
+
+                    <?php  foreach($courses['courses'] as $course) :  ?>
+
+                        <div class="main__list">
+                            <div class="list__title" style="font-size: 13px;"> <?= $course['name'] ?> </div>
+                            <div class="list__aside" style="font-size: 11px;"> <?= $course['date'] ?> </div>
+                            <div class="list__content" style="font-size: 11px;"> <?= $course['content'] ?> </div>
+                        </div>
+                    
+                    <?php endforeach; ?>
+
+            </div>
+
+
+
             <div class="block">                                   <!-- linguaggi -->
-                <div class="aside__block__title" style="border: transparent;">
+                <div class="aside__block__title">
                   <?= $languages['title'] ?>
                 </div>
 
@@ -533,25 +547,6 @@ require 'datas/skills.php';
 
 
 
-            <div class="main__block" style="margin-top: 10px;">
-                <div class="main__title">
-                    <?= $courses['title'] ?>
-                </div>
-
-                    <?php  foreach($courses['courses'] as $course) :  ?>
-
-                        <div class="main__list">
-                            <div class="list__title" style="font-size: 13px;"> <?= $course['name'] ?> </div>
-                            <div class="list__aside" style="font-size: 11px;"> <?= $course['date'] ?> </div>
-                            <div class="list__content" style="font-size: 11px;"> <?= $course['content'] ?> </div>
-                        </div>
-                    
-                    <?php endforeach; ?>
-
-            </div>
-
-
-
             <div id="authorization">
                 <?= $curriculum['authorization']; ?>
             </div>
@@ -571,28 +566,4 @@ require 'datas/skills.php';
 
 </html>
 
-   
 
-<?php
-    $html = ob_get_clean(); 
-
-    require_once 'dompdf/autoload.inc.php';
-    
-    use Dompdf\Dompdf;
-    use Dompdf\Options;
-
-    $options = new Options();
-    $options->set('isRemoteEnabled', true);
-    
-    // Imposta i margini a zero
-    $options->set('defaultPaperSize', 'A4');
-    $options->set('isHtml5ParserEnabled', true);
-
-    $dompdf = new Dompdf();
-
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('letter');
-
-    $dompdf->render();
-
-    $dompdf->stream($name_pdf, array('Attachment' => false));

@@ -1,0 +1,23 @@
+
+services:
+
+  angular:
+    container_name: 'portfolio-frontend'
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    volumes:
+      - ./client/src:/app/src
+
+
+  php:
+    container_name: 'portfolio-backend'
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./server:/var/www/html

@@ -1,13 +1,12 @@
 <?php
+require '../header.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
-
-require '../header.php';
 
 $data = json_decode($json);
 $error = [ "status" => false , "message"=>"Error sending the email"];

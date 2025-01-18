@@ -26,7 +26,7 @@ $skills_data = array(
 
     'devops' => [
         'title' => 'DevOps',
-        'languages' => ['Seo','Git','Github','Gestione VPS','ChatGPT 4']
+        'languages' => ['Seo','Git','Github','Gestione VPS','Docker','ChatGPT 4']
     ]
      
 );

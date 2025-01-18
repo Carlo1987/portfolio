@@ -16,7 +16,7 @@ export class LinksComponent{
 
   links(url:string):void{
     if(url == 'ita' || url == 'esp' || url == 'eng'){
-       window.location.href = `${this.url}?language=${url}`;
+       window.open(`${this.url}?language=${url}`);
     }else{
       window.open(url);
     }
