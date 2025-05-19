@@ -1,9 +1,13 @@
 
+@use 'colors';
+@use 'nav';
 
 
-$color_hover : rgb(225, 206, 206);
-$color_theme :  rgb(59, 53, 53); 
-$color_shadow : rgb(27, 31, 35);
+$color_hover : colors.$color_hover;
+$color_theme :  colors.$color_theme; 
+$color_shadow : colors.$color_shadow;
+
+
 
 
 .libre-baskerville-regular {
