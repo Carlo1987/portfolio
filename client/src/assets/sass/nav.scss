@@ -1,9 +1,11 @@
 
 @use 'colors';
 
-$color_hover : colors.$color_hover;
-$color_theme :  colors.$color_theme; 
-$color_shadow : colors.$color_shadow;
+$color_light : colors.$color_light;
+$color_light_shadow : colors.$color_light_shadow;
+$color_light_hover : colors.$color_light_hover;
+$color_dark_light :  colors.$color_dark_light; 
+$color_dark_shadow : colors.$color_dark_shadow;
 
 
 
@@ -16,127 +18,336 @@ $color_shadow : colors.$color_shadow;
       transform: translateY(0px);
       opacity: 1;
     }
-  }
+}
+
+
+@mixin links_hover($bottom){
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: $bottom;
+  background-color: white;
+  transition: all 300ms linear;
+}
+
+
+@mixin div_down($translate){
+  opacity: 1;
+  transform: translateY($translate);
+}
+
+
+@mixin dimensionImage($width, $heigth){
+  width: $width;
+  height: $heigth;
+  border-radius: 5px;
+}
+
+
+
+%links_nav{
+  position: absolute;
+  font-size: 16px;
+  padding: 7px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px whitesmoke;
+  background-color: $color_dark_light;
+  color: $color_light;
+  pointer-events: none;
+
+  transition: transform 0.5s ease, opacity 0.5s ease, pointer-events 0s linear 2s;    
+  opacity: 0;  
+}
+
+
 
 
 nav{
-    height: 95px;
-    background-color: $color_theme;
-    box-shadow: 0px 2px 2px  $color_shadow; 
-    position: relative;
-    transform: translateY(-100px);
-    animation: navDown 800ms forwards;
+  height: 95px;
+  background-color: $color_dark_light;
+  box-shadow: 0px 2px 2px  $color_dark_shadow; 
+  position: relative;
+  transform: translateY(-100px);
+  animation: navDown 800ms forwards;
 
-    display: flex;
+  display: flex;
 
-    a, a:visited{
-        display: inline-block;
-        font-size: 22px;
-        color: white; 
-    }
+  a, a:visited{
+      display: inline-block;
+      font-size: 22px;
+      color: white; 
+  }
 
-    #home_effects{
-        width: 50%;
+  #home_effects{
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      #home_link{
+          height: 100%;
+          font-size: 32px;
+          font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+          font-weight: bold;
+          letter-spacing: 1px;
+          text-shadow: 1px 0px 3px $color_light_shadow;
+          position: relative;
+
+          display: flex;
+          align-items: center;
+
+          #logo_image{
+              width: 90px;
+              height: 90%;   
+              border-radius: 900px; 
+              color: white;
+              border: transparent;
+
+              animation-name: rotateLogo;
+              animation-duration: 20s;
+              animation-iteration-count: infinite;
+              animation-timing-function: linear;
+              }
+        
+              @keyframes rotateLogo {
+                  from{
+                      transform: rotateZ(0deg);
+                  }
+                  to{
+                      transform: rotateZ(360deg);
+                  }
+              }
+        
+              #logo{
+                position: absolute;
+                top: 24%;
+                left: 27%;
+      
+                transform: scale(0.8);
+                opacity: 0.9;
+
+                font-family: "Rubik Wet Paint", system-ui;
+                font-weight: 400;
+                font-style: normal;
+  
+              }
+        
+              #logo:hover{
+                  text-shadow: 0px 0px 5px whitesmoke;
+              }
+      }
+
+
+      #home_flags{
         height: 100%;
+        position: relative;
+        cursor: pointer;
+        
         display: flex;
         align-items: center;
-        padding-left: 20px;
 
-        display: flex;
-        align-items: center;
-
-        #home_link{
-            height: 100%;
-            font-size: 32px;
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-shadow: 1px 0px 3px rgb(211, 202, 202);
-            position: relative;
-
-            display: flex;
-            align-items: center;
-
-            #logo_image{
-                width: 90px;
-                height: 90%;   
-                border-radius: 900px; 
-                color: white;
-                border: transparent;
-
-                animation-name: rotateLogo;
-                animation-duration: 20s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                }
-          
-                @keyframes rotateLogo {
-                    from{
-                        transform: rotateZ(0deg);
-                    }
-                    to{
-                        transform: rotateZ(360deg);
-                    }
-                }
-          
-                #logo{
-                    position: absolute;
-                    top: 24%;
-                    left: 27%;
-          
-                    font-family: "Rubik Wet Paint", system-ui;
-                    font-weight: 100;
-                    font-style: normal; 
-                    transform: scale(0.9);
-                    opacity: 0.9;
-          
-                }
-          
-                #logo:hover{
-                    text-shadow: 0px 0px 5px whitesmoke;
-                }
+        #choosed_language{
+          img{
+            @include dimensionImage(45px, 30px);
+          } 
         }
 
 
-        #home_flags{
-            position: relative;
+        #home_flags_menu{
+          position: absolute;
+          min-width: 160px;
+          background-color: $color_dark_light;
+          box-shadow: 0px 0px 5px whitesmoke;
+          z-index: 2;
+          top: 37px;
+          left: -100%;
+          padding: 15px;
+          @extend %links_nav; 
+          list-style: none;
 
+          transform: translateY(-50px); 
+          transition: 500ms all ease-in-out;
+
+          .home_flag{
+            position:  relative;
+            width: 100%;
+            text-decoration: none;
 
             img{
-                width: 35px;
-                height: 25px;
-                border-radius: 5px;
+              @include dimensionImage(30px, 20px);
+              margin-right: 5px;
             }
+          }
 
-            #choosed_language:hover{
-                #home_flags__menu{
-                    opacity: 1;
-                }
-            } 
+          .home_flag::after{
+            @include links_hover(-2px);
+          }
 
-
-            #home_flags__menu{
-                position: absolute;
-                background-color: $color_theme;
-                box-shadow: 0px 0px 5px whitesmoke;
-                z-index: 2;
-                top: 50px;
-                left: -80%;
-                transform: translateY(-50px);
-                pointer-events: none;
-                opacity: 0;
-                transition: 500ms all ease-in-out;
-
-     
-            }
+          .home_flag:hover::after{
+            width: 100%;
+            left: 0;
+          }
+   
         }
+      }
+
+
+      #home_flags:hover{
+        #home_flags_menu{
+          @include div_down(30px);
+          animation: enablePointer 1s forwards;
+        }
+      } 
+  }
+
+  #home_effects:hover{
+      color: $color_light_hover;
+      transition: 700ms;
+  }
+
+
+
+  .contact_links{
+    padding: 10px; 
+    width: 100%; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: white;
+
+    .link{
+      position : relative; 
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .link__word{
+        @extend %links_nav;
+        left: -55%;     
+      }
+
+      .link__word::after{ 
+        @include links_hover(5px);
+      }
+
+
+      .link__word:hover::after{
+        width: 85%;
+        left: 5px;
+      } 
+
+      .choose_curriculum{
+        @extend %links_nav;
+        left: -150%;
+        width: 155px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    
+
+        .curriculum{ 
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
+          position: relative;
+          padding-left: 7px;
+          cursor: pointer;
+        }
+
+        .curriculum:first-child{
+          margin-bottom: 5px;
+        }
+
+        .curriculum::after{ 
+            @include links_hover(0);
+        }
+
+
+        .curriculum:hover::after{
+          width: 90%;
+          left: 5px;
+        } 
+      }
+
     }
 
-    #home_effects:hover{
-        color: $color_hover;
-        transition: 700ms;
+
+    .link:hover{
+      .link__word{
+        @include div_down(35px);
+        animation: enablePointer 1s forwards;
+      }
+
+      .choose_curriculum{
+        @include div_down(75px);
+        animation: enablePointer 1s forwards;
+      }
+
+   
+
+      @keyframes enablePointer {
+        from {
+          pointer-events: none;
+        }
+        to {
+          pointer-events: auto;
+        }
+      }
+
     }
+
+  .fa{ cursor: pointer; }
+  .fa:hover{ color: $color_light_hover; }
+ 
+  }
+
+  .links_responsive{
+    opacity: 0;
+  } 
+
 }
+
+
+
+@media(max-width:1200px){
+  /*    #logo_image{
+        width: 85px !important;
+        height: 78px !important;   
+        margin-left: 5px;
+    } */
+
+
+    .links_noResponsive{
+        display: none !important;
+    } 
+  
+  nav{
+    .contact_links{
+      .link:hover{    
+          .choose_curriculum{
+              @include div_down(63px);
+              animation: enablePointer 1s forwards;
+          }
+      }
+    }
+  }
+
+  }
+
+
+
+
 
 
 

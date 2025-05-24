@@ -1,33 +1,35 @@
 
-<!--  <app-loading *ngIf="showLoading"></app-loading> 
+<!--   <app-loading *ngIf="showLoading"></app-loading> 
 
-<div [hidden]="showLoading">   -->
+<div [hidden]="showLoading">    -->
 
 
   <nav>
 
     <div id="home_effects">
 
-      <a href="#"  routerLink="/" id="home_link">
-        <img src="../assets/images/logo_home.png" alt="logo" id="logo_image">   
-        <span id="logo"> CL </span>  
-      </a>
+      <div>
+        <a href="#"  routerLink="/" id="home_link">
+          <img src="../assets/images/logo_home.png" alt="logo" id="logo_image">   
+          <span id="logo"> CL </span>  
+        </a>
+      </div>
 
 
       <div id="home_flags">
         <a id="choosed_language">   
             <img src="../assets/images/bandiera_italia.png" alt="flag_language" #flag>
         </a>
-        <ul id="home_flags__menu">
-          <li><a class="dropdown-item"  (click)="getLang('ita')"> 
+        <ul id="home_flags_menu">
+          <li><a class="home_flag"  (click)="getLang('ita')"> 
             <img src="../assets/images/bandiera_italia.png" alt="flag_italy">  Italiano
             </a>
           </li>
-          <li><a class="dropdown-item"  (click)="getLang('esp')"> 
+          <li class="my-1"><a class="home_flag"  (click)="getLang('esp')"> 
             <img src="../assets/images/bandiera_spagna.png" alt="flag_spain">   Español
             </a>
           </li>
-          <li><a class="dropdown-item"  (click)="getLang('eng')"> 
+          <li><a class="home_flag"  (click)="getLang('eng')"> 
             <img src="../assets/images/bandiera_inghilterra.png" alt="flag_spain">   English
             </a>
           </li>

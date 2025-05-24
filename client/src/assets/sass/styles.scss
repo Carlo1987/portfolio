@@ -2,81 +2,32 @@
 @use 'colors';
 @use 'nav';
 
-
-$color_hover : colors.$color_hover;
-$color_theme :  colors.$color_theme; 
-$color_shadow : colors.$color_shadow;
-
-
+$color_light : colors.$color_light;
+$color_dark_shadow : colors.$color_dark_shadow;
+$color_danger : colors.$color_danger;
+$color_success : colors.$color_success;
 
 
 .libre-baskerville-regular {
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-style: normal;
-}
-
-
-%style_logo {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
   }
+  
 
 
 
 %alert_style{
-    color: rgb(244, 236, 236);
+    color: $color_light;
     text-shadow: 2px 2px 3px rgb(39, 37, 37);
     text-align: center;
     font-size: 28px;
     letter-spacing: 1px;
     border: 2px solid black;
-    box-shadow: 1px 2px 3px $color_shadow ;
+    box-shadow: 1px 2px 3px $color_dark_shadow ;
     border-radius: 10px;
     padding: 10px;
 }
-
-
-
-%links_nav{
-    position: absolute;
-    font-size: 16px;
-    padding: 7px;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 0px 0px 5px whitesmoke;
-    background-color: $color_theme;
-    pointer-events: none;
-
-    transition: transform 0.5s ease, opacity 0.5s ease, pointer-events 0s linear 2s;    /*  500ms all ease-in-out; */
-    opacity: 0; 
-}
-
-
-
-@mixin div_down($translate){
-    opacity: 1;
-    transform: translateY($translate);
-   /*  pointer-events: auto;   */
-}
-
-
-@mixin links_hover($bottom){
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 50%;
-    bottom: $bottom;
-    background-color: white;
-    transition: all 300ms linear;
-}
-
-
-
-
 
 
 *{
@@ -86,24 +37,22 @@ $color_shadow : colors.$color_shadow;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
 body{
    position: relative;
-   background-color: rgb(233, 229, 229) !important;
+   background-color: $color_light !important;
    overflow-x: hidden;
 }
 
 
-
-
-
 .error{
-    background-color:  rgb(203, 77, 77);
+    background-color:  $color_danger;
     @extend %alert_style;
 }
 
 
 .success{
-    background-color: rgb(84, 163, 74);  
+    background-color: $color_success;  
     @extend %alert_style;
 }
 
@@ -117,133 +66,6 @@ body{
 
 
 
-
-
-.contact_links{
-    padding: 10px; 
-    width: 100%; 
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    color: white;
-
-    .link{
-         position : relative; 
-         cursor: pointer;
-         height: 100%;
-         display: flex;
-         align-items: center;
-
-        .link__word{
-            @extend %links_nav;
-            left: -55%;     
-        }
-
-        .link__word::after{ 
-            @include links_hover(5px);
-         }
-
-
-        .link__word:hover::after{
-            width: 85%;
-            left: 5px;
-        } 
-
-        .choose_curriculum{
-            @extend %links_nav;
-            left: -150%;
-            width: 155px;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-         
-
-            .curriculum{ 
-                display: inline-flex;
-                align-items: center;
-                gap: 3px;
-                position: relative;
-                padding-left: 7px;
-                cursor: pointer;
-            }
-
-            .curriculum:first-child{
-                margin-bottom: 5px;
-            }
-
-            .curriculum::after{ 
-                @include links_hover(0);
-             }
-
-
-            .curriculum:hover::after{
-                width: 90%;
-                left: 5px;
-            } 
-        }
- 
-    }
-
-
-    .link:hover{
-        .link__word{
-            @include div_down(35px);
-            animation: enablePointer 1s forwards;
-        }
-
-        .choose_curriculum{
-            @include div_down(75px);
-            animation: enablePointer 1s forwards;
-        }
-
-     
-
-        @keyframes enablePointer {
-            from {
-              pointer-events: none;
-            }
-            to {
-              pointer-events: auto;
-            }
-        }
-
-    }
-
-    .fa{ cursor: pointer; }
-    .fa:hover{ color: $color_hover; }
-   
-}
-
-.links_responsive{
-    opacity: 0;
-} 
-
-
-
-
-@media(max-width:1200px){
-    #logo_image{
-        width: 85px !important;
-        height: 78px !important;   
-        margin-left: 5px;
-    }
-
-    .links_noResponsive{
-        display: none !important;
-    } 
-
-
-    .contact_links{
-        .link:hover{    
-            .choose_curriculum{
-                @include div_down(63px);
-                animation: enablePointer 1s forwards;
-            }
-        }
-    }
-}
 
 
 
