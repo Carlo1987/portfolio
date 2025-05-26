@@ -45,9 +45,40 @@
     </div>
 
 
-    <div id="links_effects"></div>
+
+    <div id="links_effects">
+
+      <li *ngFor="let link of nav; let i = index " class="link_li"  routerLink="{{ link.route }}" [routerLinkActive]="['actived']">
+        <a class="link link_{{i}}r" >  {{ link.link }}</a>    
+      </li> 
+
+
+      <button  type="button"  id="button_responsive"> 
+        <span (click)="menuResponsive()"  >  
+          <i class="fa fa-bars fa-2xl" aria-hidden="true" id="close_button"> </i>  
+          <i class="fa fa-times fa-2xl" aria-hidden="true" id="closed_button"></i>
+        </span> 
+      </button>
+
+
+      <div class="links_responsive">
+        <app-links></app-links> 
+      </div>
+
+    </div>
 
   </nav>
+
+
+
+  <div id="nav_responsive">
+    <li *ngFor="let link of nav; let i = index" class="link_li">
+      <a class="links_responsive_{{i}}"  (click)="navigate(link.route)">  {{ link.link }}</a>   
+    </li> 
+  </div>
+
+
+
 
     <!-- 
   <nav class="navbar navbar-expand-xl fixed-top">    

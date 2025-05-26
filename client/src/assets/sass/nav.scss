@@ -63,6 +63,15 @@ $color_dark_shadow : colors.$color_dark_shadow;
 }
 
 
+%link_selected{
+  background-color: $color_light;
+  a{
+    color: $color_dark_shadow ;
+  }
+  
+}
+
+
 
 
 nav{
@@ -79,6 +88,7 @@ nav{
       display: inline-block;
       font-size: 22px;
       color: white; 
+      text-decoration: none;
   }
 
   #home_effects{
@@ -179,7 +189,6 @@ nav{
           .home_flag{
             position:  relative;
             width: 100%;
-            text-decoration: none;
 
             img{
               @include dimensionImage(30px, 20px);
@@ -316,7 +325,79 @@ nav{
     opacity: 0;
   } 
 
+
+  #links_effects{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+
+    .link_li{
+      padding: 5px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      transition: all 800ms;
+      cursor: pointer;
+
+      a{
+        font-size: 25px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .link_li:hover{
+      @extend %link_selected;
+    }
+
+    #button_responsive{
+      border: transparent;
+      background-color: transparent;
+      margin-right: 20px;
+      color: white;
+    }
+
+    #closed_button{
+      transform: translateX(200px);
+    }
+
+  }
+
+  .actived{
+    @extend %link_selected;
+  }
+
 }
+
+
+
+#nav_responsive{
+  width: 0%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  
+  .link_li{
+    text-align: center;
+    padding: 15px;
+    background-color: $color_dark_light;
+
+    a{
+      text-decoration: none;
+      font-size: 30px;
+      color: $color_light;
+      cursor: pointer;
+    }
+  }
+
+  .link_li:hover{
+    @extend %link_selected;
+  }
+}
+
+
+
 
 
 

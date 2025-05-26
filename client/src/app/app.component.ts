@@ -148,7 +148,7 @@ export class AppComponent implements OnInit , DoCheck {
       tl.to('#close_button', { x:200 , duration : 1 });
       tl.to('#closed_button',{ x:0 , rotate:360 , duration:1 },'-=1');
 
-      tl.to('#offcanvasNav', {
+      tl.to('#nav_responsive', {
         width : '100%',
         height : 'auto',
         duration : 0.7,
