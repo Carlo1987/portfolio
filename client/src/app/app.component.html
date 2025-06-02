@@ -52,20 +52,15 @@
         <a class="link link_{{i}}r" >  {{ link.link }}</a>    
       </li> 
 
-
-      <button  type="button"  id="button_responsive"> 
-        <span (click)="menuResponsive()"  >  
-          <i class="fa fa-bars fa-2xl" aria-hidden="true" id="close_button"> </i>  
-          <i class="fa fa-times fa-2xl" aria-hidden="true" id="closed_button"></i>
-        </span> 
-      </button>
-
-
-      <div class="links_responsive">
-        <app-links></app-links> 
-      </div>
-
     </div>
+
+
+    <button  type="button"  id="button_responsive"> 
+      <span (click)="menuResponsive()"  >  
+        <i class="fa fa-bars fa-2xl" aria-hidden="true" id="close_button"> </i>  
+        <i class="fa fa-times fa-2xl" aria-hidden="true" id="closed_button"></i>
+      </span> 
+    </button>
 
   </nav>
 
@@ -73,8 +68,12 @@
 
   <div id="nav_responsive">
     <li *ngFor="let link of nav; let i = index" class="link_li">
-      <a class="links_responsive_{{i}}"  (click)="navigate(link.route)">  {{ link.link }}</a>   
+      <a class="link_responsive_{{i}}"  (click)="navigate(link.route)">  {{ link.link }}</a>   
     </li> 
+
+    <div class="contact_links">
+      <app-links></app-links> 
+    </div>
   </div>
 
 

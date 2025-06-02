@@ -98,12 +98,12 @@ export class AppComponent implements OnInit , DoCheck {
 
     for(let i=this.nav.length-1; i>=0; i--){
       if(i == this.nav.length-1){
-        tl.to( '.links_responsive_'+i, {
+        tl.to( '.link_responsive_'+i, {
           duration : 0.7,
           x : translateX
         }, late)
       }else{
-        tl.to( '.links_responsive_'+i, {
+        tl.to( '.link_responsive_'+i, {
           duration : 0.7,
           x : translateX
         }, value)
@@ -111,7 +111,7 @@ export class AppComponent implements OnInit , DoCheck {
   
     }
 
-    tl.to('#offcanvasNav', {
+    tl.to('#nav_responsive', {
       width : 0,
       height : 0,
       duration : 0.7,
@@ -161,7 +161,7 @@ export class AppComponent implements OnInit , DoCheck {
       }, '-=0.5');
 
       for(let i=0; i<this.nav.length; i++){
-          tl.to( '.links_responsive_'+i, {
+          tl.to( '.link_responsive_'+i, {
             duration : 0.5,
             x : 0,
             opacity : 1
