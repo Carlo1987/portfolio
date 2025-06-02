@@ -167,7 +167,7 @@ $color_dark_shadow : colors.$color_dark_shadow;
 
 
 
-nav{
+nav{   
   height: 95px;
   background-color: $color_dark_light;
   box-shadow: 0px 2px 2px  $color_dark_shadow; 
@@ -269,7 +269,7 @@ nav{
           min-width: 160px;
           background-color: $color_dark_light;
           box-shadow: 0px 0px 5px whitesmoke;
-          z-index: 2;
+          z-index: 5;
           top: 37px;
           left: -100%;
           padding: 15px;
@@ -315,15 +315,9 @@ nav{
       transition: 700ms;
   }
 
-
-
   .contact_links{
     @extend %contact_links;
   }
-
-/*   .links_responsive{
-    opacity: 0;
-  } */ 
 
 
   #links_effects{
@@ -351,10 +345,6 @@ nav{
       @extend %link_selected;
     }
 
-    #closed_button{
-      transform: translateX(200px);
-    }
-
   }
 
 
@@ -364,6 +354,10 @@ nav{
     background-color: transparent;
     margin-right: 20px;
     color: white;
+
+    #closed_button{
+      transform: translateX(200px);
+    }
   }
 
   .actived{
@@ -373,9 +367,13 @@ nav{
 }
 
 
+#nav_responsive{ 
+  position: absolute;
+  left: 0; 
+  z-index: 5;
 
-#nav_responsive{
   width: 100%;
+  height: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -385,6 +383,8 @@ nav{
     text-align: center;
     padding: 15px;
 
+    transform: translateX(1000px);
+    pointer-events: none;
 
     a{
       text-decoration: none;
@@ -398,11 +398,14 @@ nav{
     @extend %link_selected;
   }
 
-  .contact_links{
-    @extend %contact_links;
+  .links_responsive{
+    opacity: 0;
+
+    .contact_links{
+      @extend %contact_links;
+    }
+   
   }
-
-
 
 }
 
@@ -411,227 +414,24 @@ nav{
 
 
 
+
 @media(max-width:1200px){
-  /*    #logo_image{
-        width: 85px !important;
-        height: 78px !important;   
-        margin-left: 5px;
-    } */
 
+  nav{
+    justify-content: space-between;
 
-    .links_noResponsive{
+    #home_effects  .links_noResponsive,
+    #links_effects{
         display: none !important;
     } 
-  
-  nav{
-    .contact_links{
-      .link:hover{    
-          .choose_curriculum{
-              @include div_down(63px);
-              animation: enablePointer 1s forwards;
-          }
-      }
-    }
-  }
-
-  }
-
-
-
-
-
-
-
-
-/* 
-
-    #choosed_language::after{
-      color: white;
-    }
-
-    #choosed_language img{
-        width: 45px; 
-        height: 35px; 
-        border-radius: 5px;
-        border: 2px solid white;  
-        transition: 300ms all  ease-in-out;
-    }
-
-    #home_effects img:hover{
-       transform: scale(1.1);
-    }
-
-
-    #home_link{
-        font-size: 32px;
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-weight: bold;
-        letter-spacing: 1px;
-        text-shadow: 1px 0px 3px rgb(211, 202, 202);
-        position: relative;
-     }
-        
-
-    
-    #home_effects .dropdown-toggle{ cursor: pointer; }
-
-    #home_effects .dropdown-toggle::after {
-          display: none; 
-    }
-
-
-    #home_effects .dropdown:hover .dropdown-menu{
-      transform: translateY(0px);
-      pointer-events: auto;
-      opacity: 1;
-      animation: enablePointer 1s forwards;
-    }
-
-
-    @keyframes enablePointer {
-        from {
-          pointer-events: none;
-        }
-        to {
-          pointer-events: auto;
-        }
-    }
-
-
-    #home_effects .dropdown-menu{
-        display: block;
-        position: absolute;
-        background-color: var(--theme);
-        box-shadow: 0px 0px 5px whitesmoke;
-        z-index: 2;
-        top: 50px;
-        left: -80%;
-        transform: translateY(-50px);
-        pointer-events: none;
-        opacity: 0;
-        transition: 500ms all ease-in-out;
-     }
-
-     #home_effects .dropdown-menu a{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        position: relative;
-        cursor: pointer;
-    }
-
-    #home_effects .dropdown-menu a:hover{
-        background-color: var(--theme);
-        color: white;
-    } 
-
-    #home_effects .dropdown-menu a::after{ 
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        left: 50%;
-        bottom: 0;
-        background-color: white;
-        transition: all 300ms linear;
-      }
-
-
-      #home_effects .dropdown-menu a:hover::after{
-        width: 80%;
-        left: 15px;
-      } 
-
-      #home_effects  .dropdown-menu img{
-        width: 35px;
-        height: 25px;
-        border-radius: 5px;
-    }
-    
-
-  
-  .collapse{
-
-    height: 100%;
-  }
-
-  #links_effects{
-    border: 1px solid yellow;
-    width: 100%;
-    height: 100%;
-  }
-
-  
-
-  #links_effects  a{
-    border: 1px solid red;
-
-      height: 100%;
-        display: flex;
-        align-items: center;
-        font-size: 27px;
-    } 
-    
-    #links_effects li:hover,
-    .actived{
-        background-color: white !important;  
-        color: var(--theme) !important;
-        overflow: hidden;
-        transition: 1.5s;  
-    }
-
-
- 
-
-    #links_effects li:hover a{   
-            color: var(--theme);   
-            text-shadow: 1px 1px 3px rgb(155, 142, 142);                
-    }  
 
     #button_responsive{
-        border: transparent;
-        background-color: transparent;
-        margin-right: 20px;
-        color: white;
+      display: block;
     }
+  
+  }
+ 
+}
 
-    #closed_button{
-       transform: translateX(200px);
-     }
 
 
-    #offcanvasNav{
-        width: 0px;
-        height: 0px; 
-        background-color: var(--theme); 
-        box-shadow: 0px 2px 2px var(--shadow); 
-     
-        position: absolute;
-        top : 95px;
-        right: 0;
-        opacity: 0.8;
-      }
-
-      #offcanvasNav ul {
-          width: 100%;
-          height: 100%;
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          padding-left: 5px;
-        }
-
-      #offcanvasNav ul li{
-          width: 100%;
-          transition: 500ms;
-          display: flex;
-          justify-content: center;
-      }
-
-      #offcanvasNav ul a{
-          transform: translateX(800px);
-          opacity: 0.2;
-          font-size: 34px;
-          letter-spacing: 2px;
-      }   */

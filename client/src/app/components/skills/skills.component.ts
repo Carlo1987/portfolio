@@ -28,8 +28,8 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
   ngAfterViewInit(): void {
     this.delayService.executeWithDelay(() => {
       this.animationSectiones();
-    });
-  }
+    }); 
+  } 
 
 
 
@@ -49,14 +49,18 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
     delay : 0.1,
     duration : 0.8,
     y:30,
-    opacity : 0
+    opacity : 0,
+      zIndex: 1,
+  position: 'relative'
    });
 
    for(let i= 2; i<=5; i++){
     tl.from(`.section_${i}`, {
       duration : 0.8,
       y:30,
-      opacity : 0
+      opacity : 0,
+        zIndex: 1,
+  position: 'relative'
      },'-=0.6');
    }
   }

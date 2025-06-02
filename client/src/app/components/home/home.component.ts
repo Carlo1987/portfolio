@@ -54,13 +54,13 @@ export class HomeComponent implements AfterViewInit , OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
 
-   let animate = (class_name:string,start_value:string):void => {
+   let animate = (class_name:string):void => {
       for(let i=1; i<=this.sectiones.length; i++){
 
         const tl = gsap.timeline({
           scrollTrigger : {
               trigger : `.${class_name}_${i}`,
-              start : `${start_value} top`,
+              start : `top 80%`,    
               end : '100% 100%',                         
           }
          }); 
@@ -79,8 +79,8 @@ export class HomeComponent implements AfterViewInit , OnDestroy {
     }
 
     
-    animate('element','-600px');
-    animate('elementResp','-750px');
+    animate('element');
+    animate('elementResp');
   }
 
 

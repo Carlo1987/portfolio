@@ -98,21 +98,26 @@ export class AppComponent implements OnInit , DoCheck {
 
     for(let i=this.nav.length-1; i>=0; i--){
       if(i == this.nav.length-1){
-        tl.to( '.link_responsive_'+i, {
-          duration : 0.7,
-          x : translateX
-        }, late)
+        animation_link_closed(late)
       }else{
+        animation_link_closed(value)
+      }
+
+
+      function animation_link_closed(delay:string){
         tl.to( '.link_responsive_'+i, {
           duration : 0.7,
-          x : translateX
-        }, value)
+          x : translateX,
+          onComplete: () => {
+            const el = document.querySelector('.link_responsive_' + i) as HTMLElement;
+            if (el) el.style.pointerEvents = 'none';
+          }
+        }, delay)
       }
   
     }
 
     tl.to('#nav_responsive', {
-      width : 0,
       height : 0,
       duration : 0.7,
       opacity : 0.2,
@@ -149,7 +154,6 @@ export class AppComponent implements OnInit , DoCheck {
       tl.to('#closed_button',{ x:0 , rotate:360 , duration:1 },'-=1');
 
       tl.to('#nav_responsive', {
-        width : '100%',
         height : 'auto',
         duration : 0.7,
         opacity : 1
@@ -164,7 +168,11 @@ export class AppComponent implements OnInit , DoCheck {
           tl.to( '.link_responsive_'+i, {
             duration : 0.5,
             x : 0,
-            opacity : 1
+            opacity : 1,
+            onComplete: () => {
+              const el = document.querySelector('.link_responsive_' + i) as HTMLElement;
+              if (el) el.style.pointerEvents = 'auto';
+            }
           }, '-=0.3')
       }
 
