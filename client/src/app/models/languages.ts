@@ -1,4 +1,3 @@
-
 const  coll = "../../assets/images/skills";
 
 export const lang_progr = {
@@ -10,6 +9,14 @@ export const lang_progr = {
        Typescript : {
             language : "Typescript",
             image : coll +  "/typescript.png"
+        },
+        React : {
+            language : 'React',
+            image : coll + "/react.png"
+        },
+        Redux : {
+            language : 'Redux',
+            image : coll + '/redux.png'
         },
        Javascript : {
             language : "Javascript",
@@ -32,11 +39,11 @@ export const lang_progr = {
             image : coll +  "/sass.png"
         },
        Css : {
-            language : "Css",
+            language : "Css3",
             image : coll +  "/css.png"
         },
        Html : {
-            language : "Html",
+            language : "Html5",
             image : coll +  "/html.png"
         },
 
@@ -73,14 +80,6 @@ export const lang_progr = {
 
 
 
-        Wordpress : {
-            language : "Wordpress",
-            image : coll +  "/wordpress.png"
-        },
-
-
-
-
         Chatgpt : {
             language : "ChatGpt",
             image : coll +  "/chatgpt.png"
@@ -106,13 +105,5 @@ export const lang_progr = {
             image : coll +  "/vps.png"
         },
 
-
-      
-      
-
-
-
-
-     
        
 }; 

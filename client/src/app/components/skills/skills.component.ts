@@ -46,21 +46,17 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
 
 
    tl.from('.section_1',{
-    delay : 0.1,
+    delay : 0.5,
     duration : 0.8,
     y:30,
     opacity : 0,
-      zIndex: 1,
-  position: 'relative'
    });
 
    for(let i= 2; i<=5; i++){
     tl.from(`.section_${i}`, {
-      duration : 0.8,
+      duration : 1,
       y:30,
       opacity : 0,
-        zIndex: 1,
-  position: 'relative'
      },'-=0.6');
    }
   }

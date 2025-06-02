@@ -23,7 +23,7 @@ $color_section : rgb(76, 71, 71);
 .skills{
     width: 100%;
     margin-bottom: 23px;
-
+    z-index: 0;
     h3{
         background-color: $color_section;
         @extend %border_style;
