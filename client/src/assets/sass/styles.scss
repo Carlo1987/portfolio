@@ -1,4 +1,3 @@
-
 @use 'colors';
 @use 'nav';
 
@@ -7,6 +6,7 @@ $color_dark_shadow : colors.$color_dark_shadow;
 $color_danger : colors.$color_danger;
 $color_success : colors.$color_success;
 
+$nav_height : nav.$nav_height;
 
 .libre-baskerville-regular {
     font-family: "Libre Baskerville", serif;
@@ -59,7 +59,8 @@ body{
 
 
 #container{
-    padding-top: 20px;
+    position: relative;
+    margin-top: calc($nav_height + 30px);
     min-height: 619px;   
 }
 

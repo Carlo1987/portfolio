@@ -24,7 +24,7 @@ if(isset($_GET['language'])){
 
 $html = ob_get_clean();  
 
-require_once 'dompdf/autoload.inc.php';
+require_once 'dompdf/autoload.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;

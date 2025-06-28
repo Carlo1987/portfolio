@@ -5,3 +5,5 @@ server/.gitignore
 README.MD
 
 client/node_modules/
+
+.dockerignore

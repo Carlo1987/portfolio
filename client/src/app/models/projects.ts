@@ -2,7 +2,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { LanguagesService } from "../services/languages";
-import { lang_progr } from "./languages";
+import { lang_progr } from "./devLanguages";
 import { global } from "../services/global";
 
 
@@ -27,7 +27,7 @@ export class ProjectModel{
             const  coll = "../../assets/images/projects";
 
             let projects = [
-                {
+            /*     {
                     name : project.project_holiday.name,
                     description : project.project_holiday.description,
                     image :  coll + "/logo_sardegnaDream.jpg",
@@ -59,7 +59,7 @@ export class ProjectModel{
                         }
                     ]
                 },
-            
+             */
                 {
                     name : project.project_social.name,
                     description : project.project_social.description,
