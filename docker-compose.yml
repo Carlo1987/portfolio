@@ -2,22 +2,24 @@
 services:
 
   angular:
+    image: angular.dev-image
     container_name: 'portfolio-frontend'
     build:
-      context: ./client
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
       - 4200:4200
     volumes:
-      - ./client/src:/app/src
+      - ./frontend/src:/app/src
 
 
   php:
+    image: php-image
     container_name: 'portfolio-backend'
     build:
-      context: ./server
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - 8080:80
     volumes:
-      - ./server:/var/www/html
+      - ./backend:/var/www/html
