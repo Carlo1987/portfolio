@@ -5,14 +5,15 @@ if(isset($_GET['language'])){
 
     $language = $_GET['language'];
 
+    $languagesPath = 'languages';
     if($language == 'ita'){
-        require 'datas/ita.php';
+        require $languagesPath . '/ita.php';
     
     }else if($language == 'esp'){
-        require 'datas/esp.php';
+        require $languagesPath . '/esp.php';
     
     }else if($language == 'eng'){
-        require 'datas/eng.php';
+        require $languagesPath . '/eng.php';
     }
 
     require 'html.php';
@@ -42,4 +43,6 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('letter');
 $dompdf->render();
 
-$dompdf->stream($name_pdf, array('Attachment' => false));
+require '../env.php';
+
+$dompdf->stream($name_pdf, array('Attachment' => $pdfAttachment));

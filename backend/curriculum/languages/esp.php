@@ -1,9 +1,10 @@
 
 <?php
 
-require 'projects.php';
-require 'courses.php';
-require 'jobs.php';
+$datasPath = 'datas';
+require $datasPath . '/projects.php';
+require $datasPath . '/courses.php';
+require $datasPath . '/jobs.php';
 
 $name_pdf = "Curriculum Loi Carlo español.pdf";
 

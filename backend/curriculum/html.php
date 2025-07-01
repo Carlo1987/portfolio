@@ -1,5 +1,4 @@
 <?php 
-
 $color_water = "rgb(95, 154, 209)";
 $bg_progress = "rgb(152, 190, 225)";
 $color_progress = "rgb(45, 108, 167)";

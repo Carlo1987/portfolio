@@ -1,5 +1,4 @@
-
-const url = "http://localhost:8080"; 
+import { url } from '../../env';
 
 
 export const global = {
@@ -9,11 +8,7 @@ export const global = {
   url_curriculum : `${url}/curriculum/curriculum.php`,
   
   project_shop : `${url}/Project_Shop/home`,
-
   project_social : `${url}/Project_Social`,
-
-  project_holiday : "https://carloloidevholiday.com",
-
 
   timing_animation : 4500
 

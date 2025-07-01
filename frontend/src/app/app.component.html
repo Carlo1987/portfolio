@@ -1,8 +1,7 @@
-<!-- 
+ 
 <app-loading *ngIf="showLoading"></app-loading> 
 
-<div [hidden]="showLoading">    --> 
-
+<div [hidden]="showLoading">    
 
   <nav class="fixed-top">
 
@@ -65,9 +64,6 @@
   </nav>
 
 
-
-  <div class="container-fluid" id="container">   
-
     <!--  NAV RESPONSIVE -->
     <div id="nav_responsive">
       <li *ngFor="let link of nav; let i = index" class="link_li link_responsive_{{i}}">
@@ -81,9 +77,11 @@
 
 
 
-    <router-outlet></router-outlet>
 
+
+  <div class="container-fluid" id="container">   
+    <router-outlet></router-outlet>
   </div>
-<!-- 
- </div>   --> 
+
+</div>   
 
