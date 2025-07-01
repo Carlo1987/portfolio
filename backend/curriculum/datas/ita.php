@@ -55,12 +55,12 @@ $curriculum = array(
         'title' => 'Progetti',
         'languages' => 'Linguaggi utilizzati',
         'projects' => [
-           [
+ /*           [
                 'name' => $projects['project_holiday']['title'],
                 'url' => $projects['project_holiday']['url'],
                 'content' => "Simulatore sito per prenotazione di case vacanze in Sardegna, progettato per offrire un'esperienza utente intuitiva e moderna",
                 'languages' => $projects['project_holiday']['languages']
-            ],
+            ], */
 
             [
                 'name' => $projects['project_social']['title'],
@@ -84,9 +84,15 @@ $curriculum = array(
     'experience' => [
         'title' => 'Esperienza lavorativa',
         'experience' => [
+            [
+                'name' => 'NewTime spa',
+                'date' =>  to_now($jobs['newtime']),
+                'content' => "Sviluppo applicazioni di tipo preventivatori, configuratori tecnici di vetrate, raccolta logs di dipositivi output.
+                            Linguaggi prevalentemente utilizzati: React, Redux, Laravel, Express, Mysql, Mongodb, Bootstrap"
+            ],
            [
                 'name' => 'Full Stack Web Developer',
-                'date' => to_now($jobs['start']),
+                'date' => $jobs['free'],
                 'content' => "Sviluppo web autonomo di progetti complessi, tra cui piattaforme social, siti di e-commerce e portali per la gestione di case vacanze, 
                               realizzati utilizzando una combinazione di linguaggi e tecnologie frontend e backend;"
             ],

@@ -26,11 +26,14 @@ $html = ob_get_clean();
 
 require_once 'dompdf/autoload.php';
 
+$publicPath = realpath(__DIR__); 
+
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
 $options = new Options();
 $options->set('isRemoteEnabled', true);
+$options->setChroot($publicPath); 
 $options->set('defaultPaperSize', 'A4');
 $options->set('isHtml5ParserEnabled', true);
 

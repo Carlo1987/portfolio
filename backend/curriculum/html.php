@@ -21,7 +21,6 @@ require 'datas/skills.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ public_path('./style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,13 +69,6 @@ require 'datas/skills.php';
             height: 97%;
             margin-top: 20px;
         } 
-
-        main{
-            float: right;
-            width: 45%;
-            margin-right: 25px;
-            position: relative;
-        }
 
         .aside__header{
             width: 100%;
@@ -196,8 +188,22 @@ require 'datas/skills.php';
 
         .list__aside{ padding-left: 9.5px; }
 
+        main{
+            float: right;
+            width: 45%;
+            margin-right: 25px;
+            position: relative;
+        }
+
+        .main_page2{
+            margin-top: 20px;
+        }
+
+
+        .main__block span{ display: block; }
+
         .main__title{
-            width: 100%;
+            width: 95%;
             padding: 10px;
             background-color: <?= $color_water ?>;
             color: white;
@@ -219,7 +225,6 @@ require 'datas/skills.php';
 
         .main__list{ margin-top: 15px ;}
 
-        .main__block span{ display: block; }
 
         .list__title{
             font-weight: bold;
@@ -254,9 +259,6 @@ require 'datas/skills.php';
         }
 
         #signature{
-            position: absolute;
-            right: 20px;
-            bottom: -975px;
             width: 100px;
             border-radius: 10px;
         }
@@ -365,17 +367,6 @@ require 'datas/skills.php';
                     
                         </div>
 
-
-                        <div class="block__skill separate">
-                            <p class="skill__title"> <?= $skills_data['cms']['title'] ?> </p>
-
-                            <div class="skill__column">
-                                <?php foreach($skills_data['cms']['languages'] as $language) : ?>
-                                        <span class="language"> <?= $language ?> </span>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-
                     </section>
 
 
@@ -443,19 +434,15 @@ require 'datas/skills.php';
 
             <div class="main__block">
                 <div class="main__title">
-                    <?= $projects['title'] ?>
+                    <?= $experiences['title'] ?>
                 </div>
 
-                    <?php  foreach($projects['projects'] as $project) :  ?>
+                    <?php  foreach($experiences['experience'] as $experience) :  ?>
 
                         <div class="main__list">
-                            <span class="list__title"> <?= $project['name'] ?> </span>
-                            <span class="list__content"> <?= $project['content'] ?>. </span>
-                            <span class="list__url"> <strong> url: </strong> https://<?= $project['url'] ?> </span>
-                            <span class="list__languages">
-                                <span class="list__languages__title"> <?= $projects['languages'] ?>: </span>
-                                <span class="list__languages__list"> <?= $project['languages'] ?> </span> 
-                            </span>
+                            <span class="list__title"> <?= $experience['name'] ?> </span>
+                            <span class="list__url"> <?= $experience['date'] ?> </span>
+                            <span class="list__content"> <?= $experience['content'] ?> </span>
                         </div>
                     
                     <?php endforeach; ?>
@@ -526,32 +513,41 @@ require 'datas/skills.php';
 
 
 
-        <main>
+        <main class="main_page2">
 
+       
             <div class="main__block">
                 <div class="main__title">
-                    <?= $experiences['title'] ?>
+                    <?= $projects['title'] ?>
                 </div>
 
-                    <?php  foreach($experiences['experience'] as $experience) :  ?>
+                <?php  foreach($projects['projects'] as $project) :  ?>
 
-                        <div class="main__list">
-                            <span class="list__title"> <?= $experience['name'] ?> </span>
-                            <span class="list__url"> <?= $experience['date'] ?> </span>
-                            <span class="list__content"> <?= $experience['content'] ?> </span>
-                        </div>
-                    
-                    <?php endforeach; ?>
-        
+                    <div class="main__list">
+                        <span class="list__title"> <?= $project['name'] ?> </span>
+                        <span class="list__content"> <?= $project['content'] ?>. </span>
+                        <span class="list__url"> <strong> url: </strong> https://<?= $project['url'] ?> </span>
+                        <span class="list__languages">
+                            <span class="list__languages__title"> <?= $projects['languages'] ?>: </span>
+                            <span class="list__languages__list"> <?= $project['languages'] ?> </span> 
+                        </span>
+                    </div>
+                
+                <?php endforeach; ?>   
             </div>
-
 
 
             <div id="authorization">
-                <?= $curriculum['authorization']; ?>
+                <div>
+                    <?= $curriculum['authorization']; ?>
+                </div>
+                <div style="text-align:right;">
+                    <img id="signature" src="images/firma.png" alt="signature" >
+                </div>
+
             </div>
 
-            <img src="images/firma.png" alt="signature" id="signature">
+          
            
 
         </main>

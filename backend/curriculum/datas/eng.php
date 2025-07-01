@@ -50,12 +50,12 @@ $curriculum = array(
         'title' => 'Projects',
         'languages' => 'Languages Used',
         'projects' => [
-           [
+/*            [
                 'name' => $projects['project_holiday']['title'],
                 'url' => $projects['project_holiday']['url'],
                 'content' => "Simulator of a website for booking holiday homes in Sardinia, designed to provide an intuitive and modern user experience.",
                 'languages' => $projects['project_holiday']['languages']
-            ],
+            ], */
 
             [
                 'name' => $projects['project_social']['title'],
@@ -76,9 +76,15 @@ $curriculum = array(
     'experience' => [
         'title' => 'Work Experience',
         'experience' => [
+            [
+                'name' => 'NewTime spa',
+                'date' =>  to_now($jobs['newtime']),
+                'content' => "Development of applications such as quotation tools, technical glass configurators, and output device log collection.
+                                Main programming languages used: React, Redux, Laravel, Express, Mysql, Mongodb, Bootstrap"
+            ],
            [
                 'name' => 'Full Stack Web Developer',
-                'date' => to_now($jobs['start']),
+                'date' => $jobs['free'],
                 'content' => "Independent web development of complex projects, including social platforms, e-commerce sites, and portals for holiday home management, created using a combination of front-end and back-end languages and technologies."
             ],
 
@@ -91,7 +97,7 @@ $curriculum = array(
     ],
 
     'courses' => [
-        'title' => 'Education and Training',
+        'title' => 'Courses',
         'courses' => [
 
             [

@@ -4,11 +4,11 @@
 
 
 $projects = array(
-    'project_holiday' => [
+/*     'project_holiday' => [
         'title' => 'SardegnaDream',
         'url' => 'carloloidevholiday.com',
         'languages' => 'Angular, Typescript, NodeJS, Mongodb, Bootstrap, Sass'
-    ],
+    ], */
 
     'project_social' => [
         'title' => 'Faceback',
