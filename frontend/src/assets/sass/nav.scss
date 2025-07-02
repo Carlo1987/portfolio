@@ -118,8 +118,7 @@ $nav_height : 95px;
       display: flex;
       flex-direction: column;
       gap: 2px;
-  
-  
+
       .curriculum{ 
         display: inline-flex;
         align-items: center;
@@ -166,14 +165,15 @@ $nav_height : 95px;
 
 
 
-nav{   
-  display: flex;
+nav{ 
+  width: 100%;
   height: $nav_height;
   background-color: $color_dark_light;
   box-shadow: 0px 2px 2px  $color_dark_shadow; 
-  position: relative;
+  position: relative; 
   transform: translateY(-100px);
-  animation: navDown 800ms forwards; 
+  animation: navDown 800ms forwards;
+  display: flex; 
 
   a, a:visited{
       display: inline-block;
@@ -363,7 +363,6 @@ nav{
 
 #nav_responsive{ 
   position: absolute; 
-  top : -30px; 
   left: 0; 
   z-index: 5;
 
@@ -373,6 +372,7 @@ nav{
   display: flex;
   flex-direction: column;
   background-color: $color_dark_light;
+  overflow-x: hidden;  
   
   .link_li{
     text-align: center;

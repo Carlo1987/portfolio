@@ -181,15 +181,7 @@ export class AppComponent implements OnInit , DoCheck {
     }else{
       this.closeMenuResponsive('-=0.5','-=0');
     }
-   }
+  }
 
-
-
-
-
-
-
-
-
-
+  
 }
