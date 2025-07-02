@@ -372,7 +372,7 @@ nav{
   display: flex;
   flex-direction: column;
   background-color: $color_dark_light;
-  overflow-x: hidden;  
+  overflow: hidden;  
   
   .link_li{
     text-align: center;
