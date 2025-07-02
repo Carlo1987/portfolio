@@ -15,7 +15,7 @@ $nav_height : 95px;
       opacity: 0;
     }
     to{
-      transform: translateY(0px);
+      transform: none;
       opacity: 1;
     }
 }
@@ -170,8 +170,9 @@ nav{
   height: $nav_height;
   background-color: $color_dark_light;
   box-shadow: 0px 2px 2px  $color_dark_shadow; 
-  position: relative; 
-  transform: translateY(-100px);
+  position: sticky; 
+  z-index: 100;
+
   animation: navDown 800ms forwards;
   display: flex; 
 
@@ -376,7 +377,7 @@ nav{
   
   .link_li{
     text-align: center;
-    padding: 15px;
+    padding: 20px;
 
     transform: translateX(1000px);
     pointer-events: none;
@@ -403,10 +404,6 @@ nav{
   }
 
 }
-
-
-
-
 
 
 

@@ -154,15 +154,11 @@ export class AppComponent implements OnInit , DoCheck {
       tl.to('#closed_button',{ x:0 , rotate:360 , duration:1 },'-=1');
 
       tl.to('#nav_responsive', {
-        height : 'auto',
+        height : '90vh',
         duration : 0.7,
         opacity : 1
       }, '-=0.7');
 
-      tl.to('.links_responsive',{
-        opacity : 1,
-        duration : 0.7
-      }, '-=0.5');
 
       for(let i=0; i<this.nav.length; i++){
           tl.to( '.link_responsive_'+i, {
@@ -175,6 +171,11 @@ export class AppComponent implements OnInit , DoCheck {
             }
           }, '-=0.3')
       }
+
+      tl.to('.links_responsive',{
+        opacity : 1,
+        duration : 0.8
+      }, '-=0.1');
 
       this.menu_responsive = false;
 
