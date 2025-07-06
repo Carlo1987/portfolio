@@ -3,7 +3,7 @@ services:
 
   angular:
     image: angular.dev-image
-    container_name: 'portfolio-frontend'
+    container_name: portfolio-frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -11,15 +11,61 @@ services:
       - 4200:4200
     volumes:
       - ./frontend/src:/app/src
+    networks:
+      - portfolio
 
-
-  php:
-    image: php-image
-    container_name: 'portfolio-backend'
+  laravel:
+    image: laravel-image
+    container_name: portfolio-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - 8080:80
+      - "8080:80"
     volumes:
-      - ./backend:/var/www/html
+      - ./backend:/var/www
+    depends_on:
+      - mysql
+    networks:
+      - portfolio
+
+    
+  mysql:
+    image: mysql:8.0
+    container_name: portfolio-db
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: MiaGatoVolador
+      MYSQL_DATABASE: portfolio
+      MYSQL_USER: corsport87
+      MYSQL_PASSWORD: p0rtf0li0
+    networks:
+      - portfolio
+
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.2
+    container_name: portfolio-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: MiaGatoVolador
+    ports:
+    - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - portfolio
+
+networks:
+  portfolio:
+    driver: bridge
+
+
+volumes:
+  db:

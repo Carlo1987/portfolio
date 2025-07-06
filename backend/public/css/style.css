@@ -1,0 +1,31 @@
+
+:root{  
+    --maxWith: 40rem;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    font-size: 10px;
+}
+
+.alert{
+    max-width: var(--maxWith);
+    text-align: center;
+    margin: 10px auto;
+}
+
+h2{
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.card{
+    max-width: var(--maxWith);
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin: 10px auto;
+}
