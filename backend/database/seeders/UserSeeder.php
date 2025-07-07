@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
             'username' => env('USERNAME'),
             'email' => env('EMAIL'),
             'password' => Hash::make(env('PASSWORD')),
-            'failedAccess' => 0,
         ]);
+
+    
     }
 }

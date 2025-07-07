@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth; 
+
 use App\Models\User;
+use App\Models\Access;
 
 use Illuminate\Http\Request;
 
@@ -16,14 +19,49 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
-        $user = User::where('username',$request->username)->first();
+        $limitAccess = Access::first();
+        $limitValue = $limitAccess->value;
+        if($limitValue > 0){
+            $user = User::where('username',$request->username)->first();
 
-        if($user){
-            if(Hash::check( $request->password, $user->password ) ){
-                dd('ok');
+            if($user){
+                if(Hash::check( $request->password, $user->password ) ){
+                    Auth::login($user);
+                    return redirect()->route('contact.index');
+                }
             }
+
+            $limitAccess->value = $limitValue - 1;
+            $limitAccess->save();
+            return back()->with('error','Error credentials');
+        }else{
+              return back()->with('error','Blocked');
+        }       
+    }
+
+
+    public function unloack()
+    {
+        $title = "Unloack";
+        $routeForm = "unloack";
+        return view('welcome',[
+            'title' => $title,
+            'routeForm' => $routeForm,
+        ]);
+    }
+
+
+    public function resetAccess(Request $request)
+    {
+        $username = $request->username;
+        $password = $request->password;
+        if($username == env('USERNAME') && $password == env('PASSWORD')){
+            $limitAccess = Access::first();
+            $limitAccess->value = env('LIMIT_ACCESS');
+            $limitAccess->save();
+            return redirect()->route('welcome')->with('success','Unloacked');
         }
-        
-        return back()->with('error','Error credentials');
+
+        return back()->with('error','Invalid');
     }
 }

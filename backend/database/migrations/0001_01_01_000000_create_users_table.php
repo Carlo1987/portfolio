@@ -17,8 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->smallInteger('failedAccess')->default(0);
             $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('accesses', function (Blueprint $table){
+            $table->id();
+            $table->smallInteger('value')->default(env('LIMIT_ACCESS'));
             $table->timestamps();
         });
 
@@ -44,6 +49,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('accesses');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
