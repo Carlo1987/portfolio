@@ -40,10 +40,24 @@ class AuthController extends Controller
     }
 
 
+    public function welcome()
+    {
+        $title = "Pannello portfolio";
+        $routeForm = "login";
+        return $this->viewForm($title, $routeForm);
+    }
+
+
     public function unloack()
     {
         $title = "Unloack";
         $routeForm = "unloack";
+        return $this->viewForm($title, $routeForm);
+    }
+
+
+    private function viewForm($title, $routeForm)
+    {
         return view('welcome',[
             'title' => $title,
             'routeForm' => $routeForm,
@@ -55,7 +69,7 @@ class AuthController extends Controller
     {
         $username = $request->username;
         $password = $request->password;
-        if($username == env('USERNAME') && $password == env('PASSWORD')){
+        if($username == env('USERNAMEROOT') && $password == env('PASSWORDROOT')){
             $limitAccess = Access::first();
             $limitAccess->value = env('LIMIT_ACCESS');
             $limitAccess->save();
@@ -63,5 +77,12 @@ class AuthController extends Controller
         }
 
         return back()->with('error','Invalid');
+    }
+
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('welcome');
     }
 }

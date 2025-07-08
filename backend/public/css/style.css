@@ -1,6 +1,7 @@
 
 :root{  
     --maxWith: 40rem;
+    --colorPrimary : rgb(240, 235, 235);
 }
 
 *{
@@ -16,6 +17,14 @@ body{
     max-width: var(--maxWith);
     text-align: center;
     margin: 10px auto;
+}
+
+.nav{
+    background-color: var(--colorPrimary);
+}
+
+.nav-item{
+    padding: 1rem;
 }
 
 h2{

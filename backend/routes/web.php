@@ -2,19 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $title = "Pannello portfolio";
-    $routeForm = "login";
-    return view('welcome',[
-        'title' => $title,
-        'routeForm' => $routeForm,
-    ]);
-})->name('welcome');
+Route::get('/', 'App\Http\Controllers\AuthController@welcome')->name('welcome');
+Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
+Route::get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
 $url_unloack = env('URL_UNLOACK');
-Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
 Route::get("/$url_unloack", 'App\Http\Controllers\AuthController@unloack')->name('unloack');
 Route::post("/$url_unloack", 'App\Http\Controllers\AuthController@resetAccess')->name('unloack');
+
 
 Route::group(['middleware' => 'auth'], function () {
     //  Rotte contatti 

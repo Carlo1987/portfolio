@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
     {
         User::create([
             'username' => env('USERNAME'),
-            'email' => env('EMAIL'),
             'password' => Hash::make(env('PASSWORD')),
         ]);
 
