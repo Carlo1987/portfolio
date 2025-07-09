@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('date');
             $table->string('timeDuration');
-            $table->string('format');
+            $table->smallInteger('format');
             $table->string('text_ITA');
             $table->string('text_ESP');
             $table->string('text_ENG');

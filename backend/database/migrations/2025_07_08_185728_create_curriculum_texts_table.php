@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('curriculum_texts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('curriculumSection_id');
+            $table->smallInteger('curriculumSection_id');
             $table->string('text_ITA');
             $table->string('text_ESP');
             $table->string('text_ENG');
             $table->smallInteger('order');
             $table->timestamps();
-
-            $table->foreign('curriculumSection_id')->references('id')->on('curriculum_sectiones')->onDelete('cascade'); 
         });
     }
 
