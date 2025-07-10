@@ -14,11 +14,31 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
+     
+        $courses = $this->courses();
+
+        foreach($courses as $key => $course){
+            Course::create([
+                'name' => $course['name'],
+                'date' => $course['date'],
+                'timeDuration' => $couse['timeDuration'],
+                'format' => $course['format'],
+                'text_ITA' => $course['text_ITA'],
+                'text_ESP' => $course['text_ESP'],
+                'text_ENG' => $course['text_ENG'],
+                'order' => $key +1
+            ]);
+        }
+    }
+
+
+    private function courses()
+    {
         $hours = config('setting.formatTime.hours');
         $monthes = config('setting.formatTime.monthes');
         $years = config('setting.formatTime.years');
 
-        $courses = array(
+        return array(
             [
                 'name' => 'Diploma Scientifico Informatico',
                 'date' => '07/2006',
@@ -110,19 +130,5 @@ class CourseSeeder extends Seeder
                 'text_ENG' => 'Docker course'
             ],
         );
-
-
-        foreach($courses as $key => $course){
-            Course::create([
-                'name' => $course['name'],
-                'date' => $course['date'],
-                'timeDuration' => $couse['timeDuration'],
-                'format' => $course['format'],
-                'text_ITA' => $course['text_ITA'],
-                'text_ESP' => $course['text_ESP'],
-                'text_ENG' => $course['text_ENG'],
-                'order' => $key +1
-            ]);
-        }
     }
 }

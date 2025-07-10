@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('skillType_id');
+            $table->smallInteger('skillType');
             $table->string('name');
             $table->string('image');
             $table->smallInteger('order');

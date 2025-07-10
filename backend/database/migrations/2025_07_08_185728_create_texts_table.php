@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('curriculum_texts', function (Blueprint $table) {
+        Schema::create('texts', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('curriculumSection_id');
+            $table->smallInteger('section');
             $table->string('text_ITA');
             $table->string('text_ESP');
             $table->string('text_ENG');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('curriculum_texts');
+        Schema::dropIfExists('texts');
     }
 };
