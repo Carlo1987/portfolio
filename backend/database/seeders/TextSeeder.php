@@ -8,18 +8,18 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Text;
 
-class CurriculumTextSeeder extends Seeder
+class TextSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $textsList = $this->texts();
+        $textsData = $this->texts();
 
-        foreach($textsList as $textList){
-            $section = $textList['section'];
-            foreach($textList['texts'] as $key => $text){
+        foreach($textsData as $data){
+            $section = $data['section'];
+            foreach($data['texts'] as $key => $text){
                 Text::create([
                     'section' => $section,
                     'text_ITA' => $text['text_ITA'],

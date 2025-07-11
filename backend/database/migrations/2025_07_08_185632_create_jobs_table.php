@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('from');
             $table->string('to')->nullable();
-            $table->string('text_ITA');
-            $table->string('text_ESP');
-            $table->string('text_ENG');
+            $table->text('text_ITA');
+            $table->text('text_ESP');
+            $table->text('text_ENG');
             $table->smallInteger('order');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('jobs_history');
     }
 };

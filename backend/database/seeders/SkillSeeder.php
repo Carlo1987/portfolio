@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\Skill;
+
 class SkillSeeder extends Seeder
 {
     /**
@@ -12,6 +14,138 @@ class SkillSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $skillsData = $this->skills();
+
+        foreach($skillsData as $data){
+            $skillType = $data['skillType'];
+            foreach($data['list'] as $key => $skill){
+                Skill::create([
+                    'skillType' => $skillType,
+                    'name' => $skill['name'],
+                    'image' => $skill['image'],
+                    'order' => $key + 1,
+                ]);
+            }
+        }
+    }
+
+
+    private function skills()
+    {
+        $frontendId = config('setting.skillTypes.frontend.id');
+        $backendId = config('setting.skillTypes.backend.id');
+        $databaseId = config('setting.skillTypes.database.id');
+        $devopsId = config('setting.skillTypes.devops.id');
+
+        return array(
+            [
+                'skillType' => $frontendId,
+                'list' => array(
+                    [
+                        'name' => 'Html5',
+                        'image' => 'html.png',
+                    ],
+                    [
+                        'name' => 'CSS3',
+                        'image' => 'css.png',
+                    ],
+                     [
+                        'name' => 'Sass',
+                        'image' => 'sass.png',
+                    ],
+                    [
+                        'name' => 'Bootstrap',
+                        'image' => 'bootstrap.png',
+                    ],
+                    [
+                        'name' => 'Javascript',
+                        'image' => 'javascript.png',
+                    ],
+                    [
+                        'name' => 'JQuery',
+                        'image' => 'jquery.png',
+                    ],
+                    [
+                        'name' => 'Typescript',
+                        'image' => 'typescript.png',
+                    ],
+                    [
+                        'name' => 'Angular',
+                        'image' => 'angular.png',
+                    ],
+                    [
+                        'name' => 'Redux',
+                        'image' => 'redux.png',
+                    ],
+                    [
+                        'name' => 'React',
+                        'image' => 'react.png',
+                    ],
+                )
+            ],
+            [
+                'skillType' => $backendId,
+                'list' => array(
+                    [
+                        'name' => 'Socket.io',
+                        'image' => 'socket.io.png'
+                    ],
+                    [
+                        'name' => 'NodeJS',
+                        'image' => 'nodejs.png',
+                    ],
+                    [
+                        'name' => 'PHP',
+                        'image' => 'php.png',
+                    ],
+                    [
+                        'name' => 'Laravel',
+                        'image' => 'laravel.png',
+                    ]
+                )
+            ],
+            [
+                'skillType' => $databaseId,
+                'list' => array(
+                    [
+                        'name' => 'MongoDB',
+                        'image' => 'mongoDB.png',
+                    ],
+                    [
+                        'name' => 'Mysql',
+                        'image' => 'mysql.png',
+                    ]
+                )
+            ],
+            [
+                'skillType' => $devopsId,
+                'list' => array(
+                    [
+                        'name' => 'ChapGPT',
+                        'image' => 'chatgpt.png',
+                    ],
+                    [
+                        'name' => 'SEO',
+                        'image' => 'seo.png',
+                    ],
+                    [
+                        'name' => 'VPS',
+                        'image' => 'vps.png', 
+                    ],
+                    [
+                        'name' => 'Github',
+                        'image' => 'github.png',
+                    ],
+                    [
+                        'name' => 'Git',
+                        'image' => 'git.png',
+                    ],
+                    [
+                        'name' => 'Docker',
+                        'image' => 'docker.png',
+                    ],
+                )
+            ],
+        );
     }
 }

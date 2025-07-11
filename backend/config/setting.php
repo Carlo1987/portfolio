@@ -45,4 +45,9 @@ return array(
             'id' => 4,
         ],
     ],
+
+    'projectsStates' => [
+        'working' => 1,
+        'stopped' => 2,
+    ]
 );

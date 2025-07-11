@@ -14,7 +14,22 @@ class LanguageSeeder extends Seeder
      */
     public function run(): void
     {
-        $languages = array(
+        $languages = $this->languages();
+
+        foreach($languages as $language){
+            Language::create([
+                'text_ITA' => $language['text_ITA'],
+                'text_ESP' => $language['text_ESP'],
+                'text_ENG' => $language['text_ENG'],
+                'value' => $language['value'],
+            ]);
+        }
+    }
+
+
+    private function languages()
+    {
+        return array(
             [
                 'text_ITA' => 'Italiano',
                 'text_ESP' => 'Italiano',
@@ -34,15 +49,5 @@ class LanguageSeeder extends Seeder
                 'value' => 50 
             ],
         );
-
-
-        foreach($languages as $language){
-            Lnaguage::create([
-                'text_ITA' => $language['text_ITA'],
-                'text_ESP' => $language['text_ESP'],
-                'text_ENG' => $language['text_ENG'],
-                'value' => $language['value'],
-            ]);
-        }
     }
 }

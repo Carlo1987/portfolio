@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('texts', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('section');
-            $table->string('text_ITA');
-            $table->string('text_ESP');
-            $table->string('text_ENG');
+            $table->text('text_ITA');
+            $table->text('text_ESP');
+            $table->text('text_ENG');
             $table->smallInteger('order');
             $table->timestamps();
         });

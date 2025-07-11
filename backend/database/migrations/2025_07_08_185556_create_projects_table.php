@@ -16,15 +16,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('url');
-            $table->string('description_ITA');
-            $table->string('description_ESP');
-            $table->string('description_ENG');
-            $table->string('curriculum_ITA');
-            $table->string('curriculum_ESP');
-            $table->string('curriculum_ENG');
+            $table->text('description_ITA');
+            $table->text('description_ESP');
+            $table->text('description_ENG');
+            $table->text('curriculum_ITA');
+            $table->text('curriculum_ESP');
+            $table->text('curriculum_ENG');
             $table->string('dev_languages');
             $table->smallInteger('order');
-            $table->boolean('status');
+            $table->smallInteger('status');
             $table->timestamps();
         });
     }

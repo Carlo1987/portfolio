@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('sender');
             $table->string('object');
-            $table->string('text');
+            $table->text('text');
             $table->timestamps();
         });
     }

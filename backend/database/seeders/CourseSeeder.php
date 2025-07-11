@@ -21,7 +21,7 @@ class CourseSeeder extends Seeder
             Course::create([
                 'name' => $course['name'],
                 'date' => $course['date'],
-                'timeDuration' => $couse['timeDuration'],
+                'timeDuration' => $course['timeDuration'],
                 'format' => $course['format'],
                 'text_ITA' => $course['text_ITA'],
                 'text_ESP' => $course['text_ESP'],
@@ -52,7 +52,7 @@ class CourseSeeder extends Seeder
                 'name' => 'Corso Full Stack Web Developer',
                 'date' => '05/2023',
                 'timeDuration' => 6,
-                'format' => $months,
+                'format' => $monthes,
                 'text_ITA' => 'Corso professionale di Click Accademy PHP, Mysql, Javascript, CSS3, Html5, Worpress',
                 'text_ESP' => 'Curso profesional de Click Accademy de PHP, Mysql, Javascript, CSS3, Html5, Worpress',
                 'text_ENG' => 'Professional course by Click Academy: PHP, MySQL, JavaScript, CSS3, HTML5, WordPress'

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('text_ITA');
-            $table->string('text_ESP');
-            $table->string('text_ENG');
-            $table->integer('value');
+            $table->text('text_ITA');
+            $table->text('text_ESP');
+            $table->text('text_ENG');
+            $table->smallInteger('value');
             $table->timestamps();
         });
     }
