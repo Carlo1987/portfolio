@@ -14,5 +14,9 @@ Route::post("/$url_unloack", 'App\Http\Controllers\AuthController@resetAccess')-
 Route::group(['middleware' => 'auth'], function () {
     //  Rotte contatti 
     Route::get('/contacts', 'App\Http\Controllers\ContactController@index')->name('contact.index');
+    Route::put('/contacts', 'App\Http\Controllers\ContactController@edit')->name('contact.edit');
+
+    //  Rotte skills
+    Route::get('/skills', 'App\Http\Controllers\SkillController@index')->name('skill.index');
 });
 

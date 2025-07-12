@@ -2,6 +2,7 @@
 :root{  
     --maxWith: 40rem;
     --colorPrimary : rgb(240, 235, 235);
+    --colorDark : rgb(99, 93, 93);
 }
 
 *{
@@ -21,6 +22,7 @@ body{
 
 .nav{
     background-color: var(--colorPrimary);
+    box-shadow: 0px 2px 3px var(--colorDark);
 }
 
 .nav-item{
@@ -37,4 +39,16 @@ h2{
     padding: 1rem;
     font-size: 1.2rem;
     margin: 10px auto;
+    border: transparent;
+    box-shadow: 0px 0px 10px var(--colorDark);
+}
+
+.accordion{
+    margin-top: 2rem;
+}
+
+.accordion-button{
+    background-color: var(--colorPrimary) !important;
+    box-shadow: 0px 0px 10px var(--colorDark);
+    border-radius: 10px !important;
 }

@@ -1,6 +1,9 @@
 <ul class="nav nav-underline">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{{ route('contact.index') }}">Contatti</a>
+    <a class="nav-link" href="{{ route('contact.index') }}">Contatti</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('skill.index') }}">Skills</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Corsi</a>
