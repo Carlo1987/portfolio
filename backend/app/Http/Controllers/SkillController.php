@@ -18,7 +18,7 @@ class SkillController extends Controller
         ]);
     }
 
-     private function groupByType($skills)
+    private function groupByType($skills)
     {
         $skillTypes =  config('setting.skillTypes');
         $frontendTypeId = $skillTypes['frontend']['id'];
@@ -69,4 +69,81 @@ class SkillController extends Controller
             ],
         );
     }
+
+
+    public function store(Request $request, $id = null)
+    {
+        $request->validate([
+            'skillType' => 'required',
+            'name' => 'required|string',
+            'order' => 'required|integer',
+            'image' =>  'required|mimes:jpeg,jpg,png,gif,webp',
+        ],
+        [
+          'name.required' => 'Nome obbligatorio',
+          'order.required' => 'Numero ordine obbligatorio',
+          'image.required' => 'Immagine obbligatoria',
+          'image.mimes' => 'Formato file non valido',  
+        ]);
+
+        $skill;
+        $oldOrder = null;
+        $newOrder = $request->order;
+        if($id){
+            $skill = Skill::find($id);
+            $oldOrder = $skill->order;
+        }else{
+            $skill =  new Skill();
+        }
+       
+        $this->changeOrders(
+            $skill->skillsTypes, 
+            $oldOrder, 
+            $newOrder
+        ); 
+
+        $skill->skillType = $request->skillType;
+        $skill->name = $request->name;
+        $skill->order = $newOrder;
+        $skill->save();
+    }
+
+
+    private function changeOrders($skillType, $oldOrder, $newOrder) : void
+    {
+        if($oldOrder == null || $oldOrder && $oldOrder > $newOrder){
+            /* $skills = Skill::where('skillType',$skillType)
+                            ->where('order','>=',$newOrder)
+                            ->where('order','<',$oldOrder)
+                            ->get(); */
+
+            $skills = Skill::when($oldOrder, function($query) use ($oldOrder){
+                        $query->where('order','<',$oldOrder);
+                    })
+                    ->where('skillType',$skillType)
+                    ->where('order','>=',$newOrder)
+                    ->get();
+
+            if($skills){
+                foreach($skills as $skill){
+                    $order = $skill->order;
+                    $skill->order = $order + 1;
+                    $skill->save();
+                } 
+            }
+         
+        }else{
+            $skills = Skill::where('skillType',$skillType)
+                            ->where('order','<=',$newOrder)
+                            ->where('order','>',$oldOrder)
+                            ->get();
+            if($skills){
+                foreach($skills as $skill){
+                    $order = $skill->order;
+                    $skill->order = $order - 1;
+                    $skill->save();
+                }
+            }
+        }
+    } 
 }

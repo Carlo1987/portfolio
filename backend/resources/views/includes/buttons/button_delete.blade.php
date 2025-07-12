@@ -1,0 +1,2 @@
+
+<i class="bi bi-trash"></i>

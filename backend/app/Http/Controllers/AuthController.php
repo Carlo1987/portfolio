@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'username' => 'required|string',
             'password' => 'required|string'
         ]);

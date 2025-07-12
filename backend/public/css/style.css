@@ -1,3 +1,6 @@
+@import "./nav.css";
+@import "./accordion.css";
+@import "./table.css";
 
 :root{  
     --maxWith: 40rem;
@@ -20,15 +23,6 @@ body{
     margin: 10px auto;
 }
 
-.nav{
-    background-color: var(--colorPrimary);
-    box-shadow: 0px 2px 3px var(--colorDark);
-}
-
-.nav-item{
-    padding: 1rem;
-}
-
 h2{
     text-align: center;
     padding: 1.5rem;
@@ -43,12 +37,4 @@ h2{
     box-shadow: 0px 0px 10px var(--colorDark);
 }
 
-.accordion{
-    margin-top: 2rem;
-}
 
-.accordion-button{
-    background-color: var(--colorPrimary) !important;
-    box-shadow: 0px 0px 10px var(--colorDark);
-    border-radius: 10px !important;
-}

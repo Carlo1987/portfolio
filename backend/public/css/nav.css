@@ -1,0 +1,8 @@
+.nav{
+    background-color: var(--colorPrimary);
+    box-shadow: 0px 2px 3px var(--colorDark);
+}
+
+.nav-item{
+    padding: 1rem;
+}
