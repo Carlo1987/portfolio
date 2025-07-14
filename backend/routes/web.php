@@ -18,5 +18,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //  Rotte skills
     Route::get('/skills', 'App\Http\Controllers\SkillController@index')->name('skill.index');
+    Route::post('/skills/{id?}', 'App\Http\Controllers\SkillController@store')->name('skill.store');
 });
 

@@ -46,11 +46,11 @@
                 </div>
             @endforeach
             </div>
-        </div>
+        </div>    
     </div>
-
+    @include('includes.toasts.toast')
     @include('admin.pages.skills.modal_store')
-
+ 
 @endsection
 
 
@@ -61,7 +61,7 @@
     const buttonsEdit = document.querySelectorAll('.btnEdit');
     const buttonsDelete = document.querySelectorAll('.btnDelete');
 
-    const modalInputSkillId = document.querySelector('#skillId');
+    const modalInputSkillId = document.querySelector('#id');
     const modalInputSkillType = document.querySelector('#skillType');
     const modalInputName = document.querySelector('#name');
     const modalInputOrder = document.querySelector('#order');
