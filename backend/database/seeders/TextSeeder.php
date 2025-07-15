@@ -21,7 +21,7 @@ class TextSeeder extends Seeder
             $section = $data['section'];
             foreach($data['texts'] as $key => $text){
                 Text::create([
-                    'section' => $section,
+                    'type' => $section,
                     'text_ITA' => $text['text_ITA'],
                     'text_ESP' => $text['text_ESP'],
                     'text_ENG' => $text['text_ENG'],

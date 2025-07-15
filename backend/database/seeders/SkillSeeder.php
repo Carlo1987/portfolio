@@ -17,10 +17,10 @@ class SkillSeeder extends Seeder
         $skillsData = $this->skills();
 
         foreach($skillsData as $data){
-            $skillType = $data['skillType'];
+            $type = $data['type'];
             foreach($data['list'] as $key => $skill){
                 Skill::create([
-                    'skillType' => $skillType,
+                    'type' => $type,
                     'name' => $skill['name'],
                     'image' => $skill['image'],
                     'order' => $key + 1,
@@ -39,7 +39,7 @@ class SkillSeeder extends Seeder
 
         return array(
             [
-                'skillType' => $frontendId,
+                'type' => $frontendId,
                 'list' => array(
                     [
                         'name' => 'Html5',
@@ -84,7 +84,7 @@ class SkillSeeder extends Seeder
                 )
             ],
             [
-                'skillType' => $backendId,
+                'type' => $backendId,
                 'list' => array(
                     [
                         'name' => 'Socket.io',
@@ -105,7 +105,7 @@ class SkillSeeder extends Seeder
                 )
             ],
             [
-                'skillType' => $databaseId,
+                'type' => $databaseId,
                 'list' => array(
                     [
                         'name' => 'MongoDB',
@@ -118,7 +118,7 @@ class SkillSeeder extends Seeder
                 )
             ],
             [
-                'skillType' => $devopsId,
+                'type' => $devopsId,
                 'list' => array(
                     [
                         'name' => 'ChapGPT',

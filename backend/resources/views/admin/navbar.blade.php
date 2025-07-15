@@ -11,7 +11,7 @@
       <a class="nav-link" href="{{ route('skill.index') }}">Skills</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Corsi</a>
+      <a class="nav-link" href="{{ route('course.index') }}">Corsi</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Progetti</a>

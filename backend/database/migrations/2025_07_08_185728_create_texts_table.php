@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('texts', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('section');
+            $table->smallInteger('type');
             $table->text('text_ITA');
             $table->text('text_ESP');
             $table->text('text_ENG');

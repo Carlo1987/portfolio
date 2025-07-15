@@ -1,6 +1,6 @@
 @extends('admin.index')
 
-@section('pannels')
+@section('pages')
 
     <div class="accordion accordion-flush" id="accordionSkills">
         <div class="accordion-item">
@@ -15,8 +15,8 @@
                     <div id="flush-collapse_{{ $skillsType['id'] }}" class="accordion-collapse collapse" data-bs-parent="#accordionSkills">
                         <div class="accordion__body">    
                             <div class="w-100 d-flex justify-content-end mb-2">
-                                <div class="btnAdd btn btn-outline-success btn-sm me-4" data-bs-toggle="modal" data-bs-target="#storeSkillModal" 
-                                    data-skillType="{{ $skillsType['id'] }}" data-skillsTypeLength ="{{ count( $skillsType['list'] ) }}">
+                                <div class="btnOpenModalAdd btn btn-outline-success btn-sm me-4" data-bs-toggle="modal" data-bs-target="#storeSkillModal" 
+                                    data-type="{{ $skillsType['id'] }}" data-skillsTypeLength ="{{ count( $skillsType['list'] ) }}">
                                     Aggiungi skill
                                 </div>
                             </div>
@@ -25,16 +25,17 @@
                             @foreach($skillsType['list'] as $skill)  
                                 <tr>
                                     <td class="td__container"> 
-                                        <img src="{{ asset('storage/skills/' . $skill['image']) }}" alt="image_{{ $skill['image'] }}" class="table__image"> 
+                                        <img src="{{ asset('images/skills/' . $skill['image']) }}" alt="image_{{ $skill['image'] }}" class="table__image"> 
                                         {{ $skill['name'] }} 
                                     </td>
                                     <td> {{ $skill['order'] }} </td>
                                     <td class="d-flex gap-2">
-                                        <div class="btnEdit btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#storeSkillModal"
-                                            data-id="{{ $skill['id'] }}" data-skillType="{ $skillsType['id'] }}" data-name="{{ $skill['name'] }}" data-order="{{ $skill['order'] }}" data-image="{{ $skill['image'] }}"> 
+                                        <div class="btnOpenModalEdit btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#storeSkillModal"
+                                            data-id="{{ $skill['id'] }}" data-type="{{ $skillsType['id'] }}" data-name="{{ $skill['name'] }}" data-order="{{ $skill['order'] }}" data-image="{{ $skill['image'] }}"> 
                                             @include('includes.buttons.button_update') 
                                         </div>
-                                        <div class="btnDelete btn btn-outline-danger btn-sm" data-id="{{ $skill['id'] }}" data-name="{{ $skill['name'] }}"> 
+                                        <div class="btnOpenModalDelete btn btn-outline-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#deleteSkillModal"
+                                            data-id="{{ $skill['id'] }}" data-name="{{ $skill['name'] }}"> 
                                             @include('includes.buttons.button_delete') 
                                         </div>
                                     </td>
@@ -48,8 +49,9 @@
             </div>
         </div>    
     </div>
-    @include('includes.toasts.toast')
+ 
     @include('admin.pages.skills.modal_store')
+    @include('admin.pages.skills.modal_delete')
  
 @endsection
 
@@ -57,18 +59,19 @@
 
 <script type="module">
 
-    const buttonsAdd = document.querySelectorAll('.btnAdd');
-    const buttonsEdit = document.querySelectorAll('.btnEdit');
-    const buttonsDelete = document.querySelectorAll('.btnDelete');
+    const buttonsAdd = document.querySelectorAll('.btnOpenModalAdd');
+    const buttonsEdit = document.querySelectorAll('.btnOpenModalEdit');
+    const buttonsDelete = document.querySelectorAll('.btnOpenModalDelete');
 
     const modalInputSkillId = document.querySelector('#id');
-    const modalInputSkillType = document.querySelector('#skillType');
+    const modalInputType = document.querySelector('#type');
     const modalInputName = document.querySelector('#name');
     const modalInputOrder = document.querySelector('#order');
     const modalInputImage = document.querySelector('#image');
 
     addSkill();
     editSkill();
+    deleteSkill();
 
 
     function addSkill(){
@@ -76,13 +79,13 @@
             button.onclick = function(){
                 const data = {
                     skillId : null,
-                    skillType : button.getAttribute('data-skillType'),
+                    type : button.getAttribute('data-type'),
                     name : null,
                     order : parseInt(button.getAttribute('data-skillsTypeLength')) + 1,
                     image : null,
                 }
                 const title = 'Aggiungere skill';
-                setModalTitle(title); 
+                setModalTitle('title-store', title); 
 
                 setInputsModal(data);
                 changeStyleBtnImage(data.image);
@@ -96,14 +99,14 @@
             button.onclick = function(){
                 const data = {
                     skillId : button.getAttribute('data-id'),
-                    skillType : button.getAttribute('data-skillType'),
+                    type : button.getAttribute('data-type'),
                     name : button.getAttribute('data-name'),
                     order : button.getAttribute('data-order'),
                     image : button.getAttribute('data-image'),
                 }
 
                 const title = 'Modificare ' + data.name;
-                setModalTitle(title); 
+                setModalTitle('title-store', title); 
                 setInputsModal(data); 
                 changeStyleBtnImage(data.image);
             }
@@ -111,17 +114,28 @@
     }
 
 
+    function deleteSkill(){
+        buttonsDelete.forEach(button => {
+            button.onclick = function(){
+                const title = `Cancellare ${ button.getAttribute('data-name') }?`;
+                setModalTitle('title-delete', title);
+                modalInputSkillId.value =  button.getAttribute('data-id')
+            }
+        })
+    }
+
+
     function setInputsModal(data){
         modalInputSkillId.value = data.skillId;
-        modalInputSkillType.value = data.skillType; 
+        modalInputType.value = data.type; 
         modalInputName.value = data.name;
         modalInputOrder.value = data.order;
         modalInputImage.value = data.image
     }
 
 
-    function setModalTitle(title){
-        const modalTitle = document.querySelector('.modal-title');
+    function setModalTitle(className, title){
+        const modalTitle = document.querySelector('.'+className);
         modalTitle.innerHTML = title;
     }
 

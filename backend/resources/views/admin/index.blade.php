@@ -4,7 +4,8 @@
 @include('admin.navbar')
 
 @section('content')
-     @yield('pannels') 
+     @yield('pages') 
+     @include('includes.toasts.toast')
 @endsection
 
 

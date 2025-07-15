@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Facades\Validator;
 
-
+use App\Http\Helpers\FileHelper;
 use App\Models\Skill;
 
 class SkillController extends Controller
 {
+    use FileHelper;
+
     public function index()
     {
-        $skills = Skill::orderBy('id', 'desc')->get();
+        $skills = Skill::orderBy('order', 'desc')->get();
         $skillsTypes = $this->groupByType($skills);
    
         return view('admin.pages.skills.index', [
@@ -23,11 +24,11 @@ class SkillController extends Controller
 
     private function groupByType($skills)
     {
-        $skillTypes =  config('setting.skillTypes');
-        $frontendTypeId = $skillTypes['frontend']['id'];
-        $backendTypeId = $skillTypes['backend']['id'];
-        $databaseTypeId = $skillTypes['database']['id'];
-        $devopsTypeId = $skillTypes['devops']['id'];
+        $types =  config('setting.skillTypes');
+        $frontendTypeId = $types['frontend']['id'];
+        $backendTypeId = $types['backend']['id'];
+        $databaseTypeId = $types['database']['id'];
+        $devopsTypeId = $types['devops']['id'];
 
         $frontendSkills = [];
         $backendSkills = [];
@@ -35,16 +36,16 @@ class SkillController extends Controller
         $devopsSkills = [];
 
         foreach($skills as $skill){
-            if($skill['skillType'] == $frontendTypeId){
+            if($skill['type'] == $frontendTypeId){
                 $frontendSkills[] = $skill->toArray();
 
-            }else if($skill['skillType'] == $backendTypeId){
+            }else if($skill['type'] == $backendTypeId){
                 $backendSkills[] = $skill->toArray();
 
-            }else if($skill['skillType'] == $databaseTypeId){
+            }else if($skill['type'] == $databaseTypeId){
                 $databaseSkills[] = $skill->toArray();
 
-            }else if($skill['skillType'] == $devopsTypeId){
+            }else if($skill['type'] == $devopsTypeId){
                 $devopsSkills[] = $skill->toArray();
             }
         }
@@ -52,22 +53,22 @@ class SkillController extends Controller
         return array(
             [
                 'id' => $frontendTypeId,
-                'name' => $skillTypes['frontend']['name'],
+                'name' => $types['frontend']['name'],
                 'list' => $frontendSkills,
             ],
             [
                 'id' => $backendTypeId,
-                'name' => $skillTypes['backend']['name'],
+                'name' => $types['backend']['name'],
                 'list' => $backendSkills,
             ],
             [
                 'id' => $databaseTypeId,
-                'name' => $skillTypes['database']['name'],
+                'name' => $types['database']['name'],
                 'list' => $databaseSkills,
             ],
             [
                 'id' => $devopsTypeId,
-                'name' => $skillTypes['devops']['name'],
+                'name' => $types['devops']['name'],
                 'list' => $devopsSkills,
             ],
         );
@@ -77,16 +78,16 @@ class SkillController extends Controller
     public function store(Request $request, $id = null)
     {       
         $rules_validate = [
-            'skillType' => 'required',
+            'type' => 'required',
             'name' => 'required|string',
             'order' => 'required|integer',
-            'image' =>  'mimes:jpeg,jpg,png,gif,webp',
+            'file' =>  'mimes:jpeg,jpg,png,gif,webp',
         ];
 
         $error_messages = [
           'name.required' => 'Nome obbligatorio',
           'order.required' => 'Numero ordine obbligatorio',
-          'image.mimes' => 'Formato file non valido',  
+          'file.mimes' => 'Formato file non valido',  
         ];
 
         $validator = Validator::make($request->all(), $rules_validate, $error_messages);
@@ -105,6 +106,7 @@ class SkillController extends Controller
             $oldOrder = $skill->order;
         }else{
             $skill =  new Skill();
+            $skill->type = $request->type;
             $requiredImage = true;
         }
 
@@ -117,26 +119,22 @@ class SkillController extends Controller
         }
 
         if($request->has('file')){
+            $path = 'skills';
             if($skill->image){
-                $olfFilePath = public_path('skills/' . $skill->image);
-                if(File::exists($olfFilePath)){
-                    File::delete($olfFilePath);
-                }
+               $this->deleteFile($skill->image, $path);
             }
 
             $file = $request->file('file');
-            $fileName = $file->getClientOriginalName();
-            $file->move(public_path('skills'), $fileName);
-            $skill->image = $fileName;
-        }
-    
+            $fileNameSaved = $this->saveFile($file, $path);
+            $skill->image = $fileNameSaved;
+        } 
+
         $this->changeOrders(
-            $skill->skillsTypes, 
+            $request->type, 
             $oldOrder, 
             $newOrder
         ); 
-
-        $skill->skillType = $request->skillType;
+    
         $skill->name = $request->name;
         $skill->order = $newOrder;
         $skill->save();
@@ -144,40 +142,30 @@ class SkillController extends Controller
         return response()->json([
             'message' => 'Skill salvata',
             'skill' => $skill
-        ]);
+        ], 201);
     }
 
 
-    private function changeOrders($skillType, $oldOrder = null, $newOrder) : void
+    public function delete($id)
     {
-        if($oldOrder == null || $oldOrder && $oldOrder > $newOrder){
-            $skills = Skill::when($oldOrder, function($query) use ($oldOrder){
-                        $query->where('order','<',$oldOrder);
-                    })
-                    ->where('skillType',$skillType)
-                    ->where('order','>=',$newOrder)
-                    ->get();
+        $skill = Skill::find($id);
+        if($skill){
+            $this->deleteFile($skill->image, 'skills');
 
-            if($skills){
-                foreach($skills as $skill){
-                    $order = $skill->order;
-                    $skill->order = $order + 1;
-                    $skill->save();
-                } 
-            }
-         
-        }else{
-            $skills = Skill::where('skillType',$skillType)
-                            ->where('order','<=',$newOrder)
-                            ->where('order','>',$oldOrder)
-                            ->get();
-            if($skills){
-                foreach($skills as $skill){
-                    $order = $skill->order;
-                    $skill->order = $order - 1;
-                    $skill->save();
-                }
-            }
+            $this->changeOrders(
+                $skill->type,
+                $skill->order,
+                null,
+            );
+
+            $skill->delete();
+            return response()->json([
+                'message' => 'Skill eliminata',
+            ]);
         }
-    } 
+        return response()->json([
+            'errros' => 'Skill non trovata',
+        ], 404);
+    }
+
 }

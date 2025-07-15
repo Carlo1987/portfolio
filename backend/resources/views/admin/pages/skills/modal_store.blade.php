@@ -1,17 +1,16 @@
 
-
 <div class="modal fade" id="storeSkillModal" tabindex="-1" aria-labelledby="storeSkillModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="storeSkillModalLabel"> <!-- titolo --> </h1>
+        <h1 class="modal-title title-store fs-5" id="storeSkillModalLabel"> <!-- titolo --> </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form id="form" enctype="multipart/form-data">
           @csrf
             <input type="hidden" id="id" name="id">
-            <input type="hidden" id="skillType" name="skillType">
+            <input type="hidden" id="type" name="type">
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="name" name="name">

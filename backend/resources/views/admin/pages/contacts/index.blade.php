@@ -1,7 +1,7 @@
 
 @extends('admin.index')
 
-@section('pannels')
+@section('pages')
 
     <h2> Contatti </h2>
 

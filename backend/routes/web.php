@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\noAuth;
 
-Route::get('/', 'App\Http\Controllers\AuthController@welcome')->name('welcome');
+Route::get('/', 'App\Http\Controllers\AuthController@welcome')->name('welcome')->middleware(noAuth::class);
 Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
 Route::get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
@@ -17,7 +18,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/contacts', 'App\Http\Controllers\ContactController@edit')->name('contact.edit');
 
     //  Rotte skills
-    Route::get('/skills', 'App\Http\Controllers\SkillController@index')->name('skill.index');
-    Route::post('/skills/{id?}', 'App\Http\Controllers\SkillController@store')->name('skill.store');
+    Route::get('/skills-list', 'App\Http\Controllers\SkillController@index')->name('skill.index');
+    Route::post('/skill/{id?}', 'App\Http\Controllers\SkillController@store')->name('skill.store');
+    Route::delete('/skills/{id}', 'App\Http\Controllers\SkillController@delete')->name('skill.delete');
+
+    //  Rotte corsi
+    Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('course.index');
 });
 
