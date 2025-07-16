@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Enums\TimeEnum;
 use App\Models\Course;
 
 class CourseSeeder extends Seeder
@@ -34,9 +34,9 @@ class CourseSeeder extends Seeder
 
     private function courses()
     {
-        $hours = config('setting.formatTime.hours');
-        $monthes = config('setting.formatTime.monthes');
-        $years = config('setting.formatTime.years');
+        $hours = TimeEnum::hours;
+        $monthes = TimeEnum::monthes;
+        $years = TimeEnum::years;
 
         return array(
             [

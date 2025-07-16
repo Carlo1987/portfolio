@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Enums\ProjectEnum;
 use App\Models\Project;
 
 class ProjectSeeder extends Seeder
@@ -37,8 +37,8 @@ class ProjectSeeder extends Seeder
 
     private function projects()
     {
-        $stateWorking = config('setting.projectsStates.working');
-        $stateStopped = config('setting.projectsStates.stopped');
+        $stateWorking = ProjectEnum::Working;
+        $stateStopped = ProjectEnum::Stopped;
 
         return array(
             [

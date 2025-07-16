@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Http\Helpers\FileHelper;
+use App\Http\Helpers\OrderHelper;
+use App\Enums\SkillEnum;
 use App\Models\Skill;
 
 class SkillController extends Controller
 {
-    use FileHelper;
+    use FileHelper, OrderHelper;
 
     public function index()
     {
@@ -24,11 +26,10 @@ class SkillController extends Controller
 
     private function groupByType($skills)
     {
-        $types =  config('setting.skillTypes');
-        $frontendTypeId = $types['frontend']['id'];
-        $backendTypeId = $types['backend']['id'];
-        $databaseTypeId = $types['database']['id'];
-        $devopsTypeId = $types['devops']['id'];
+        $frontendTypeId = SkillEnum::Frontend->value;
+        $backendTypeId = SkillEnum::Backend->value;
+        $databaseTypeId = SkillEnum::Database->value;
+        $devopsTypeId = SkillEnum::DevOps->value;
 
         $frontendSkills = [];
         $backendSkills = [];
@@ -53,22 +54,22 @@ class SkillController extends Controller
         return array(
             [
                 'id' => $frontendTypeId,
-                'name' => $types['frontend']['name'],
+                'name' => SkillEnum::Frontend->name,
                 'list' => $frontendSkills,
             ],
             [
                 'id' => $backendTypeId,
-                'name' => $types['backend']['name'],
+                'name' => SkillEnum::Backend->name,
                 'list' => $backendSkills,
             ],
             [
                 'id' => $databaseTypeId,
-                'name' => $types['database']['name'],
+                'name' => SkillEnum::Database->name,
                 'list' => $databaseSkills,
             ],
             [
                 'id' => $devopsTypeId,
-                'name' => $types['devops']['name'],
+                'name' => SkillEnum::DevOps->name,
                 'list' => $devopsSkills,
             ],
         );
@@ -130,6 +131,7 @@ class SkillController extends Controller
         } 
 
         $this->changeOrders(
+            Skill::class,
             $request->type, 
             $oldOrder, 
             $newOrder
@@ -153,6 +155,7 @@ class SkillController extends Controller
             $this->deleteFile($skill->image, 'skills');
 
             $this->changeOrders(
+                Skill::class,
                 $skill->type,
                 $skill->order,
                 null,

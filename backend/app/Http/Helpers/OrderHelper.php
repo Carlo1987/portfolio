@@ -5,10 +5,10 @@ namespace App\Http\Helpers;
 
 trait OrderHelper {
 
-    public function changeOrders($type = null, $oldOrder = null, $newOrder = null) : void
+    public function changeOrders($model, $type = null, $oldOrder = null, $newOrder = null) : void
     {          
         if(!$oldOrder || $oldOrder && $newOrder && $oldOrder > $newOrder){
-            $skills = Skill::when($type, function($query) use ($type){
+            $items = $model::when($type, function($query) use ($type){
                         $query->where('type',$type);          
                     })
                     ->when($oldOrder, function($query) use ($oldOrder){  
@@ -17,16 +17,16 @@ trait OrderHelper {
                     ->where('order','>=',$newOrder)
                     ->get();
    
-            if($skills){
-                foreach($skills as $skill){
-                    $order = $skill->order;
-                    $skill->order = $order + 1;
-                    $skill->save();
+            if($items){
+                foreach($items as $item){
+                    $order = $item->order;
+                    $item->order = $order + 1;
+                    $item->save();
                 } 
             }
          
         }else if(!$newOrder || $oldOrder && $newOrder && $oldOrder < $newOrder){
-            $skills = Skill::when($type, function($query) use ($type){
+            $items = $model::when($type, function($query) use ($type){
                                 $query->where('type',$type);          
                             })
                             ->when($newOrder, function($query) use ($newOrder){
@@ -34,11 +34,11 @@ trait OrderHelper {
                             })
                             ->where('order','>',$oldOrder)
                             ->get();
-            if($skills){
-                foreach($skills as $skill){
-                    $order = $skill->order;
-                    $skill->order = $order - 1;
-                    $skill->save();
+            if($items){
+                foreach($items as $item){
+                    $order = $item->order;
+                    $item->order = $order - 1;
+                    $item->save();
                 }
             }
         }

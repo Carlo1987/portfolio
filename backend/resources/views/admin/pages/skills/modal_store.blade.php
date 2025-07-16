@@ -88,6 +88,7 @@
           window.location.reload();
         
         }catch(err){
+          showToast();
           console.error('Errore: ' + err);
         } 
       }

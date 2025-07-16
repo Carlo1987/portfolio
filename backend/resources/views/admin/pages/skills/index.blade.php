@@ -14,7 +14,7 @@
                     </h2>
                     <div id="flush-collapse_{{ $skillsType['id'] }}" class="accordion-collapse collapse" data-bs-parent="#accordionSkills">
                         <div class="accordion__body">    
-                            <div class="w-100 d-flex justify-content-end mb-2">
+                            <div class="container__btnAdd">
                                 <div class="btnOpenModalAdd btn btn-outline-success btn-sm me-4" data-bs-toggle="modal" data-bs-target="#storeSkillModal" 
                                     data-type="{{ $skillsType['id'] }}" data-skillsTypeLength ="{{ count( $skillsType['list'] ) }}">
                                     Aggiungi skill

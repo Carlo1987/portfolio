@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Enums\TextEnum;
 use App\Models\Text;
 
 class TextSeeder extends Seeder
@@ -37,10 +37,10 @@ class TextSeeder extends Seeder
     {
         $sectionesSetting = config('setting.sectiones');
 
-        $curriculumPresentacionId = $sectionesSetting['curriculumPresentacion']['id'];
-        $curriculumFirmId = $sectionesSetting['curriculumFirm']['id'];
-        $portfolioHomeId = $sectionesSetting['portfolioHome']['id'];
-        $portfolioAboutMeId = $sectionesSetting['portfolioAboutMe']['id'];
+        $curriculumPresentacionId = TextEnum::curriculumPresentacion->value;
+        $curriculumFirmId = TextEnum::curriculumFirm->value;
+        $portfolioHomeId = TextEnum::portfolioHome->value;
+        $portfolioAboutMeId = TextEnum::portfolioAboutMe->value;
 
         $timeToDeveloper = $this->timeToDeveloper();
 

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Enums\SkillEnum;
 use App\Models\Skill;
 
 class SkillSeeder extends Seeder
@@ -32,10 +32,10 @@ class SkillSeeder extends Seeder
 
     private function skills()
     {
-        $frontendId = config('setting.skillTypes.frontend.id');
-        $backendId = config('setting.skillTypes.backend.id');
-        $databaseId = config('setting.skillTypes.database.id');
-        $devopsId = config('setting.skillTypes.devops.id');
+        $frontendId = SkillEnum::Frontend->value;
+        $backendId = SkillEnum::Backend->value;
+        $databaseId = SkillEnum::Database->value;
+        $devopsId = SkillEnum::DevOps->value;
 
         return array(
             [

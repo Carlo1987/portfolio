@@ -41,4 +41,11 @@ h2{
     background-color: rgb(223, 171, 171) !important;
 }
 
+.container__btnAdd{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.3rem;
+}
+
 
