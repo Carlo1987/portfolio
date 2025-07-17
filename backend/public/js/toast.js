@@ -19,4 +19,3 @@ function showToast(message = "Si è verificato un errore") {
 }
 
 
-export { showToast }

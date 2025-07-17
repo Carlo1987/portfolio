@@ -69,4 +69,3 @@ function setModalTitle(className, title){
 }
 
 
-export { addItem, editItem, deleteItem }
