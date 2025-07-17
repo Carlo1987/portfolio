@@ -79,7 +79,7 @@
 <script type="module">
 
     document.addEventListener('DOMContentLoaded', function (){
-      saveItem();
+      handleSave();
     });
 
 </script>

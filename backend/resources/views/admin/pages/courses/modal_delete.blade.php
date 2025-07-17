@@ -24,6 +24,6 @@
 <script type="module">
 
     document.addEventListener('DOMContentLoaded', function (){
-      deleteItem();
+      handleDelete();
     });
 </script>

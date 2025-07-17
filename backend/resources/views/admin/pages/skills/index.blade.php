@@ -16,7 +16,7 @@
                         <div class="accordion__body">    
                             <div class="container__btnAdd">
                                 <div class="btnOpenModalAdd btn btn-outline-success btn-sm me-4" data-bs-toggle="modal" data-bs-target="#storeSkillModal" 
-                                    data-type="{{ $skillsType['id'] }}" data-skillsLength ="{{ count( $skillsType['list'] ) }}">
+                                    data-type="{{ $skillsType['id'] }}" data-skillsLength ="{{ count( $skillsType['list'] ) + 1 }}">
                                     Aggiungi skill
                                 </div>
                             </div>
@@ -59,78 +59,31 @@
 
 <script type="module">
 
-    const buttonsAdd = document.querySelectorAll('.btnOpenModalAdd');
-    const buttonsEdit = document.querySelectorAll('.btnOpenModalEdit');
-    const buttonsDelete = document.querySelectorAll('.btnOpenModalDelete');
+    const inputs = [
+        document.querySelector('#id'),
+        document.querySelector('#type'),
+        document.querySelector('#name'),
+        document.querySelector('#order'),
+        document.querySelector('#image'),
+    ]
 
-    const modalInputSkillId = document.querySelector('#id');
-    const modalInputType = document.querySelector('#type');
-    const modalInputName = document.querySelector('#name');
-    const modalInputOrder = document.querySelector('#order');
-    const modalInputImage = document.querySelector('#image');
+    const dataForCreate = [
+        null,               //  id
+        'type',             //  type
+        null,               //  name
+        'skillsLength',     //  order  (length skills + 1)
+        null,               //  image
+    ];
 
-    addItem();
-    editItem();
+    const dataForUpdate = [
+        'id',
+        'type',
+        'name',
+        'order',
+        'image',
+    ];
+
+    addItem(inputs, dataForCreate);
+    editItem(inputs, dataForUpdate);
     deleteItem();
-
-
-    function addItem(){
-        buttonsAdd.forEach(button => {
-            button.onclick = function(){
-                const data = {
-                    skillId : null,
-                    type : button.getAttribute('data-type'),
-                    name : null,
-                    order : parseInt(button.getAttribute('data-skillsLength')) + 1,
-                    image : null,
-                }
-                const title = 'Aggiungere skill';
-                setModalTitle('title-store', title); 
-
-                setInputsModal(data);
-                changeStyleBtnImage(data.image);
-            }
-        })
-    }
-
-
-    function editItem(){
-        buttonsEdit.forEach(button => {
-            button.onclick = function(){
-                const data = {
-                    skillId : button.getAttribute('data-id'),
-                    type : button.getAttribute('data-type'),
-                    name : button.getAttribute('data-name'),
-                    order : button.getAttribute('data-order'),
-                    image : button.getAttribute('data-image'),
-                }
-
-                const title = 'Modificare ' + data.name;
-                setModalTitle('title-store', title); 
-                setInputsModal(data); 
-                changeStyleBtnImage(data.image);
-            }
-        })
-    }
-
-
-    function deleteItem(){
-        buttonsDelete.forEach(button => {
-            button.onclick = function(){
-                const title = `Cancellare ${ button.getAttribute('data-name') }?`;
-                setModalTitle('title-delete', title);
-                modalInputSkillId.value =  button.getAttribute('data-id')
-            }
-        })
-    }
-
-
-    function setInputsModal(data){
-        modalInputSkillId.value = data.skillId;
-        modalInputType.value = data.type; 
-        modalInputName.value = data.name;
-        modalInputOrder.value = data.order;
-        modalInputImage.value = data.image
-    }
-
 </script>

@@ -1,48 +1,12 @@
-
-//  Metodo per visualizzare Toast dei messaggi
-function showToast(message = "Si è verificato un errore") {
-    const toastBody = document.querySelector('#liveToast .toast-body');
-    console.log('message',typeof message)
-    if(typeof message == 'object'){
-        const errors = message.errors;
-        message = `
-        <ul>
-            <li> ${ errors.file ?? ''  } </li>
-            <li> ${ errors.name ?? ''  } </li>
-            <li> ${ errors.order ?? ''  } </li>
-        </ul>`;
-    }
-    toastBody.innerHTML = message;
-
-    const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-    toast.show();
+function header(){
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    return {
+                'X-CSRF-TOKEN': token,
+            }
 }
-
-
-//  Metodo per cambiare stile botton di selezione file
-function changeStyleBtnImage(name = null){
-    const btnImage = document.querySelector('#btnImage'); 
- 
-    if(name){
-        btnImage.className = "btn btn-success";
-        btnImage.innerHTML = name;
-    
-    }else{
-        btnImage.className = "btn btn-secondary";
-        btnImage.innerHTML = 'Selezionare file';
-    }
-}
-
-
-//  Metodo per settare il titolo di una modal
-function setModalTitle(className, title){
-    const modalTitle = document.querySelector('.'+className);
-    modalTitle.innerHTML = title;
-}
-
 
 //  Metodo per creare/aggiornare un Item
-function saveItem(){
+function handleSave(){
     const btnSave = document.querySelector('.btnSave');
     btnSave.onclick = async function(){
     const form = document.querySelector('#form');
@@ -79,7 +43,7 @@ function saveItem(){
 
 
 //   Metodo per eliminare un Item
-function deleteItem(){
+function handleDelete(){
     const btnDelete = document.querySelector('.btnDelete');
     btnDelete.onclick = async function(){
         const id = document.querySelector('#id').value;   
@@ -109,9 +73,5 @@ function deleteItem(){
 }
 
 
-function header(){
-    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    return {
-                'X-CSRF-TOKEN': token,
-            }
-}
+export { handleSave, handleDelete };
+

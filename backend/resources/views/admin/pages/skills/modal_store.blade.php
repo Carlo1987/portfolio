@@ -49,7 +49,7 @@
     let file;
     document.addEventListener('DOMContentLoaded', function (){
       getFile();
-      saveItem();
+      handleSave();
     });
 
     function getFile() {
