@@ -14,4 +14,16 @@ class CourseController extends Controller
             'courses' => $courses
         ]);
     }
+
+
+    public function store(Request $request, $id = null)
+    {
+        return response()->json([
+            'result' => $request->all()
+        ]);
+    }
+
+
+    public function delete($id)
+    {}
 }

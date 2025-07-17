@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <table class="tableCourses">
+    <table class="table__fullPage">
         <tr>
             <th class="px-3">#</th>
             <td class="td__strong">Nome</td>
@@ -39,5 +39,9 @@
             </tr>
         @endforeach
     </table>
+
+    @include('admin.pages.courses.modal_store')
+    @include('admin.pages.courses.modal_delete')
+
 @endsection
 

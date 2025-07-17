@@ -6,7 +6,7 @@
         <div class="accordion-item">
             <div class="row">
             @foreach($skillsTypes as $skillsType)
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-xl-3 col-sm-6">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ $skillsType['id'] }}" aria-expanded="false" aria-controls="flush-collapse_{{ $skillsType['id'] }}">
                             {{ $skillsType['name'] }}
@@ -16,16 +16,16 @@
                         <div class="accordion__body">    
                             <div class="container__btnAdd">
                                 <div class="btnOpenModalAdd btn btn-outline-success btn-sm me-4" data-bs-toggle="modal" data-bs-target="#storeSkillModal" 
-                                    data-type="{{ $skillsType['id'] }}" data-skillsTypeLength ="{{ count( $skillsType['list'] ) }}">
+                                    data-type="{{ $skillsType['id'] }}" data-skillsLength ="{{ count( $skillsType['list'] ) }}">
                                     Aggiungi skill
                                 </div>
                             </div>
                       
-                            <table class="table__skills">
+                            <table class="table__fullAccordion">
                             @foreach($skillsType['list'] as $skill)  
                                 <tr>
-                                    <td class="td__container"> 
-                                        <img src="{{ asset('images/skills/' . $skill['image']) }}" alt="image_{{ $skill['image'] }}" class="table__image"> 
+                                    <td class="table__containerImage"> 
+                                        <img class="table__image" src="{{ asset('images/skills/' . $skill['image']) }}" alt="image_{{ $skill['image'] }}"> 
                                         {{ $skill['name'] }} 
                                     </td>
                                     <td> {{ $skill['order'] }} </td>
@@ -69,19 +69,19 @@
     const modalInputOrder = document.querySelector('#order');
     const modalInputImage = document.querySelector('#image');
 
-    addSkill();
-    editSkill();
-    deleteSkill();
+    addItem();
+    editItem();
+    deleteItem();
 
 
-    function addSkill(){
+    function addItem(){
         buttonsAdd.forEach(button => {
             button.onclick = function(){
                 const data = {
                     skillId : null,
                     type : button.getAttribute('data-type'),
                     name : null,
-                    order : parseInt(button.getAttribute('data-skillsTypeLength')) + 1,
+                    order : parseInt(button.getAttribute('data-skillsLength')) + 1,
                     image : null,
                 }
                 const title = 'Aggiungere skill';
@@ -94,7 +94,7 @@
     }
 
 
-    function editSkill(){
+    function editItem(){
         buttonsEdit.forEach(button => {
             button.onclick = function(){
                 const data = {
@@ -114,7 +114,7 @@
     }
 
 
-    function deleteSkill(){
+    function deleteItem(){
         buttonsDelete.forEach(button => {
             button.onclick = function(){
                 const title = `Cancellare ${ button.getAttribute('data-name') }?`;
@@ -131,12 +131,6 @@
         modalInputName.value = data.name;
         modalInputOrder.value = data.order;
         modalInputImage.value = data.image
-    }
-
-
-    function setModalTitle(className, title){
-        const modalTitle = document.querySelector('.'+className);
-        modalTitle.innerHTML = title;
     }
 
 </script>

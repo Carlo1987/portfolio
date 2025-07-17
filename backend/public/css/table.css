@@ -3,16 +3,10 @@ table{
     width: 100%;
 }
 
-.tableCourses{
+.table__fullPage{
     box-shadow: 0px 0px 5px var(--colorDark);
     background-color: var(--colorPrimary);
     border-radius: 10px;
-}
-
-.table__image{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
 }
 
 tr{
@@ -32,13 +26,20 @@ td{
     font-weight: bold;
 }
 
-.td__container{
+.table__fullAccordion td{
+    width: 32%;
+}
+
+.table__containerImage{
     display: flex !important;
     justify-content: start !important;
     align-items: center !important;
     gap: 8px !important;  
 }
 
-.table__skills td{
-    width: 32%;
+.table__image{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
+
