@@ -10,11 +10,9 @@
 
 
 <script>
-
     document.addEventListener('DOMContentLoaded', function (){
       changeLanguage();
     });
-
 
     function changeLanguage(){
         const flags = document.querySelectorAll('.table__image'); 
@@ -39,5 +37,4 @@
             }
         })
     }
-
 </script>

@@ -44,8 +44,7 @@
 </div>
 
 
-<script type="module">
-
+<script>
     let file;
     document.addEventListener('DOMContentLoaded', function (){
       getFile();
@@ -59,5 +58,4 @@
         changeStyleBtnImage(file.name);
       });
     }
-
 </script>

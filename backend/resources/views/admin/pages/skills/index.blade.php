@@ -57,33 +57,35 @@
 
 
 
-<script type="module">
+<script>
+    document.addEventListener('DOMContentLoaded', function (){
 
-    const inputs = [
-        document.querySelector('#id'),
-        document.querySelector('#type'),
-        document.querySelector('#name'),
-        document.querySelector('#order'),
-        document.querySelector('#image'),
-    ]
+        const inputs = [
+            document.querySelector('#id'),
+            document.querySelector('#type'),
+            document.querySelector('#name'),
+            document.querySelector('#order'),
+            document.querySelector('#image'),
+        ]
 
-    const dataForCreate = [
-        null,               //  id
-        'type',             //  type
-        null,               //  name
-        'skillsLength',     //  order  (length skills + 1)
-        null,               //  image
-    ];
+        const dataForCreate = [
+            null,               //  id
+            'type',             //  type
+            null,               //  name
+            'skillsLength',     //  order  (length skills + 1)
+            null,               //  image
+        ];
 
-    const dataForUpdate = [
-        'id',
-        'type',
-        'name',
-        'order',
-        'image',
-    ];
+        const dataForUpdate = [
+            'id',
+            'type',
+            'name',
+            'order',
+            'image',
+        ];
 
-    addItem(inputs, dataForCreate);
-    editItem(inputs, dataForUpdate);
-    deleteItem();
+        addItem(inputs, dataForCreate);
+        editItem(inputs, dataForUpdate);
+        deleteItem();
+    });
 </script>

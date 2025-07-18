@@ -21,9 +21,9 @@
 </div>
 
 
-<script type="module">
-
+<script>
     document.addEventListener('DOMContentLoaded', function (){
       handleDelete();
     });
 </script>
+
