@@ -58,30 +58,17 @@
 <script>
     document.addEventListener('DOMContentLoaded', function (){
 
-
         const datasCreate = [
-            {
-                input : document.querySelector('#order'), data : 'skillsLength'
+            { data : 'skillsLength', input :'order'
             }
         ];
 
         const datasUpdate = [
-            {
-                input : document.querySelector('#id'), data : 'id'
-            },
-            {
-                input : document.querySelector('#type'), data : 'type'
-            },
-            {
-                input : document.querySelector('#name'), data : 'name'
-            },
-            {
-                input : document.querySelector('#order'), data : 'order'
-            },
-    
-            {
-                input : document.querySelector('#image'), data : 'image'
-            },
+            { data : 'id' },
+            { data : 'type' },
+            { data : 'name' },
+            { data : 'order' },
+            { data : 'image' },
         ];
 
         setModalAddItem(datasCreate);

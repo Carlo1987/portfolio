@@ -54,39 +54,19 @@
     document.addEventListener('DOMContentLoaded', function (){
 
         const datasCreate = [
-            {
-                input : document.querySelector('#order'), data :  'coursesLength'
-            }
+            { data : 'coursesLength', input : 'order' }
         ];
 
         const datasUpdate = [
-            {
-                input : document.querySelector('#id'), data : 'id'
-            },
-            {
-                input : document.querySelector('#name'), data : 'name'
-            },
-            {
-                input : document.querySelector('#order'), data : 'order'
-            },
-            {
-                input : document.querySelector('#timeDuration'), data : 'timeDuration'
-            },
-            {
-                input : document.querySelector('#format'), data : 'format'
-            },
-            {
-                input : document.querySelector('#date'), data : 'date'
-            },
-            {
-                input : document.querySelector('#text_ITA'), data : 'text_ITA',
-            },
-            {
-                input : document.querySelector('#text_ESP'), data : 'text_ESP',
-            },
-            {
-                input : document.querySelector('#text_ENG'), data : 'text_ENG',
-            },
+            { data : 'id' },
+            { data : 'name' },
+            { data : 'order' },
+            { data : 'timeDuration' },
+            { data : 'format' },
+            { data : 'date' },
+            { data : 'text_ITA' },
+            { data : 'text_ESP' },
+            { data : 'text_ENG' },
         ];
 
         setModalAddItem(datasCreate);

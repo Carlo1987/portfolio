@@ -48,7 +48,8 @@ function setModalDeleteItem(){
 //  Metodo per settare gli inputs di una modal
 function setInputsModal(button, datas){
    datas.forEach(data => {
-        data.input.value = button.getAttribute(`data-${data.data}`);
+        const inputId = data.input ?? data.data; 
+        document.querySelector(`#${inputId}`).value = button.getAttribute(`data-${data.data}`);
    });
 }
 

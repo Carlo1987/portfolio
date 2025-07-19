@@ -8,9 +8,16 @@ export function showToast(message = "Si è verificato un errore") {
         const errors = message.errors;
         message = `
         <ul>
-            <li> ${ errors.file ?? ''  } </li>
+            <li> ${ errors.type ?? ''  } </li>
             <li> ${ errors.name ?? ''  } </li>
             <li> ${ errors.order ?? ''  } </li>
+            <li> ${ errors.timeDuration ?? ''  } </li>
+            <li> ${ errors.format ?? ''  } </li>
+            <li> ${ errors.date ?? ''  } </li>
+            <li> ${ errors.text_ITA ?? ''  } </li>
+            <li> ${ errors.text_ESP ?? ''  } </li>
+            <li> ${ errors.text_ENG ?? ''  } </li>
+            <li> ${ errors.file ?? ''  } </li>
         </ul>`;
     }
     toastBody.innerHTML = message;

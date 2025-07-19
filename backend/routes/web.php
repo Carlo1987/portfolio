@@ -25,6 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     //  Rotte corsi
     Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('course.index');
     Route::post('/courses/{id?}', 'App\Http\Controllers\CourseController@store')->name('course.store');
-    Route::get('/courses/{id}', 'App\Http\Controllers\CourseController@delete')->name('course.delete');
+    Route::delete('/courses/{id}', 'App\Http\Controllers\CourseController@delete')->name('course.delete');
 });
 

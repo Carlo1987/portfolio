@@ -5,6 +5,7 @@
 :root{  
     --maxWith: 40rem;
     --colorPrimary : rgb(240, 235, 235);
+    --colorPrimaryStrong :  rgb(228, 221, 221);
     --colorDark : rgb(99, 93, 93);
 }
 

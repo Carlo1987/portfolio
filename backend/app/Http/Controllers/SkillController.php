@@ -80,15 +80,16 @@ class SkillController extends Controller
     {       
         $rules_validate = [
             'type' => 'required',
-            'name' => 'required|string',
-            'order' => 'required|integer',
+            'name' => 'required',
+            'order' => 'required',
             'file' =>  'mimes:jpeg,jpg,png,gif,webp',
         ];
 
         $error_messages = [
-          'name.required' => 'Nome obbligatorio',
-          'order.required' => 'Numero ordine obbligatorio',
-          'file.mimes' => 'Formato file non valido',  
+            'type.require' => __('validation.type.required'),
+            'name.required' => __('validation.name.required'),
+            'order.required' => __('validation.order.required'),
+            'file.mimes' => __('validation.file.mime'),
         ];
 
         $validator = Validator::make($request->all(), $rules_validate, $error_messages);
@@ -114,7 +115,7 @@ class SkillController extends Controller
         if($requiredImage && !$request->has('file')){
             return response()->json([
                 'errors' => [
-                    'file' => "Immagine obbligatoria",
+                    'file' => __('validation.file.required'),
                 ],
             ], 422);
         }
