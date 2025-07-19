@@ -3,7 +3,8 @@
 @section('pages')
 
     <div class="container__btnAdd my-3">
-        <div class="btn btn-success">
+        <div class="btnOpenModalAdd btn btn-success" data-bs-toggle="modal" data-bs-target="#storeCourseModal" 
+            data-coursesLength ="{{ count( $courses ) + 1 }}" >
             Aggiungi
         </div>
     </div>
@@ -29,10 +30,13 @@
                 <div class="text text_ENG visually-hidden"> {{ $course->text_ENG }} </div>
             </td>
             <td class="d-flex gap-2 align-items-center justify-content-center">
-                <div class="btn btn-outline-primary">
+                <div class="btnOpenModalEdit btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#storeCourseModal" 
+                    data-id="{{ $course->id }}" data-order="{{ $course->order }}" data-name="{{ $course->name }}" data-timeDuration="{{ $course->timeDuration }}" 
+                    data-format="{{ $course->format }}" data-date="{{ $course->date }}" data-text_ITA="{{ $course->text_ITA }}" data-text_ESP="{{ $course->text_ESP }}" data-text_ENG="{{ $course->text_ENG }}"  >
                     @include('includes.buttons.button_update')
                 </div> 
-                <div class="btn btn-outline-danger">
+                <div class="btnOpenModalDelete btn btn-outline-danger"  data-bs-toggle="modal" data-bs-target="#deleteCourseModal"
+                     data-id="{{ $course->id }}" data-name="{{ $course->name }}" >
                     @include('includes.buttons.button_delete')
                 </div>
             </td>
@@ -44,4 +48,50 @@
     @include('admin.pages.courses.modal_delete')
 
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (){
+
+        const datasCreate = [
+            {
+                input : document.querySelector('#order'), data :  'coursesLength'
+            }
+        ];
+
+        const datasUpdate = [
+            {
+                input : document.querySelector('#id'), data : 'id'
+            },
+            {
+                input : document.querySelector('#name'), data : 'name'
+            },
+            {
+                input : document.querySelector('#order'), data : 'order'
+            },
+            {
+                input : document.querySelector('#timeDuration'), data : 'timeDuration'
+            },
+            {
+                input : document.querySelector('#format'), data : 'format'
+            },
+            {
+                input : document.querySelector('#date'), data : 'date'
+            },
+            {
+                input : document.querySelector('#text_ITA'), data : 'text_ITA',
+            },
+            {
+                input : document.querySelector('#text_ESP'), data : 'text_ESP',
+            },
+            {
+                input : document.querySelector('#text_ENG'), data : 'text_ENG',
+            },
+        ];
+
+        setModalAddItem(datasCreate);
+        setModalEditItem(datasUpdate);
+        setModalDeleteItem();
+    });
+</script>
 

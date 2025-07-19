@@ -1,3 +1,5 @@
+import { showToast } from './toast';
+
 function header(){
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     return {
@@ -9,35 +11,35 @@ function header(){
 function handleSave(){
     const btnSave = document.querySelector('.btnSave');
     btnSave.onclick = async function(){
-    const form = document.querySelector('#form');
-    const formData = new FormData(form);
+        const form = document.querySelector('#form');
+        const formData = new FormData(form);
 
-    let url = btnSave.getAttribute('data-url-create');
-    const id = document.querySelector('#id').value;
-    if(id){
-        url = btnSave.getAttribute('data-url-update').replace(':id', id);
-    }
-
-    try{
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: header(),
-            body: formData
-            });
-
-        const result = await response.json();
-
-        if (!response.ok){
-            showToast(result);
-            throw new Error("Errore nella richiesta", result);
+        let url = btnSave.getAttribute('data-url-create');
+        const id = document.querySelector('#id').value;
+        if(id){
+            url = btnSave.getAttribute('data-url-update').replace(':id', id);
         }
 
-        console.log("Response:", result);
-        window.location.reload();
+        try{
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: header(),
+                body: formData
+            });
 
-    }catch(err){
-        console.error(err);
-    } 
+            const result = await response.json();
+
+            if (!response.ok){
+                showToast(result);
+                throw new Error("Errore nella richiesta", result);
+            }
+
+            console.log("Response:", result);
+            window.location.reload();
+
+        }catch(err){
+            console.error(err);
+        } 
     }
 }
 

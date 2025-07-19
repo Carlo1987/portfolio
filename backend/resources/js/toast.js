@@ -1,3 +1,4 @@
+import * as bootstrap from 'bootstrap';
 
 //  Metodo per visualizzare Toast dei messaggi
 export function showToast(message = "Si è verificato un errore") {

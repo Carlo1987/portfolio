@@ -54,20 +54,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <textarea id="text_ITA" name="text_ITA"></textarea>
+                <div class="col-12 mb-2">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="text_ITA" name="text_ITA"></textarea>
+                        <label for="text_ITA"> Testo italiano </label>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="text_ESP" name="text_ESP"></textarea>
+                        <label for="text_ESP"> Testo spagnolo </label>
+                    </div>
                 </div>
                 <div class="col-12">
-                    <textarea id="text_ESP" name="text_ESP"></textarea>
-                </div>
-                <div class="col-12">
-                    <textarea id="text_ENG" name="text_ENG"></textarea>
+                    <div class="form-floating">
+                        <textarea class="form-control" id="text_ENG" name="text_ENG"></textarea>
+                        <label for="text_ENG"> Testo inglese </label>
+                    </div>
                 </div>
             </div>
           </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+        <button type="button" class="btnClose btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         <button type="button" class="btnSave btn btn-primary" 
         data-url-create="{{ route('course.store') }}" data-url-update="{{ route('course.store', ['id'=>':id']) }}">Salva</button>
       </div>
@@ -78,6 +87,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function (){
-      handleSave();
+        handleSave();
+        closeModal();
     });
 </script>

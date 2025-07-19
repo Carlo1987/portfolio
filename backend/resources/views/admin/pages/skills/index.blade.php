@@ -55,37 +55,37 @@
  
 @endsection
 
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function (){
 
-        const inputs = [
-            document.querySelector('#id'),
-            document.querySelector('#type'),
-            document.querySelector('#name'),
-            document.querySelector('#order'),
-            document.querySelector('#image'),
-        ]
 
-        const dataForCreate = [
-            null,               //  id
-            'type',             //  type
-            null,               //  name
-            'skillsLength',     //  order  (length skills + 1)
-            null,               //  image
+        const datasCreate = [
+            {
+                input : document.querySelector('#order'), data : 'skillsLength'
+            }
         ];
 
-        const dataForUpdate = [
-            'id',
-            'type',
-            'name',
-            'order',
-            'image',
+        const datasUpdate = [
+            {
+                input : document.querySelector('#id'), data : 'id'
+            },
+            {
+                input : document.querySelector('#type'), data : 'type'
+            },
+            {
+                input : document.querySelector('#name'), data : 'name'
+            },
+            {
+                input : document.querySelector('#order'), data : 'order'
+            },
+    
+            {
+                input : document.querySelector('#image'), data : 'image'
+            },
         ];
 
-        addItem(inputs, dataForCreate);
-        editItem(inputs, dataForUpdate);
-        deleteItem();
+        setModalAddItem(datasCreate);
+        setModalEditItem(datasUpdate);
+        setModalDeleteItem();
     });
 </script>

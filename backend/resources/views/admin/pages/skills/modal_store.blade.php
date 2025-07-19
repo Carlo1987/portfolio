@@ -35,7 +35,7 @@
           </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+        <button type="button" class="btnClose btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         <button type="button" class="btnSave btn btn-primary" 
         data-url-create="{{ route('skill.store') }}" data-url-update="{{ route('skill.store', ['id'=>':id']) }}">Salva</button>
       </div>
@@ -45,17 +45,9 @@
 
 
 <script>
-    let file;
     document.addEventListener('DOMContentLoaded', function (){
       getFile();
       handleSave();
-    });
-
-    function getFile() {
-      const fileInput = document.querySelector('#file');
-      fileInput.addEventListener('change', function() {
-        file = fileInput.files[0];
-        changeStyleBtnImage(file.name);
-      });
-    }
+      closeModal();
+    });  
 </script>

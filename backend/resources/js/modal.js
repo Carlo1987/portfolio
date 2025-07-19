@@ -1,25 +1,29 @@
 
 //   Metodo per settare modal di con i dati di creazione nuovo Item
-function addItem(inputs, data){
+function setModalAddItem(datas){
     const buttonsAdd = document.querySelectorAll('.btnOpenModalAdd');
     buttonsAdd.forEach(button => {
         button.onclick = function(){
             const title = 'Aggiungere Item';
             setModalTitle('title-store', title); 
-            setInputsModal(inputs, button, data);
-            changeStyleBtnImage(null);
+            setInputsModal(button, datas);
+
+            const image = button.getAttribute(`data-image`);
+            if(image){
+                changeStyleBtnImage(null);
+            }
         }
     })
 }
 
 //   Metodo per settare modal di con i dati di aggiornamento Item
-function editItem(inputs, data){
+function setModalEditItem(datas){
     const buttonsEdit = document.querySelectorAll('.btnOpenModalEdit');
     buttonsEdit.forEach(button => {
         button.onclick = function(){
             const title = 'Modificare Item';
             setModalTitle('title-store', title); 
-            setInputsModal(inputs, button, data); 
+            setInputsModal(button, datas); 
 
             const image = button.getAttribute(`data-image`);
             if(image){
@@ -30,7 +34,7 @@ function editItem(inputs, data){
 }
 
 //  Metodo per settare modal di eliminazione Item
-function deleteItem(){
+function setModalDeleteItem(){
     const buttonsDelete = document.querySelectorAll('.btnOpenModalDelete');
     buttonsDelete.forEach(button => {
         button.onclick = function(){
@@ -42,10 +46,18 @@ function deleteItem(){
 }
 
 //  Metodo per settare gli inputs di una modal
-function setInputsModal(inputs, button, data){
-    for(let i=0; i<inputs.length; i++){
-        inputs[i].value = button.getAttribute(`data-${data[i]}`);
-    }
+function setInputsModal(button, datas){
+   datas.forEach(data => {
+        data.input.value = button.getAttribute(`data-${data.data}`);
+   });
+}
+
+function getFile() {
+    const fileInput = document.querySelector('#file');
+    fileInput.addEventListener('change', function() {
+    let file = fileInput.files[0];
+    changeStyleBtnImage(file.name);
+    });
 }
 
 //  Metodo per cambiare stile bottone di selezione file
@@ -69,5 +81,13 @@ function setModalTitle(className, title){
 }
 
 
-export { addItem, editItem, deleteItem, changeStyleBtnImage }
+function closeModal(){
+    const btnClose = document.querySelector('.btnClose');
+    btnClose.onclick = function(){
+    const form = document.querySelector('#form');
+    form.reset();
+    }
+}
+
+export { setModalAddItem, setModalEditItem, setModalDeleteItem, getFile, closeModal }
 
