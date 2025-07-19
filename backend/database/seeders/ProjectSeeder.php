@@ -64,7 +64,7 @@ class ProjectSeeder extends Seeder
                 'curriculum_ITA' => "Social network ispirato a Facebook, progettato per offrire funzionalità di connessione tra utenti, con aggiornamenti in tempo reale e un'interfaccia user-friendly.",
                 'curriculum_ESP' => "Red social inspirada en Facebook, diseñada para ofrecer funciones de conexión entre usuarios, con actualizaciones en tiempo real y una interfaz fácil de usar.",
                 'curriculum_ENG' => "Social network inspired by Facebook, designed to offer user connection features, real-time updates, and a user-friendly interface.",
-                'dev_languages' => "14,16,4",
+                'dev_languages' => "14,4,16",
                 'status' => $stateWorking,
             ],
             [

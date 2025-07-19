@@ -26,5 +26,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('course.index');
     Route::post('/courses/{id?}', 'App\Http\Controllers\CourseController@store')->name('course.store');
     Route::delete('/courses/{id}', 'App\Http\Controllers\CourseController@delete')->name('course.delete');
+
+    //  Rotte progetti
+    Route::get('/projects', 'App\Http\Controllers\ProjectController@index')->name('project.index');
+    Route::post('/projects/{id?}', 'App\Http\Controllers\ProjectController@store')->name('project.store');
+    Route::delete('/projects/{id}', 'App\Http\Controllers\ProjectController@delete')->name('project.delete');
 });
 
