@@ -15,7 +15,10 @@
             <td class="td__strong">Nome</td>
             <td class="td__strong">Durata</td>
             <td class="td__strong">Data</td>
-            <td class="td__strong"> @include('includes.flegsTexts') </td>
+            <td class="td__strong"> 
+                <div> Testi </div>
+                @include('includes.flegsTexts') 
+            </td>
             <td class="td__strong"> Azioni </td>
         </tr>
         @foreach($courses as $course)

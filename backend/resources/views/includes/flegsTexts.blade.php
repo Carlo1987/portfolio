@@ -1,7 +1,4 @@
 
-<div> 
-    Testi 
-</div>
 <div class="d-flex justify-content-center gap-2">
     <img class="table__image text_ITA" src="{{ asset('images/flags/bandiera_italia.png') }}" alt="flag_ITA" title="Testi italiano">
     <img class="table__image text_ESP" src="{{ asset('images/flags/bandiera_spagna.png') }}" alt="flag_ESP" title="Testi spagnolo">
