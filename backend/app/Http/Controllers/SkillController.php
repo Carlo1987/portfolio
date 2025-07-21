@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Http\Helpers\FileHelper;
 use App\Http\Helpers\OrderHelper;
-use App\Enums\SkillEnum;
 use App\Models\Skill;
 
 class SkillController extends Controller
@@ -17,63 +16,13 @@ class SkillController extends Controller
     public function index()
     {
         $skills = Skill::orderBy('order', 'desc')->get();
-        $skillsTypes = $this->groupByType($skills);
+        $skillsTypes = $this->skillsGrouppedByType($skills);
    
         return view('admin.pages.skills.index', [
             'skillsTypes' => $skillsTypes
         ]);
     }
 
-    private function groupByType($skills)
-    {
-        $frontendTypeId = SkillEnum::Frontend->value;
-        $backendTypeId = SkillEnum::Backend->value;
-        $databaseTypeId = SkillEnum::Database->value;
-        $devopsTypeId = SkillEnum::DevOps->value;
-
-        $frontendSkills = [];
-        $backendSkills = [];
-        $databaseSkills = [];
-        $devopsSkills = [];
-
-        foreach($skills as $skill){
-            if($skill['type'] == $frontendTypeId){
-                $frontendSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $backendTypeId){
-                $backendSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $databaseTypeId){
-                $databaseSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $devopsTypeId){
-                $devopsSkills[] = $skill->toArray();
-            }
-        }
-
-        return array(
-            [
-                'id' => $frontendTypeId,
-                'name' => SkillEnum::Frontend->name,
-                'list' => $frontendSkills,
-            ],
-            [
-                'id' => $backendTypeId,
-                'name' => SkillEnum::Backend->name,
-                'list' => $backendSkills,
-            ],
-            [
-                'id' => $databaseTypeId,
-                'name' => SkillEnum::Database->name,
-                'list' => $databaseSkills,
-            ],
-            [
-                'id' => $devopsTypeId,
-                'name' => SkillEnum::DevOps->name,
-                'list' => $devopsSkills,
-            ],
-        );
-    }
 
 
     public function store(Request $request, $id = null)

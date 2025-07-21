@@ -16,11 +16,17 @@ class ProjectController extends Controller
 
     public function index()
     {
+        $skills = Skill::select('id', 'name','image','type')->get();
+        $skillsTypes = $this->skillsGrouppedByType($skills);
+
         $projects = Project::orderBy('order','desc')->get();
-        $skills = Skill::select('id', 'name')->get()->toArray();
+        foreach($projects as $project){
+            $project['skills'] =  $project->getSkillsName($skills);
+        }
+       
         return view('admin.pages.projects.index',[
             'projects' => $projects,
-            'skills' => $skills,
+            'skillsTypes' => $skillsTypes,
         ]);
     }
 

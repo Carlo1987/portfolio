@@ -7,7 +7,7 @@
         @include('includes.flegsTexts')
  
         <div class="btnOpenModalAdd btn btn-success" data-bs-toggle="modal" data-bs-target="#storeProjectModal" 
-            data-coursesLength ="{{ count( $projects ) + 1 }}" >
+            data-projectsLength ="{{ count( $projects ) + 1 }}" >
             Aggiungi Progetto
         </div>
     </div>
@@ -24,7 +24,7 @@
                         <div class="table__image d-flex align-items-center">
                             <img src="{{ asset('images/projects/' . $project->image) }}" alt="image_{{ $project->name }}">
                         </div>
-                        <div class="fs-4">
+                        <div class="fs-5">
                             {{ $project->name }}
                         </div>
                         <div class="ms-auto {{ $project->status == App\Enums\ProjectEnum::Working ? 'text-success' : 'text-danger' }}">
@@ -35,19 +35,19 @@
                         <strong> URL: </strong> <span class="card__smallText"> {{ $project->url }} </span>
                     </div>
                     <div class="mt-1">
-                        <strong> Skill usate: </strong> <span class="card__smallText"> {{ $project->getSkillsName($skills) }} </span>
+                        <strong> Skill usate: </strong> <span class="card__smallText"> {{ $project->skills }} </span>
                     </div>
                     <div>
                         <div class="text-center"> <strong> Descrizione Portfolio </strong> </div>
-                        <div class="text text_ITA"> {{ $project->description_ITA }} </div>
-                        <div class="text text_ESP visually-hidden"> {{ $project->description_ESP }} </div>
-                        <div class="text text_ENG visually-hidden"> {{ $project->description_ENG }} </div>
+                        <div class="text text_ITA card__smallText"> {{ $project->description_ITA }} </div>
+                        <div class="text text_ESP card__smallText visually-hidden"> {{ $project->description_ESP }} </div>
+                        <div class="text text_ENG card__smallText visually-hidden"> {{ $project->description_ENG }} </div>
                     </div>
                     <div>
                         <div class="text-center"> <strong> Descrizione Curriculum </strong> </div>
-                        <div class="text text_ITA"> {{ $project->curriculum_ITA }} </div>
-                        <div class="text text_ESP visually-hidden"> {{ $project->curriculum_ESP }} </div>
-                        <div class="text text_ENG visually-hidden"> {{ $project->curriculum_ENG }} </div>
+                        <div class="text text_ITA card__smallText"> {{ $project->curriculum_ITA }} </div>
+                        <div class="text text_ESP card__smallText visually-hidden"> {{ $project->curriculum_ESP }} </div>
+                        <div class="text text_ENG card__smallText visually-hidden"> {{ $project->curriculum_ENG }} </div>
                     </div>
                     <div class="mt-2 d-flex gap-2 align-items-center justify-content-end">
                         <div class="btnOpenModalEdit btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#storeProjectModal" 
@@ -79,7 +79,7 @@
     document.addEventListener('DOMContentLoaded', function (){
 
         const datasCreate = [
-            { data : 'coursesLength', input : 'order' }
+            { data : 'projectsLength', input : 'order' }
         ];
 
         const datasUpdate = [

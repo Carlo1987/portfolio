@@ -2,6 +2,7 @@
 
 namespace App\Http\Helpers;
 
+use App\Enums\SkillEnum;
 
 trait OrderHelper {
 
@@ -43,5 +44,57 @@ trait OrderHelper {
             }
         }
     } 
+
+
+    public function skillsGrouppedByType($skills)
+    {
+        $frontendTypeId = SkillEnum::Frontend->value;
+        $backendTypeId = SkillEnum::Backend->value;
+        $databaseTypeId = SkillEnum::Database->value;
+        $devopsTypeId = SkillEnum::DevOps->value;
+
+        $frontendSkills = [];
+        $backendSkills = [];
+        $databaseSkills = [];
+        $devopsSkills = [];
+
+        foreach($skills as $skill){
+            if($skill['type'] == $frontendTypeId){
+                $frontendSkills[] = $skill->toArray();
+
+            }else if($skill['type'] == $backendTypeId){
+                $backendSkills[] = $skill->toArray();
+
+            }else if($skill['type'] == $databaseTypeId){
+                $databaseSkills[] = $skill->toArray();
+
+            }else if($skill['type'] == $devopsTypeId){
+                $devopsSkills[] = $skill->toArray();
+            }
+        }
+
+        return array(
+            [
+                'id' => $frontendTypeId,
+                'name' => SkillEnum::Frontend->name,
+                'list' => $frontendSkills,
+            ],
+            [
+                'id' => $backendTypeId,
+                'name' => SkillEnum::Backend->name,
+                'list' => $backendSkills,
+            ],
+            [
+                'id' => $databaseTypeId,
+                'name' => SkillEnum::Database->name,
+                'list' => $databaseSkills,
+            ],
+            [
+                'id' => $devopsTypeId,
+                'name' => SkillEnum::DevOps->name,
+                'list' => $devopsSkills,
+            ],
+        );
+    }
 
 }

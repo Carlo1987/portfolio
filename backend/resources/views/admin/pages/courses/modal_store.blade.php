@@ -11,7 +11,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="form" enctype="multipart/form-data">
+        <form id="form">
           @csrf
             <input type="hidden" id="id" name="id">
 
