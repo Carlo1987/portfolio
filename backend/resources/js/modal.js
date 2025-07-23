@@ -1,27 +1,21 @@
 
 //   Metodo per settare modal di con i dati di creazione nuovo Item
 function setModalAddItem(datas){
-    const buttonsAdd = document.querySelectorAll('.btnOpenModalAdd');
-    buttonsAdd.forEach(button => {
-        button.onclick = function(){
-            const title = 'Aggiungere Item';
-            setModalTitle('title-store', title); 
-            setInputsModal(button, datas);
-
-            const image = button.getAttribute(`data-image`);
-            if(image){
-                changeStyleBtnImage(null);
-            }
-        }
-    })
+    const title = 'Aggiungere Item';
+    setModal('btnOpenModalAdd', title, datas);
 }
 
 //   Metodo per settare modal di con i dati di aggiornamento Item
 function setModalEditItem(datas){
-    const buttonsEdit = document.querySelectorAll('.btnOpenModalEdit');
-    buttonsEdit.forEach(button => {
+    const title = 'Modificare Item';
+    setModal('btnOpenModalEdit', title, datas);
+}
+
+
+function setModal(buttonsClass, title, datas){
+    const buttons = document.querySelectorAll(`.${buttonsClass}`);
+    buttons.forEach(button => {
         button.onclick = function(){
-            const title = 'Modificare Item';
             setModalTitle('title-store', title); 
             setInputsModal(button, datas); 
 
@@ -49,8 +43,24 @@ function setModalDeleteItem(){
 function setInputsModal(button, datas){
    datas.forEach(data => {
         const inputId = data.input ?? data.data; 
-        document.querySelector(`#${inputId}`).value = button.getAttribute(`data-${data.data}`);
+        const dataValue = button.getAttribute(`data-${data.data}`)
+        document.querySelector(`#${inputId}`).value = dataValue;
+        if(data.checks){
+            setChecks(dataValue);
+        }
    });
+}
+
+
+function setChecks(dataValue){
+    const checksId = dataValue.split(',');   
+    checksId.forEach(checkId => {
+        const checkboxId = `#check_${checkId}`;  
+        const checkbox = document.querySelector(checkboxId);
+        if(checkbox){
+            checkbox.checked = true;
+        }
+    })
 }
 
 function getFile() {
@@ -85,8 +95,12 @@ function setModalTitle(className, title){
 function closeModal(){
     const btnClose = document.querySelector('.btnClose');
     btnClose.onclick = function(){
-    const form = document.querySelector('#form');
-    form.reset();
+        const form = document.querySelector('#form');
+        form.reset();
+        if(document.querySelector('#dev_languages')){
+            document.querySelector('#dev_languages').value = '';
+        }
+        changeStyleBtnImage(null);
     }
 }
 

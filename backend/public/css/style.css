@@ -1,3 +1,4 @@
+@import "./card.css";
 @import "./nav.css";
 @import "./accordion.css";
 @import "./table.css";
@@ -29,19 +30,6 @@ h2{
     padding: 1.5rem;
 }
 
-.card{
-    max-width: var(--maxWith);
-    padding: 1rem;
-    font-size: 1.2rem; 
-    margin: 10px auto;
-    border: transparent;
-    box-shadow: 0px 0px 10px var(--colorDark);
-}
-
-.card__smallText{
-    font-size: 1rem !important;
-}
-
 #liveToast{
     background-color: rgb(223, 171, 171) !important;
 }
@@ -53,5 +41,12 @@ h2{
     margin-bottom: 0.3rem;
 }
 
+label,
+.td__strong,
+.text__strong{
+    font-weight: bold !important;
+}
 
-
+.textarea__small{
+    min-height: 9rem !important;
+}

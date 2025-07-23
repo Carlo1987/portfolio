@@ -2,7 +2,7 @@
 
 @section('pages')
 
-    <div class="accordion accordion-flush" id="accordionSkills">
+    <div class="accordion accordion-flush mt-3" id="accordionSkills">
         <div class="accordion-item">
             <div class="row">
             @foreach($skillsTypes as $skillsType)
@@ -59,8 +59,8 @@
     document.addEventListener('DOMContentLoaded', function (){
 
         const datasCreate = [
-            { data : 'skillsLength', input :'order'
-            }
+            { data : 'type' },
+            { data : 'skillsLength', input :'order' }
         ];
 
         const datasUpdate = [

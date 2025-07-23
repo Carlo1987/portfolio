@@ -16,10 +16,6 @@ td{
     text-align: center;
 }
 
-.td__strong{
-    font-weight: bold;
-}
-
 .table__fullAccordion td{
     width: 32%;
 }

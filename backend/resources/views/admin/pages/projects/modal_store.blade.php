@@ -36,28 +36,53 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-7">
-                    <div class="mb-3">
-                        <label for="url" class="form-label"> URL </label>
-                        <input type="text" class="form-control" id="url" name="url">
-                    </div>
-                </div>  
-                <div class="col-sm-5">
-                    <div class="mb-3">
-                        <input type="hidden" id="image">
-                        <input class="form-control visually-hidden" type="file" id="file" name="file">
-                        <button type="button" class="btn btn-secondary" onclick="document.querySelector('#file').click()" id="btnImage"> 
-                            Selezionare file 
-                        </button>  
-                    </div>
+            <div class="mb-3">
+                <label for="url" class="form-label"> URL </label>
+                <input type="text" class="form-control" id="url" name="url">
+            </div>
+
+            <div class="mb-3">
+                <input type="hidden" id="image">
+                <input class="form-control visually-hidden" type="file" id="file" name="file">
+                <button type="button" class="btn btn-secondary" onclick="document.querySelector('#file').click()" id="btnImage"> 
+                    Selezionare file 
+                </button>  
+            </div>
+
+            <div class="text-center text__strong"> Linguaggi usati </div>
+            <input type="hidden" name="dev_languages" id="dev_languages">
+            @include('admin.pages.projects.accordion_projectSkills')
+          
+            @include('includes.flegsTexts') 
+            <div class="p-3">
+                <div class="text__strong"> Descrizione Portfolio </div>
+                <div class="form-floating">
+                    <textarea class="text text_ITA form-control textarea__small" id="description_ITA" name="description_ITA"></textarea>
+                    <label class="text text_ITA" for="description_ITA">Italiano</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="text text_ESP visually-hidden form-control textarea__small" id="description_ESP" name="description_ESP"></textarea>
+                    <label class="text text_ESP visually-hidden" for="description_ESP">Spagnolo</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="text text_ENG visually-hidden form-control textarea__small" id="description_ENG" name="description_ENG"></textarea>
+                    <label class="text text_ENG visually-hidden" for="description_ENG">Inglese</label>
                 </div>
             </div>
-            <div class="row">
-                @include('admin.pages.projects.accordion_projectSkills')
-            </div>
-            <div class="row">
-                @include('admin.pages.projects.scollspay_projectDescriptiones')
+            <div class="p-3">
+                <div class="text__strong">Descrizione Curriculum</div>
+                <div class="form-floating">
+                    <textarea class="text text_ITA form-control textarea__small" id="curriculum_ITA" name="curriculum_ITA"></textarea>
+                    <label class="text text_ITA" for="curriculum_ITA">Italiano</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="text text_ESP visually-hidden form-control textarea__small" id="curriculum_ESP" name="curriculum_ESP"></textarea>
+                    <label class="text text_ESP visually-hidden" for="curriculum_ESP">Spagnolo</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="text text_ENG visually-hidden form-control textarea__small" id="curriculum_ENG" name="curriculum_ENG"></textarea>
+                    <label class="text text_ENG visually-hidden" for="curriculum_ENG">Inglese</label>
+                </div>
             </div>
           </form>
       </div>

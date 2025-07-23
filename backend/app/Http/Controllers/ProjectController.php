@@ -16,7 +16,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $skills = Skill::select('id', 'name','image','type')->get();
+        $skills = Skill::select('id', 'name','image','type')->orderBy('order','desc')->get();
         $skillsTypes = $this->skillsGrouppedByType($skills);
 
         $projects = Project::orderBy('order','desc')->get();
@@ -32,7 +32,11 @@ class ProjectController extends Controller
 
 
     public function store(Request $request, $id)
-    {}
+    {
+        return response()->json([
+            'result' => $request->all()
+        ]);
+    }
 
 
     public function delete($id)

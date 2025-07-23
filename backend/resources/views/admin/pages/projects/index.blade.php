@@ -86,12 +86,15 @@
             { data : 'id' },
             { data : 'name' },
             { data : 'order' },
-            { data : 'timeDuration' },
-            { data : 'format' },
-            { data : 'date' },
-            { data : 'text_ITA' },
-            { data : 'text_ESP' },
-            { data : 'text_ENG' },
+            { data : 'url' },
+            { data : 'dev_languages', checks : true },
+            { data : 'description_ITA' },
+            { data : 'description_ESP' },
+            { data : 'description_ENG' },
+            { data : 'curriculum_ITA' },
+            { data : 'curriculum_ESP' },
+            { data : 'curriculum_ENG' },
+            { data : 'image' },
         ];
 
         setModalAddItem(datasCreate);
