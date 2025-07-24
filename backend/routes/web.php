@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/projects/{id}', 'App\Http\Controllers\ProjectController@delete')->name('project.delete');
 
     //  Rotte curriculum
-    Route::get('/curriculum', 'App\Http\Controllers\CurriculumController@index')->name('curriculum.index');
+    Route::get('/curriculums', 'App\Http\Controllers\CurriculumController@index')->name('curriculum.index');
+    Route::get('/curriculum/{lang}', 'App\Http\Controllers\CurriculumController@show')->name('curriculum.show');
 });
 
