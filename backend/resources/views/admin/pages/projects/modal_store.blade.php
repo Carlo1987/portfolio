@@ -99,6 +99,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function (){
         handleSave();
+        getFile();
         closeModal();
     });
 </script>

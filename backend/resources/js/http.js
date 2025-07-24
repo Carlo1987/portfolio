@@ -35,7 +35,7 @@ function handleSave(){
             }
 
             console.log("Response:", result);
-         //   window.location.reload();
+            window.location.reload();
 
         }catch(err){
             console.error(err);
@@ -66,7 +66,7 @@ function handleDelete(){
         }
 
         console.log("Response:", result);
-      //  window.location.reload();
+        window.location.reload();
         
         }catch(err){
         console.error(err);

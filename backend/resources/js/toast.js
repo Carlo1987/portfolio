@@ -17,6 +17,15 @@ export function showToast(message = "Si è verificato un errore") {
             <li> ${ errors.text_ITA ?? ''  } </li>
             <li> ${ errors.text_ESP ?? ''  } </li>
             <li> ${ errors.text_ENG ?? ''  } </li>
+            <li> ${ errors.url ?? ''  } </li>
+            <li> ${ errors.status ?? ''  } </li>
+            <li> ${ errors.dev_languages ?? ''  } </li>
+            <li> ${ errors.description_ITA ?? ''  } </li>
+            <li> ${ errors.description_ESP ?? ''  } </li>
+            <li> ${ errors.description_ENG ?? ''  } </li>
+            <li> ${ errors.curriculum_ITA ?? ''  } </li>
+            <li> ${ errors.curriculum_ESP ?? ''  } </li>
+            <li> ${ errors.curriculum_ENG ?? ''  } </li>
             <li> ${ errors.file ?? ''  } </li>
         </ul>`;
     }

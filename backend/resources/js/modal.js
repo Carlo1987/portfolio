@@ -66,8 +66,8 @@ function setChecks(dataValue){
 function getFile() {
     const fileInput = document.querySelector('#file');
     fileInput.addEventListener('change', function() {
-    let file = fileInput.files[0];
-    changeStyleBtnImage(file.name);
+        let file = fileInput.files[0];
+        changeStyleBtnImage(file.name);
     });
 }
 

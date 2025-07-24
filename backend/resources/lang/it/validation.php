@@ -27,7 +27,14 @@ return [
     'file' => [
         'required' => 'Immagine obbligatoria',
         'mime' => 'Formato file non valido',
-    ]
-
-
+    ],
+    'url' => [
+        'required' => 'Url obbligatoria',
+    ],
+    'dev_languages' => [
+        'required' => 'Linguaggi dev obbligatori',
+    ],
+    'status' => [
+        'required' => 'Tipo di stato obbligatorio',
+    ],
 ];
