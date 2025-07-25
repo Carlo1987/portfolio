@@ -50,3 +50,16 @@ label,
 .textarea__small{
     min-height: 9rem !important;
 }
+
+.btn__showCurriculum{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn__showCurriculum:hover{
+    text-decoration: underline;
+}

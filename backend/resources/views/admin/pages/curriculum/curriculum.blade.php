@@ -2,16 +2,6 @@
 $color_water = "rgb(95, 154, 209)";
 $bg_progress = "rgb(152, 190, 225)";
 $color_progress = "rgb(45, 108, 167)";
-
-$contactos = $curriculum['contacts'];
-$skills = $curriculum['skills'];
-$languages = $curriculum['languages'];
-$profile = $curriculum['profile'];
-$projects = $curriculum['projects'];
-$experiences = $curriculum['experience'];
-$courses = $curriculum['courses'];
-
-require 'datas/skills.php';
 ?>
 
 
@@ -271,7 +261,7 @@ require 'datas/skills.php';
 <body>
 
     <header> 
-        <img id="header__image" src="images/miei_dati.png" alt="my_name">    
+        <img id="header__image" src="{{ asset('images/curriculum/miei_dati.png') }}" alt="my_name">    
     </header>
 
 
@@ -280,7 +270,7 @@ require 'datas/skills.php';
         <aside>
 
             <div class="aside__header">
-                <img class="aside__image" src="images/primo_piano.png" alt="my_photo">
+                <img class="aside__image" src="{{ asset('images/curriculum/primo_piano.png') }}" alt="my_photo">
             </div>
 
             <div class="aside__title">
@@ -292,7 +282,7 @@ require 'datas/skills.php';
 
             <div class="block">                                   <!-- contatti -->
                 <div class="aside__block__title">
-                <?= $contactos['title'] ?>
+                    {{ __('curriculum.contacts', [], $lang) }}
                 </div>
 
 
@@ -303,7 +293,7 @@ require 'datas/skills.php';
                             Web:
                         </span>
                         <span class="row__data"> 
-                            https://carloloidev.com 
+                            {{ $contacts->web }}
                         </span>
                         <div class="clearfix"></div>
                     </div>
@@ -313,17 +303,17 @@ require 'datas/skills.php';
                             Email:
                         </span>
                         <span class="row__data"> 
-                            carlo_loi87@yahoo.it 
+                            {{ $contacts->email }}
                         </span>
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="row">
                         <span class="row__title">
-                            <?= $contactos['telephone'] ?>:
+                            {{ __('curriculum.phone', [], $lang) }}:
                         </span>
                         <span class="row__data"> 
-                            +39 3338416149 
+                            {{ $contacts->phone }}
                         </span>
 
                         <div class="clearfix"></div>
@@ -331,10 +321,10 @@ require 'datas/skills.php';
 
                     <div class="row">
                         <span class="row__title">
-                            <?= $contactos['location'] ?>:
+                            {{ __('curriculum.location', [], $lang) }}:
                         </span>
                         <span class="row__data"> 
-                            Emilia Romagna, Forlì
+                            {{ $contacts->location }}
                         </span>
 
                         <div class="clearfix"></div>
@@ -348,7 +338,7 @@ require 'datas/skills.php';
 
             <div class="block">                                    <!-- skills -->
                 <div class="aside__block__title">
-                  <?= $skills['title'] ?>
+                  {{ __('curriculum.skills', [], $lang) }}
                 </div>
 
                 <div style="margin-top: 10px;">
@@ -541,7 +531,7 @@ require 'datas/skills.php';
                     <?= $curriculum['authorization']; ?>
                 </div>
                 <div style="text-align:right;">
-                    <img id="signature" src="images/firma.png" alt="signature" >
+                    <img id="signature" src="{{ asset('images/curriculum/firma.png') }}" alt="signature" >
                 </div>
 
             </div>

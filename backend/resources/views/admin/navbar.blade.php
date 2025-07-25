@@ -17,7 +17,7 @@
       <a class="nav-link" href="{{ route('project.index') }}">Progetti</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Curriculum</a>
+      <a class="nav-link" href="{{ route('curriculum.index') }}">Curriculum</a>
     </li>
     <li class="nav-item ms-auto">
       <a class="nav-link" href="{{ route('logout') }}">Logout</a>
