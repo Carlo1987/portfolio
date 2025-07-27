@@ -17,8 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
         $skills = Skill::select('id', 'name','image','type')->orderBy('order','desc')->get();
-        $skillsTypes = $this->skillsGrouppedByType($skills);
-
+   
         $projects = Project::orderBy('order','desc')->get();
         foreach($projects as $project){
             $project['skills'] =  $project->getSkillsName($skills);
@@ -26,7 +25,7 @@ class ProjectController extends Controller
        
         return view('admin.pages.projects.index',[
             'projects' => $projects,
-            'skillsTypes' => $skillsTypes,
+            'skillsTypes' => $this->skillsGrouppedByType($skills),
         ]);
     }
 

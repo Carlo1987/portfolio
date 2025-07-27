@@ -38,7 +38,7 @@ class TextSeeder extends Seeder
         $sectionesSetting = config('setting.sectiones');
 
         $curriculumPresentacionId = TextEnum::curriculumPresentacion->value;
-        $curriculumFirmId = TextEnum::curriculumFirm->value;
+        $curriculumSignatureId = TextEnum::curriculumSignature->value;
         $portfolioHomeId = TextEnum::portfolioHome->value;
         $portfolioAboutMeId = TextEnum::portfolioAboutMe->value;
 
@@ -78,7 +78,7 @@ class TextSeeder extends Seeder
                         ),
             ],
             [
-                'section' => $curriculumFirmId,
+                'section' => $curriculumSignatureId,
                 'texts' =>  array(
                             [
                                 'text_ITA' => "Autorizzo il trattamento dei miei dati personali ai sensi

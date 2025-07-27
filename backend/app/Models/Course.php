@@ -11,11 +11,12 @@ class Course extends Model
         $hours = 'ore';
         $monthes = 'mesi';
         $years = 'anni';
-        if($language && $language == 'ESP'){
+        if($language && $language == 'es'){
             $hours = 'horas';
             $monthes = 'meses';
             $years = 'años';
-        }else if($language && $language == 'ENG'){
+        }
+        if($language && $language == 'en'){
             $hours = 'hours';
             $monthes = 'monthes';
             $years = 'years';
@@ -24,7 +25,8 @@ class Course extends Model
         $format = $hours;
         if($this->format == 2){
             $format = $monthes;
-        }else if($this->format == 3){
+        }
+        if($this->format == 3){
             $format = $years;
         }
         $duration = $this->timeDuration;

@@ -11,7 +11,7 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::first();
-        $contacts = $contacts->formatFormContacts();
+        $contacts = $contacts->formatBladeContacts();
         return view('admin.pages.contacts.index', [
             'contacts' => $contacts
         ]);

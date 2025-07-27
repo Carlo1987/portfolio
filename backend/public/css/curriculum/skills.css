@@ -1,0 +1,18 @@
+
+.skill__left{ float: left; width: 50%;}
+.skill__right{ float: right; width: 50%; }
+
+
+.skill__title{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 34px;
+}   
+
+.skill__column{ margin-top: 5px; }
+
+.block__skill{
+    width: 100%;
+}

@@ -1,9 +1,20 @@
 <?php
 
 return array(
-    'contacts' => 'Contacts',
-    'phone' => 'Cellular',
-    'location' => 'Localidad',
+    'contacts' => 'Contactos',
+    'phone' => 'Phone',
+    'location' => 'Location',
 
-    'skills' => 'Habilidades'
+    'skills' => 'Skills',
+
+    'profile' => 'Profesional profile',
+
+    'experience' => 'Work experience',
+
+    'courses' => 'Courses',
+
+    'languages' => 'Languages',
+
+    'projects' => 'Projects',
+    'usedLanguages' => 'Used languages'
 );

@@ -1,0 +1,23 @@
+
+.row__progress{
+    float: right;
+    position: relative;
+    width: 60%;
+    height: 10px;
+    margin-top: 8px;
+    border-radius: 5px;
+    background-color: var(--bg_progress);
+}
+
+.progress{
+    position: absolute;
+    z-index: 1;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--color_progress);
+}
+
+.language{ 
+    display: block; 
+    padding-left: 35px;
+}

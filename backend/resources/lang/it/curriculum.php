@@ -5,5 +5,16 @@ return array(
     'phone' => 'Telefono',
     'location' => 'Località',
 
-    'skills' => 'Abilità'
+    'skills' => 'Abilità',
+
+    'profile' => 'Profilo professionale',
+
+    'experience' => 'Esperienza lavorativa', 
+
+    'courses' => 'Formazione',
+
+    'languages' => 'Lingue',
+
+    'projects' => 'Progetti',
+    'usedLanguages' => 'Linguaggi utilizzati'
 );

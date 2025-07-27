@@ -1,0 +1,27 @@
+
+.list__aside{ padding-left: 9.5px; }
+
+.list__title{
+    font-weight: bold;
+}
+
+.list__title::before{
+    content: '•';
+}
+
+.list__url,
+.list__content{ padding-left: 10px; }
+
+
+.list__content{
+    margin-top: 3px;
+}
+
+.list__languages{
+    width: 95%;
+    margin-left: 10px;
+}
+
+.list__languages__title{
+    font-weight: bold;
+}

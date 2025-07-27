@@ -1,14 +1,14 @@
 <div class="accordion accordion-flush" id="accordionSkills">
     <div class="accordion-item">
         <div class="row">
-        @foreach($skillsTypes as $skillsType)
+        @foreach($skillsTypes as $key => $skillsType)
             <div class="col-sm-6">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ $skillsType['id'] }}" aria-expanded="false" aria-controls="flush-collapse_{{ $skillsType['id'] }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_{{ $key }}" aria-expanded="false" aria-controls="flush-collapse_{{ $key }}">
                         {{ $skillsType['name'] }}
                     </button>
                 </h2>
-                <div id="flush-collapse_{{ $skillsType['id'] }}" class="accordion-collapse collapse" data-bs-parent="#accordionSkills">
+                <div id="flush-collapse_{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionSkills">
                     <div class="accordion__body">                          
                         <table class="table__fullAccordion">
                         @foreach($skillsType['list'] as $skill)  
