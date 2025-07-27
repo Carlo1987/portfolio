@@ -8,6 +8,9 @@
       <a class="nav-link" href="{{ route('contact.index') }}">Contatti</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="{{ route('text.index') }}">Testi</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="{{ route('skill.index') }}">Skills</a>
     </li>
     <li class="nav-item">
@@ -15,6 +18,12 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('project.index') }}">Progetti</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('job.index') }}">Lavori</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('language.index') }}">Lingue</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('curriculum.index') }}">Curriculum</a>

@@ -78,7 +78,7 @@
       <div class="modal-footer">
         <button type="button" class="btnClose btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         <button type="button" class="btnSave btn btn-primary" 
-        data-url-create="{{ route('course.store') }}" data-url-update="{{ route('course.store', ['id'=>':id']) }}">Salva</button>
+        data-url-create="{{ route('course.upsert') }}" data-url-update="{{ route('course.upsert', ['id'=>':id']) }}">Salva</button>
       </div>
     </div>
   </div>

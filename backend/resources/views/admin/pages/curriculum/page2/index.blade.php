@@ -15,7 +15,6 @@
         @include('admin.pages.curriculum.page2.projects')
     </div>
 
-
     <div id="authorization">
         @include('admin.pages.curriculum.page2.authorization')
     </div>

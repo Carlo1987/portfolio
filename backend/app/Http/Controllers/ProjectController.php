@@ -30,7 +30,7 @@ class ProjectController extends Controller
     }
 
 
-    public function store(Request $request, $id = null)
+    public function upsert(Request $request, $id = null)
     {
         $rules_validate = [
             'name' => 'required',
