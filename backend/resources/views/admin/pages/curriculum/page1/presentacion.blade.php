@@ -3,7 +3,7 @@
 </div>
 
 <div class="main__content">
-    @foreach($texts[$curriculumPresentacionID] as $text)
+    @foreach($texts[$curriculumPresentacionID]['list'] as $text)
         <p> {{ $text['text_' . $langDB] }} </p>
     @endforeach
 </div>

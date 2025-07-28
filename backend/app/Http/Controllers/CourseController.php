@@ -12,6 +12,7 @@ class CourseController extends Controller
 {
     use OrderHelper;
 
+
     public function index()
     {
         $courses = Course::orderBy('order', 'desc')->get();
@@ -23,7 +24,7 @@ class CourseController extends Controller
 
     public function upsert(Request $request, $id = null)
     {
-          $rules_validate = [
+        $rules_validate = [
             'name' => 'required',
             'order' => 'required',
             'timeDuration' => 'required',

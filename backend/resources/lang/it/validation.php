@@ -37,4 +37,7 @@ return [
     'status' => [
         'required' => 'Tipo di stato obbligatorio',
     ],
+    'from' => [
+        'required' => 'Indicare da quando ha è iniziato il lavoro',
+    ]
 ];

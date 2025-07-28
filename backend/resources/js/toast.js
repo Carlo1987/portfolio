@@ -19,6 +19,7 @@ export function showToast(message = "Si è verificato un errore") {
             <li> ${ errors.text_ENG ?? ''  } </li>
             <li> ${ errors.url ?? ''  } </li>
             <li> ${ errors.status ?? ''  } </li>
+            <li> ${ errors.from ?? ''  } </li>
             <li> ${ errors.dev_languages ?? ''  } </li>
             <li> ${ errors.description_ITA ?? ''  } </li>
             <li> ${ errors.description_ESP ?? ''  } </li>

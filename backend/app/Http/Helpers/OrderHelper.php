@@ -123,10 +123,22 @@ trait OrderHelper {
         }
 
         return array(
-            $curriculumPresentacionID => $curriculumPresentacionTexts,
-            $curriculumSignatureId => $curriculumSignatureTexts,
-            $portfolioHomeId => $portfolioHomeTexts,
-            $portfolioAboutMeId => $portfolioAboutMeTexts,
+            $curriculumPresentacionID => [
+                'name' => TextEnum::curriculumPresentacion->name,
+                'list' => $curriculumPresentacionTexts,
+            ], 
+            $curriculumSignatureId => [
+                'name' => TextEnum::curriculumSignature->name,
+                'list' =>  $curriculumSignatureTexts,
+            ],
+            $portfolioHomeId => [
+                'name' => TextEnum::portfolioHome->name,
+                'list' => $portfolioHomeTexts,
+            ], 
+            $portfolioAboutMeId => [
+                'name' => TextEnum::portfolioAboutMe->name,
+                'list' => $portfolioAboutMeTexts,
+            ], 
         );
         
     }

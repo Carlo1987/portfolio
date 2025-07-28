@@ -12,6 +12,7 @@ class Text extends Model
                     'text_ITA' => $this->text_ITA,
                     'text_ESP' => $this->text_ESP,
                     'text_ENG' => $this->text_ENG,
+                    'order' => $this->order,
                 );
     }
 }

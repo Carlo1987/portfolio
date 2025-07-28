@@ -1,5 +1,5 @@
 <div> 
-    @foreach($texts[$curriculumSignatureId] as $text)
+    @foreach($texts[$curriculumSignatureId]['list'] as $text)
         {{ $text['text_' . $langDB] }}
     @endforeach
 </div>
