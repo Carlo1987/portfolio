@@ -1,9 +1,9 @@
 
-<div class="modal fade" id="deleteSkillModal" tabindex="-1" aria-labelledby="deleteSkillModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteTextModal" tabindex="-1" aria-labelledby="deleteTextModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title title-delete fs-5" id="deleteSkillModalLabel"> <!-- titolo --> </h1>
+        <h1 class="modal-title title-delete fs-5" id="deleteTextModalLabel"> <!-- titolo --> </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -15,7 +15,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-        <button type="button" class="btnDelete btn btn-danger" data-url-delete="{{ route('skill.delete',['id' => ':id']) }}">Cancella</button>
+        <button type="button" class="btnDelete btn btn-danger" data-url-delete="{{ route('text.delete',['id' => ':id']) }}">Cancella</button>
       </div>
     </div>
   </div>

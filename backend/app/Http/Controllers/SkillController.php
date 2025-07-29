@@ -15,11 +15,9 @@ class SkillController extends Controller
 
     public function index()
     {
-        $skills = Skill::orderBy('order', 'desc')->get();
-        $skillsTypes = $this->skillsGrouppedByType($skills);
-   
+        $skills = Skill::orderBy('order', 'desc')->get();   
         return view('admin.pages.skills.index', [
-            'skillsTypes' => $skillsTypes
+            'skillsTypes' => $this->skillsGrouppedByType($skills)
         ]);
     }
 

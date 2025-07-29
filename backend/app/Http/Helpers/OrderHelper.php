@@ -49,98 +49,60 @@ trait OrderHelper {
 
     public function skillsGrouppedByType($skills)
     {
-        $frontendTypeId = SkillEnum::Frontend->value;
-        $backendTypeId = SkillEnum::Backend->value;
-        $databaseTypeId = SkillEnum::Database->value;
-        $devopsTypeId = SkillEnum::DevOps->value;
-
-        $frontendSkills = [];
-        $backendSkills = [];
-        $databaseSkills = [];
-        $devopsSkills = [];
-
-        foreach($skills as $skill){
-            if($skill['type'] == $frontendTypeId){
-                $frontendSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $backendTypeId){
-                $backendSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $databaseTypeId){
-                $databaseSkills[] = $skill->toArray();
-
-            }else if($skill['type'] == $devopsTypeId){
-                $devopsSkills[] = $skill->toArray();
-            }
-        }
-
-        return array(
-            $frontendTypeId => [
-                                    'name' => SkillEnum::Frontend->name,
-                                    'list' => $frontendSkills,
-                                ],
-            $backendTypeId =>  [
-                                    'name' => SkillEnum::Backend->name,
-                                    'list' => $backendSkills,
-                                ],
-            $databaseTypeId => [
-                                    'name' => SkillEnum::Database->name,
-                                    'list' => $databaseSkills,
-                                ],
-            $devopsTypeId =>   [
-                                    'name' => SkillEnum::DevOps->name,
-                                    'list' => $devopsSkills,
-                                ],
+        $data = array(
+            SkillEnum::Frontend->value => [
+                'name' => SkillEnum::Frontend->output(),
+                'list' => [],
+            ],
+            SkillEnum::Backend->value => [
+                'name' => SkillEnum::Backend->output(),
+                'list' => [],
+            ],
+            SkillEnum::Database->value => [
+                'name' => SkillEnum::Database->output(),
+                'list' => [],
+            ],
+            SkillEnum::DevOps->value => [
+                'name' => SkillEnum::DevOps->output(),
+                'list' => [],
+            ],
         );
+        return $this->groupItemsByType($skills, $data);
     }
-
 
     public function textsGrouppedByType($texts)
     {
-        $curriculumPresentacionID = TextEnum::curriculumPresentacion->value;
-        $curriculumSignatureId = TextEnum::curriculumSignature->value;
-        $portfolioHomeId = TextEnum::portfolioHome->value;
-        $portfolioAboutMeId = TextEnum::portfolioAboutMe->value;
+        $data = array(
+            TextEnum::curriculumPresentacion->value => [
+                'name' => TextEnum::curriculumPresentacion->output(),
+                'list' => [],
+            ],
+            TextEnum::curriculumSignature->value => [
+                'name' => TextEnum::curriculumSignature->output(),
+                'list' => [],
+            ],
+            TextEnum::portfolioHome->value => [
+                'name' => TextEnum::portfolioHome->output(),
+                'list' => [],
+            ],
+            TextEnum::portfolioAboutMe->value => [
+                'name' => TextEnum::portfolioAboutMe->output(),
+                'list' => [],
+            ],
+        );
+        return $this->groupItemsByType($texts, $data);
+    }
 
-        $curriculumPresentacionTexts = [];
-        $curriculumSignatureTexts = [];
-        $portfolioHomeTexts = [];
-        $portfolioAboutMeTexts = [];
-
-        foreach($texts as $text){
-            if($text->type == $curriculumPresentacionID){
-                $curriculumPresentacionTexts[] = $text->getTextsAllLanguages();
-            }
-            if($text->type == $curriculumSignatureId){
-                $curriculumSignatureTexts[] = $text->getTextsAllLanguages();;
-            }
-            if($text->type == $portfolioHomeId){
-                $portfolioHomeTexts[] = $text->getTextsAllLanguages();;
-            }
-            if($text->type == $portfolioAboutMeId){
-                $portfolioAboutMeTexts[] = $text->getTextsAllLanguages();;
+    private function groupItemsByType($items, $data)
+    {
+        $itemsGroupped = $data;
+        foreach ($items as $item) {
+            $type = $item['type']; 
+            if(array_key_exists($type, $itemsGroupped)) {
+                $itemsGroupped[$type]['list'][] = $item->toArray(); 
             }
         }
-
-        return array(
-            $curriculumPresentacionID => [
-                'name' => TextEnum::curriculumPresentacion->name,
-                'list' => $curriculumPresentacionTexts,
-            ], 
-            $curriculumSignatureId => [
-                'name' => TextEnum::curriculumSignature->name,
-                'list' =>  $curriculumSignatureTexts,
-            ],
-            $portfolioHomeId => [
-                'name' => TextEnum::portfolioHome->name,
-                'list' => $portfolioHomeTexts,
-            ], 
-            $portfolioAboutMeId => [
-                'name' => TextEnum::portfolioAboutMe->name,
-                'list' => $portfolioAboutMeTexts,
-            ], 
-        );
-        
+        return $itemsGroupped;
     }
 
 }

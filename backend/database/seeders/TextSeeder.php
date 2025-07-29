@@ -49,31 +49,14 @@ class TextSeeder extends Seeder
                 'section' => $curriculumPresentacionId,
                 'texts' =>  array(
                             [
-                                'text_ITA' => "Competente nell'implementazione di pattern architetturali
-                                                come MVC e MVVM, nella progettazione e nello sviluppo
-                                                di API REST e nell'uso dei metodi CRUD su database
-                                                relazionali e non relazionali.",
-                                'text_ESP' => "Competente en la implementación de patrones
-                                                arquitectónicos como MVC y MVVM, en el diseño y
-                                                desarrollo de API REST, en el manejo de los métodos
-                                                CRUD con bases de datos relacionales y no relacionales.",
-                                'text_ENG' => "Skilled in implementing architectural patterns like MVC
-                                                and MVVM, designing and developing REST APIs, and
-                                                using CRUD methods on relational and non-relational
-                                                databases.",
+                                'text_ITA' => "Competente nell'implementazione di pattern architetturali come MVC e MVVM, nella progettazione e nello sviluppo di API REST e nell'uso dei metodi CRUD su database relazionali e non relazionali.",
+                                'text_ESP' => "Competente en la implementación de patrones arquitectónicos como MVC y MVVM, en el diseño y desarrollo de API REST, en el manejo de los métodos CRUD con bases de datos relacionales y no relacionales.",
+                                'text_ENG' => "Skilled in implementing architectural patterns like MVC and MVVM, designing and developing REST APIs, and using CRUD methods on relational and non-relational databases.",
                             ],
                             [
-                                'text_ITA' => "Web Developer specializzato nello sviluppo front-end e
-                                                back-end con solida esperienza nella programmazione
-                                                orientata agli oggetti usando vari linguaggi di
-                                                programmazione.",
-                                'text_ESP' => "Desarrollador Web especializado en el desarrollo front-
-                                                end y back-end con sólida experiencia en programación
-                                                orientada a objetos utilizando varios lenguajes de
-                                                programación.",
-                                'text_ENG' => "Web Developer specializing in front-end and back-end
-                                                development with solid experience in object-oriented
-                                                programming using various programming languages.",
+                                'text_ITA' => "Web Developer specializzato nello sviluppo front-end e back-end con solida esperienza nella programmazione orientata agli oggetti usando vari linguaggi di programmazione.",
+                                'text_ESP' => "Desarrollador Web especializado en el desarrollo front-end y back-end con sólida experiencia en programación orientada a objetos utilizando varios lenguajes de programación.",
+                                'text_ENG' => "Web Developer specializing in front-end and back-end development with solid experience in object-oriented programming using various programming languages.",
                             ],
                         ),
             ],
@@ -81,21 +64,9 @@ class TextSeeder extends Seeder
                 'section' => $curriculumSignatureId,
                 'texts' =>  array(
                             [
-                                'text_ITA' => "Autorizzo il trattamento dei miei dati personali ai sensi
-                                                ai sensi del Decreto Legislativo 196/2003, coordinato
-                                                con il Decreto Legislativo 101/2018, e dell'art. 13 del
-                                                GDPR (Regolamento UE 2016/679) ai fini della ricerca
-                                                e selezione personale",
-                                'text_ESP' => "Autorizo el tratamiento de mis datos personales de
-                                                conformidad con el Reglamento General de Protección
-                                                de Datos (RGPD - Reglamento UE 2016/679) y las
-                                                normativas locales aplicables, exclusivamente con
-                                                fines de selección y reclutamiento de personal",
-                                'text_ENG' => "I hereby authorize the processing of my personal data
-                                                in accordance with Legislative Decree 196/2003, as
-                                                amended by Legislative Decree 101/2018, and Article
-                                                13 of the GDPR (EU Regulation 2016/679) for the
-                                                purposes of recruitment and selection.",
+                                'text_ITA' => "Autorizzo il trattamento dei miei dati personali ai sensi ai sensi del Decreto Legislativo 196/2003, coordinato con il Decreto Legislativo 101/2018, e dell'art. 13 del GDPR (Regolamento UE 2016/679) ai fini della ricerca e selezione personale",
+                                'text_ESP' => "Autorizo el tratamiento de mis datos personales de conformidad con el Reglamento General de Protección de Datos (RGPD - Reglamento UE 2016/679) y las normativas locales aplicables, exclusivamente con fines de selección y reclutamiento de personal",
+                                'text_ENG' => "I hereby authorize the processing of my personal data in accordance with Legislative Decree 196/2003, as amended by Legislative Decree 101/2018, and Article 13 of the GDPR (EU Regulation 2016/679) for the purposes of recruitment and selection.",
                             ],
                         ),
             ],
@@ -118,12 +89,9 @@ class TextSeeder extends Seeder
                                 'text_ENG' => "The projects I have created so far are listed in ascending order from the most recent to the oldest. In each project, I always look for a new theme that inspires and guides me.",
                             ],
                             [
-                                'text_ITA' => "Le skills che ho acquisito fino ad ora mi permettono di creare un intero progetto Full Stack da zero, 
-                                                dandomi la possibilità di scegliere quale linguaggio di programmazione sia meglio usare per l'occorrenza.",
-                                'text_ESP' => "Las skills que he logrado hasta ahora me permiten crear un entero proyecto Full Stack a partir de zero, 
-                                                dandome la posibilidad de elegir el linguaje de programacion que creo sea el mejor por la ocasion.",
-                                'text_ENG' => "The skills I have acquired so far allow me to create a complete Full Stack project from scratch, 
-                                                giving me the flexibility to choose the best programming language for each situation.",
+                                'text_ITA' => "Le skills che ho acquisito fino ad ora mi permettono di creare un intero progetto Full Stack da zero, dandomi la possibilità di scegliere quale linguaggio di programmazione sia meglio usare per l'occorrenza.",
+                                'text_ESP' => "Las habilidades que he logrado hasta ahora me permiten crear un entero proyecto Full Stack a partir de zero, dandome la posibilidad de elegir el linguaje de programacion que creo sea el mejor por la ocasion.",
+                                'text_ENG' => "The skills I have acquired so far allow me to create a complete Full Stack project from scratch, giving me the flexibility to choose the best programming language for each situation.",
                             ],
                         ),
             ],
