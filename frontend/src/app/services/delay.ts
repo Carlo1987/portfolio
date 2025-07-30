@@ -1,6 +1,5 @@
 
 import { Injectable } from '@angular/core';
-import { global } from './global';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class DelayService {
     if (isLoading) {
       setTimeout(() => {
         callback();
-      }, global.timing_animation);
+      }, 4500);
     
     } else {
       callback();

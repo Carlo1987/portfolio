@@ -2,7 +2,6 @@ import { Component, OnInit, DoCheck , ViewChild,ElementRef  } from '@angular/cor
 import { Router } from '@angular/router';
 import { NavModel } from './models/nav';
 import { LanguagesService } from './services/languages';
-import { global } from './services/global';
 import { gsap } from 'gsap/gsap-core';
 
 
@@ -45,7 +44,7 @@ export class AppComponent implements OnInit , DoCheck {
       setTimeout(() => {
         this.showLoading = false;
     
-      }, global.timing_animation);  
+      }, 4500);  
      
      }else{
       this.showLoading = false;
