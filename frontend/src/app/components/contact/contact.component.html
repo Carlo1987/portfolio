@@ -13,18 +13,17 @@
         </div>
 
         <div class="col-sm-6">
-            <label for="email" class="form-label"> {{ lang.contact.email }} </label>
-            <input type="email" class="form-control" name="email" #email="ngModel"  [(ngModel)]="fields.email"  required>   
+            <label for="sender" class="form-label"> {{ lang.contact.email }} </label>
+            <input type="sender" class="form-control" name="sender" #sender="ngModel"  [(ngModel)]="fields.sender"  required>   
         </div>
       
         <div class="col-12 mt-4">
-            <label for="message" class="form-label">  {{ lang.contact.message }} </label>
-            <textarea  class="form-control"   name="message" rows="3"  #message="ngModel"   [(ngModel)]="fields.message"  required></textarea>  
+            <label for="text" class="form-label">  {{ lang.contact.message }} </label>
+            <textarea  class="form-control"   name="text" rows="3"  #text="ngModel"   [(ngModel)]="fields.text"  required></textarea>  
         </div>
 
     </div>
 
-   
     <div class="text-center mt-3">
         <button class="btn btn-dark" style="color: white;" name="email_contact" [disabled]="!formContact.form.valid" >  {{ lang.contact.button }} </button>
     </div>

@@ -3,9 +3,9 @@
 export class Email {
 
     constructor(
-        public email:string,
+        public sender:string,
         public object:string,
-        public message:string
+        public text:string
     ){}
 }
 

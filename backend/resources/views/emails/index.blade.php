@@ -8,7 +8,8 @@
         </style>
     </head>
     <body>
-        <p> Messaggio da {{ $sender }}</p>
+        <p> <strong> Messaggio da: </strong> {{ $object }}</p>
+        <p> <strong> Email riferimento: </strong> {{ $sender }}</p>
         <p>{{ $text }}</p>
     </body>
 </html>

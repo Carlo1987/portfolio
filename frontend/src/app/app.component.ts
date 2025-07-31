@@ -43,7 +43,6 @@ export class AppComponent implements OnInit , DoCheck {
       sessionStorage.setItem('loading','true');
       setTimeout(() => {
         this.showLoading = false;
-    
       }, 4500);  
      
      }else{

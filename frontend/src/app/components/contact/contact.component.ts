@@ -1,4 +1,6 @@
 import { Component , OnDestroy } from '@angular/core'; 
+import { finalize } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
 import { LanguagesService } from 'src/app/services/languages';
 import { DelayService } from 'src/app/services/delay';
 import { Email } from 'src/app/models/email';
@@ -28,8 +30,6 @@ export class ContactComponent implements  OnDestroy {
     })
   }
 
-
-
   ngOnDestroy(): void {
     this.delayService.removeLoading();
   }
@@ -39,28 +39,22 @@ export class ContactComponent implements  OnDestroy {
     this.message_error = '';
     this.message_success = '';
     this.loading = true;
-
-    const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
-
-    if (this.fields.email.match(EMAIL_REGEX)){  
-      
-        this._contactService.sendEmail(this.fields).subscribe(response=>{
-         if(response.status && response.message == 'send'){
+    
+      this._contactService.sendEmail(this.fields).pipe(
+        finalize(() => this.loading = false)
+      ).subscribe({
+        next : () => {
           this.fields = new Email("","","");
           this.message_success = this.lang.contact.success; 
-        }else{
-          this.message_error = this.lang.contact.failed;
-        }     
-        this.loading = false;   
-      })  
-     
-    }else{
-      this.loading = false;
-      this.message_error = this.lang.contact.error_email;
-    }   
+        },
+        error : (error:HttpErrorResponse) => {
+          if(error.status == 422){
+            this.message_error = this.lang.contact.error_email;
+          }else{
+            this.message_error = this.lang.contact.failed;
+          }
+        }
+      }) 
   }
-
-
-
 
 }

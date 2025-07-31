@@ -42,7 +42,12 @@ class SendEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.emails.index',
+            view: 'emails.index', 
+            with : [
+                'object' => $this->object,
+                'sender' => $this->sender,
+                'text' => $this->text,
+            ]
         );
     }
 

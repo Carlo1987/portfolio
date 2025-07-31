@@ -1,13 +1,11 @@
-import { url, url_backend } from '../../env';
+import { url_api } from '../../env';
 
 
 export const global = {
 
-  url_email : `${url_backend}/sendEmail` ,
-
-  url_curriculum : `${url_backend}/curriculum/curriculum.php`,
+  url_curriculum : `${url_api}/curriculum/curriculum.php`,
   
-  project_shop : `${url}/Project_Shop/home`,
-  project_social : `${url}/Project_Social`,
+   project_shop : `${url_api}/Project_Shop/home`,
+  project_social : `${url_api}/Project_Social`, 
 
 }

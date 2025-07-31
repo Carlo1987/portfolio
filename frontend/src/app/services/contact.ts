@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';                                      
 import { HttpClient, HttpHeaders } from '@angular/common/http';                 
 import { Observable } from 'rxjs';  
-import { global } from './global';
+import { url_api } from '../../env';
 
 
 
 @Injectable()
 export class ContactService{
-    public email:string = global.url_email;
+    public url:string = url_api + '/sendEmail';
 
     constructor(
-        private _req: HttpClient          
+        private req: HttpClient          
     ){}
-
 
 
     sendEmail(data:any):Observable<any>{
         let params = JSON.stringify(data); 
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._req.post(this.email, params, {headers:headers});
+        return this.req.post(this.url, params, {headers:headers});
     }
 
 
