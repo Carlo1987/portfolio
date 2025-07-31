@@ -1,6 +1,8 @@
 import { Component , AfterViewInit , OnDestroy } from '@angular/core';
-import { skills } from 'src/app/models/skills';
+import { SkillModel } from 'src/app/models/skills'; 
+import { url_api } from 'src/env';
 import { LanguagesService } from 'src/app/services/languages';
+import { SkillService } from 'src/app/services/skill';
 import { DelayService } from 'src/app/services/delay';
 import { gsap } from 'gsap';
 
@@ -10,17 +12,21 @@ import { gsap } from 'gsap';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent implements AfterViewInit , OnDestroy {
-  public skills:any = skills;
+  public skills = SkillModel;
   public language:any;
-
+  public url_api:string = url_api;
 
 
   constructor(
     private _languageService : LanguagesService,
+    private _skillService : SkillService,
     private delayService : DelayService
   ){
     this._languageService.getLanguage$.subscribe(value=>{
       this.language = value;
+    })
+    this._skillService.getSkills$.subscribe(value=>{
+      this.skills = value;
     })
   }
   

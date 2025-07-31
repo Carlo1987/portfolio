@@ -2,7 +2,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { LanguagesService } from "../services/languages";
-import { lang_progr } from "./devLanguages";
+//import { lang_progr } from "./devLanguages";
 import { global } from "../services/global";
 
 
@@ -60,7 +60,7 @@ export class ProjectModel{
                     ]
                 },
              */
-                {
+             /*    {
                     name : project.project_social.name,
                     description : project.project_social.description,
                     image :  coll + "/logo_faceback.jpg",
@@ -84,7 +84,7 @@ export class ProjectModel{
                         lang_progr.Php,
                         lang_progr.Mysql
                     ]
-                },
+                }, */
             
             ];
 

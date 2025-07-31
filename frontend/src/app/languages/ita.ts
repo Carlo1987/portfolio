@@ -1,11 +1,14 @@
-import { getTime } from "../services/getTime"
-
+import { langToApi } from "./langToApi";
 
 export const ita = {
 
     language : 'ita',
 
     error : "Pagina web non trovata",
+
+    visit : 'Visita',
+
+    visitSection : "Visita la sezione",
 
     nav : {
         skills : "Abilità",
@@ -18,15 +21,7 @@ export const ita = {
         welcome1 : "Ciao!",
         welcome2 : "sono Carlo,",
         message1 : "Full Stack Web Developer",
-        elements : {
-            visit : "Visita la sezione",
-            skill_text : "Le skills che ho acquisito fino ad ora mi permettono di creare un intero progetto Full Stack da zero, dandomi la possibilità di scegliere quale linguaggio di programmazione sia meglio usare per l'occorrenza.",
-            project_text : "I progetti che ho creato fino ad'ora in ordine crescente dal più recente al più vecchio, in ogni progetto cerco sempre un nuovo tema che mi ispiri e mi guidi.",
-            aboutMe_text : "Informazioni generali su di me, dal mio passato fino a come ho deciso di percorrere la carriera di Sviluppatore Web. Niente di troppo lungo, non preoccuparti!",
-            contact_text : "I miei contatti sono visibili anche nel Curriculum, ma se non vuoi perdere tempo allora non esitare e scrivimi subito!",
-        }
-
-        
+        elements : langToApi.home
     },
 
     contact : {
@@ -57,17 +52,7 @@ export const ita = {
         visit : "Visita"
     },
 
-
-    aboutMe : {
-        presentacion : "Ciao! Sono Carlo, Full Stack Web Developer sempre alla ricerca di nuove sfide che mi permettano di regalare agli utenti l'esperienza che cercano!!",
-        developer : `Mi trovo nel mondo dello sviluppo web da ${getTime.time()} anni, un mondo che mi ha conquistato e rapito.`,
-        old_work : "Sono stato militare per 16 anni, facendo missioni sia in territorio italiano che all'estero, ricoprendo incarichi di sicurezza e imparando il valore del lavoro di squadra anche in situazioni di forte pressione.",
-        new_work : `Nel corso del tempo sono sempre stato appassionato all'informatica, facendo lavori e progetti web fino a quando ${getTime.time()} anni fa ho preso la decisione di farla diventare la mia nuova professione a tempo pieno!!`,
-        skills : "Ho frequentato il corso di Click Accademy per poi proseguire gli studi con vari corsi sulla piattaforma Udemy unita a tanta pratica da autodidatta!",
-        final : "Mi piace il lavoro di squadra e la realizzazione di obiettivi condivisi che portino il team a livelli sempre più alti!!"
-    },
-
-
+    aboutMe : langToApi.aboutMe,
 
     skills : {
         icon : "Icone di"

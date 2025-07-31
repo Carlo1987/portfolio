@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Http\Helpers\FileHelper;
 use App\Http\Helpers\OrderHelper;
+use App\Enums\SkillEnum;
 use App\Models\Skill;
 
 class SkillController extends Controller
@@ -117,6 +118,36 @@ class SkillController extends Controller
         return response()->json([
             'errros' => 'Skill non trovata',
         ], 404);
+    }
+
+
+    public function skillsApi()
+    {
+        $skills = Skill::orderBy('order', 'desc')->get();
+
+        $frontend = $skills->where('type', SkillEnum::Frontend->value)->values();
+        $backend = $skills->where('type', SkillEnum::Backend->value)->values();
+        $database = $skills->where('type', SkillEnum::Database->value)->values();
+        $devops = $skills->where('type', SkillEnum::DevOps->value)->values();
+
+        return response()->json([
+            'frontend' => [
+                'name' => SkillEnum::Frontend->output(),
+                'skills' => $frontend,
+            ],
+            'backend' => [
+                'name' => SkillEnum::Backend->output(),
+                'skills' => $backend,
+            ],
+            'database' => [
+                'name' => SkillEnum::Database->output(),
+                'skills' => $database,
+            ],
+            'devops' => [
+                'name' => SkillEnum::DevOps->output(),
+                'skills' => $devops,
+            ],
+        ]);
     }
 
 }

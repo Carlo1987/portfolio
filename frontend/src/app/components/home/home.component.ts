@@ -5,27 +5,26 @@ import { ScrolltriggerModel } from 'src/app/models/scrolltrigger';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements AfterViewInit , OnDestroy {
   public lang:any;
   public sectiones:any;
-
-
+   
 
   constructor(
     private _languageService : LanguagesService,
     private _scrolltriggerModel : ScrolltriggerModel,
     private delayService: DelayService
   ){
+
     this._languageService.getLanguage$.subscribe(value=>{
       this.lang = value;
     })
-
 
     this._scrolltriggerModel.scolltrigger$.subscribe(value=>{
       this.sectiones = value;
@@ -40,8 +39,6 @@ export class HomeComponent implements AfterViewInit , OnDestroy {
     });
   }
 
-
-
   ngOnDestroy(): void {
     this.delayService.removeLoading();
   }
@@ -50,9 +47,7 @@ export class HomeComponent implements AfterViewInit , OnDestroy {
 
 
   animationSectiones():void{
-    
     gsap.registerPlugin(ScrollTrigger);
-
 
    let animate = (class_name:string, top:string):void => {
       for(let i=1; i<=this.sectiones.length; i++){

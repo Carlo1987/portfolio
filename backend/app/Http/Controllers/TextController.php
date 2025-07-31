@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers\OrderHelper;
 use App\Models\Text;
+use App\Enums\TextEnum;
 
 class TextController extends Controller
 {
@@ -96,4 +97,24 @@ class TextController extends Controller
             'errros' => 'Testo non trovata',
         ], 404);
     }
+
+
+    public function textsApi()
+    {
+        $texts = Text::whereIn('type', [
+            TextEnum::portfolioHome->value,
+            TextEnum::portfolioAboutMe->value
+        ])
+        ->orderBy('order', 'desc')
+        ->get();
+
+        $textsHome = $texts->where('type', TextEnum::portfolioHome->value)->values();
+        $textsAboutMe = $texts->where('type', TextEnum::portfolioAboutMe->value)->values();
+
+        return response()->json([
+            'home' => $textsHome,
+            'aboutMe' => $textsAboutMe,
+        ]);
+    }
+
 }
