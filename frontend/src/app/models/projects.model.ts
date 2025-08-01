@@ -1,7 +1,7 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { LanguagesService } from "../services/languages";
+import { LanguagesService } from "../services/languages.service";
 //import { lang_progr } from "./devLanguages";
 import { global } from "../services/global";
 
@@ -23,10 +23,15 @@ export class ProjectModel{
         this._languageService.getLanguage$.subscribe(value=>{
 
             const project = value.projects;
-            const button = value.projects.visit;
+            const button = value.visit;
             const  coll = "../../assets/images/projects";
+            const lang_progr = {
+                name : '',
+                image : '',
+                language : ''
+            }; 
 
-            let projects = [
+           let projects = [
             /*     {
                     name : project.project_holiday.name,
                     description : project.project_holiday.description,
@@ -60,18 +65,18 @@ export class ProjectModel{
                     ]
                 },
              */
-             /*    {
+                {
                     name : project.project_social.name,
                     description : project.project_social.description,
                     image :  coll + "/logo_faceback.jpg",
                     url : global.project_social,
                     languages : [
-                        lang_progr.Laravel,
-                        lang_progr.Php,
+                        lang_progr,
+   /*                      lang_progr.Php,
                         lang_progr.SocketIo,
                         lang_progr.NodeJS,
                         lang_progr.Mysql,
-                        lang_progr.Bootstrap
+                        lang_progr.Bootstrap */
                     ]
                 },
             
@@ -81,10 +86,10 @@ export class ProjectModel{
                     image : coll + "/logo_dichatleon.webp",
                     url : global.project_shop,
                     languages : [
-                        lang_progr.Php,
-                        lang_progr.Mysql
+                        lang_progr,
+                      /*   lang_progr.Mysql */
                     ]
-                }, */
+                }, 
             
             ];
 

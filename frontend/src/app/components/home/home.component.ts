@@ -1,7 +1,9 @@
 import { Component, AfterViewInit , OnDestroy } from '@angular/core';
-import { LanguagesService } from 'src/app/services/languages';
-import { DelayService } from 'src/app/services/delay';
-import { ScrolltriggerModel } from 'src/app/models/scrolltrigger';
+import { LanguageMap } from 'src/app/interfaces/language.interface';
+import { Language } from 'src/app/models/language.model';
+import { ScrolltriggerModel } from 'src/app/models/scrolltrigger.model';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { DelayService } from 'src/app/services/delay.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,7 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 })
 
 export class HomeComponent implements AfterViewInit , OnDestroy {
-  public lang:any;
+  public lang:LanguageMap = Language;
   public sectiones:any;
    
 

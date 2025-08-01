@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { url_api } from '../../env';
 
+import { LanguageMap } from '../interfaces/language.interface';
 import { ita } from "../languages/ita";
 import { esp } from "../languages/esp";
 import { eng } from "../languages/eng";
@@ -24,7 +25,7 @@ interface Text {
 })
 export class LanguagesService{
     private url:string = url_api + '/texts-api';
-    private language = new BehaviorSubject<any>(this.startingLanguage());
+    private language = new BehaviorSubject<LanguageMap>(this.startingLanguage());
 
     getLanguage$ = this.language.asObservable();
 

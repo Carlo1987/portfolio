@@ -1,6 +1,8 @@
 import { Component , AfterViewInit , OnDestroy } from '@angular/core';
-import { LanguagesService } from 'src/app/services/languages';
-import { DelayService } from 'src/app/services/delay';
+import { LanguageMap } from 'src/app/interfaces/language.interface';
+import { Language } from 'src/app/models/language.model';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { DelayService } from 'src/app/services/delay.service';
 import { gsap } from 'gsap';
 
 
@@ -10,7 +12,7 @@ import { gsap } from 'gsap';
   styleUrls: ['./aboutme.component.scss'],
 })
 export class AboutmeComponent implements AfterViewInit , OnDestroy {
-  public lang:any;
+  public lang:LanguageMap = Language;
   public phrases:Array<string> = [];
 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit, DoCheck , ViewChild,ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavModel } from './models/nav';
-import { LanguagesService } from './services/languages';
-import { SkillService } from './services/skill';
+import { Nav } from './models/nav.model';
+import { LanguagesService } from './services/languages.service';
+import { SkillService } from './services/skill.service';
 import { gsap } from 'gsap/gsap-core';
 
 
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit , DoCheck {
    private _router : Router,
    private _languageService : LanguagesService,
    private _skillService : SkillService,
-   private _navModel : NavModel
+   private _nav : Nav
   ){
 
     this.handleDatasApi();
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit , DoCheck {
       this.lang = value;
     })
 
-    this._navModel.nav$.subscribe(value=>{
+    this._nav.nav$.subscribe(value=>{
       this.nav = value;
     })
   }

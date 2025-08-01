@@ -9,7 +9,7 @@ import { url_api } from '../../env';
 })
 export class SkillService{
     public url:string = url_api + '/skills-api';
-    private skills = new BehaviorSubject<Array<any>>([]);
+    private skills = new BehaviorSubject<any>({});
     getSkills$ = this.skills.asObservable();
 
 

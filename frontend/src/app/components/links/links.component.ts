@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { global } from 'src/app/services/global';
+import { url_api } from 'src/env';
 
 
 @Component({
@@ -9,9 +9,7 @@ import { global } from 'src/app/services/global';
 })
 export class LinksComponent{
 
-  private url:string = global.url_curriculum;
-
-
+  private url:string = url_api + '/curriculum';
 
 
   links(url:string):void{

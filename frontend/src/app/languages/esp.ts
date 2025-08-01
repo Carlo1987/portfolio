@@ -48,8 +48,6 @@ export const esp = {
             name : "Dichatleon",
             description : "Proyecto que simula una plataforma para la compra y venta de productos. Podrás registrarte como ADMINISTRADOR para añadir nuevos artículos o modificar los ya existentes!"
         },
-
-        visit : "Visita"
     },
 
     aboutMe : langToApi.aboutMe,

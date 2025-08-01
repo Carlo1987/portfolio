@@ -1,20 +1,24 @@
-import { Component , AfterViewInit , OnDestroy } from '@angular/core';
-import { SkillModel } from 'src/app/models/skills'; 
-import { url_api } from 'src/env';
-import { LanguagesService } from 'src/app/services/languages';
-import { SkillService } from 'src/app/services/skill';
-import { DelayService } from 'src/app/services/delay';
+import { Component } from '@angular/core';
+import { SkillsAllMap } from 'src/app/interfaces/skill.interface';
+import { LanguageMap } from 'src/app/interfaces/language.interface';
+import { Language } from 'src/app/models/language.model';
+import { Skill } from 'src/app/models/skill.model';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { SkillService } from 'src/app/services/skill.service';
+import { DelayService } from 'src/app/services/delay.service';
+import { url_public } from 'src/env';
 import { gsap } from 'gsap';
+
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent implements AfterViewInit , OnDestroy {
-  public skills = SkillModel;
-  public language:any;
-  public url_api:string = url_api;
+export class SkillsComponent{
+  public url:string = url_public;
+  public skills:SkillsAllMap = Skill; 
+  public language:LanguageMap = Language;
 
 
   constructor(
@@ -26,17 +30,16 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
       this.language = value;
     })
     this._skillService.getSkills$.subscribe(value=>{
-      this.skills = value;
+      this.skills = value as SkillsAllMap;
     })
   }
-  
+
 
   ngAfterViewInit(): void {
     this.delayService.executeWithDelay(() => {
       this.animationSectiones();
-    }); 
+    });  
   } 
-
 
 
   ngOnDestroy(): void {
@@ -58,7 +61,7 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
     opacity : 0,
    });
 
-   for(let i= 2; i<=5; i++){
+   for(let i= 2; i<5; i++){
     tl.from(`.section_${i}`, {
       duration : 1,
       y:30,
@@ -67,6 +70,7 @@ export class SkillsComponent implements AfterViewInit , OnDestroy {
    }
   }
 
+  
 
 }
 

@@ -1,7 +1,7 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { LanguagesService } from "../services/languages";
+import { LanguagesService } from "../services/languages.service";
 
 
 
@@ -9,7 +9,7 @@ import { LanguagesService } from "../services/languages";
     providedIn : 'root'
 })
 
-export class NavModel {
+export class Nav {
 
     private nav_model = new BehaviorSubject<Array<any>>([]);
     public nav$ = this.nav_model.asObservable();

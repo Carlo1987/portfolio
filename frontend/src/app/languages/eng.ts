@@ -49,8 +49,6 @@ export const eng = {
             name : "Dichatleon",
             description : "A project simulating a platform for buying and selling products. You can register as an ADMINISTRATOR to add new items or edit existing ones!"
         },
-
-        visit : "Visit"
     },
 
     aboutMe : langToApi.aboutMe,

@@ -1,6 +1,6 @@
 import { Component , OnDestroy } from '@angular/core';
-import { ProjectModel } from 'src/app/models/projects';
-import { DelayService } from 'src/app/services/delay';
+import { ProjectModel } from 'src/app/models/projects.model';
+import { DelayService } from 'src/app/services/delay.service';
 
 
 @Component({

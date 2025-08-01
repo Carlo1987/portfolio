@@ -1,8 +1,8 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { LanguagesService } from "../services/languages";
-import { NavModel } from "./nav";
+import { LanguagesService } from "../services/languages.service";
+import { Nav } from "./nav.model";
 
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ScrolltriggerModel{
 
     constructor(
         private _languageService : LanguagesService,
-        private _navModel : NavModel
+        private _navModel : Nav
     ){
 
         this._navModel.nav$.subscribe(nav_value=>{
