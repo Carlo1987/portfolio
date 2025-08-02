@@ -1,8 +1,11 @@
 import { Component, OnInit, DoCheck , ViewChild,ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Nav } from './models/nav.model';
+import { LanguageMap } from './interfaces/language.interface';
+import { NavMap } from "./interfaces/nav.interface"; 
 import { LanguagesService } from './services/languages.service';
 import { SkillService } from './services/skill.service';
+import { ita } from './languages/ita';
 import { gsap } from 'gsap/gsap-core';
 
 
@@ -14,9 +17,9 @@ import { gsap } from 'gsap/gsap-core';
 })
 
 export class AppComponent implements OnInit , DoCheck {
-  public lang:any; 
+  public lang:LanguageMap = ita; 
   public showLoading:boolean = true;  
-  public nav:Array<any> = [];
+  public nav:Array<NavMap> = [];
   public menu_responsive:boolean = true;
   public menu_curriculum:boolean = false;
   @ViewChild('flag',{static:true}) flag!:ElementRef<HTMLImageElement>;
@@ -31,11 +34,11 @@ export class AppComponent implements OnInit , DoCheck {
 
     this.handleDatasApi();
 
-    this._languageService.getLanguage$.subscribe(value=>{
+    this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
     })
 
-    this._nav.nav$.subscribe(value=>{
+    this._nav.nav$.subscribe((value:Array<NavMap>)=>{
       this.nav = value;
     })
   }

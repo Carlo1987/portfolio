@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { SkillsAllMap } from 'src/app/interfaces/skill.interface';
+import { SkillsListMap, SkillSectionMap } from 'src/app/interfaces/skill.interface';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
-import { Language } from 'src/app/models/language.model';
-import { Skill } from 'src/app/models/skill.model';
+import { SkillsList, SkillSection } from 'src/app/models/skill.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { SkillService } from 'src/app/services/skill.service';
 import { DelayService } from 'src/app/services/delay.service';
-import { url_public } from 'src/env';
+
+import { ita } from 'src/app/languages/ita';
 import { gsap } from 'gsap';
 
 
@@ -16,9 +16,9 @@ import { gsap } from 'gsap';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent{
-  public url:string = url_public;
-  public skills:SkillsAllMap = Skill; 
-  public language:LanguageMap = Language;
+  private skillSection:SkillSectionMap = new SkillSection('',[]);
+  public skills:SkillsListMap = new SkillsList(this.skillSection, this.skillSection, this.skillSection, this.skillSection); 
+  public language:LanguageMap = ita;
 
 
   constructor(
@@ -26,11 +26,11 @@ export class SkillsComponent{
     private _skillService : SkillService,
     private delayService : DelayService
   ){
-    this._languageService.getLanguage$.subscribe(value=>{
+    this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.language = value;
     })
-    this._skillService.getSkills$.subscribe(value=>{
-      this.skills = value as SkillsAllMap;
+    this._skillService.getSkills$.subscribe((value:SkillsListMap)=>{
+      this.skills = value;
     })
   }
 

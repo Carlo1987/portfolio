@@ -1,6 +1,7 @@
+import { Language } from "../models/language.model";
 import { langToApi } from "./langToApi";
 
-export const ita = {
+const ita_structure = {
 
     language : 'ita',
 
@@ -55,6 +56,7 @@ export const ita = {
     skills : {
         icon : "Icone di"
     }
-
-   
 }
+
+
+export const ita = new Language(ita_structure);

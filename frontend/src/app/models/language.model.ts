@@ -1,67 +1,40 @@
-export const Language = {
-    language : '',
-    error : "",
-    visit : '',
-    visitSection : "",
+import { 
+  LanguageNavMap, 
+  LanguageHomeMap, 
+  LanguageContactMap, 
+  LanguageProjectsMap, 
+  LanguageAboutMeMap, 
+  LanguageMap 
+} from '../interfaces/language.interface';
 
-    nav : {
-        skills : "",
-        aboutMe : "",
-        projects : "",
-        contacts : ""
-    },
+export class Language implements LanguageMap {
+  language!: string;
+  error!: string;
+  visit!: string;
+  visitSection!: string;
 
-    home: {
-        welcome1 : "",
-        welcome2 : "",
-        message1 : "",
-        elements : {
-            skill_text : "",
-            project_text : "",
-            aboutMe_text : "",
-            contact_text : ""
-        }
-    },
+  nav!: LanguageNavMap;
+  home!: LanguageHomeMap;
+  contact!: LanguageContactMap;
+  projects!: LanguageProjectsMap;
+  aboutMe!: LanguageAboutMeMap;
+  skills!: { icon: string };
 
-    contact : {
-        email : "",
-        object : "",
-        message : "",
-        button : "",
-        empty_fields : "",
-        error_email : "",
-        success : "",
-        failed : ""
-    },
+  constructor(data: LanguageMap) {
+    Object.assign(this, data);
+  }
+}
 
-    projects : {
-        project_holiday : {
-            name : "SardegnaDream",
-            description : "Progetto in cui viene simulata la gestione delle prenotazioni per case vacanze. Potrai registrarti come AMMINISTRATORE e avrai la possibilità di aggiungere, modificare o eliminare annunci di case da affittare!"
-        },
-        project_social : {
-            name : "Faceback",
-            description : "Progetto che simula una piattaforma social con funzionalità di chat, richieste di amicizia, profili privati o pubblici e la possibilità di condividere immagini e video accompagnati da commenti e like!"
-        },
-        project_sold : {
-            name : "Dichatleon",
-            description : "Progetto che simula una piattaforma per la vendita e l'acquisto di prodotti. Potrai registrarti come AMMINISTRATORE per aggiungere nuovi articoli o modificare quelli esistenti!"
-        },
+export class LanguageNav {
+    constructor(
+        public skills: string,
+        public aboutMe: string,
+        public projects: string,
+        public contacts: string
+    ) { }
+}
 
-        visit : "Visita"
-    },
 
-    aboutMe : {
-        presentacion : "",
-        developer : ``,
-        old_work : "",
-        new_work : ``,
-        final : ""
-    },
 
-    skills : {
-        icon : ""
-    }
 
-       
-} 
+

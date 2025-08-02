@@ -1,9 +1,10 @@
 import { Component, AfterViewInit , OnDestroy } from '@angular/core';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
-import { Language } from 'src/app/models/language.model';
-import { ScrolltriggerModel } from 'src/app/models/scrolltrigger.model';
+import { ScrollTriggerMap } from 'src/app/interfaces/scrollTrigger.interface';
+import { Scrolltrigger } from 'src/app/models/scrolltrigger.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { DelayService } from 'src/app/services/delay.service';
+import { ita } from 'src/app/languages/ita';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,21 +15,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 })
 
 export class HomeComponent implements AfterViewInit , OnDestroy {
-  public lang:LanguageMap = Language;
+  public lang:LanguageMap = ita;
   public sectiones:any;
    
 
   constructor(
     private _languageService : LanguagesService,
-    private _scrolltriggerModel : ScrolltriggerModel,
+    private _scrolltrigger : Scrolltrigger,
     private delayService: DelayService
   ){
 
-    this._languageService.getLanguage$.subscribe(value=>{
+    this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
     })
 
-    this._scrolltriggerModel.scolltrigger$.subscribe(value=>{
+    this._scrolltrigger.scolltrigger$.subscribe((value:Array<ScrollTriggerMap>)=>{
       this.sectiones = value;
     })
 

@@ -7,17 +7,23 @@ import { url_api } from '../../env';
 
 @Injectable()
 export class ContactService{
-    public url:string = url_api + '/sendEmail';
+    private urlContacts:string = url_api + '/contacts-api';
+    private urlEmail:string = url_api + '/sendEmail';
 
     constructor(
         private req: HttpClient          
     ){}
 
 
+    getContactsApi():Observable<any>{
+        return this.req.get(this.urlContacts);
+    }
+
+
     sendEmail(data:any):Observable<any>{
         let params = JSON.stringify(data); 
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this.req.post(this.url, params, {headers:headers});
+        return this.req.post(this.urlEmail, params, {headers:headers});
     }
 
 

@@ -3,13 +3,10 @@
     <!-- sezione front-end  -->
     <div class="col-lg-4 col-sm-6">         
         <div class="skills section_1">
-            <h3>{{ skills.frontend.name }}</h3>
-            <div class="skills__languages">
-                <div *ngFor="let skill of skills.frontend.skills" class="skill">
-                <img [src]="url + '/images/skills/' + skill.image" [alt]="'image_' + skill.name">
-                {{ skill.name }}
-                </div>
-            </div>
+            <app-skill-section
+                [skillSection]="skills.frontend"
+                >
+            </app-skill-section>
         </div>
     </div>
 
@@ -18,24 +15,18 @@
     <div class="col-lg-4 col-sm-6">              
         
         <div class="skills section_2">
-            <h3>{{ skills.backend.name }}</h3>
-            <div class="skills__languages">
-                <div *ngFor="let skill of skills.backend.skills" class="skill">
-                <img [src]="url + '/images/skills/' + skill.image" [alt]="'image_' + skill.name">
-                {{ skill.name }}
-                </div>
-            </div>
+            <app-skill-section
+                [skillSection]="skills.backend"
+                >
+            </app-skill-section>
         </div>
 
 
         <div class="skills section_3">
-            <h3>{{ skills.database.name }}</h3>
-            <div class="skills__languages">
-                <div *ngFor="let skill of skills.database.skills" class="skill">
-                <img [src]="url + '/images/skills/' + skill.image" [alt]="'image_' + skill.name">
-                {{ skill.name }}
-                </div>
-            </div>
+            <app-skill-section
+                [skillSection]="skills.database"
+                >
+            </app-skill-section>
         </div>
     
     </div>
@@ -44,13 +35,10 @@
         <!--  restanti sezioni  -->
     <div class="col-lg-4 col-12">
         <div class="skills section_4">
-            <h3>{{ skills.devops.name }}</h3>
-            <div class="skills__languages">
-                <div *ngFor="let skill of skills.devops.skills" class="skill">
-                <img [src]="url + '/images/skills/' + skill.image" [alt]="'image_' + skill.name">
-                {{ skill.name }}
-                </div>
-            </div>
+            <app-skill-section
+                [skillSection]="skills.devops"
+                >
+            </app-skill-section>
         </div>
     </div>
 

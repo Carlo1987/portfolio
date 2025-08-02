@@ -1,7 +1,7 @@
-
+import { Language } from "../models/language.model";
 import { langToApi } from "./langToApi";
 
-export const eng = {
+const eng_structure = {
 
     language : 'eng',
 
@@ -57,3 +57,6 @@ export const eng = {
         icon : "Icons of"
     }
 }
+
+
+export const eng = new Language(eng_structure);

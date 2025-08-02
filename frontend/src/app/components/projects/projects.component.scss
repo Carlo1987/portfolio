@@ -59,6 +59,10 @@ $transition : 500ms all ease-in-out;
         padding: 10px;
         @extend %style_phrase;   
 
+        .hidden{
+            display: none;
+        }
+
         p{ 
             @extend %text_shadow;
             text-align: left; 

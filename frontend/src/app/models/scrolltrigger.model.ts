@@ -1,18 +1,20 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { LanguagesService } from "../services/languages.service";
+import { LanguageMap } from "../interfaces/language.interface";
+import { NavMap } from "../interfaces/nav.interface";
+import { ScrollTriggerMap } from "../interfaces/scrollTrigger.interface";
 import { Nav } from "./nav.model";
-
+import { LanguagesService } from "../services/languages.service";
 
 @Injectable({
     providedIn : 'root'
 })
 
 
-export class ScrolltriggerModel{
+export class Scrolltrigger{
 
-    private scroll_model = new BehaviorSubject<Array<any>>([]);
+    private scroll_model = new BehaviorSubject<Array<ScrollTriggerMap>>([]);
     public scolltrigger$ = this.scroll_model.asObservable();
 
 
@@ -21,11 +23,10 @@ export class ScrolltriggerModel{
         private _navModel : Nav
     ){
 
-        this._navModel.nav$.subscribe(nav_value=>{
-
+        this._navModel.nav$.subscribe((nav_value:Array<NavMap>)=>{
             let nav = nav_value;
 
-            this._languageService.getLanguage$.subscribe(value=>{
+            this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
 
                 const coll = "../../assets/images/home";
                 const language = value.home.elements;

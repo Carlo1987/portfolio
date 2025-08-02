@@ -1,7 +1,7 @@
 import { Component , AfterViewInit , OnDestroy } from '@angular/core';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
-import { Language } from 'src/app/models/language.model';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { ita } from 'src/app/languages/ita';
 import { DelayService } from 'src/app/services/delay.service';
 import { gsap } from 'gsap';
 
@@ -12,7 +12,7 @@ import { gsap } from 'gsap';
   styleUrls: ['./aboutme.component.scss'],
 })
 export class AboutmeComponent implements AfterViewInit , OnDestroy {
-  public lang:LanguageMap = Language;
+  public lang:LanguageMap = ita;
   public phrases:Array<string> = [];
 
 
@@ -23,17 +23,15 @@ export class AboutmeComponent implements AfterViewInit , OnDestroy {
   ){
 
         
-    this._languageService.getLanguage$.subscribe(value=>{
+    this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
-
       let language = this.lang.aboutMe;
 
       this.phrases = [
         language.developer,
         language.old_work,
         language.new_work,
-    /*     language.skills, */
-       language.final
+        language.final
       ];
     })
     

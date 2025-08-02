@@ -2,11 +2,11 @@ import { Component , OnDestroy } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
-import { Language } from 'src/app/models/language.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { DelayService } from 'src/app/services/delay.service';
 import { Email } from 'src/app/models/email.model';
 import { ContactService } from 'src/app/services/contact.service';
+import { ita } from 'src/app/languages/ita';
 
 @Component({
   selector: 'app-contact',
@@ -16,7 +16,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 
 export class ContactComponent implements  OnDestroy {
-  public lang:LanguageMap = Language;
+  public lang:LanguageMap = ita;
   public fields:Email = new Email("","","");
   public loading:boolean = false;
   public message_error:string = '';
@@ -27,7 +27,7 @@ export class ContactComponent implements  OnDestroy {
     private _languageService : LanguagesService,
     private delayService: DelayService
   ){
-    this._languageService.getLanguage$.subscribe(value=>{
+    this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
     })
   }

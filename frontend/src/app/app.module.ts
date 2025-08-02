@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { SkillSectionComponent } from './components/skills/skill-section/skill-section.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -22,6 +23,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     AboutmeComponent,
     ContactComponent,
     SkillsComponent,
+    SkillSectionComponent,
     ProjectsComponent,
     HomeComponent,
     ErrorComponent,

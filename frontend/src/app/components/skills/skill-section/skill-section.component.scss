@@ -1,0 +1,65 @@
+$color_shadow :  rgb(27, 31, 35);
+$color_light :    rgb(253, 250, 247);
+$color_section : rgb(76, 71, 71);
+
+%border_style{
+    box-shadow: 2px 2px 4px $color_shadow; 
+    border-radius: 8px;
+}
+
+%wallpoet {
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+  
+h3{
+    background-color: $color_section;
+    @extend %border_style;
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    font-size: 35px;
+    color: white;
+    @extend %wallpoet;
+
+    margin-bottom: 20px;
+}
+
+.skills__languages{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    
+
+    .skill{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 22px;
+        border-radius: 8px;
+        padding: 5px;
+        padding-left: 10px;
+        background-color:  $color_light;
+        @extend %border_style;
+
+
+        img{
+            width: 40px;
+            height: 35px;
+        }
+    }
+}
+
+
+    
+@media(max-width: 750px){
+    h3{
+        font-size: 28px;
+        width: 200px;
+    }
+}

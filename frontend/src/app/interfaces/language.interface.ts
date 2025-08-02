@@ -1,4 +1,4 @@
-export interface LanguageNav {
+export interface LanguageNavMap {
     skills:string,
     aboutMe:string,
     projects:string,
@@ -6,7 +6,7 @@ export interface LanguageNav {
 }
 
 
-export interface LanguageHome {
+export interface LanguageHomeMap {
     welcome1 : string,
     welcome2 : string,
     message1 : string,
@@ -19,7 +19,7 @@ export interface LanguageHome {
 }
 
 
-export interface LanguageContact {
+export interface LanguageContactMap {
     email:string,
     object:string,
     message:string,
@@ -30,7 +30,7 @@ export interface LanguageContact {
     failed:string,
 }
 
-export interface LanguageProjects {
+export interface LanguageProjectsMap {
     project_holiday : {
         name : string,
         description : string
@@ -45,7 +45,7 @@ export interface LanguageProjects {
     }
 }
 
-export interface LanguageAboutMe {
+export interface LanguageAboutMeMap {
     presentacion:string,
     developer:string,
     old_work:string,
@@ -60,19 +60,12 @@ export interface LanguageMap {
     visit:string,
     visitSection:string,
 
-    nav:LanguageNav,
-
-    home:LanguageHome,
-
-    contact:LanguageContact,
-
-    projects : LanguageProjects,
-  
-    aboutMe:LanguageAboutMe,
-
+    nav:LanguageNavMap,
+    home:LanguageHomeMap,
+    contact:LanguageContactMap,
+    projects : LanguageProjectsMap,
+    aboutMe:LanguageAboutMeMap,
     skills : {
         icon:string,
-    }
-
-       
+    }     
 } 

@@ -6,14 +6,14 @@ export interface SkillMap {
   order: number;
 }
 
-export interface SkillGroupMap {
+export interface SkillSectionMap {
   name: string;
   skills: SkillMap[];
 }
 
-export interface SkillsAllMap {
-  frontend: SkillGroupMap;
-  backend: SkillGroupMap;
-  database: SkillGroupMap;
-  devops: SkillGroupMap;
+export interface SkillsListMap {
+  frontend: SkillSectionMap;
+  backend: SkillSectionMap;
+  database: SkillSectionMap;
+  devops: SkillSectionMap;
 }

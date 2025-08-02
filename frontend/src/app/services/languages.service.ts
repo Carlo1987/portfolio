@@ -2,22 +2,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { url_api } from '../../env';
-
+import { TextMap } from '../interfaces/text.interface';
 import { LanguageMap } from '../interfaces/language.interface';
+import { textHome, textAboutMe } from '../models/text.model';
 import { ita } from "../languages/ita";
 import { esp } from "../languages/esp";
 import { eng } from "../languages/eng";
 
-interface Text {
-  id: number;
-  order: number;
-  type: number;
-  text_ITA: string;
-  text_ESP: string;
-  text_ENG: string;
-  created_at: string;
-  updated_at: string;
-}
 
 
 @Injectable({
@@ -67,60 +58,76 @@ export class LanguagesService{
     }
 
 
-    setHomeText(texts:Array<Text>) :void{
-       texts.forEach((text:Text) => {
+    setHomeText(texts:Array<TextMap>) :void{
+        let home_ITA = new textHome('','','','');
+        let home_ESP = new textHome('','','','');
+        let home_ENG = new textHome('','','','');
+
+        texts.forEach((text:TextMap) => {
             if(text.order == 4){
-                ita.home.elements.skill_text = text.text_ITA;
-                esp.home.elements.skill_text = text.text_ESP;
-                eng.home.elements.skill_text = text.text_ENG;
+                home_ITA.skill_text = text.text_ITA;
+                home_ESP.skill_text = text.text_ESP;
+                home_ENG.skill_text = text.text_ENG;
             }
             if(text.order == 3){
-                ita.home.elements.project_text = text.text_ITA;
-                esp.home.elements.project_text = text.text_ESP;
-                eng.home.elements.project_text = text.text_ENG;
+                home_ITA.project_text = text.text_ITA;
+                home_ESP.project_text = text.text_ESP;
+                home_ENG.project_text = text.text_ENG;
             }
             if(text.order == 2){
-                ita.home.elements.aboutMe_text = text.text_ITA;
-                esp.home.elements.aboutMe_text = text.text_ESP;
-                eng.home.elements.aboutMe_text = text.text_ENG;
+                home_ITA.aboutMe_text = text.text_ITA;
+                home_ESP.aboutMe_text = text.text_ESP;
+                home_ENG.aboutMe_text = text.text_ENG;
             }
             if(text.order == 1){
-                ita.home.elements.contact_text = text.text_ITA;
-                esp.home.elements.contact_text = text.text_ESP;
-                eng.home.elements.contact_text = text.text_ENG;
+                home_ITA.contact_text = text.text_ITA;
+                home_ESP.contact_text = text.text_ESP;
+                home_ENG.contact_text = text.text_ENG;
             }
         })
+        ita.home.elements = home_ITA;
+        esp.home.elements = home_ESP;
+        eng.home.elements = home_ENG;
     }
 
 
-    setAboutMeText(texts:Array<Text>) :void{
-        texts.forEach((text:Text) => {
+
+    setAboutMeText(texts:Array<TextMap>) :void{
+        
+        let aboutMe_ITA = new textAboutMe('','','','','');
+        let aboutMe_ESP = new textAboutMe('','','','','');
+        let aboutMe_ENG = new textAboutMe('','','','','');
+
+        texts.forEach((text:TextMap) => {
             if(text.order == 5){
-                ita.aboutMe.presentacion = text.text_ITA;
-                esp.aboutMe.presentacion = text.text_ESP;
-                eng.aboutMe.presentacion = text.text_ENG;
+                aboutMe_ITA.presentacion = text.text_ITA;
+                aboutMe_ESP.presentacion = text.text_ESP;
+                aboutMe_ENG.presentacion = text.text_ENG;
             }
             if(text.order == 4){
-                ita.aboutMe.developer = text.text_ITA;
-                esp.aboutMe.developer = text.text_ESP;
-                eng.aboutMe.developer = text.text_ENG;
+                aboutMe_ITA.developer = text.text_ITA;
+                aboutMe_ESP.developer = text.text_ESP;
+                aboutMe_ENG.developer = text.text_ENG;
             }
             if(text.order == 3){
-                ita.aboutMe.old_work = text.text_ITA;
-                esp.aboutMe.old_work = text.text_ESP;
-                eng.aboutMe.old_work = text.text_ENG;
+                aboutMe_ITA.old_work = text.text_ITA;
+                aboutMe_ESP.old_work = text.text_ESP;
+                aboutMe_ENG.old_work = text.text_ENG;
             }
             if(text.order == 2){
-                ita.aboutMe.new_work = text.text_ITA;
-                esp.aboutMe.new_work = text.text_ESP;
-                eng.aboutMe.new_work = text.text_ENG;
+                aboutMe_ITA.new_work = text.text_ITA;
+                aboutMe_ESP.new_work = text.text_ESP;
+                aboutMe_ENG.new_work = text.text_ENG;
             }
             if(text.order == 1){
-                ita.aboutMe.final = text.text_ITA;
-                esp.aboutMe.final = text.text_ESP;
-                eng.aboutMe.final = text.text_ENG;
-            }
-        })
+                aboutMe_ITA.final = text.text_ITA;
+                aboutMe_ESP.final = text.text_ESP;
+                aboutMe_ENG.final = text.text_ENG;
+            } 
+        });
+        ita.aboutMe = aboutMe_ITA;
+        esp.aboutMe = aboutMe_ESP;
+        eng.aboutMe = aboutMe_ENG;
     }
 
 }

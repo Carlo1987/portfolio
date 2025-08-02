@@ -1,0 +1,7 @@
+<h3>{{ skillSection?.name }}</h3>
+<div class="skills__languages">
+    <div *ngFor="let skill of skillSection?.skills" class="skill">
+    <img [src]="url + '/images/skills/' + skill.image" [alt]="'image_' + skill.name">
+    {{ skill.name }}
+    </div>
+</div>

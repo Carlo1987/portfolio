@@ -1,6 +1,8 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { LanguageMap } from "../interfaces/language.interface";
+import { NavMap } from "../interfaces/nav.interface";
 import { LanguagesService } from "../services/languages.service";
 
 
@@ -11,14 +13,14 @@ import { LanguagesService } from "../services/languages.service";
 
 export class Nav {
 
-    private nav_model = new BehaviorSubject<Array<any>>([]);
+    private nav_model = new BehaviorSubject<Array<NavMap>>([]);
     public nav$ = this.nav_model.asObservable();
 
 
     constructor(
         private _languageService : LanguagesService
     ){
-        this._languageService.getLanguage$.subscribe(value=>{
+        this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
 
             let language = value.nav;
 

@@ -1,84 +1,28 @@
 
-
 <div class="d-flex flex-column w-100">
-
-
-
-
-<div *ngFor="let project of projects; let i = index">
-
-    <div *ngIf="i%2 == 0 then left else right">     </div>
-
-
-    <ng-template #left>
+    <div *ngFor="let project of projects; let i = index">
 
         <article class=" d-flex justify-content-center w-100">   
-
-            <div class="project animate__animated animate__backInLeft">  
+            <div class="project animate__animated"  [ngClass]="i % 2 === 0 ? 'animate__backInLeft' : 'animate__backInRight'">  
                 <div class="image_project">
-                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
+                    <img src="{{ url + '/images/projects/' + project.image }}" alt="image_{{ project.name }}" class="w-100 rounded">
                 </div> 
-            
-                <div class="description_project">          
-            
-                    <p class="mt-2">  {{ project.description }}  </p>
-            
+                <div class="description_project">            
+                    <p class="mt-2 ita" #descriptiones>  {{ project.description_ITA }}  </p>
+                    <p class="mt-2 esp hidden" #descriptiones>  {{ project.description_ESP }}  </p>
+                    <p class="mt-2 eng hidden" #descriptiones>  {{ project.description_ENG }}  </p>
                     <div class="languages_projetc">
-                        <div *ngFor="let language of project.languages" class="language_project">
-                            <img src="{{ language.image }}" alt="image_language">
-                            {{ language.language }}
-                        </div>    
+                        <div *ngFor="let skill of project.skills" class="language_project">
+                            <img src="{{ url + '/images/skills/' + skill.image }}" alt="image_language">
+                            {{ skill.name }}
+                        </div>     
                     </div>
-
-                  <div class="w-100 text-center">
-                    <button class="btn" (click)="urlProject(project.url)"> {{ button }} </button>
-                  </div>
-
+                    <div class="w-100 text-center">
+                        <button class="btn" (click)="visitProject(project.url)"> {{ lang.visit }} </button>
+                    </div>
                 </div>
-            </div>
-
-        </article>
-
-    </ng-template>
-
-
-     <ng-template #right>
-
-        <article class="d-flex justify-content-center w-100"> 
-
-            <div class="project animate__animated animate__backInRight">  
-                
-                <div class="image_project">
-                    <img src="{{ project.image }}" alt="image_project" class="w-100 rounded">
-                </div>
-                
-                
-                <div class="description_project">
-            
-                  <p class="mt-2">  {{ project.description }}  </p>
-                         
-                  <div class="languages_projetc">
-                    <div *ngFor="let language of project.languages" class="language_project">
-                        <img src="{{ language.image }}" alt="image_language">
-                        {{ language.language }}
-                    </div>    
-                  </div>
-
-                  <div class="w-100 text-center">
-                    <button class="btn"  (click)="urlProject(project.url)"> {{ button }} </button>
-                  </div>
-
-                </div>
-
-        
             </div>
         </article>
 
-    </ng-template>
-
-</div>
-
-
-
-
+    </div>
 </div>

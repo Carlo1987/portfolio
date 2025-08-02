@@ -3,27 +3,27 @@
 
     <div class="link">
         <i class="fa fa-github fa-2xl" aria-hidden="true"></i>
-        <div class="link__word" (click)="links('https://github.com/Carlo1987')"> GitHub </div>
+        <div class="link__word" (click)="links(url_github)"> GitHub </div>
     </div>
 
     <div class="link">
         <i class="fa fa-linkedin fa-2xl" aria-hidden="true"></i>
-        <div class="link__word"  (click)="links('https://www.linkedin.com/in/carlo-loi-7bb057306/')"> linkedin </div>   
+        <div class="link__word"  (click)="links(url_linkedin)"> linkedin </div>   
     </div>
    
     <div class="link"> 
         <i class="fa fa-2xl fa-solid fa-id-card"></i>      
 
        <div class="choose_curriculum" >
-            <div class="curriculum"  (click)="links('ita')">
+            <div class="curriculum"  (click)="links(url_curriculum, 'it')">
                 <i class="fa-solid fa-file-pdf"></i>
                 Curriculum ita 
             </div>
-            <div class="curriculum" (click)="links('esp')"> 
+            <div class="curriculum" (click)="links(url_curriculum, 'es')"> 
                 <i class="fa-solid fa-file-pdf"></i>
                 Curriculum esp 
             </div>
-            <div class="curriculum mt-1" (click)="links('eng')"> 
+            <div class="curriculum mt-1" (click)="links(url_curriculum, 'en')"> 
                 <i class="fa-solid fa-file-pdf"></i>
                 Curriculum eng
             </div>
