@@ -31,6 +31,8 @@ COPY ./docker/nginx.conf /etc/nginx/sites-available/default
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www
 
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
 # Espone la porta HTTP
 EXPOSE 80
 

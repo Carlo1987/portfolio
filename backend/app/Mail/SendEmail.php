@@ -16,14 +16,16 @@ class SendEmail extends Mailable
     private $sender;
     private $object;
     private $text;
+    public $view;
     /**
      * Create a new message instance.
      */
-    public function __construct($sender, $object, $text)
+    public function __construct($data)
     {
-        $this->sender = $sender;
-        $this->object = $object;
-        $this->text = $text;
+        $this->sender = $data['sender'];
+        $this->object = $data['object'];
+        $this->text = $data['text'];
+        $this->view = $data['view'];
     }
 
     /**
@@ -42,7 +44,7 @@ class SendEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.index', 
+            view: $this->view, 
             with : [
                 'object' => $this->object,
                 'sender' => $this->sender,

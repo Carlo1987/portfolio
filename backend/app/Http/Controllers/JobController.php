@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers\OrderHelper;
+use App\Http\Helpers\TimeHelper;
 use App\Models\Job;
 
 class JobController extends Controller
 {
-    use OrderHelper;
+    use OrderHelper, TimeHelper;
 
     public function index()
     {
-        $jobs = Job::orderBy('order','desc')->get();
+        $jobs = Job::orderBy('order', 'desc')->get()->map(function ($job) {
+            $job->time = $this->jobTime($job->from, $job->to);
+            return $job;
+        });
         return view('admin.pages.jobs.index',[
             'jobs' => $jobs,
         ]);

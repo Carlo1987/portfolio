@@ -25,7 +25,7 @@
         <tr>
             <th class="px-3"> {{ $course->order }} </th>
             <td> {{ $course->name }} </td>
-            <td> {{ $course->time() }} </td>
+            <td> {{ $course->time }} </td>
             <td> {{ $course->date }} </td>
             <td>
                 <div class="text text_ITA"> {{ $course->text_ITA }} </div>

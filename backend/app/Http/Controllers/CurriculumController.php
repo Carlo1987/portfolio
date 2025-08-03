@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Helpers\OrderHelper;
+use App\Http\Helpers\TimeHelper;
+use App\Http\Helpers\ProjectHelper;
 use App\Enums\TextEnum;
+use App\Enums\ProjectEnum;
 
 use App\Models\Contact;
 use App\Models\Skill;
@@ -18,24 +21,24 @@ use App\Models\Language;
 
 class CurriculumController extends Controller
 {
-    use OrderHelper;
+    use OrderHelper, TimeHelper, ProjectHelper;
 
     public function index()
     {
         return view('admin.pages.curriculum.index');
     }
 
-    
-    public function show($lang)
+
+    private function createPDF($lang)
     {
         $contacts = Contact::first();
         $skills = Skill::orderBy('order', 'desc')->get();
         $jobs = Job::orderBy('order', 'desc')->get()->map(function ($job) use ($lang) {
-            $job->time = $job->time($job->from, $job->to, $lang);
+            $job->time = $this->jobTime($job->from, $job->to, $lang);
             return $job;
         })->toArray();
         $courses = Course::orderBy('order', 'desc')->get()->map(function ($course) use ($lang){
-            $course->time = $course->time($lang);
+            $course->time = $this->courseTime($course, $lang);
             return $course;
         })->toArray();
         $languages = Language::all()->toArray();
@@ -44,12 +47,13 @@ class CurriculumController extends Controller
                         ->orderBy('order','desc')
                         ->get();
 
-        $projects = Project::orderBy('order','desc')->get();
+        $projects = Project::where('status', ProjectEnum::Working)->orderBy('order','desc')->get();
         foreach($projects as $project){
-            $project['skills'] =  $project->getSkillsName($skills);
+            $project['skills'] =  $this->projectSkillsData($project->dev_languages, $skills);
         }
 
-        $pdf = Pdf::loadView('admin.pages.curriculum.curriculum', [
+        
+        return Pdf::loadView('admin.pages.curriculum.curriculum', [
             'lang' => $lang,
             'langDB' => $this->langDB($lang),
             'contacts' => $contacts->formatBladeContacts(),
@@ -59,10 +63,8 @@ class CurriculumController extends Controller
             'courses' => $courses,
             'projects' => $projects,
             'languages' => $languages,
-        ]);   
-        return $pdf->stream();  
+        ]);
     }
-
 
     private function langDB($lang)
     {
@@ -75,4 +77,20 @@ class CurriculumController extends Controller
         }
         return $language;
     }
+
+    
+    public function show($lang)
+    {
+        $pdf = $this->createPDF($lang);   
+        return $pdf->stream();     
+    }
+
+
+
+    public function download($lang)
+    {
+        $pdf = $this->createPDF($lang); 
+        return $pdf->download("curriculum_Loi_Carlo_$lang.pdf");
+    }
+
 }

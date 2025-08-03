@@ -3,6 +3,10 @@ window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+import { spinner } from './spinner';
+window.spinner = spinner;
+spinner();
+
 import { setModalAddItem, setModalEditItem, setModalDeleteItem, getFile, closeModal } from './modal';
 window.setModalAddItem = setModalAddItem;
 window.setModalEditItem = setModalEditItem;

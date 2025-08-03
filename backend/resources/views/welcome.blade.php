@@ -6,7 +6,7 @@
     <h2> {{ $title }} </h2>
 
     <div class="card">
-        <form method="POST" action="{{ route($routeForm) }}">
+        <form method="POST" action="{{ route($routeName) }}">
             @csrf
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>

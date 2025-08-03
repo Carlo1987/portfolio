@@ -26,11 +26,24 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->location = $request->location;
+        $contact->github = $request->github;
+        $contact->linkedin = $request->linkedin;
 
         $contact = $contact->formatDBContacts();
         $contact->save();
 
         return back()->with('success','Contatti salvati');
+    }
+
+
+    public function contactsApi()
+    {
+        $contacts = Contact::first();
+        return response()->json([
+            'github' => $contacts->github,
+            'linkedin' => $contacts->linkedin,
+            'curriculum' => env('CURRICULUM_URL_DWNLD_COMPLETE'),
+        ]);
     }
 
 }

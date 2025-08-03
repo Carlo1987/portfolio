@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 use App\Mail\SendEmail;
-use App\Models\Email;
 
 class EmailController extends Controller
 {
-    public function send(Request $request)
+    public function clientEmail(Request $request)
     {
         try{
              $rules_validate = [
@@ -34,17 +33,13 @@ class EmailController extends Controller
                 ], 422);
             }
 
-            $object = $request->object;
-            $text = $request->text;
-            $sender = $request->sender;
-
-            Mail::to($sender)->send(new SendEmail($sender, $object, $text));
-
-            $email = new Email();
-            $email->sender = $sender;
-            $email->object = $object;
-            $email->text = $text;
-            $email->save();
+            $data = [
+                'sender' => $request->sender,
+                'object' => $request->object,    
+                'text' => $request->text,
+                'view' => 'emails.client_email',
+            ];
+            Mail::to($data['sender'])->send(new SendEmail($data));
 
             return response()->json([
                 'message' => 'Email inviata con successo!',

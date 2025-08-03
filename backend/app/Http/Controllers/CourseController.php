@@ -6,16 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Http\Helpers\OrderHelper;
+use App\Http\Helpers\TimeHelper;
 use App\Models\Course;
 
 class CourseController extends Controller
 {
-    use OrderHelper;
+    use OrderHelper, TimeHelper;
 
 
     public function index()
     {
-        $courses = Course::orderBy('order', 'desc')->get();
+        $courses = Course::orderBy('order', 'desc')->get()->map(function ($course){
+            $course->time = $this->courseTime($course);
+            return $course;
+        });
         return view('admin.pages.courses.index',[
             'courses' => $courses
         ]);

@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Http\Helpers\FileHelper;
 use App\Http\Helpers\OrderHelper;
+use App\Http\Helpers\ProjectHelper;
+use App\Enums\ProjectEnum;
 use App\Models\Project;
 use App\Models\Skill;
 
 class ProjectController extends Controller
 {
-    use FileHelper, OrderHelper;
+    use FileHelper, OrderHelper, ProjectHelper;
 
     public function index()
     {
@@ -20,14 +22,17 @@ class ProjectController extends Controller
    
         $projects = Project::orderBy('order','desc')->get();
         foreach($projects as $project){
-            $project['skills'] =  $project->getSkillsName($skills);
+            $project['skills'] =  $this->projectSkillsData($project->dev_languages, $skills);
         }
-       
+    
         return view('admin.pages.projects.index',[
             'projects' => $projects,
             'skillsTypes' => $this->skillsGrouppedByType($skills),
         ]);
     }
+
+
+  
 
 
     public function upsert(Request $request, $id = null)
@@ -148,5 +153,17 @@ class ProjectController extends Controller
         return response()->json([
             'errros' => 'Progetto non trovato',
         ], 404);
+    }
+
+
+    public function projectsApi()
+    {
+        $skills = Skill::select('id', 'name','image','type')->orderBy('order','desc')->get();
+   
+        $projects = Project::where('status', ProjectEnum::Working)->orderBy('order','desc')->get();
+        foreach($projects as $project){
+            $project['skills'] =  $this->projectSkillsData($project->dev_languages, $skills, true);
+        }
+        return response()->json($projects);
     }
 }

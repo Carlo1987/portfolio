@@ -24,7 +24,7 @@
         <tr>
             <th class="px-3"> {{ $job->order }} </th>
             <td> {{ $job->name }} </td>
-            <td> {{ $job->time($job->from, $job->to) }} </td>
+            <td> {{ $job->time }} </td>
             <td>
                 <div class="text text_ITA"> {{ substr($job->text_ITA, 0 ,40) }}... </div>
                 <div class="text text_ESP visually-hidden"> {{ substr($job->text_ESP, 0, 40) }}... </div>

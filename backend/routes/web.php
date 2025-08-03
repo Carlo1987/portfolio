@@ -7,9 +7,9 @@ Route::get('/', 'App\Http\Controllers\AuthController@welcome')->name('welcome')-
 Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login');
 Route::get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
-$url_unloack = env('URL_UNLOACK');
-Route::get("/$url_unloack", 'App\Http\Controllers\AuthController@unloack')->name('unloack');
-Route::post("/$url_unloack", 'App\Http\Controllers\AuthController@resetAccess')->name('unloack');
+$unlock_url = env('UNLOCK_URL');
+Route::get("/$unlock_url", 'App\Http\Controllers\AuthController@unlock')->name('unlock');
+Route::post("/$unlock_url", 'App\Http\Controllers\AuthController@resetAccess')->name('unlock');
 
 
 Route::group(['middleware' => 'auth'], function () {

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('location');
+            $table->string('github');
+            $table->string('linkedin');
             $table->timestamps();
         });
     }
