@@ -1,8 +1,9 @@
 import { Component, OnInit, DoCheck , ViewChild,ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
-import { Nav } from './models/nav.model';
 import { LanguageMap } from './interfaces/language.interface';
 import { NavMap } from "./interfaces/nav.interface"; 
+import { Nav } from './models/nav.model';
+import { LoadingService } from './services/loading.service';
 import { LanguagesService } from './services/languages.service';
 import { SkillService } from './services/skill.service';
 import { ita } from './languages/ita';
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit , DoCheck {
 
 
   constructor(
+   private _loadingService : LoadingService,
    private _router : Router,
    private _languageService : LanguagesService,
    private _skillService : SkillService,
@@ -51,17 +53,10 @@ export class AppComponent implements OnInit , DoCheck {
 
 
   ngOnInit(): void {
-
-    if(!sessionStorage.getItem('change_language')){
-      sessionStorage.setItem('loading','true');
-      setTimeout(() => {
-        this.showLoading = false;
-      }, 4500);  
-     
-     }else{
+    setTimeout(() => {
       this.showLoading = false;
-      sessionStorage.removeItem('change_language');
-     }
+      this._loadingService.setDelay(false);
+    }, 4500);  
   }
 
 

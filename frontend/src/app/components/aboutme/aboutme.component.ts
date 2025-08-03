@@ -1,8 +1,8 @@
-import { Component , AfterViewInit , OnDestroy } from '@angular/core';
+import { Component , AfterViewInit } from '@angular/core';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ita } from 'src/app/languages/ita';
-import { DelayService } from 'src/app/services/delay.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { gsap } from 'gsap';
 
 
@@ -11,18 +11,16 @@ import { gsap } from 'gsap';
   templateUrl: './aboutme.component.html',
   styleUrls: ['./aboutme.component.scss'],
 })
-export class AboutmeComponent implements AfterViewInit , OnDestroy {
+export class AboutmeComponent implements AfterViewInit {
   public lang:LanguageMap = ita;
   public phrases:Array<string> = [];
-
+  private delay:boolean = true;
 
 
   constructor(
     private _languageService : LanguagesService,
-    private delayService: DelayService
+    private _loadingService : LoadingService,
   ){
-
-        
     this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
       let language = this.lang.aboutMe;
@@ -34,23 +32,17 @@ export class AboutmeComponent implements AfterViewInit , OnDestroy {
         language.final
       ];
     })
-    
+
+    this._loadingService.delay$.subscribe((value:boolean)=>{
+      this.delay = value;
+    }) 
   }
 
-
   ngAfterViewInit(): void {
-
-    this.delayService.executeWithDelay(() => {
+    this._loadingService.executeAnimation(this.delay, () => {
       this.animationPhrases();
     });
   }
-
-
-
-  ngOnDestroy(): void {
-    this.delayService.removeLoading();
-  }
-
 
   animationPhrases():void{
     let tl = gsap.timeline({                  
@@ -73,8 +65,6 @@ export class AboutmeComponent implements AfterViewInit , OnDestroy {
      },'-=0.6');
    }
   }
-
-
-
+  
 }
 

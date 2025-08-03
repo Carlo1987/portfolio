@@ -1,9 +1,9 @@
-import { Component, AfterViewInit , OnDestroy } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
 import { ScrollTriggerMap } from 'src/app/interfaces/scrollTrigger.interface';
 import { Scrolltrigger } from 'src/app/models/scrolltrigger.model';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { DelayService } from 'src/app/services/delay.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { ita } from 'src/app/languages/ita';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,40 +14,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
   styleUrls: ['./home.component.scss'],
 })
 
-export class HomeComponent implements AfterViewInit , OnDestroy {
+export class HomeComponent implements AfterViewInit {
   public lang:LanguageMap = ita;
   public sectiones:any;
-   
+  private delay:boolean = true;
 
   constructor(
     private _languageService : LanguagesService,
     private _scrolltrigger : Scrolltrigger,
-    private delayService: DelayService
+    private _loadingService : LoadingService
   ){
 
     this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
-    })
-
+    }) 
     this._scrolltrigger.scolltrigger$.subscribe((value:Array<ScrollTriggerMap>)=>{
       this.sectiones = value;
     })
-
+    this._loadingService.delay$.subscribe((value:boolean)=>{
+      this.delay = value;
+    })
   }
 
 
   ngAfterViewInit(): void {
-    this.delayService.executeWithDelay(()=>{
-      this.animationSectiones()
+    this._loadingService.executeAnimation(this.delay, () => {
+      this.animationSectiones();
     });
   }
-
-  ngOnDestroy(): void {
-    this.delayService.removeLoading();
-  }
-
-
-
 
   animationSectiones():void{
     gsap.registerPlugin(ScrollTrigger);

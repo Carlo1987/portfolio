@@ -1,9 +1,8 @@
-import { Component , OnDestroy } from '@angular/core'; 
+import { Component } from '@angular/core'; 
 import { finalize } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { DelayService } from 'src/app/services/delay.service';
 import { Email } from 'src/app/models/email.model';
 import { ContactService } from 'src/app/services/contact.service';
 import { ita } from 'src/app/languages/ita';
@@ -15,7 +14,7 @@ import { ita } from 'src/app/languages/ita';
   providers: [ContactService ]
 })
 
-export class ContactComponent implements  OnDestroy {
+export class ContactComponent {
   public lang:LanguageMap = ita;
   public fields:Email = new Email("","","");
   public loading:boolean = false;
@@ -25,17 +24,11 @@ export class ContactComponent implements  OnDestroy {
   constructor(
     private _contactService : ContactService,
     private _languageService : LanguagesService,
-    private delayService: DelayService
   ){
     this._languageService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
     })
   }
-
-  ngOnDestroy(): void {
-    this.delayService.removeLoading();
-  }
-
 
   emailSended(){    
     this.message_error = '';
