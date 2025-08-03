@@ -41,11 +41,3 @@ Verrà copiata la cartella portfolio contenente due cartelle:
     - cd portfolio/frontend
     - npm install
 
-
-
-
-
-
-5) Aprire l'applicazione digitando nell'url:
-
-          http://localhost:4200
