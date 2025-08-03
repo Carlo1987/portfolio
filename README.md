@@ -1,57 +1,48 @@
-
-NOME DEL PROGETTO : Portfolio Full Stack Web Developer Loi Carlo
-
-DESCRIZIONE : Questo è il mio portfolio
-
+REQUISITI:
+- Docker
+- simulatore server SMTP (esempio Mailtrap)
 
 
-----  Quest'applicazione è stata volutamente salvata in modalità sviluppo su Github per permetterti di vedere il codice del frontend Angular  ----
-
-
-
--------------------- PROCEDURA PER COPIARE E USARE APPLICAZIONE SUL PC  ---------------------------
-
------------   REQUISITI  -----------
-
-Avere Docker installato
-Avere un simulatore di server SMTP per posta ( per esempio Mailtrap )
-
-
-
------------  PROCEDURA  ------------------
-
+-------------------- PROCEDURA PRIMO AVVIO  ---------------------------
 
 1) Copiare il repository sul proprio PC:
 
-    git clone https://github.com/Carlo1987/portfolio.git
-
+    - git clone https://github.com/Carlo1987/portfolio.git
 
 Verrà copiata la cartella portfolio contenente due cartelle:
-     - client , che contiene il frontend Angular
-     - server , che contiene il backend PHP
+    - frontend , che contiene il frontend Angular
+    - backend , che contiene il backend Laravel
+
+2) Creare file portfolio/backend/.env  e compilarlo seguendo come modello portfolio/backend/.env.example 
+
+3) Creare file portfolio/frontend/env.ts  e compilarlo seguendo come modello portfolio/frontend/env.example.ts
+
+4) Nel backend Laravel, fare la build:
+    - cd portfolio/backend
+    - npm run build
+
+5) Creare immagini e container Docker e avviarli tramite il comando:
+
+    - docker compose up -d
+
+6) Applicazione accessibile alle relative rotte:
+    - froontent --> http://localhost:4200
+    - backend --> http://localhost:8080
+    - phpMyAdmin --> http://localhost:8081
 
 
-2) Andare dentro server e creare un file chiamato private.php
+# Non dovrebbe essere necessario installare le dipendenze perchè vengono già installare tramite i relativi Dockerfile
+# ... ma se dovesse servire:
+4) Nel backend Laravel, le dipendenze si installano così :
+    - cd portfolio/backend
+    - composer install
 
-
-3) Dentro private.php copiare il codice seguente inserendo i tuoi dati nei punti contraddistinti da < >
-
---- private.php
-
-<?php
-
-$email = array(
-    'host' => '<tuo_server_smtp_email>',
-    'username' => '<identificativo_utente>',
-    'password' => '<password_utente>',
-    'port' => <numero_porta>
-);
+5) Nel frontend Angular, le dipendenze si installano così :
+    - cd portfolio/frontend
+    - npm install
 
 
 
-4) Avviare Docker, creare le immagini e container e avviarli tramite il comando:
-
-       docker compose up -d
 
 
 

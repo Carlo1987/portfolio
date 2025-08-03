@@ -1,6 +1,6 @@
 .git
-client/.gitignore
-server/.gitignore
+frontend/.gitignore
+backend/.gitignore
 
 README.MD
 
