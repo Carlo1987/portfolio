@@ -21,6 +21,11 @@ Verrà copiata la cartella portfolio contenente due cartelle:
     - cd portfolio/backend
     - npm run build
 
+5) Sempre nel backend Laravel, aggiungere tre immagini nella cartella public/images/curriculum
+    - firma.png
+    - miei_dati.png
+    - primo_piano.png
+
 5) Creare immagini e container Docker e avviarli tramite il comando:
 
     - docker compose up -d
