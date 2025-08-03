@@ -36,21 +36,6 @@ const eng_structure = {
         failed : "Error while sending the email"
     },
 
-    projects : {
-        project_holiday : {
-            name : "SardegnaDream",
-            description : "A project simulating the management of vacation rental bookings. You can register as an ADMINISTRATOR and will have the ability to add, edit, or delete rental property listings!"
-        },
-        project_social : {
-            name : "Faceback",
-            description : "A project simulating a social platform with features like chat, friend requests, private or public profiles and the ability to share images and videos with comments and likes!"
-        },
-        project_sold : {
-            name : "Dichatleon",
-            description : "A project simulating a platform for buying and selling products. You can register as an ADMINISTRATOR to add new items or edit existing ones!"
-        },
-    },
-
     aboutMe : langToApi.aboutMe,
 
     skills : {

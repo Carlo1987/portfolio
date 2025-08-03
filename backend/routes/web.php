@@ -13,6 +13,9 @@ Route::post("/$unlock_url", 'App\Http\Controllers\AuthController@resetAccess')->
 
 
 Route::group(['middleware' => 'auth'], function () {
+    // Rotta Logs
+    Route::get('/logs', function(){return;})->name('logs');
+
     //  Rotte contatti 
     Route::get('/contacts', 'App\Http\Controllers\ContactController@index')->name('contact.index');
     Route::put('/contacts', 'App\Http\Controllers\ContactController@edit')->name('contact.edit');

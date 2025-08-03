@@ -2,7 +2,6 @@ import {
   LanguageNavMap, 
   LanguageHomeMap, 
   LanguageContactMap, 
-  LanguageProjectsMap, 
   LanguageAboutMeMap, 
   LanguageMap 
 } from '../interfaces/language.interface';
@@ -16,7 +15,6 @@ export class Language implements LanguageMap {
   nav!: LanguageNavMap;
   home!: LanguageHomeMap;
   contact!: LanguageContactMap;
-  projects!: LanguageProjectsMap;
   aboutMe!: LanguageAboutMeMap;
   skills!: { icon: string };
 

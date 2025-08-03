@@ -30,21 +30,6 @@ export interface LanguageContactMap {
     failed:string,
 }
 
-export interface LanguageProjectsMap {
-    project_holiday : {
-        name : string,
-        description : string
-    },
-    project_social : {
-        name : string,
-        description : string
-    },
-    project_sold : {
-        name : string,
-        description : string
-    }
-}
-
 export interface LanguageAboutMeMap {
     presentacion:string,
     developer:string,
@@ -63,7 +48,6 @@ export interface LanguageMap {
     nav:LanguageNavMap,
     home:LanguageHomeMap,
     contact:LanguageContactMap,
-    projects : LanguageProjectsMap,
     aboutMe:LanguageAboutMeMap,
     skills : {
         icon:string,

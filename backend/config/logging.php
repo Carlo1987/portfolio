@@ -127,10 +127,11 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
-        'access' => [                 
+        'login' => [                 
             'driver' => 'single',
-            'path' => storage_path('logs/access.log'),
+            'path' => storage_path('logs/login.log'),
             'level' => 'info',
+            'days' => 30,
         ],
 
     ],

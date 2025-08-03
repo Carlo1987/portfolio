@@ -1,6 +1,6 @@
 
 export function spinner(){
-    document.querySelectorAll('button').forEach(button => {
+    document.querySelectorAll('button:not(.noLoading)').forEach(button => {
         button.addEventListener('click', function () {
         
         button.disabled = true;

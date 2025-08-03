@@ -17,32 +17,30 @@ Verrà copiata la cartella portfolio contenente due cartelle:
 
 3) Creare file portfolio/frontend/env.ts  e compilarlo seguendo come modello portfolio/frontend/env.example.ts
 
-4) Nel backend Laravel, fare la build:
+4) Nel backend Laravel, fare le seguenti azioni:
     - cd portfolio/backend
-    - npm run build
 
-5) Sempre nel backend Laravel, aggiungere tre immagini nella cartella public/images/curriculum
-    - firma.png
-    - miei_dati.png
-    - primo_piano.png
+    A) Aggiornare dipendenze  -->  composer update
+    B) fare la build  --> npm run build
+    C) fare migrazioni  -->  docker exec portfolio-backend php artisan migrate
+    D) eseguire seeders  --> docker exec portfolio-backend php artisan db:seed
+    E) creare una cartella public/images/curriculum e al suo interno inserire 3 immagini così nominate:
+        - firma.png            #  firma personale del curriculum
+        - miei_dati.png        #  proprio Nome del curriculum
+        - primo_piano.png      #  immagine del proprio primo piano
 
-5) Creare immagini e container Docker e avviarli tramite il comando:
+5) Nel frontend Angular, aggiornare le dipendenze:
+    - cd portfolio/frontend
+    - npm update
+
+6) Creare immagini e container Docker e avviarli tramite il comando:
 
     - docker compose up -d
 
-6) Applicazione accessibile alle relative rotte:
+7) Applicazione accessibile alle relative rotte:
     - froontent --> http://localhost:4200
     - backend --> http://localhost:8080
     - phpMyAdmin --> http://localhost:8081
 
 
-# Non dovrebbe essere necessario installare le dipendenze perchè vengono già installare tramite i relativi Dockerfile
-# ... ma se dovesse servire:
-4) Nel backend Laravel, le dipendenze si installano così :
-    - cd portfolio/backend
-    - composer install
-
-5) Nel frontend Angular, le dipendenze si installano così :
-    - cd portfolio/frontend
-    - npm install
 

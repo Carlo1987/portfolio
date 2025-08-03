@@ -44,7 +44,7 @@ class AuthController extends Controller
                         $limitAccess->save();
                     }
                     Auth::login($user);
-                    Log::channel('access')->info('Accesso effettuato ' . $this->dateNow);
+                    Log::channel('login')->info('Accesso effettuato ' . $this->dateNow);
                     return redirect()->route('contact.index');
                 }
             }
@@ -55,7 +55,7 @@ class AuthController extends Controller
             $massageError = 'BLOCKED';
         }   
         
-        Log::channel('access')->warning('Accesso fallito ' . $this->dateNow);
+        Log::channel('login')->warning('Accesso fallito ' . $this->dateNow);
         $this->alertEmail();
         return back()->with('error', $massageError);
     }
@@ -101,7 +101,7 @@ class AuthController extends Controller
             return redirect()->route('welcome')->with('success','UNLOCKED');
         }
 
-        Log::channel('access')->alert('Accesso fallito ' . $this->dateNow);
+        Log::channel('login')->alert('Accesso fallito ' . $this->dateNow);
         $this->alertEmail();
         return back()->with('error','BLOCKED');
     }

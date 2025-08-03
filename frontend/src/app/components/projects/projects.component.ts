@@ -1,4 +1,4 @@
-import { Component , AfterViewInit, OnDestroy, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import { Component, OnDestroy, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { LanguageMap } from 'src/app/interfaces/language.interface';
 import { ProjectMap } from 'src/app/interfaces/project.interface';
 import { ProjectService } from 'src/app/services/project.service';
@@ -14,7 +14,7 @@ import { url_public } from 'src/env';
   styleUrls: ['./projects.component.scss'],
   providers:[ProjectService]
 })
-export class ProjectsComponent implements AfterViewInit,  OnDestroy {
+export class ProjectsComponent implements OnDestroy {
   public url:string = url_public;
    public lang:LanguageMap = ita;
    public projects:Array<ProjectMap> = [];
@@ -27,6 +27,7 @@ export class ProjectsComponent implements AfterViewInit,  OnDestroy {
    ){
     this._languagesService.getLanguage$.subscribe((value:LanguageMap)=>{
       this.lang = value;
+      this.setProjectLanguage(this.lang.language);
     })
 
     this._projectService.getProjectsApi().subscribe((values:Array<ProjectMap>)=>{
@@ -34,17 +35,13 @@ export class ProjectsComponent implements AfterViewInit,  OnDestroy {
     })
    }
 
-  ngAfterViewInit(): void {
-    this.setProjectLanguage(this.lang.language);
-  }
-
   ngOnDestroy(): void {
     this.delayService.removeLoading();
   }
 
 
   setProjectLanguage(lang:string){
-    this.descriptiones.forEach((value:ElementRef) => {
+    this.descriptiones?.forEach((value:ElementRef) => {
       const description = value.nativeElement;
       if(description.classList.contains(lang) && description.classList.contains('hidden')){
         description.classList.remove('hidden');
