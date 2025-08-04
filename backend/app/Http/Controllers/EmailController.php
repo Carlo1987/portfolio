@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 use App\Mail\SendEmail;
+use App\Models\Contact;
 
 class EmailController extends Controller
 {
@@ -39,7 +40,8 @@ class EmailController extends Controller
                 'text' => $request->text,
                 'view' => 'emails.client_email',
             ];
-            Mail::to($data['sender'])->send(new SendEmail($data));
+            $contacts = Contact::first();
+            Mail::to($contacts->email)->send(new SendEmail($data));
 
             return response()->json([
                 'message' => 'Email inviata con successo!',

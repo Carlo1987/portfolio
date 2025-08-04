@@ -6,6 +6,7 @@ import { Nav } from './models/nav.model';
 import { LoadingService } from './services/loading.service';
 import { LanguagesService } from './services/languages.service';
 import { SkillService } from './services/skill.service';
+import { animation_delay } from 'src/env';
 import { ita } from './languages/ita';
 import { gsap } from 'gsap/gsap-core';
 
@@ -56,7 +57,7 @@ export class AppComponent implements OnInit , DoCheck {
     setTimeout(() => {
       this.showLoading = false;
       this._loadingService.setDelay(false);
-    }, 4500);  
+    }, animation_delay);  
   }
 
 

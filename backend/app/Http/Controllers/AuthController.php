@@ -116,8 +116,9 @@ class AuthController extends Controller
 
     private function alertEmail() :void
     {
+        $contacts = Contact::first();
         $data = [
-            'sender' => env('CONTACT_EMAIL'),
+            'sender' => $contacts->email,
             'object' => 'Accesso fallito Portfolio',    
             'text' => 'Accesso fallito al Portfolio '. $this->dateNow,
             'view' => 'emails.alert_email',

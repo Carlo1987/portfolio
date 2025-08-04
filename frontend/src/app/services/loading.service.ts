@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
+import { animation_delay } from 'src/env';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class LoadingService {
     if(!delay){
       animation();
     }else{
-      const delayTime = time ?? 4500;
+      const delayTime = time ?? animation_delay;
       setTimeout(() => {
         animation();
       },delayTime);

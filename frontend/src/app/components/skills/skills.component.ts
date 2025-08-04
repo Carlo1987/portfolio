@@ -41,7 +41,7 @@ export class SkillsComponent{
     this._loadingService.executeAnimation(
       this.delay, 
       () => { this.animationSectiones(); },
-      4300
+      4200
       );
   } 
 
